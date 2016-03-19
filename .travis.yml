@@ -9,8 +9,8 @@ before_install:
 - sudo apt-get install -y libbz2-dev
 before_script:
 - cd rocksdb-4.4
-- make install
+- sudo make install
 script:
 - cd tallerII/AppServer
-- make
+- sudo make
 
