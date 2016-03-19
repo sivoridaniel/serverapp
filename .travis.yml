@@ -1,14 +1,12 @@
-language: 
-         - cpp
-compiler: 
-         - g++
-before_install: 
-         - sudo apt-get update
-         - sudo apt-get install -y libsnappy-dev
-	 - sudo apt-get install -y zlib1g-dev
-	 - sudo apt-get install -y libbz2-dev
-         - sudo ../rocksdb/make install
+language:
+- cpp
+compiler:
+- g++
+before_install:
+- sudo apt-get update
+- sudo apt-get install -y libsnappy-dev
+- sudo apt-get install -y zlib1g-dev
+- sudo apt-get install -y libbz2-dev
+- sudo ../rocksdb/make install
 install:
-	 - sudo make install
-
-
+- sudo make install
