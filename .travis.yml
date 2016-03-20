@@ -13,6 +13,6 @@ before_script:
 - cd rocksdb-4.4
 - sudo make install
 script:
-- cd tallerII/AppServer
+- cd ../tallerII/AppServer
 - sudo make
 
