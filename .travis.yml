@@ -15,4 +15,9 @@ before_script:
 script:
 - cd ../tallerII/AppServer
 - sudo make
-
+notifications:
+  email:
+  - sivori.daniel@gmail.com
+  - agustinlinari@gmail.com
+  - jlopezpecora@gmail.com
+  - juanmanuelromeraferrio@gmail.com
