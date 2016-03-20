@@ -19,7 +19,13 @@ before_install:
 - sudo apt-get install -y libbz2-dev
 before_script:
 - sudo chmod -R 777 rocksdb-4.4
-- cd rocksdb-4.4
+- sudo chmod -R 777 log4cpp
+- cd log4cpp
+- sudo ./configure
+- sudo make
+- sudo make check
+- sudo make install
+- cd ../rocksdb-4.4
 - sudo make install
 script:
 - cd ../tallerII/AppServer

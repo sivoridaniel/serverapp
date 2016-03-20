@@ -1,0 +1,27 @@
+notifications:
+  email:
+    recipients:
+      - sivori.daniel@gmail.com
+      - agustinlinari@gmail.com
+      - jlopezpecora@gmail.com
+      - juanmanuelromeraferrio@gmail.com
+    on_success: always
+    on_failure: always
+language:
+- cpp
+dist: trusty
+compiler:
+- g++
+before_install:
+- sudo apt-get update
+- sudo apt-get install -y libsnappy-dev
+- sudo apt-get install -y zlib1g-dev
+- sudo apt-get install -y libbz2-dev
+before_script:
+- sudo chmod -R 777 rocksdb-4.4
+- cd rocksdb-4.4
+- sudo make install
+script:
+- cd ../tallerII/AppServer
+- sudo make
+
