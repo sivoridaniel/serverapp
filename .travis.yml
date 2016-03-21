@@ -27,6 +27,7 @@ before_script:
 - sudo make check
 - sudo make install
 - cd ../rocksdb-4.4
+- sudo make rocksdb
 - sudo make install
 script:
 - cd ../tallerII/AppServer
