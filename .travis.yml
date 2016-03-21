@@ -14,14 +14,13 @@ compiler:
 - g++
 before_install:
 - sudo apt-get update
-- sudo apt-get install automake1.11
 - sudo apt-get install -y libsnappy-dev
 - sudo apt-get install -y zlib1g-dev
 - sudo apt-get install -y libbz2-dev
 before_script:
 - sudo chmod -R 777 rocksdb-4.4
-- sudo chmod -R 777 log4cpp
-- cd log4cpp
+- sudo chmod -R 777 log4cplus-1.2.0
+- cd log4cplus-1.2.0
 - sudo ./configure
 - sudo make
 - sudo make check
