@@ -7,7 +7,12 @@
 #include <iostream>
 #include <assert.h>
 #include "rocksdb/db.h"
+#include <log4cplus/logger.h>
+#include <log4cplus/loggingmacros.h>
+#include <log4cplus/configurator.h>
+#include <iomanip>
 
+using namespace log4cplus;
 
 static const char *s_http_port = "3000";
 static struct mg_serve_http_opts s_http_server_opts;
@@ -58,6 +63,13 @@ int main(int argc, char *argv[]) {
 #ifdef MG_ENABLE_SSL
   const char *ssl_cert = NULL;
 #endif
+
+  initialize();
+  BasicConfigurator config;
+  config.configure();
+
+  Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("main"));
+  LOG4CPLUS_WARN(logger, LOG4CPLUS_TEXT("Hello, World!"));
 
   rocksdb::DB* db;
   rocksdb::Options options;
