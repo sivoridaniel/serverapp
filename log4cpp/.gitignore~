@@ -9,5 +9,7 @@ Compiled source #
 *.la
 *.so
 #auto generated
+Makefile.in
+Makefile
 *.log
 
