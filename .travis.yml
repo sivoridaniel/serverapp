@@ -14,7 +14,7 @@ compiler:
 - g++
 before_install:
 - sudo apt-get update
-- sudo apt-get install automake
+- sudo apt-get install automake1.11
 - sudo apt-get install -y libsnappy-dev
 - sudo apt-get install -y zlib1g-dev
 - sudo apt-get install -y libbz2-dev
