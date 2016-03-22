@@ -1,7 +1,7 @@
 CC=cc
 CXX=g++
 PLATFORM=OS_LINUX
-PLATFORM_LDFLAGS= -lpthread -lrt
+PLATFORM_LDFLAGS= -lpthread -lrt -lz -lsnappy
 JAVA_LDFLAGS= -lpthread -lrt
 JAVA_STATIC_LDFLAGS= -lpthread -lrt
 VALGRIND_VER=
@@ -21,7 +21,7 @@ CLANG_SCAN_BUILD=scan-build
 CLANG_ANALYZER=
 PROG = restful_server
 SOURCES = $(PROG).cpp mongoose.c 
-CFLAGS = -W -Wall  $(CFLAGS_EXTRA) -lz -lrt -lrocksdb -llog4cplus
+CFLAGS = -W -Wall  $(CFLAGS_EXTRA) -lrocksdb -llog4cplus
 
 ifeq ($(SSL), openssl)
 	CFLAGS += -DMG_ENABLE_SSL -lssl -lcrypto -lcrypto
