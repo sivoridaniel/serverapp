@@ -1,7 +1,7 @@
 CC=cc
 CXX=g++
 PLATFORM=OS_LINUX
-PLATFORM_LDFLAGS= -lpthread -lrt -lz -lsnappy
+PLATFORM_LDFLAGS= -lpthread -lrt -lz -lsnappy -lbz2
 JAVA_LDFLAGS= -lpthread -lrt
 JAVA_STATIC_LDFLAGS= -lpthread -lrt
 VALGRIND_VER=
