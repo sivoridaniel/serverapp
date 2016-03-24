@@ -28,12 +28,12 @@
 <script language="javascript" type="text/javascript">
   jQuery(function() {
 
-    $(document).on('keyup', '#n1, #n2', function() {
+    $(document).on('click', '#submit', function() {
       $.ajax({
-        url: '/api/v1/sum',
+        url: '/newuser',
         method: 'POST',
         dataType: 'json',
-        data: { n1: $('#n1').val(), n2: $('#n2').val() },
+        data: { name: $('#name').val(), password: $('#password').val(), firstName: $('#firstName').val(), lastName: $('#lastName').val(), email: $('#email').val() },
         success: function(json) {
           $('#result').html(json.result);
         }
@@ -45,20 +45,23 @@
 </head>
 <body>
   <div class="content">
-    <h1>RESTful API demo.</h1>
+    <h1>Alta de Usuarios.</h1>
 
-    <p>
-      This page demonstrates how Mongoose could be used to implement
-      RESTful APIs. Start typing numbers into the text fields below.
-      Browser sends two numbers to <tt>/api/v1/sum</tt> URI.
-      Web server calclulates the sum and returns the result.
-    </p>
+
 
     <div>
-      <label>Number 1:</label> <input type="text" id="n1" />
+      <label>Name:</label> <input type="text" id="name" />
     </div><div>
-      <label>Number 2:</label> <input type="text" id="n2" />
+      <label>Password:</label> <input type="text" id="password" />
     </div><div>
+      <label>First Name:</label> <input type="text" id="firstName" />
+    </div><div>    
+      <label>Last Name:</label> <input type="text" id="lastName" />
+    </div><div>
+      <label>Email:</label> <input type="text" id="email" />
+    </div>
+    <input type="button" value="Sign In" id="submit" />
+    <div>    
      <label>Result:</label> <span id="result">&nbsp;</span>
     </div><div>
 

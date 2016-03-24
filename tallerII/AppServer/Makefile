@@ -20,17 +20,18 @@ ROCKSDB_PATCH=1
 CLANG_SCAN_BUILD=scan-build
 CLANG_ANALYZER=
 PROG = restful_server
-SOURCES = $(PROG).cpp mongoose.c 
+SOURCES = $(PROG).cpp mongoose.c User.cpp UserDao.cpp
 CFLAGS = -W -Wall  $(CFLAGS_EXTRA) -lrocksdb -llog4cplus
 
 ifeq ($(SSL), openssl)
 	CFLAGS += -DMG_ENABLE_SSL -lssl -lcrypto -lcrypto
 endif
 
+
 all: $(PROG)
 
 $(PROG): $(SOURCES)
-	$(CXX) $(SOURCES) $(CXXFLAGS) -o $@ $(CFLAGS) $(PLATFORM_LDFLAGS) $(PLATFORM_CXXFLAGS) $(EXEC_LDFLAGS)
+	$(CXX) $(SOURCES) $(CXXFLAGS) -DDEBUG -g -o $@ $(CFLAGS) $(PLATFORM_LDFLAGS) $(PLATFORM_CXXFLAGS) $(EXEC_LDFLAGS)
 
 clean:
 	rm -rf *.gc* *.dSYM *.exe *.obj *.o a.out $(PROG)

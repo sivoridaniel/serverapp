@@ -7,15 +7,18 @@
 #include <iostream>
 #include <assert.h>
 #include "rocksdb/db.h"
-#include <log4cplus/logger.h>
-#include <log4cplus/loggingmacros.h>
-#include <log4cplus/configurator.h>
-#include <iomanip>
+#include "UserDao.h"
+#include "User.h"
+//#include <log4cplus/logger.h>
+//#include <log4cplus/loggingmacros.h>
+//#include <log4cplus/configurator.h>
+//#include <iomanip>
 
-using namespace log4cplus;
+//using namespace log4cplus;
 
 static const char *s_http_port = "3000";
 static struct mg_serve_http_opts s_http_server_opts;
+static UserDao* userDao;
 
 static void handle_sum_call(struct mg_connection *nc, struct http_message *hm) {
   char n1[100], n2[100];
@@ -34,19 +37,66 @@ static void handle_sum_call(struct mg_connection *nc, struct http_message *hm) {
   mg_send_http_chunk(nc, "", 0);  /* Send empty chunk, the end of response */
 }
 
+static void handle_new_user(struct mg_connection *nc, struct http_message *hm){
+	char name[100], password[100], firstName[100], lastName[100], email[100];
+
+	/* Get form variables */
+	mg_get_http_var(&hm->body, "name", name, sizeof(name));
+	mg_get_http_var(&hm->body, "password", password, sizeof(password));
+	mg_get_http_var(&hm->body, "lastName", lastName, sizeof(lastName));
+	mg_get_http_var(&hm->body, "firstName", firstName, sizeof(firstName));
+	mg_get_http_var(&hm->body, "email", email, sizeof(email));
+
+	/* Send headers */
+	mg_printf(nc, "%s", "HTTP/1.1 200 OK\r\nTransfer-Encoding: chunked\r\n\r\n");
+
+	/* Create new user in database */
+	std::string sname(name);
+	std::string spassword(password);
+	std::string slastName(lastName);
+	std::string sfirstName(firstName);
+	std::string semail(email);
+	User* user = new User(name,password);
+	user->setFirstName(sfirstName);
+	user->setLastName(slastName);
+	user->setPassword(spassword);
+	user->setEmail(semail);
+	userDao->putUser(user);
+    delete user;
+
+    /* Read user from database */
+    User* us = userDao->getUser(sname);
+    std::string result = us->getName();
+    delete us;
+
+	/* Send result back as a JSON object */
+	mg_printf_http_chunk(nc, "{ \"result\": \"%s\" }", result.c_str());
+	mg_send_http_chunk(nc, "", 0);  /* Send empty chunk, the end of response */
+}
+
 static void ev_handler(struct mg_connection *nc, int ev, void *ev_data) {
   struct http_message *hm = (struct http_message *) ev_data;
 
   switch (ev) {
     case MG_EV_HTTP_REQUEST:
-      if (mg_vcmp(&hm->uri, "/api/v1/sum") == 0) {
-        handle_sum_call(nc, hm);                    /* Handle RESTful call */
-      } else if (mg_vcmp(&hm->uri, "/printcontent") == 0) {
+      /* Handle RESTful call */
+      if (mg_vcmp(&hm->uri, "/api/v1/sum") == 0)
+      {
+        handle_sum_call(nc, hm);
+      }
+      else if (mg_vcmp(&hm->uri, "/newuser") == 0)
+      {
+    	handle_new_user(nc, hm);
+      }
+      else if (mg_vcmp(&hm->uri, "/printcontent") == 0)
+      {
         char buf[100] = {0};
         memcpy(buf, hm->body.p,
                sizeof(buf) - 1 < hm->body.len? sizeof(buf) - 1 : hm->body.len);
         printf("%s\n", buf);
-      } else {
+      }
+      else
+      {
         mg_serve_http(nc, hm, s_http_server_opts);  /* Serve static content */
       }
       break;
@@ -64,19 +114,24 @@ int main(int argc, char *argv[]) {
   const char *ssl_cert = NULL;
 #endif
 
-  initialize();
+ /* initialize();
   BasicConfigurator config;
   config.configure();
 
   Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("main"));
   LOG4CPLUS_WARN(logger, LOG4CPLUS_TEXT("Hello, World!"));
-
+  LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Inicializando Base de Datos"));*/
   rocksdb::DB* db;
   rocksdb::Options options;
   options.create_if_missing = true;
   rocksdb::Status status =
-    rocksdb::DB::Open(options, "/tmp/testdb", &db);
+  rocksdb::DB::Open(options, "/tmp/testdb", &db);
   assert(status.ok());
+
+  userDao = new UserDao(db);
+
+  //LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Base de Datos creada"));
+  //LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Inicializando Webserver"));
   mg_mgr_init(&mgr, NULL);
 
   /* Process command line options to customize HTTP server */
@@ -109,6 +164,7 @@ int main(int argc, char *argv[]) {
       ssl_cert = argv[++i];
 #endif
     } else {
+      //LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Error desconocido"));
       fprintf(stderr, "Unknown option: [%s]\n", argv[i]);
       exit(1);
     }
@@ -117,6 +173,7 @@ int main(int argc, char *argv[]) {
   /* Set HTTP server options */
   nc = mg_bind(&mgr, s_http_port, ev_handler);
   if (nc == NULL) {
+    //LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Error iniciando servidor en puerto " << s_http_port));
     fprintf(stderr, "Error starting server on port %s\n", s_http_port);
     exit(1);
   }
@@ -125,6 +182,7 @@ int main(int argc, char *argv[]) {
   if (ssl_cert != NULL) {
     const char *err_str = mg_set_ssl(nc, ssl_cert, NULL);
     if (err_str != NULL) {
+      LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Error cargando certificado SSL: " << err_str));
       fprintf(stderr, "Error loading SSL cert: %s\n", err_str);
       exit(1);
     }
@@ -141,12 +199,14 @@ int main(int argc, char *argv[]) {
     *cp = '\0';
     s_http_server_opts.document_root = argv[0];
   }
-
+  //LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Inicializando RESTful server en puerto " << s_http_port));
   printf("Starting RESTful server on port %s\n", s_http_port);
   for (;;) {
     mg_mgr_poll(&mgr, 1000);
   }
   mg_mgr_free(&mgr);
+  delete userDao;
+  delete db;
 
   return 0;
 }
