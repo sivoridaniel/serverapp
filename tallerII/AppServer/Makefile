@@ -20,7 +20,7 @@ ROCKSDB_PATCH=1
 CLANG_SCAN_BUILD=scan-build
 CLANG_ANALYZER=
 PROG = restful_server
-SOURCES = $(PROG).cpp mongoose.c User.cpp UserDao.cpp
+SOURCES = $(PROG).cpp mongoose.c model/User.cpp UserDao.cpp
 CFLAGS = -W -Wall  $(CFLAGS_EXTRA) -lrocksdb -llog4cplus
 
 ifeq ($(SSL), openssl)

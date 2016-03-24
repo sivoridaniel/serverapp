@@ -8,7 +8,7 @@
 #ifndef USERDAO_H_
 #define USERDAO_H_
 #include "rocksdb/db.h"
-#include "User.h"
+#include "model/User.h"
 #include "EntityNotFoundException.h"
 #include <exception>
 
