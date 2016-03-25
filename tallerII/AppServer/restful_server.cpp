@@ -9,12 +9,12 @@
 #include "rocksdb/db.h"
 #include "dao/UserDao.h"
 #include "model/User.h"
-//#include <log4cplus/logger.h>
-//#include <log4cplus/loggingmacros.h>
-//#include <log4cplus/configurator.h>
-//#include <iomanip>
+#include <log4cplus/logger.h>
+#include <log4cplus/loggingmacros.h>
+#include <log4cplus/configurator.h>
+#include <iomanip>
 
-//using namespace log4cplus;
+using namespace log4cplus;
 
 static const char *s_http_port = "3000";
 static struct mg_serve_http_opts s_http_server_opts;
@@ -40,6 +40,8 @@ static void handle_sum_call(struct mg_connection *nc, struct http_message *hm) {
 static void handle_new_user(struct mg_connection *nc, struct http_message *hm){
 	char name[100], password[100], firstName[100], lastName[100], email[100];
 
+	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("main"));
+
 	/* Get form variables */
 	mg_get_http_var(&hm->body, "name", name, sizeof(name));
 	mg_get_http_var(&hm->body, "password", password, sizeof(password));
@@ -56,6 +58,7 @@ static void handle_new_user(struct mg_connection *nc, struct http_message *hm){
 	std::string slastName(lastName);
 	std::string sfirstName(firstName);
 	std::string semail(email);
+	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Guardando en db usuario " << sname));
 	User* user = new User(name,password);
 	user->setFirstName(sfirstName);
 	user->setLastName(slastName);
@@ -63,8 +66,9 @@ static void handle_new_user(struct mg_connection *nc, struct http_message *hm){
 	user->setEmail(semail);
 	userDao->putUser(user);
     delete user;
-
+    LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Usuario guardado"));
     /* Read user from database */
+	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Leyendo usuario " << sname));
     User* us = userDao->getUser(sname);
     std::string result = us->getName();
     delete us;
@@ -76,6 +80,7 @@ static void handle_new_user(struct mg_connection *nc, struct http_message *hm){
 
 static void ev_handler(struct mg_connection *nc, int ev, void *ev_data) {
   struct http_message *hm = (struct http_message *) ev_data;
+  Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("main"));
 
   switch (ev) {
     case MG_EV_HTTP_REQUEST:
@@ -86,6 +91,7 @@ static void ev_handler(struct mg_connection *nc, int ev, void *ev_data) {
       }
       else if (mg_vcmp(&hm->uri, "/newuser") == 0)
       {
+    	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Event Handler: POST /newuser"));
     	handle_new_user(nc, hm);
       }
       else if (mg_vcmp(&hm->uri, "/printcontent") == 0)
@@ -114,24 +120,24 @@ int main(int argc, char *argv[]) {
   const char *ssl_cert = NULL;
 #endif
 
- /* initialize();
+  initialize();
   BasicConfigurator config;
   config.configure();
 
   Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("main"));
-  LOG4CPLUS_WARN(logger, LOG4CPLUS_TEXT("Hello, World!"));
-  LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Inicializando Base de Datos"));*/
+  LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Mongoose webserver 6.3"));
+  LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Iniciando Base de Datos RocksDB 4.4"));
   rocksdb::DB* db;
   rocksdb::Options options;
+  std::string dbpath = "/tmp/testdb";
   options.create_if_missing = true;
   rocksdb::Status status =
-  rocksdb::DB::Open(options, "/tmp/testdb", &db);
+  rocksdb::DB::Open(options, dbpath, &db);
   assert(status.ok());
-
+  LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("RocksDB 4.4 iniciada en " << dbpath));
   userDao = new UserDao(db);
 
-  //LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Base de Datos creada"));
-  //LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Inicializando Webserver"));
+  LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Iniciando HTTP server"));
   mg_mgr_init(&mgr, NULL);
 
   /* Process command line options to customize HTTP server */
@@ -164,8 +170,7 @@ int main(int argc, char *argv[]) {
       ssl_cert = argv[++i];
 #endif
     } else {
-      //LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Error desconocido"));
-      fprintf(stderr, "Unknown option: [%s]\n", argv[i]);
+      LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Opción desconocida " << argv[i]));
       exit(1);
     }
   }
@@ -173,8 +178,7 @@ int main(int argc, char *argv[]) {
   /* Set HTTP server options */
   nc = mg_bind(&mgr, s_http_port, ev_handler);
   if (nc == NULL) {
-    //LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Error iniciando servidor en puerto " << s_http_port));
-    fprintf(stderr, "Error starting server on port %s\n", s_http_port);
+    LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Error iniciando servidor en puerto " << s_http_port));
     exit(1);
   }
 
@@ -183,7 +187,6 @@ int main(int argc, char *argv[]) {
     const char *err_str = mg_set_ssl(nc, ssl_cert, NULL);
     if (err_str != NULL) {
       LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Error cargando certificado SSL: " << err_str));
-      fprintf(stderr, "Error loading SSL cert: %s\n", err_str);
       exit(1);
     }
   }
@@ -199,8 +202,7 @@ int main(int argc, char *argv[]) {
     *cp = '\0';
     s_http_server_opts.document_root = argv[0];
   }
-  //LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Inicializando RESTful server en puerto " << s_http_port));
-  printf("Starting RESTful server on port %s\n", s_http_port);
+  LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Inicializando RESTful server en puerto " << s_http_port));
   for (;;) {
     mg_mgr_poll(&mgr, 1000);
   }
