@@ -9,8 +9,12 @@
 #define USER_H_
 
 #include <string>
+#include "Entity.h"
+#include "../exception/JsonParseException.h"
+#include "../json/json.h"
 
-class User {
+
+class User : public Entity{
 private:
 	std::string name;
 	std::string password;
@@ -18,8 +22,14 @@ private:
 	std::string lastName;
 	std::string email;
 public:
+
+	User(std::string json);
+
 	User(std::string name, std::string password);
 	virtual ~User();
+
+	std::string toJson();
+
 
 	const std::string& getName() const {
 		return name;

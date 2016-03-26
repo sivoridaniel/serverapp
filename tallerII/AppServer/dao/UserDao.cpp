@@ -24,7 +24,7 @@ User* UserDao::getUser(std::string name) throw(EntityNotFoundException){
 		throw EntityNotFoundException();
 	}
 
-	int ini = 0;
+/*	int ini = 0;
 	int end = user.find(",", ini);
 	std::string password = user.substr(ini, end-ini);
 	ini = end+1;
@@ -35,24 +35,22 @@ User* UserDao::getUser(std::string name) throw(EntityNotFoundException){
 	std::string lastName = user.substr(ini, end-ini);
 	ini = end+1;
 	end = user.find(",", ini);
-	std::string email = user.substr(ini);
+	std::string email = user.substr(ini);*/
 
-	User* usr = new User(name, password);
-	usr->setFirstName(firstName);
-	usr->setLastName(lastName);
-	usr->setEmail(email);
+	User* usr = new User(user);
 
 	return usr;
 }
 
 void UserDao::putUser(User* user) {
 	std::string name = user->getName();
-	std::string password = user->getPassword();
+	/*std::string password = user->getPassword();
 	std::string firstName = user->getFirstName();
 	std::string lastName = user->getLastName();
 	std::string email = user->getEmail();
-	std::string userStream = password + "," + firstName + "," + lastName + "," + email;
-	rocksdb::Status s = this->db->Put(rocksdb::WriteOptions(),name,userStream);
+	std::string userStream = password + "," + firstName + "," + lastName + "," + email;*/
+	std::string userJson = user->toJson();
+	rocksdb::Status s = this->db->Put(rocksdb::WriteOptions(),name,userJson);
 	if (!s.ok())
 	{
 		throw std::exception();
