@@ -8,6 +8,7 @@
 #include <assert.h>
 #include "rocksdb/db.h"
 #include "dao/UserDao.h"
+#include "service/AuthenticationService.h"
 #include "model/User.h"
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
@@ -19,6 +20,7 @@ using namespace log4cplus;
 static const char *s_http_port = "3000";
 static struct mg_serve_http_opts s_http_server_opts;
 static UserDao* userDao;
+static AuthenticationService* authService;
 
 static void handle_sum_call(struct mg_connection *nc, struct http_message *hm) {
   char n1[100], n2[100];
@@ -59,19 +61,7 @@ static void handle_new_user(struct mg_connection *nc, struct http_message *hm){
 	std::string sfirstName(firstName);
 	std::string semail(email);
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Guardando en db usuario " << sname));
-	User* user = new User(name,password);
-	user->setFirstName(sfirstName);
-	user->setLastName(slastName);
-	user->setPassword(spassword);
-	user->setEmail(semail);
-	userDao->putUser(user);
-    delete user;
-    LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Usuario guardado"));
-    /* Read user from database */
-	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Leyendo usuario " << sname));
-    User* us = userDao->getUser(sname);
-    std::string result = us->getName();
-    delete us;
+	std::string result = authService->createNewUser(sname,spassword,slastName, sfirstName, semail);
 
 	/* Send result back as a JSON object */
 	mg_printf_http_chunk(nc, "{ \"result\": \"%s\" }", result.c_str());
@@ -136,7 +126,7 @@ int main(int argc, char *argv[]) {
   assert(status.ok());
   LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("RocksDB 4.4 iniciada en " << dbpath));
   userDao = new UserDao(db);
-
+  authService = new AuthenticationService(userDao);
   LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Iniciando HTTP server"));
   mg_mgr_init(&mgr, NULL);
 
@@ -208,6 +198,7 @@ int main(int argc, char *argv[]) {
   }
   mg_mgr_free(&mgr);
   delete userDao;
+  delete authService;
   delete db;
 
   return 0;
