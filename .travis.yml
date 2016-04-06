@@ -31,6 +31,6 @@ before_script:
 - sudo make static_lib
 - sudo make install
 script:
-- cd ../tallerII/AppServer
+- cd ../AppServer
 - sudo make
 
