@@ -1,7 +1,0 @@
-#ignore
-
-AppServer/build/restful_server
-AppServer/.cproject
-AppServer/.project
-AppServer/.settings
-
