@@ -12,7 +12,7 @@ AuthenticationService::AuthenticationService(UserDao* userDao) {
 }
 
 AuthenticationService::~AuthenticationService() {
-	// TODO Auto-generated destructor stub
+
 }
 
 string AuthenticationService::createNewUser(string name,string password,string email){

@@ -11,7 +11,7 @@ Entity* MatchDao::get(std::string id) throw(EntityNotFoundException){
 
 	std::string json;
 
-	rocksdb::Status s = this->db->Get(rocksdb::ReadOptions(),id,&json);
+	rocksdb::Status s = DbHelper::getDb()->Get(rocksdb::ReadOptions(),id,&json);
 	if (!s.ok())
 	{
 		throw EntityNotFoundException();
@@ -30,7 +30,7 @@ void MatchDao::put(Entity* e) throw(InvalidEntityException){
 	}
 	std::string id = match->getIdUser();
 	std::string json = match->toJson();
-	rocksdb::Status s = this->db->Put(rocksdb::WriteOptions(),id,json);
+	rocksdb::Status s = DbHelper::getDb()->Put(rocksdb::WriteOptions(),id,json);
 	if (!s.ok())
 	{
 		throw std::exception();

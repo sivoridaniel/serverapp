@@ -6,6 +6,7 @@
 #include "webserver/mongoose.h"
 #include <iostream>
 #include <assert.h>
+#include "utils/DbHelper.h"
 #include "rocksdb/db.h"
 #include "dao/UserDao.h"
 #include "service/AuthenticationService.h"
@@ -19,8 +20,7 @@ using namespace log4cplus;
 
 static const char *s_http_port = "3000";
 static struct mg_serve_http_opts s_http_server_opts;
-static UserDao* userDao;
-static AuthenticationService* authService;
+static FactoryController* factController;
 
 //static void handle_sum_call(struct mg_connection *nc, struct http_message *hm) {
 //  char n1[100], n2[100];
@@ -106,14 +106,14 @@ static AuthenticationService* authService;
 static void ev_handler(struct mg_connection *nc, int ev, void *ev_data) {
   struct http_message *hm = (struct http_message *) ev_data;
   Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("main"));
-  FactoryController* factController = new FactoryController();
-  factController = factController->getInstance();
+
+  FactoryController* fController = FactoryController::getInstance();
 
   switch (ev) {
     case MG_EV_HTTP_REQUEST: //Data arrives on http request
       // This event handler implements simple TCP echo server
       LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Event Handler, call to controller"));
-      factController->connect(nc,hm);
+      fController->connect(nc,hm);
       break;
     default:
       break;
@@ -132,20 +132,16 @@ int main(int argc, char *argv[]) {
   initialize();
   BasicConfigurator config;
   config.configure();
+  factController = new FactoryController();
 
   Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("main"));
   LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Mongoose webserver 6.3"));
   LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Iniciando Base de Datos RocksDB 4.4"));
-  rocksdb::DB* db;
-  rocksdb::Options options;
-  std::string dbpath = "/tmp/testdb";
-  options.create_if_missing = true;
-  rocksdb::Status status =
-  rocksdb::DB::Open(options, dbpath, &db);
-  assert(status.ok());
+  string dbpath = "/tmp/testdb";
+  DbHelper::initDatabase(dbpath);
+
+
   LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("RocksDB 4.4 iniciada en " << dbpath));
-  userDao = new UserDao(db);
-  authService = new AuthenticationService(userDao);
   LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Iniciando HTTP server"));
   mg_mgr_init(&mgr, NULL);
 
@@ -216,10 +212,9 @@ int main(int argc, char *argv[]) {
     mg_mgr_poll(&mgr, 1000);
   }
   mg_mgr_free(&mgr);
-  delete userDao;
-  delete authService;
-  delete db;
 
+  DbHelper::closeDatabase();
+  delete factController;
   return 0;
 }
 

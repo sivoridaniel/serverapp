@@ -13,7 +13,7 @@
 class UserDao : public GenericDao{
 
 public:
-	UserDao(rocksdb::DB* db):GenericDao(db){};
+	UserDao(){};
 	virtual ~UserDao(){};
 	Entity* get(std::string id) throw(EntityNotFoundException);
 	void put(Entity* user) throw(InvalidEntityException);

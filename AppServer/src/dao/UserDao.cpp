@@ -12,7 +12,7 @@ Entity* UserDao::get(std::string id) throw(EntityNotFoundException){
 
 	std::string json;
 
-	rocksdb::Status s = this->db->Get(rocksdb::ReadOptions(),id,&json);
+	rocksdb::Status s = DbHelper::getDb()->Get(rocksdb::ReadOptions(),id,&json);
 	if (!s.ok())
 	{
 		throw EntityNotFoundException();
@@ -31,7 +31,7 @@ void UserDao::put(Entity* e) throw(InvalidEntityException){
 	}
 	std::string id = user->getName();
 	std::string json = user->toJson();
-	rocksdb::Status s = this->db->Put(rocksdb::WriteOptions(),id,json);
+	rocksdb::Status s = DbHelper::getDb()->Put(rocksdb::WriteOptions(),id,json);
 	if (!s.ok())
 	{
 		throw std::exception();

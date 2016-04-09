@@ -5,9 +5,6 @@
  *      Author: pablo
  */
 
-#include "UserLoginController.h"
-#include <string>
-
 #ifndef SRC_CONTROLLER_FACTORYCONTROLLER_H_
 #define SRC_CONTROLLER_FACTORYCONTROLLER_H_
 
@@ -15,14 +12,13 @@
 #define NULL   ((void *) 0)
 #endif
 
+#include "UserLoginController.h"
+#include <string>
+
+
 using namespace std;
 
 class FactoryController {
-public:
-	FactoryController(void);
-	static FactoryController* getInstance();
-	string connect(struct mg_connection *nc, struct http_message *hm);
-	~FactoryController(void);
 private:
 
 	static FactoryController* singletonFactoryCtrl;
@@ -31,6 +27,19 @@ private:
 
 	//Método que crea los controllers
 	void createControllers();
+public:
+	FactoryController(void){};
+	static FactoryController* getInstance(){
+		//createControllers();
+		if(singletonFactoryCtrl == NULL){
+			singletonFactoryCtrl = new FactoryController();
+			//singletonFactoryCtrl->createControllers();
+		}
+		return singletonFactoryCtrl;
+	};
+	string connect(struct mg_connection *nc, struct http_message *hm);
+	~FactoryController(void);
+
 };
 
 #endif /* SRC_CONTROLLER_FACTORYCONTROLLER_H_ */

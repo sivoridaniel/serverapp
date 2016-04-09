@@ -7,14 +7,6 @@
 
 #include "FactoryController.h"
 
-FactoryController* FactoryController::getInstance() {
-	//createControllers();
-	if(singletonFactoryCtrl == NULL){
-		singletonFactoryCtrl = new FactoryController();
-		//singletonFactoryCtrl->createControllers();
-	}
-	return singletonFactoryCtrl;
-}
 
 void FactoryController::createControllers(){
 	userLoginController = new UserLoginController();
@@ -28,3 +20,5 @@ FactoryController::~FactoryController() {
 	userLoginController->~UserLoginController();
 }
 
+FactoryController* FactoryController::singletonFactoryCtrl;
+UserLoginController* FactoryController::userLoginController;

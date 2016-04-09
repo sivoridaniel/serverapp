@@ -9,7 +9,7 @@ EXEC_LDFLAGS=
 PROG = app_server
 SOURCE_DIR= src
 BUILD_DIR= build/$(PROG)
-SOURCES = $(SOURCE_DIR)/*.cpp $(SOURCE_DIR)/webserver/*.c $(SOURCE_DIR)/model/*.cpp $(SOURCE_DIR)/dao/*.cpp $(SOURCE_DIR)/service/*.cpp
+SOURCES = $(SOURCE_DIR)/*.cpp $(SOURCE_DIR)/webserver/*.c $(SOURCE_DIR)/model/*.cpp $(SOURCE_DIR)/dao/*.cpp $(SOURCE_DIR)/service/*.cpp $(SOURCE_DIR)/controller/*.cpp $(SOURCE_DIR)/utils/*.cpp
 CFLAGS = -W -Wall  $(CFLAGS_EXTRA) 
 LIBS = -lrocksdb -llog4cplus
 

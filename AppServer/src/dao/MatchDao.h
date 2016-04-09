@@ -13,7 +13,7 @@
 
 class MatchDao : public GenericDao{
 public:
-	MatchDao(rocksdb::DB* db):GenericDao(db){};
+	MatchDao(){};
 	virtual ~MatchDao(){};
 	Entity* get(std::string id) throw(EntityNotFoundException);
 	void put(Entity* entity) throw(InvalidEntityException);

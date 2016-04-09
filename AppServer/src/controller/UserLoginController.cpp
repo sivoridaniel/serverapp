@@ -8,7 +8,9 @@
 #include "UserLoginController.h"
 
 UserLoginController::UserLoginController() {
-	authService = new AuthenticationService();
+
+	userDao = new UserDao();
+	authService = new AuthenticationService(userDao);
 	//mg_vcmp(&hm->uri, "/newuser") == 0
 }
 
@@ -59,6 +61,7 @@ string UserLoginController::event_handler_get_user(struct mg_connection *nc, str
 }
 
 UserLoginController::~UserLoginController() {
-
+	delete authService;
+	delete userDao;
 }
 

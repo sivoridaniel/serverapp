@@ -5,17 +5,13 @@
 #include "../exception/InvalidEntityException.h"
 #include <exception>
 #include "../model/Entity.h"
-#include "rocksdb/db.h"
+#include "../utils/DbHelper.h"
 
 class GenericDao{
-protected:
-	rocksdb::DB* db;
 
 public:
-	GenericDao(rocksdb::DB* db){
-		this->db = db;
-	}
-	virtual ~GenericDao(){this->db = NULL;}
+	GenericDao(){}
+	virtual ~GenericDao(){}
 	virtual Entity* get(std::string id) throw(EntityNotFoundException)=0;
 	virtual void put(Entity* entity) throw(InvalidEntityException)=0;
 };
