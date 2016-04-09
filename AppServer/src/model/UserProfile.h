@@ -17,7 +17,7 @@
 #include "../json/json.h"
 
 
-class User : public Entity{
+class UserProfile : public Entity{
 private:
 	std::string id;
 	std::string name;
@@ -29,10 +29,10 @@ private:
 	Location* location;
 public:
 
-	User(std::string json);
+	UserProfile(std::string json);
 
-	User(std::string name, std::string password);
-	virtual ~User();
+	UserProfile(std::string name, std::string password);
+	virtual ~UserProfile();
 
 	std::string toJson();
 

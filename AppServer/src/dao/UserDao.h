@@ -7,21 +7,16 @@
 
 #ifndef USERDAO_H_
 #define USERDAO_H_
-#include "rocksdb/db.h"
-#include "../model/User.h"
-#include "../exception/EntityNotFoundException.h"
-#include <exception>
+#include "../model/UserProfile.h"
+#include "GenericDao.h"
 
-class UserDao {
-
-private:
-	rocksdb::DB* db;
+class UserDao : public GenericDao{
 
 public:
-	UserDao(rocksdb::DB* db);
-	virtual ~UserDao();
-	User* getUser(std::string name) throw(EntityNotFoundException);
-	void putUser(User* user);
+	UserDao(rocksdb::DB* db):GenericDao(db){};
+	virtual ~UserDao(){};
+	Entity* get(std::string id) throw(EntityNotFoundException);
+	void put(Entity* user) throw(InvalidEntityException);
 
 };
 

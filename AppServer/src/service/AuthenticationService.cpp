@@ -18,14 +18,14 @@ AuthenticationService::~AuthenticationService() {
 std::string AuthenticationService::createNewUser(std::string name,
 												 std::string password,
 												 std::string email){
-	User* user = new User(name,password);
+	UserProfile* user = new UserProfile(name,password);
 	user->setName(name);
 	user->setPassword(password);
 	user->setEmail(email);
-	this->userDao->putUser(user);
+	this->userDao->put(user);
     delete user;
     /* Read user from database */
-    User* us = userDao->getUser(name);
+    UserProfile* us = (UserProfile*)userDao->get(name);
     std::string result = us->getName();
     delete us;
     return result;

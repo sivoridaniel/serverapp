@@ -7,34 +7,31 @@
 
 #include "UserDao.h"
 
-UserDao::UserDao(rocksdb::DB* db) {
-	this->db = db;
-}
 
-UserDao::~UserDao() {
-	this->db = NULL;
-}
+Entity* UserDao::get(std::string id) throw(EntityNotFoundException){
 
-User* UserDao::getUser(std::string name) throw(EntityNotFoundException){
+	std::string json;
 
-	std::string user;
-
-	rocksdb::Status s = this->db->Get(rocksdb::ReadOptions(),name,&user);
+	rocksdb::Status s = this->db->Get(rocksdb::ReadOptions(),id,&json);
 	if (!s.ok())
 	{
 		throw EntityNotFoundException();
 	}
 
-	User* usr = new User(user);
+	UserProfile* usr = new UserProfile(json);
 
 	return usr;
 }
 
-void UserDao::putUser(User* user) {
+void UserDao::put(Entity* e) throw(InvalidEntityException){
 
-	std::string name = user->getName();
-	std::string userJson = user->toJson();
-	rocksdb::Status s = this->db->Put(rocksdb::WriteOptions(),name,userJson);
+	UserProfile* user = dynamic_cast<UserProfile*>(e);
+	if (user==0){
+		throw InvalidEntityException();
+	}
+	std::string id = user->getName();
+	std::string json = user->toJson();
+	rocksdb::Status s = this->db->Put(rocksdb::WriteOptions(),id,json);
 	if (!s.ok())
 	{
 		throw std::exception();

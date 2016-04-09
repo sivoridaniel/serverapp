@@ -9,7 +9,6 @@
 #include "rocksdb/db.h"
 #include "dao/UserDao.h"
 #include "service/AuthenticationService.h"
-#include "model/User.h"
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
 #include <log4cplus/configurator.h>

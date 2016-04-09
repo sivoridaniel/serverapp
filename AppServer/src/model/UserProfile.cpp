@@ -5,15 +5,15 @@
  *      Author: agustin
  */
 
-#include "User.h"
+#include "UserProfile.h"
 
-User::User(std::string name, std::string password){
+UserProfile::UserProfile(std::string name, std::string password){
 	this->name = name;
 	this->password = password;
 	this->location = new Location(0,0);
 }
 
-User::User(std::string json) {
+UserProfile::UserProfile(std::string json) {
 	Json::Value root;
 	Json::Reader reader;
 	bool ok = reader.parse(json.c_str(), root);
@@ -26,7 +26,7 @@ User::User(std::string json) {
 	this->location = new Location(0,0);
 }
 
-User::~User() {
+UserProfile::~UserProfile() {
 	this->name = "";
 	this->password = "";
 	for (std::list< Interest* >::iterator it=interests.begin(); it!=interests.end(); ++it){
@@ -36,7 +36,7 @@ User::~User() {
 	delete location;
 }
 
-std::string User::toJson(){
+std::string UserProfile::toJson(){
 	Json::Value root;
 	Json::Value vecInterests(Json::arrayValue);
 	Json::FastWriter writer;
@@ -61,6 +61,6 @@ std::string User::toJson(){
 	return json;
 }
 
-void User::addInterest(Interest* interest){
+void UserProfile::addInterest(Interest* interest){
 	this->interests.push_back(interest);
 }
