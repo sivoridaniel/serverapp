@@ -10,6 +10,8 @@
 
 #include "../dao/UserDao.h"
 
+using namespace std;
+
 class AuthenticationService {
 private:
 	UserDao* userDao;
@@ -17,9 +19,7 @@ public:
 	AuthenticationService(UserDao* userDao);
 	virtual ~AuthenticationService();
 
-	std::string createNewUser(std::string name,
-			 std::string password,
-			 std::string email);
+	string createNewUser(string name,string password,string email);
 };
 
 #endif /* AUTHENTICATIONSERVICE_H_ */

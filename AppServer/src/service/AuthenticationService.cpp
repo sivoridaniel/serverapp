@@ -15,9 +15,7 @@ AuthenticationService::~AuthenticationService() {
 	// TODO Auto-generated destructor stub
 }
 
-std::string AuthenticationService::createNewUser(std::string name,
-												 std::string password,
-												 std::string email){
+string AuthenticationService::createNewUser(string name,string password,string email){
 	UserProfile* user = new UserProfile(name,password);
 	user->setName(name);
 	user->setPassword(password);
@@ -26,7 +24,7 @@ std::string AuthenticationService::createNewUser(std::string name,
     delete user;
     /* Read user from database */
     UserProfile* us = (UserProfile*)userDao->get(name);
-    std::string result = us->getName();
+    string result = us->getName();
     delete us;
     return result;
 }
