@@ -17,12 +17,9 @@ AuthenticationService::~AuthenticationService() {
 
 std::string AuthenticationService::createNewUser(std::string name,
 												 std::string password,
-												 std::string firstName,
-												 std::string lastName,
 												 std::string email){
 	User* user = new User(name,password);
-	user->setFirstName(firstName);
-	user->setLastName(lastName);
+	user->setName(name);
 	user->setPassword(password);
 	user->setEmail(email);
 	this->userDao->putUser(user);

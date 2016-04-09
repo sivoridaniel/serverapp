@@ -19,8 +19,6 @@ public:
 
 	std::string createNewUser(std::string name,
 			 std::string password,
-			 std::string firstName,
-			 std::string lastName,
 			 std::string email);
 };
 

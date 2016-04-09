@@ -61,7 +61,7 @@ static void handle_new_user(struct mg_connection *nc, struct http_message *hm){
 	std::string sfirstName(firstName);
 	std::string semail(email);
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Guardando en db usuario " << sname));
-	std::string result = authService->createNewUser(sname,spassword,slastName, sfirstName, semail);
+	std::string result = authService->createNewUser(sname,spassword, semail);
 
 	/* Send result back as a JSON object */
 	mg_printf_http_chunk(nc, "{ \"result\": \"%s\" }", result.c_str());
