@@ -18,7 +18,7 @@ MatchService::~MatchService() {
 	delete chatDao;
 }
 
-string MatchService::addToYesList(string idUser, string idUserAccepted)  throw(IllegalStateException){
+bool MatchService::addToYesList(string idUser, string idUserAccepted)  throw(IllegalStateException){
 	 Match* matchUser = (Match*)matchDao->get(idUser);
 	 Match* matchUserAccepted = (Match*)matchDao->get(idUserAccepted);
 
@@ -41,8 +41,8 @@ string MatchService::addToYesList(string idUser, string idUserAccepted)  throw(I
     	 matchUserAccepted->addNewMatch(idUser);
     	 matchDao->put(matchUser);
     	 matchDao->put(matchUserAccepted);
-    	 //TODO: Aca habria que devolver una respuesta al cliente para avisarle que hay un match
-    	 // y que muestre la pantalla de confirmacion
+    	 // Como hubo match devolvemos true
+    	 return true;
      }
      else if (!matchUser->isAccepted(idUserAccepted)){
     	 //Si el otro usuario no lo acepto aun, simplemente lo agregamos a la lista de aceptados
@@ -50,11 +50,11 @@ string MatchService::addToYesList(string idUser, string idUserAccepted)  throw(I
 		 matchDao->put(matchUser);
 	 }
 
-
-	 return "ok";
+     //No hubo match aun, pero se agrego el usuario a la lista de si
+     return false;
 }
 
-string MatchService::addToNoList(string idUser, string idUserRejected)  throw(IllegalStateException){
+void MatchService::addToNoList(string idUser, string idUserRejected)  throw(IllegalStateException){
 	 Match* matchUser = (Match*)matchDao->get(idUser);
 
 	 if (matchUser->isAccepted(idUserRejected)){
@@ -66,26 +66,24 @@ string MatchService::addToNoList(string idUser, string idUserRejected)  throw(Il
 	 }
 
 	 if (matchUser->isRejected(idUserRejected)){
-		 return "ok";
+		 return;
 	 }
 
 	 //TODO: Verificar tambien que no exista en la lista de chats
 
 	 matchUser->rejectUser(idUserRejected);
 	 matchDao->put(matchUser);
-	 return "ok";
 }
 
-string MatchService::getNewMatches(string idUser){
+list<string> MatchService::getNewMatches(string idUser){
 	Match* matchUser =  (Match*)matchDao->get(idUser);
 
 	list<string> newMatches = matchUser->getNewMatches();
 
-	//TODO: armar json
-	return "json";
+	return newMatches;
 }
 
-string MatchService::confirmUser(string idUser, string idUserConfirmed) throw(IllegalStateException){
+void MatchService::confirmUser(string idUser, string idUserConfirmed) throw(IllegalStateException){
 	 Match* matchUser = (Match*)matchDao->get(idUser);
 
 	 if (matchUser->isAccepted(idUserConfirmed)){
@@ -98,11 +96,9 @@ string MatchService::confirmUser(string idUser, string idUserConfirmed) throw(Il
 
 	 if (matchUser->isMatched(idUserConfirmed)){
 		 matchUser->removeFromNewMatches(idUser);
-		 //TODO: Crear el chat si no existe
-		 return "confirmado";
 	 }
 	 else{
-		 return "error";
+		 throw IllegalStateException();
 	 }
 
 }

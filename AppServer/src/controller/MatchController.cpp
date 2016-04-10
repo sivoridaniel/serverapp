@@ -49,13 +49,26 @@ string MatchController::event_handler_submit_yes(struct mg_connection *nc,
 	string sIdUserAccepted(idUserAccepted);
 
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Se agrega el usuario " << sIdUserAccepted << "a la lista de aceptados de " << sIdUser));
-	string result = matchService->addToYesList(sIdUser, sIdUserAccepted);
+	string json = "{ \"result\": \"failed\" }";
+
+	try{
+		bool matched = matchService->addToYesList(sIdUser, sIdUserAccepted);
+		if (matched){
+			json = "{ \"result\": \"match\" }";
+		}else{
+			json = "{ \"result\": \"success\" }";
+		}
+	}catch(exception& e)
+	{
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+		json = "{ \"result\": \"failed\" }";
+	}
 
 	/* Send result back as a JSON object */
-	mg_printf_http_chunk(nc, "{ \"result\": \"%s\" }", result.c_str());
+	mg_printf_http_chunk(nc, "%s", json.c_str());
 	mg_send_http_chunk(nc, "", 0); /* Send empty chunk, the end of response */
 
-	return result;
+	return json;
 
 }
 
@@ -77,13 +90,21 @@ string MatchController::event_handler_submit_no(struct mg_connection *nc,
 	string sIdUserRejected(idUserRejected);
 
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Se agrega el usuario " << sIdUserRejected << "a la lista de rechazados de " << sIdUser));
-	string result = matchService->addToNoList(sIdUser, sIdUserRejected);
+	string json = "{ \"result\": \"failed\" }";
+
+	try{
+		matchService->addToNoList(sIdUser, sIdUserRejected);
+		json = "{ \"result\": \"success\" }";
+	}catch(exception &e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+		json = "{ \"result\": \"failed\" }";
+	}
 
 	/* Send result back as a JSON object */
-	mg_printf_http_chunk(nc, "{ \"result\": \"%s\" }", result.c_str());
+	mg_printf_http_chunk(nc, "%s", json.c_str());
 	mg_send_http_chunk(nc, "", 0); /* Send empty chunk, the end of response */
 
-	return result;
+	return json;
 }
 
 
@@ -106,13 +127,21 @@ string MatchController::event_handler_confirm_match(struct mg_connection *nc,
 	string sIdUserConfirmed(idUserConfirmed);
 
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Se confirma el usuario " << sIdUserConfirmed << " por parte del usuario " << sIdUser));
-	string result = matchService->confirmUser(sIdUser, sIdUserConfirmed);
+
+	string json = "{ \"result\": \"failed\" }";
+	try{
+		matchService->confirmUser(sIdUser, sIdUserConfirmed);
+		json = "{ \"result\": \"success\" }";
+	}catch(exception &e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+		json = "{ \"result\": \"failed\" }";
+	}
 
 	/* Send result back as a JSON object */
-	mg_printf_http_chunk(nc, "{ \"result\": \"%s\" }", result.c_str());
+	mg_printf_http_chunk(nc, "%s", json.c_str());
 	mg_send_http_chunk(nc, "", 0); /* Send empty chunk, the end of response */
 
-	return result;
+	return json;
 }
 
 string MatchController::event_handler_new_matches(struct mg_connection *nc, struct http_message *hm) {
@@ -130,12 +159,22 @@ string MatchController::event_handler_new_matches(struct mg_connection *nc, stru
 	string sIdUser(idUser);
 
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Se obtienen los nuevos matches del usuario " << sIdUser));
-	string result = matchService->getNewMatches(sIdUser);
+	string json = "{ \"result\": \"failed\" }";
+
+	try{
+		list<string> matches = matchService->getNewMatches(sIdUser);
+		NewMatchesResponse* response = new NewMatchesResponse(matches);
+		json = response->toJson();
+		delete response;
+	}catch(exception &e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+		json = "{ \"result\": \"failed\" }";
+	}
 
 	/* Send result back as a JSON object */
-	mg_printf_http_chunk(nc, "{ \"result\": \"%s\" }", result.c_str());
+	mg_printf_http_chunk(nc, "%s", json.c_str());
 	mg_send_http_chunk(nc, "", 0); /* Send empty chunk, the end of response */
 
-	return result;
+	return json;
 }
 

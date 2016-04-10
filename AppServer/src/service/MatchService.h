@@ -22,10 +22,10 @@ public:
 	MatchService();
 	virtual ~MatchService();
 
-	string addToYesList(string idUser, string idUserAccepted) throw(IllegalStateException);
-	string addToNoList(string idUser, string idUserRejected) throw(IllegalStateException);
-	string getNewMatches(string idUser);
-	string confirmUser(string idUser, string idUserConfirmed) throw(IllegalStateException);
+	bool addToYesList(string idUser, string idUserAccepted) throw(IllegalStateException);
+	void addToNoList(string idUser, string idUserRejected) throw(IllegalStateException);
+	list<string> getNewMatches(string idUser);
+	void confirmUser(string idUser, string idUserConfirmed) throw(IllegalStateException);
 };
 
 #endif /* MATCHSERVICE_H_ */
