@@ -21,11 +21,10 @@ using namespace log4cplus;
 class UserLoginController: public AbstractController{
 public:
 	UserLoginController();
-	string connect(struct mg_connection *nc, struct http_message *hm, struct mg_serve_http_opts s_http_server_opts);
+	string connect(struct mg_connection *nc, struct http_message *hm);
 	virtual ~UserLoginController();
 private:
 	AuthenticationService* authService;
-	UserDao* userDao;
 	string event_handler_new_user(struct mg_connection *nc, struct http_message *hm);
 	string event_handler_get_user(struct mg_connection *nc, struct http_message *hm);
 };

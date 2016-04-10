@@ -7,12 +7,12 @@
 
 #include "AuthenticationService.h"
 
-AuthenticationService::AuthenticationService(UserDao* userDao) {
-	this->userDao = userDao;
+AuthenticationService::AuthenticationService() {
+	this->userDao = new UserDao();
 }
 
 AuthenticationService::~AuthenticationService() {
-
+	delete userDao;
 }
 
 string AuthenticationService::createNewUser(string name,string password,string email){

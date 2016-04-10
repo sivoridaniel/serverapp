@@ -13,6 +13,7 @@
 #endif
 
 #include "UserLoginController.h"
+#include "MatchController.h"
 #include <string>
 
 
@@ -24,6 +25,7 @@ private:
 	static FactoryController* singletonFactoryCtrl;
 	/*CONTROLLERS*/
 	static UserLoginController* userLoginController;
+	static MatchController* matchController;
 
 	//Método que crea los controllers
 	static void createControllers();
@@ -37,7 +39,7 @@ public:
 		}
 		return singletonFactoryCtrl;
 	};
-	string connect(struct mg_connection *nc, struct http_message *hm, struct mg_serve_http_opts s_http_server_opts);
+	void connect(struct mg_connection *nc, struct http_message *hm, struct mg_serve_http_opts s_http_server_opts);
 	~FactoryController(void);
 
 };

@@ -16,7 +16,7 @@ class AuthenticationService {
 private:
 	UserDao* userDao;
 public:
-	AuthenticationService(UserDao* userDao);
+	AuthenticationService();
 	virtual ~AuthenticationService();
 
 	string createNewUser(string name,string password,string email);
