@@ -6,6 +6,7 @@
 #include <exception>
 #include "../model/Entity.h"
 #include "../utils/DbHelper.h"
+#include "../utils/ColumnFamilies.h"
 
 class GenericDao{
 

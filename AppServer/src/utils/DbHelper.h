@@ -11,7 +11,8 @@
 #include <assert.h>
 #include <string>
 #include "rocksdb/db.h"
-
+#include "../exception/EntityNotFoundException.h"
+#include "../exception/WriteDbException.h"
 
 using namespace std;
 
@@ -26,9 +27,9 @@ public:
 	static rocksdb::DB* getDb(){
 		return db;
 	}
-	static std::vector<rocksdb::ColumnFamilyHandle*> getHandles(){
-		return handles;
-	}
+
+	static void put(string id, string json, int columnFamily) throw(WriteDbException);
+	static string get(string id, int columnFamily) throw(EntityNotFoundException);
 };
 
 #endif /* DBHELPER_H_ */
