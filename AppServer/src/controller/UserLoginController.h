@@ -21,7 +21,7 @@ using namespace log4cplus;
 class UserLoginController: public AbstractController{
 public:
 	UserLoginController();
-	string connect(struct mg_connection *nc, struct http_message *hm);
+	string connect(struct mg_connection *nc, struct http_message *hm, struct mg_serve_http_opts s_http_server_opts);
 	virtual ~UserLoginController();
 private:
 	AuthenticationService* authService;

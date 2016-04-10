@@ -14,14 +14,16 @@ UserLoginController::UserLoginController() {
 	//mg_vcmp(&hm->uri, "/newuser") == 0
 }
 
-string UserLoginController::connect(struct mg_connection *nc, struct http_message *hm){
-
+string UserLoginController::connect(struct mg_connection *nc, struct http_message *hm, struct mg_serve_http_opts s_http_server_opts){
+	 ;
 	if(mg_vcmp(&hm->uri, "/user/newuser") == 0){
 		return event_handler_new_user(nc,hm);
 	}else if(mg_vcmp(&hm->uri, "/user/getuser") == 0){
 		return event_handler_get_user(nc,hm);
 	}
-
+	else{
+        mg_serve_http(nc, hm, s_http_server_opts);  /* Serve static content */
+	}
 	return "{}"; //Por default devuelve un JSON vacío.
 }
 

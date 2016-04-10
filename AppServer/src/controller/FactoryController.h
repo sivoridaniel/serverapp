@@ -26,18 +26,18 @@ private:
 	static UserLoginController* userLoginController;
 
 	//Método que crea los controllers
-	void createControllers();
+	static void createControllers();
 public:
 	FactoryController(void){};
 	static FactoryController* getInstance(){
 		//createControllers();
 		if(singletonFactoryCtrl == NULL){
 			singletonFactoryCtrl = new FactoryController();
-			//singletonFactoryCtrl->createControllers();
+			singletonFactoryCtrl->createControllers();
 		}
 		return singletonFactoryCtrl;
 	};
-	string connect(struct mg_connection *nc, struct http_message *hm);
+	string connect(struct mg_connection *nc, struct http_message *hm, struct mg_serve_http_opts s_http_server_opts);
 	~FactoryController(void);
 
 };

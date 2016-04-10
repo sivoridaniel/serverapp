@@ -5,11 +5,7 @@
 
 #include "webserver/mongoose.h"
 #include <iostream>
-#include <assert.h>
 #include "utils/DbHelper.h"
-#include "rocksdb/db.h"
-#include "dao/UserDao.h"
-#include "service/AuthenticationService.h"
 #include "controller/FactoryController.h"
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
@@ -20,7 +16,6 @@ using namespace log4cplus;
 
 static const char *s_http_port = "3000";
 static struct mg_serve_http_opts s_http_server_opts;
-static FactoryController* factController;
 
 //static void handle_sum_call(struct mg_connection *nc, struct http_message *hm) {
 //  char n1[100], n2[100];
@@ -113,7 +108,7 @@ static void ev_handler(struct mg_connection *nc, int ev, void *ev_data) {
     case MG_EV_HTTP_REQUEST: //Data arrives on http request
       // This event handler implements simple TCP echo server
       LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Event Handler, call to controller"));
-      fController->connect(nc,hm);
+      fController->connect(nc,hm, s_http_server_opts);
       break;
     default:
       break;
@@ -132,7 +127,6 @@ int main(int argc, char *argv[]) {
   initialize();
   BasicConfigurator config;
   config.configure();
-  factController = new FactoryController();
 
   Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("main"));
   LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Mongoose webserver 6.3"));
@@ -214,7 +208,6 @@ int main(int argc, char *argv[]) {
   mg_mgr_free(&mgr);
 
   DbHelper::closeDatabase();
-  delete factController;
   return 0;
 }
 
