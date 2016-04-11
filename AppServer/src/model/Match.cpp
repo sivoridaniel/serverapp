@@ -7,6 +7,10 @@
 
 #include "Match.h"
 
+Match::Match(){
+
+}
+
 Match::Match(std::string json) {
 
 	Json::Value root;

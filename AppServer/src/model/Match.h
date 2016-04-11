@@ -20,6 +20,8 @@ private:
 	std::list<std::string> noList;
 	std::list<std::string> newMatches;
 public:
+
+	Match();
 	Match(std::string json);
 	virtual ~Match();
 

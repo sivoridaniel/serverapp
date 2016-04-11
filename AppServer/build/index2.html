@@ -30,7 +30,7 @@
 
     $(document).on('click', '#submit', function() {
       $.ajax({
-        url: '/newuser',
+        url: '/user/newuser',
         method: 'POST',
         dataType: 'json',
         data: { name: $('#name').val(), password: $('#password').val(), firstName: $('#firstName').val(), lastName: $('#lastName').val(), email: $('#email').val() },

@@ -48,7 +48,7 @@ string MatchController::event_handler_submit_yes(struct mg_connection *nc,
 	string sIdUser(idUser);
 	string sIdUserAccepted(idUserAccepted);
 
-	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Se agrega el usuario " << sIdUserAccepted << "a la lista de aceptados de " << sIdUser));
+	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Se intenta agregar el usuario " << sIdUserAccepted << " a la lista de aceptados de " << sIdUser));
 	string json = "{ \"result\": \"failed\" }";
 
 	try{
@@ -89,7 +89,7 @@ string MatchController::event_handler_submit_no(struct mg_connection *nc,
 	string sIdUser(idUser);
 	string sIdUserRejected(idUserRejected);
 
-	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Se agrega el usuario " << sIdUserRejected << "a la lista de rechazados de " << sIdUser));
+	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Se intenta agregar el usuario " << sIdUserRejected << " a la lista de rechazados de " << sIdUser));
 	string json = "{ \"result\": \"failed\" }";
 
 	try{
@@ -126,7 +126,7 @@ string MatchController::event_handler_confirm_match(struct mg_connection *nc,
 	string sIdUser(idUser);
 	string sIdUserConfirmed(idUserConfirmed);
 
-	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Se confirma el usuario " << sIdUserConfirmed << " por parte del usuario " << sIdUser));
+	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Se intenta confirmar el usuario " << sIdUserConfirmed << " por parte del usuario " << sIdUser));
 
 	string json = "{ \"result\": \"failed\" }";
 	try{
@@ -164,7 +164,8 @@ string MatchController::event_handler_new_matches(struct mg_connection *nc, stru
 	try{
 		list<string> matches = matchService->getNewMatches(sIdUser);
 		NewMatchesResponse* response = new NewMatchesResponse(matches);
-		json = response->toJson();
+		string resp = response->toJson();
+		json = "{ \"result\": " + resp + " }";
 		delete response;
 	}catch(exception &e){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));

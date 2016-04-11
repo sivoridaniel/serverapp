@@ -28,12 +28,48 @@
 <script language="javascript" type="text/javascript">
   jQuery(function() {
 
-    $(document).on('click', '#submit', function() {
+    $(document).on('click', '#submitYes', function() {
       $.ajax({
-        url: '/user/newuser',
+        url: '/match/yes',
         method: 'POST',
         dataType: 'json',
-        data: { name: $('#name').val(), password: $('#password').val(), firstName: $('#firstName').val(), lastName: $('#lastName').val(), email: $('#email').val() },
+        data: { idUser: $('#idUser').val(), idUserAccepted: $('#candidate').val()},
+        success: function(json) {
+          $('#result').html(json.result);
+        }
+      });
+    });
+
+    $(document).on('click', '#submitNo', function() {
+      $.ajax({
+        url: '/match/no',
+        method: 'POST',
+        dataType: 'json',
+        data: { idUser: $('#idUser').val(), idUserRejected: $('#candidate').val()},
+        success: function(json) {
+          $('#result').html(json.result);
+        }
+      });
+    });
+
+    $(document).on('click', '#getMatches', function() {
+      $.ajax({
+        url: '/match/newmatches',
+        method: 'POST',
+        dataType: 'json',
+        data: { idUser: $('#idUser').val() },
+        success: function(json) {
+          $('#result').html(json.result);
+        }
+      });
+    });
+
+    $(document).on('click', '#confirm', function() {
+      $.ajax({
+        url: '/match/confirm',
+        method: 'POST',
+        dataType: 'json',
+        data: { idUser: $('#idUser').val(), idUserConfirmed: $('#candidate').val()},
         success: function(json) {
           $('#result').html(json.result);
         }
@@ -50,17 +86,14 @@
 
 
     <div>
-      <label>Name:</label> <input type="text" id="name" />
+      <label>idUser:</label> <input type="text" id="idUser" />
     </div><div>
-      <label>Password:</label> <input type="text" id="password" />
-    </div><div>
-      <label>First Name:</label> <input type="text" id="firstName" />
-    </div><div>    
-      <label>Last Name:</label> <input type="text" id="lastName" />
-    </div><div>
-      <label>Email:</label> <input type="text" id="email" />
+      <label>idCandidate:</label> <input type="text" id="candidate" />
     </div>
-    <input type="button" value="Sign In" id="submit" />
+    <input type="button" value="Yes" id="submitYes" />
+    <input type="button" value="No" id="submitNo" />
+    <input type="button" value="Get Matches" id="getMatches" />
+    <input type="button" value="Confirm" id="confirm" />
     <div>    
      <label>Result:</label> <span id="result">&nbsp;</span>
     </div><div>
