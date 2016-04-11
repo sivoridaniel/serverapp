@@ -25,10 +25,10 @@ public:
 	MatchService();
 	virtual ~MatchService();
 
-	bool addToYesList(string idUser, string idUserAccepted) throw(IllegalStateException);
-	void addToNoList(string idUser, string idUserRejected) throw(IllegalStateException);
-	list<string> getNewMatches(string idUser);
-	void confirmUser(string idUser, string idUserConfirmed) throw(IllegalStateException);
+	bool addToYesList(string idUser, string idUserAccepted) throw(IllegalStateException, EntityNotFoundException);
+	void addToNoList(string idUser, string idUserRejected) throw(IllegalStateException, EntityNotFoundException);
+	list<string> getNewMatches(string idUser) throw (EntityNotFoundException);
+	void confirmUser(string idUser, string idUserConfirmed) throw(IllegalStateException, EntityNotFoundException);
 };
 
 #endif /* MATCHSERVICE_H_ */

@@ -59,7 +59,7 @@
         dataType: 'json',
         data: { idUser: $('#idUser').val() },
         success: function(json) {
-          $('#result').html(json.result);
+          $('#result').html(JSON.stringify(json));
         }
       });
     });
@@ -81,7 +81,7 @@
 </head>
 <body>
   <div class="content">
-    <h1>Alta de Usuarios.</h1>
+    <h1>Servicio de Match.</h1>
 
 
 

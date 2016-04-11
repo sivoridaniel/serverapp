@@ -34,7 +34,7 @@ MatchService::~MatchService() {
 	delete chatDao;
 }
 
-bool MatchService::addToYesList(string idUser, string idUserAccepted)  throw(IllegalStateException){
+bool MatchService::addToYesList(string idUser, string idUserAccepted)  throw(IllegalStateException, EntityNotFoundException){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("MatchService"));
 
 	 Match* matchUser = (Match*)matchDao->get(idUser);
@@ -77,7 +77,7 @@ bool MatchService::addToYesList(string idUser, string idUserAccepted)  throw(Ill
      return false;
 }
 
-void MatchService::addToNoList(string idUser, string idUserRejected)  throw(IllegalStateException){
+void MatchService::addToNoList(string idUser, string idUserRejected)  throw(IllegalStateException, EntityNotFoundException){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("MatchService"));
 
 	 Match* matchUser = (Match*)matchDao->get(idUser);
@@ -103,7 +103,7 @@ void MatchService::addToNoList(string idUser, string idUserRejected)  throw(Ille
 	 matchDao->put(matchUser);
 }
 
-list<string> MatchService::getNewMatches(string idUser){
+list<string> MatchService::getNewMatches(string idUser) throw (EntityNotFoundException){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("MatchService"));
 
 	LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Obteniendo la lista de nuevos matches del usuario "<<idUser ));
@@ -115,7 +115,7 @@ list<string> MatchService::getNewMatches(string idUser){
 	return newMatches;
 }
 
-void MatchService::confirmUser(string idUser, string idUserConfirmed) throw(IllegalStateException){
+void MatchService::confirmUser(string idUser, string idUserConfirmed) throw(IllegalStateException, EntityNotFoundException){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("MatchService"));
 
 	 Match* matchUser = (Match*)matchDao->get(idUser);
