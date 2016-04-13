@@ -43,6 +43,7 @@ before_script:
 - sudo ./configure
 - sudo make
 - sudo make install
+- cd tests
 - sudo make clean
 - sudo make check
 script:
