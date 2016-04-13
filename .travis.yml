@@ -18,9 +18,11 @@ before_install:
 - sudo apt-get install -y libsnappy-dev
 - sudo apt-get install -y zlib1g-dev
 - sudo apt-get install -y libbz2-dev
+- sudo apt-get install -y -qq check libssl-dev
 before_script:
 - sudo chmod -R 777 rocksdb-4.4
 - sudo chmod -R 777 log4cplus-1.2.0
+- sudo chmod -R 777 json-web-token
 - cd log4cplus-1.2.0
 - sudo ./configure
 - sudo make
@@ -30,6 +32,14 @@ before_script:
 - cd ../rocksdb-4.4
 - sudo make static_lib
 - sudo make install
+- cd ../json-web-token/jansson
+- sudo autoreconf -i
+- sudo ./configure && make && make install
+- sudo make check
+- cd ../libjwt
+- sudo autoreconf -i 
+- sudo ./configure && make && make install
+- sudo make check
 script:
 - cd ../AppServer
 - sudo make

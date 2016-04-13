@@ -13,6 +13,7 @@
 #include "../exception/IllegalStateException.h"
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
+#include <string>
 
 using namespace std;
 using namespace log4cplus;

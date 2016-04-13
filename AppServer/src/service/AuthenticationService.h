@@ -9,7 +9,7 @@
 #define AUTHENTICATIONSERVICE_H_
 
 #include "../dao/UserDao.h"
-
+#include <string>
 using namespace std;
 
 class AuthenticationService {
@@ -19,7 +19,6 @@ public:
 	AuthenticationService();
 	virtual ~AuthenticationService();
 
-	string createNewUser(string name,string password,string email);
 };
 
 #endif /* AUTHENTICATIONSERVICE_H_ */

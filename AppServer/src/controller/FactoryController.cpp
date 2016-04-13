@@ -9,12 +9,12 @@
 
 
 void FactoryController::createControllers(){
-	userLoginController = new UserLoginController();
+	abmUserController = new AbmUserController();
 	matchController = new MatchController();
 }
 
 void FactoryController::connect(struct mg_connection *nc, struct http_message *hm, struct mg_serve_http_opts s_http_server_opts){
-	string res = userLoginController->connect(nc,hm);
+	string res = abmUserController->connect(nc,hm);
 	if (res.empty()){
 		res = matchController->connect(nc,hm);
 	}
@@ -24,11 +24,11 @@ void FactoryController::connect(struct mg_connection *nc, struct http_message *h
 }
 
 FactoryController::~FactoryController() {
-	userLoginController->~UserLoginController();
+	abmUserController->~AbmUserController();
 	matchController->~MatchController();
 }
 
 FactoryController* FactoryController::singletonFactoryCtrl;
-UserLoginController* FactoryController::userLoginController;
+AbmUserController* FactoryController::abmUserController;
 MatchController* FactoryController::matchController;
 

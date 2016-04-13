@@ -11,6 +11,7 @@
 #include "../service/MatchService.h"
 #include "AbstractController.h"
 #include "../model/NewMatchesResponse.h"
+#include "../webserver/mongoose.h"
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
 #include <string>

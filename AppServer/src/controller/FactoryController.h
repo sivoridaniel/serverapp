@@ -12,7 +12,7 @@
 #define NULL   ((void *) 0)
 #endif
 
-#include "UserLoginController.h"
+#include "AbmUserController.h"
 #include "MatchController.h"
 #include <string>
 
@@ -24,7 +24,7 @@ private:
 
 	static FactoryController* singletonFactoryCtrl;
 	/*CONTROLLERS*/
-	static UserLoginController* userLoginController;
+	static AbmUserController* abmUserController;
 	static MatchController* matchController;
 
 	//Método que crea los controllers

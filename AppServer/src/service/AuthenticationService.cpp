@@ -15,16 +15,4 @@ AuthenticationService::~AuthenticationService() {
 	delete userDao;
 }
 
-string AuthenticationService::createNewUser(string name,string password,string email){
-	UserProfile* user = new UserProfile(name,password);
-	user->setName(name);
-	user->setPassword(password);
-	user->setEmail(email);
-	this->userDao->put(user);
-    delete user;
-    /* Read user from database */
-    UserProfile* us = (UserProfile*)userDao->get(name);
-    string result = us->getName();
-    delete us;
-    return result;
-}
+
