@@ -43,6 +43,7 @@ before_script:
 - sudo ./configure
 - sudo make
 - sudo make install
+- sudo make clean
 - sudo make check
 script:
 - cd ../AppServer
