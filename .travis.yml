@@ -33,11 +33,9 @@ before_script:
 - sudo make static_lib
 - sudo make install
 - cd ../json-web-token/jansson
-- sudo autoreconf -i
 - sudo ./configure && make && make install
 - sudo make check
-- cd ../libjwt
-- sudo autoreconf -i 
+- cd ../libjwt 
 - sudo ./configure && make && make install
 - sudo make check
 script:
