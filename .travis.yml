@@ -32,9 +32,8 @@ before_script:
 #- cd ../rocksdb-4.4
 #- sudo make static_lib
 #- sudo make install
-- cd json-web-token
-- cd jansson
-- ls
+- cd json-web-token/jansson/
+- autoreconf -i
 - sudo ./configure
 - sudo make
 - sudo make check
