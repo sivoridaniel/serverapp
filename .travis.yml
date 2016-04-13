@@ -33,11 +33,15 @@ before_script:
 - sudo make static_lib
 - sudo make install
 - cd ../json-web-token/jansson
-- sudo ./configure && make && make install
+- sudo ./configure
+- sudo make
 - sudo make check
-- cd ../libjwt 
-- sudo ./configure && make && make install
+- sudo make install
+- cd ../libjwt
+- sudo ./configure
+- sudo make
 - sudo make check
+- sudo make install
 script:
 - cd ../AppServer
 - sudo make
