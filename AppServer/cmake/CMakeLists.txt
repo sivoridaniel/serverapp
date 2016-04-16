@@ -54,7 +54,7 @@ target_link_libraries(model json)
 # add the executable
 add_executable(AppServer ../src/restful_server.cpp)
 target_compile_features(AppServer PRIVATE cxx_range_for)
-target_link_libraries(AppServer ${CMAKE_THREAD_LIBS_INIT} ${ZLIB_LIBRARIES} ${BZIP2_LIBRARIES} rt snappy rocksdb log4cplus jansson jwt webserver controller dao service utils  json model)
+target_link_libraries(AppServer ${CMAKE_THREAD_LIBS_INIT} z bz2 rt snappy rocksdb log4cplus jansson jwt webserver controller dao service utils  json model)
 
 
 

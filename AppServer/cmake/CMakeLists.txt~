@@ -39,8 +39,6 @@ set_target_properties(jansson PROPERTIES IMPORTED_LOCATION /usr/local/lib/libjan
 add_library(jwt SHARED IMPORTED)
 set_target_properties(jwt PROPERTIES IMPORTED_LOCATION /usr/local/lib/libjwt.so)
 
-add_library(bzip2 SHARED IMPORTED)
-set_target_properties(bzip2 PROPERTIES IMPORTED_LOCATION /usr/lib/x84_64-linux-gnu/libbz2.so)
 
 add_library(webserver ${WEBSERVER_SRC})
 add_library(controller ${CONTROLLER_SRC})
@@ -56,7 +54,7 @@ target_link_libraries(model json)
 # add the executable
 add_executable(AppServer ../src/restful_server.cpp)
 target_compile_features(AppServer PRIVATE cxx_range_for)
-target_link_libraries(AppServer ${CMAKE_THREAD_LIBS_INIT} ${ZLIB_LIBRARIES} bzip2 rt snappy rocksdb log4cplus jansson jwt webserver controller dao service utils  json model)
+target_link_libraries(AppServer ${CMAKE_THREAD_LIBS_INIT} ${ZLIB_LIBRARIES} ${BZIP2_LIBRARIES} rt snappy rocksdb log4cplus jansson jwt webserver controller dao service utils  json model)
 
 
 
