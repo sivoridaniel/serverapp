@@ -21,8 +21,8 @@ before_install:
 - sudo apt-get install -y -qq check libssl-dev
 before_script:
 - sudo chmod -R 777 rocksdb-4.4
-#- sudo chmod -R 777 log4cplus-1.2.0
-#- sudo chmod -R 777 json-web-token
+- sudo chmod -R 777 log4cplus-1.2.0
+- sudo chmod -R 777 json-web-token
 #- cd log4cplus-1.2.0
 #- sudo ./configure
 #- sudo make
@@ -48,4 +48,3 @@ script:
 - cd cmake
 - sudo cmake .
 - sudo make
-
