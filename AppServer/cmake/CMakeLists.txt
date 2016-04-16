@@ -17,10 +17,8 @@ file(GLOB EXCEPTION_SRC ../src/exception/*.cpp)
 
 
 find_package(Threads REQUIRED)
-find_package(ZLIB REQUIRED)
-find_library(rt REQUIRED)
-find_library(snappy REQUIRED)
-find_package(BZip2 REQUIRED)
+find_library(BZ2_LIBRARY_PATH NAMES bz2)
+
 
 include_directories(../src)
 include_directories(${ZLIB_INCLUDE_DIRS})
