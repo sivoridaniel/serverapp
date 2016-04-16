@@ -45,7 +45,5 @@ before_script:
 - sudo make install
 script:
 - cd ../../AppServer
-- cd cmake
-- sudo cmake .
 - sudo make
 
