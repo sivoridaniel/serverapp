@@ -1,0 +1,6 @@
+AppServer
+CMakeFiles
+CMakeCache.txt
+cmake_install.cmake
+*.a
+Makefile
