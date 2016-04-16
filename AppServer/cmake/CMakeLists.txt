@@ -23,6 +23,7 @@ find_library(snappy REQUIRED)
 find_package(BZip2 REQUIRED)
 
 include_directories(../src)
+include_directories(${ZLIB_INCLUDE_DIRS})
 include_directories(${BZIP_INCLUDE_DIRS})
 
 add_library(rocksdb STATIC IMPORTED)
