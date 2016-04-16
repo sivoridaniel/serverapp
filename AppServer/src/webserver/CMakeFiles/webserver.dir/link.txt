@@ -1,2 +1,0 @@
-/usr/bin/ar qc libwebserver.a  CMakeFiles/webserver.dir/mongoose.c.o
-/usr/bin/ranlib libwebserver.a
