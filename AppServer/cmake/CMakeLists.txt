@@ -25,6 +25,12 @@ include_directories(../src)
 include_directories(${ZLIB_INCLUDE_DIRS})
 include_directories(${BZIP_INCLUDE_DIRS})
 
+add_library(zlib SHARED IMPORTED)
+set_target_properties(zlib PROPERTIES IMPORTED_LOCATION /usr/lib/x86_64-linux-gnu/libz.so)
+
+add_library(bzip2 SHARED IMPORTED)
+set_target_properties(bzip2 PROPERTIES IMPORTED_LOCATION /usr/lib/x86_64-linux-gnu/libbz2.so)
+
 add_library(rocksdb STATIC IMPORTED)
 set_target_properties(rocksdb PROPERTIES IMPORTED_LOCATION /usr/local/lib/librocksdb.a)
 
@@ -53,7 +59,7 @@ target_link_libraries(model json)
 # add the executable
 add_executable(AppServer ../src/restful_server.cpp)
 target_compile_features(AppServer PRIVATE cxx_range_for)
-target_link_libraries(AppServer ${CMAKE_THREAD_LIBS_INIT} ${ZLIB_LIBRARIES} ${BZIP2_LIBRARIES} rt snappy rocksdb log4cplus jansson jwt webserver controller dao service utils  json model)
+target_link_libraries(AppServer ${CMAKE_THREAD_LIBS_INIT} rt snappy zlib bzip2 rocksdb log4cplus jansson jwt webserver controller dao service utils  json model)
 
 
 
