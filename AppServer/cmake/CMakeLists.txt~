@@ -23,7 +23,6 @@ find_library(snappy REQUIRED)
 find_package(BZip2 REQUIRED)
 
 include_directories(../src)
-include_directories(${BZIP_INCLUDE_DIRS})
 
 add_library(rocksdb STATIC IMPORTED)
 set_target_properties(rocksdb PROPERTIES IMPORTED_LOCATION /usr/local/lib/librocksdb.a)
