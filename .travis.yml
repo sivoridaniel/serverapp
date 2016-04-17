@@ -44,12 +44,12 @@ before_script:
 #- sudo make
 #- sudo make install
 script:
-- pwd
 - cd ../../AppServer/test/cmake
+- sudo cmake .
 - sudo cmake -Dgtest_build_test=ON
 - sudo make
 - sudo make test
-- cd ../../AppServer
-- cd cmake
-- sudo cmake .
-- sudo make
+#- cd ../../AppServer
+#- cd cmake
+#- sudo cmake .
+#- sudo make
