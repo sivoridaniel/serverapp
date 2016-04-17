@@ -23,29 +23,28 @@ before_script:
 - sudo chmod -R 777 rocksdb-4.4
 - sudo chmod -R 777 log4cplus-1.2.0
 - sudo chmod -R 777 json-web-token
-- cd log4cplus-1.2.0
-- sudo ./configure
-- sudo make
-- sudo make check
-- sudo make install
-- sudo ldconfig
-- cd ../rocksdb-4.4
-- sudo make static_lib
-- sudo make install
+#- cd log4cplus-1.2.0
+#- sudo ./configure
+#- sudo make
+#- sudo make check
+#- sudo make install
+#- sudo ldconfig
+#- cd ../rocksdb-4.4
+#- sudo make static_lib
+#- sudo make install
 - cd ../json-web-token/jansson/
-- autoreconf -i
-- sudo ./configure
-- sudo make
-- sudo make install
-- sudo make check
+#- autoreconf -i
+#- sudo ./configure
+#- sudo make
+#- sudo make install
+#- sudo make check
 - cd ../libjwt
-- sudo autoreconf -i
-- sudo ./configure
-- sudo make
-- sudo make install
+#- sudo autoreconf -i
+#- sudo ./configure
+#- sudo make
+#- sudo make install
 script:
-- cd ../../AppSever
-- cd test
+- cd ../../AppSever/test/
 - cd cmake
 - cmake -Dgtest_build_test=ON
 - make
