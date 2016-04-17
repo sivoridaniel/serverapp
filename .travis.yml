@@ -23,13 +23,13 @@ before_script:
 - sudo chmod -R 777 rocksdb-4.4
 - sudo chmod -R 777 log4cplus-1.2.0
 - sudo chmod -R 777 json-web-token
-#- cd log4cplus-1.2.0
+- cd log4cplus-1.2.0
 #- sudo ./configure
 #- sudo make
 #- sudo make check
 #- sudo make install
 #- sudo ldconfig
-#- cd ../rocksdb-4.4
+- cd ../rocksdb-4.4
 #- sudo make static_lib
 #- sudo make install
 - cd ../json-web-token/jansson/
