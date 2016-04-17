@@ -44,6 +44,10 @@ before_script:
 - sudo make
 - sudo make install
 script:
+- cd ../../AppSever/test/cmake/
+- cmake -Dgtest_build_test=ON
+- make
+- make test
 - cd ../../AppServer
 - cd cmake
 - sudo cmake .

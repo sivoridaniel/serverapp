@@ -1,0 +1,1 @@
+/usr/bin/c++        -o gtest-death-test_ex_nocatch_test  -L/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/test/cmake/src -rdynamic libgtest.a -lpthread -Wl,-rpath,/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/test/cmake/src 
