@@ -45,10 +45,10 @@ before_script:
 #- sudo make install
 script:
 - pwd
-- sudo ../../AppSever/test/cmake/cmake -Dgtest_build_test=ON
-- sudo make
-- make test
-- cd ../../AppServer
+- sudo ../../AppSever #/test/cmake/cmake -Dgtest_build_test=ON
+#- sudo make
+#- make test
+#- cd ../../AppServer
 - cd cmake
 - sudo cmake .
 - sudo make
