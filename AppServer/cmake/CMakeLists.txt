@@ -18,17 +18,21 @@ file(GLOB EXCEPTION_SRC ../src/exception/*.cpp)
 
 find_package(Threads REQUIRED)
 find_package(ZLIB REQUIRED)
-find_library(rt REQUIRED)
-find_library(snappy REQUIRED)
 find_package(BZip2 REQUIRED)
+
 
 include_directories(../src)
 include_directories(${ZLIB_INCLUDE_DIRS})
 include_directories(${BZIP_INCLUDE_DIRS})
 
-add_library(rocksdb STATIC IMPORTED)
-set_target_properties(rocksdb PROPERTIES IMPORTED_LOCATION /usr/local/lib/librocksdb.a)
+add_library(zlib SHARED IMPORTED)
+set_target_properties(zlib PROPERTIES IMPORTED_LOCATION /usr/lib/x86_64-linux-gnu/libz.so)
 
+add_library(bzip2 SHARED IMPORTED)
+set_target_properties(bzip2 PROPERTIES IMPORTED_LOCATION /usr/lib/x86_64-linux-gnu/libbz2.so)
+
+add_library(rocksdb STATIC IMPORTED)
+set_target_properties(rocksdb PROPERTIES IMPORTED_LOCATION "/usr/local/lib/librocksdb.a" INTERFACE_LINK_LIBRARIES "/usr/lib/x86_64-linux-gnu/libbz2.so;/usr/lib/x86_64-linux-gnu/libz.so;/usr/lib/libsnappy.so")
 
 add_library(log4cplus SHARED IMPORTED)
 set_target_properties(log4cplus PROPERTIES IMPORTED_LOCATION /usr/local/lib/liblog4cplus-1.2.so.5.1.4)
@@ -38,6 +42,7 @@ set_target_properties(jansson PROPERTIES IMPORTED_LOCATION /usr/local/lib/libjan
 
 add_library(jwt SHARED IMPORTED)
 set_target_properties(jwt PROPERTIES IMPORTED_LOCATION /usr/local/lib/libjwt.so)
+
 
 
 add_library(webserver ${WEBSERVER_SRC})
@@ -54,7 +59,7 @@ target_link_libraries(model json)
 # add the executable
 add_executable(AppServer ../src/restful_server.cpp)
 target_compile_features(AppServer PRIVATE cxx_range_for)
-target_link_libraries(AppServer ${CMAKE_THREAD_LIBS_INIT} ${ZLIB_LIBRARIES} ${BZIP2_LIBRARIES} rt snappy rocksdb log4cplus jansson jwt webserver controller dao service utils  json model)
+target_link_libraries(AppServer ${CMAKE_THREAD_LIBS_INIT} rt zlib snappy bzip2 rocksdb log4cplus jansson jwt webserver controller dao service utils  json model)
 
 
 
