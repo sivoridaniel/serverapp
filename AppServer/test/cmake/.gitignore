@@ -5,7 +5,6 @@ CMakeCache.txt
 CTestTestfile.cmake
 Makefile
 CMakeFiles/*.*
-internal_utils.cmake
 Testing/*.*
 cmake_install.cmake
 libgtest.a
