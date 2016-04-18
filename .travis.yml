@@ -48,7 +48,6 @@ script:
 - sudo cmake .
 - sudo cmake -Dgtest_build_test=ON
 - sudo make
-- cd ../../AppServer
-- cd cmake
+- cd ../../cmake
 - sudo cmake .
 - sudo make
