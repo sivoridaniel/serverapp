@@ -1,0 +1,11 @@
+#ignore
+
+libgtest_main.a
+CMakeCache.txt
+CTestTestfile.cmake
+Makefile
+CMakeFiles/*.*
+internal_utils.cmake
+Testing/*.*
+cmake_install.cmake
+libgtest.a
