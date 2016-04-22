@@ -58,6 +58,6 @@ script:
 - cd ../AppServer/test
 - sudo cmake .
 - sudo make
-- cd ../../cmake
+- cd ../cmake
 - sudo cmake .
 - sudo make
