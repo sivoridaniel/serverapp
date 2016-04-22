@@ -1,1 +1,0 @@
-/usr/bin/c++      CMakeFiles/authenticationctrltest.dir/MockAuthenticationController.cpp.o  -o authenticationctrltest /googlemock/googlemock/libgmock.a /googlemock/googlemock/libgmock_main.a -ljwt -lpthread 

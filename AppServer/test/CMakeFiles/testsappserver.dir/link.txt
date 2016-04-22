@@ -1,1 +1,0 @@
-/usr/bin/c++      CMakeFiles/testsappserver.dir/main.cpp.o  -o testsappserver /googlemock/googlemock/libgmock.a /googlemock/googlemock/libgmock_main.a -lpthread 
