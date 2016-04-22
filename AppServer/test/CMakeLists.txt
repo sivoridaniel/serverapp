@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.2.2)
 project (test)
 
 set(GTEST_DIR ../../googletest)
