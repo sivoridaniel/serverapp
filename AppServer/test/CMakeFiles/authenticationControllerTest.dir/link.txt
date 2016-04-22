@@ -1,0 +1,1 @@
+/usr/bin/c++      CMakeFiles/authenticationControllerTest.dir/AuthenticationControllerTest.cpp.o  -o authenticationControllerTest -l../cmake/libcontroller -l../../googletest/googlemock/gtest/libgtest -l../../googletest/googlemock/libgmock 

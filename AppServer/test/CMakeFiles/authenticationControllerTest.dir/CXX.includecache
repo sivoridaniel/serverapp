@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.h
+string
+-
+
+/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/test/AuthenticationControllerTest.cpp
+limits
+-
+gtest/gtest.h
+/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/test/gtest/gtest.h
+../src/controller/AuthenticationController.h
+/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.h
+

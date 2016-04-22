@@ -1,0 +1,2 @@
+/usr/bin/ar qc libmocks.a  CMakeFiles/mocks.dir/mocks/MockAuthenticationController.cpp.o
+/usr/bin/ranlib libmocks.a

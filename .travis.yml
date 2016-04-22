@@ -43,6 +43,16 @@ before_script:
 - sudo ./configure
 - sudo make
 - sudo make install
+- cd ../../../googletest/googlemock
+- autoreconf -i
+- sudo ./configure
+- cd ../googletest
+- autoreconf -i
+- sudo ./configure
+- cd ..
+- sudo make
+- sudo make install
+
 script:
 - cd ../../AppServer/test/cmake
 - sudo cmake .

@@ -5,21 +5,21 @@
  *      Author: pablo
  */
 
-#include "AuthenticationController.h"
+#include "IAuthenticationController.h"
 
-AuthenticationController::AuthenticationController() {
+class AuthenticationController: public IAuthenticationController{
+
+AuthenticationController() {
 	// TODO Auto-generated constructor stub
 
 }
 
-bool AuthenticationController::isRegisterUser(string username, string password){
-	if(username.compare("psivori")==0 && password.compare("1234")==0){
-		return true;
-	}
-	return false;
+virtual bool isRegisterUser(string username, string password){
+	return true;
 }
 
-AuthenticationController::~AuthenticationController() {
+virtual ~AuthenticationController() {
 	// TODO Auto-generated destructor stub
 }
 
+};
