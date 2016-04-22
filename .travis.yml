@@ -25,25 +25,25 @@ before_script:
 - sudo chmod -R 777 json-web-token
 - sudo chmod -R 777 googletest
 - cd log4cplus-1.2.0
-#- sudo ./configure
-#- sudo make
-#- sudo make check
-#- sudo make install
-#- sudo ldconfig
+- sudo ./configure
+- sudo make
+- sudo make check
+- sudo make install
+- sudo ldconfig
 - cd ../rocksdb-4.4
-#- sudo make static_lib
-#- sudo make install
+- sudo make static_lib
+- sudo make install
 - cd ../json-web-token/jansson/
-#- autoreconf -i
-#- sudo ./configure
-#- sudo make
-#- sudo make install
-#- sudo make check
+- autoreconf -i
+- sudo ./configure
+- sudo make
+- sudo make install
+- sudo make check
 - cd ../libjwt
-#- sudo autoreconf -i
-#- sudo ./configure
-#- sudo make
-#- sudo make install
+- sudo autoreconf -i
+- sudo ./configure
+- sudo make
+- sudo make install
 - cd ../../googletest/googlemock
 - autoreconf -i
 - sudo ./configure
@@ -55,9 +55,8 @@ before_script:
 - sudo make install
 
 script:
-- cd ../../AppServer/test/cmake
+- cd ../AppServer/test/cmake
 - sudo cmake .
-- sudo cmake -Dgtest_build_test=ON
 - sudo make
 - cd ../../cmake
 - sudo cmake .
