@@ -27,13 +27,13 @@ include_directories(${GTEST_INCLUDE_DIRS})
 include_directories(${GMOCK_INCLUDE_DIRS})    
 
 add_library(zlib SHARED IMPORTED)
-set_target_properties(zlib PROPERTIES IMPORTED_LOCATION /usr/lib/libz.so)
+set_target_properties(zlib PROPERTIES IMPORTED_LOCATION /usr/lib/x86_64-linux-gnu/libz.so)
 
 add_library(bzip2 SHARED IMPORTED)
-set_target_properties(bzip2 PROPERTIES IMPORTED_LOCATION /usr/lib/libbz2.so)
+set_target_properties(bzip2 PROPERTIES IMPORTED_LOCATION /usr/lib/x86_64-linux-gnu/libbz2.so)
 
 add_library(rocksdb STATIC IMPORTED)
-set_target_properties(rocksdb PROPERTIES IMPORTED_LOCATION "/usr/local/lib/librocksdb.a" INTERFACE_LINK_LIBRARIES "/usr/lib/libbz2.so;/usr/lib/libz.so;/usr/lib/libsnappy.so")
+set_target_properties(rocksdb PROPERTIES IMPORTED_LOCATION "/usr/local/lib/librocksdb.a" INTERFACE_LINK_LIBRARIES "/usr/lib/x86_64-linux-gnu/libbz2.so;/usr/lib/x86_64-linux-gnu/libz.so;/usr/lib/libsnappy.so")
 
 add_library(log4cplus SHARED IMPORTED)
 set_target_properties(log4cplus PROPERTIES IMPORTED_LOCATION /usr/local/lib/liblog4cplus-1.2.so.5.1.4)
