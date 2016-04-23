@@ -24,7 +24,8 @@ before_script:
 - sudo chmod -R 777 log4cplus-1.2.0
 - sudo chmod -R 777 json-web-token
 - sudo chmod -R 777 googletest
-- locate libz.so
+- sudo updatedb
+- sudo locate libz.so
 #- cd log4cplus-1.2.0
 #- sudo ./configure
 #- sudo make
