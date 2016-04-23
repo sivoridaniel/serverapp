@@ -24,40 +24,41 @@ before_script:
 - sudo chmod -R 777 log4cplus-1.2.0
 - sudo chmod -R 777 json-web-token
 - sudo chmod -R 777 googletest
-- cd log4cplus-1.2.0
-- sudo ./configure
-- sudo make
-- sudo make check
-- sudo make install
-- sudo ldconfig
-- cd ../rocksdb-4.4
-- sudo make static_lib
-- sudo make install
-- cd ../json-web-token/jansson/
-- autoreconf -i
-- sudo ./configure
-- sudo make
-- sudo make install
-- sudo make check
-- cd ../libjwt
-- sudo autoreconf -i
-- sudo ./configure
-- sudo make
-- sudo make install
-- cd ../../googletest/googlemock
-- autoreconf -i
-- sudo ./configure
-- cd ../googletest
-- autoreconf -i
-- sudo ./configure
-- cd ..
-- sudo cmake .
-- sudo make install
+- locate libz.so
+#- cd log4cplus-1.2.0
+#- sudo ./configure
+#- sudo make
+#- sudo make check
+#- sudo make install
+#- sudo ldconfig
+#- cd ../rocksdb-4.4
+#- sudo make static_lib
+#- sudo make install
+#- cd ../json-web-token/jansson/
+#- autoreconf -i
+#- sudo ./configure
+#- sudo make
+#- sudo make install
+#- sudo make check
+#- cd ../libjwt
+#- sudo autoreconf -i
+#- sudo ./configure
+#- sudo make
+#- sudo make install
+#- cd ../../googletest/googlemock
+#- autoreconf -i
+#- sudo ./configure
+#- cd ../googletest
+#- autoreconf -i
+#- sudo ./configure
+#- cd ..
+#- sudo cmake .
+#- sudo make install
 
 script:
-- cd ../AppServer/test
-- sudo cmake .
-- sudo make
-- cd ../cmake
-- sudo cmake .
-- sudo make
+#- cd ../AppServer/test
+#- sudo cmake .
+#- sudo make
+#- cd ../cmake
+#- sudo cmake .
+#- sudo make
