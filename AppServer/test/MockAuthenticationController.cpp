@@ -6,87 +6,70 @@
  */
 
 #include "gmock/gmock.h"
-#include "../src/controller/IAuthenticationController.h"
-#include "jwt.h"
+#include "../src/utils/JwToken.h"
 #include <string>
 #include <ctime>
+#include <log4cplus/logger.h>
+#include <log4cplus/loggingmacros.h>
+#include <log4cplus/configurator.h>
 
 using namespace std;
 using ::testing::AtLeast;
 using ::testing::Return;
 
-class MockAuthenticationController : public IAuthenticationController {
-public:
-	MOCK_METHOD2(isRegisterUser,bool(string username,string password));
-};
+//class MockAuthenticationController :
+
+//class MockAuthenticationController : public IAuthenticationController {
+//public:
+//	MOCK_METHOD2(login,string(string username,string password));
+//};
 
 
-TEST(AuthenticatateTest, isRegisterUser) {
-  MockAuthenticationController mockAuthCtrl;
-  EXPECT_CALL(mockAuthCtrl, isRegisterUser("psivori","1234")).Times(AtLeast(1)).WillOnce(Return(true));
-  EXPECT_TRUE(mockAuthCtrl.isRegisterUser("psivori","1234"));
-}
+//TEST(AuthenticatateTest, isRegisterUser) {
+//  MockAuthenticationController mockAuthCtrl;
+//  EXPECT_CALL(mockAuthCtrl, login("psivori","1234")).Times(AtLeast(1)).WillOnce(Return(NULL));
+//  EXPECT_TRUE(mockAuthCtrl.login("psivori","1234"));
+//}
 
-TEST(AuthorizationTokenTest, generatingToken){
-	  jwt *jwt = NULL;
-	  unsigned char key256[32] = "012345678901234567890123456789X"; //Key Data 32 bytes for algorithm
-	  int ret = 0;
-	  char *out;
-	  time_t timestamp = time(NULL);
-	  stringstream timestamp_aux_str;
-	  timestamp_aux_str << timestamp;
-	  const char* timestamp_str = timestamp_aux_str.str().c_str();
+/*
+ * Correr con valgrind: valgrind --leak-check=full -v ./authenticationctrltest
+ */
+TEST(JwTokenTest, generatingToken){
 
-	  ret = jwt_new(&jwt);
-	  EXPECT_TRUE(ret == 0); //Si es exitoso es 0 return val.
+	  JwToken* jwToken=new JwToken();
+	  string token = "";
 
-	  ret = jwt_set_alg(jwt, JWT_ALG_HS256, key256, sizeof(key256)); //Header: typ: jwt, alg: HS256
-	  EXPECT_TRUE(ret == 0);										 //Si es exitoso es 0 return val.
+	  EXPECT_NO_THROW({token=jwToken->generarToken("psivori");});
 
-	  ret = jwt_add_grant(jwt, "iss", "index2.html/match/newmatches"); //Payload -> "iss": "uri+controller"
-	  EXPECT_TRUE(ret == 0);										   //Si es exitoso es 0 return val.
+	  cout<<token<<endl;
 
-	  ret = jwt_add_grant(jwt, "username", "psivori"); //Payload -> "username":"xxxx"
-	  EXPECT_TRUE(ret == 0);					       //Si es exitoso es 0 return val.
-
-	  ret = jwt_add_grant(jwt, "timestamp", timestamp_str); //Payload -> "timestamp":"long int"
-	  EXPECT_TRUE(ret == 0);					       //Si es exitoso es 0 return val.
-
-	  out = jwt_encode_str(jwt);
-	  EXPECT_TRUE(out != NULL); //Si es exitoso debe devolver distinto de NULL.
-
-	  cout<<timestamp_str<<endl;
-	  cout<<out<<endl;
-
-	  free(out);
-	  jwt_free(jwt);
+	  delete jwToken;
 }
 
 TEST(AuthorizationTokenTest, isValidToken){
-	  jwt *jwt = NULL;
-	  unsigned char key256[32] = "012345678901234567890123456789X"; //Key Data 32 bytes for algorithm
-	  int ret = 0;
 
-	  time_t timestamp = time(NULL);
-	  time_t timestampToken = 1461215628;
-	  stringstream timestamp_aux_str;
-	  timestamp_aux_str << timestampToken;
-	  string timestamp_str = timestamp_aux_str.str().c_str();
+	JwToken* jwToken=new JwToken();
+	string token="";
+	bool isValidToken = false;
 
-	  const char token[] = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9." //HEADER
-			  	  	  	   "eyJpc3MiOiJpbmRleDIuaHRtbC9tYXRjaC9uZXdtYXRjaGVzIiwidGltZXN0YW1wI" //PAYLOAD
-			               "joiMTQ2MTIxNDE3NCIsInVzZXJuYW1lIjoicHNpdm9yaSJ9." //PAYLOAD
-			               "0-fhNKapRuAlblVhxoePAblsxPlutBLXm-3-q84RfcA"; //Signature
+	EXPECT_NO_THROW({token = jwToken->generarToken("psivori");});
 
-	  ret = jwt_decode(&jwt, token, key256, sizeof(key256));
-	  EXPECT_TRUE(ret == 0); //Si es exitoso es 0 return val.
-	  EXPECT_TRUE(timestamp_str.compare(jwt_get_grant(jwt,"timestamp"))==0); //Si es el timestamp esperado
-	  cout<<(timestamp-timestampToken)/100<<endl; //Me da los minutos de diferencia. Supongo renovar token cada 1 minuto.
+	if(token.size()!=0)
+	   isValidToken=jwToken->isTokenValid(token);
 
-	  jwt_free(jwt);
+	delete jwToken;
+
 }
 
 int main(int argc, char* argv[]){
-	::testing::InitGoogleMock(&argc, argv);
+	::testing::InitGoogleTest(&argc, argv);
+
+	initialize();
+	BasicConfigurator config;
+	config.configure();
+
+	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("main"));
+	LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Iniciando Tests"));
+
 	return RUN_ALL_TESTS();
 }

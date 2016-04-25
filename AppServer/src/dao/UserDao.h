@@ -1,23 +1,25 @@
 /*
  * UserDao.h
  *
- *  Created on: Mar 23, 2016
- *      Author: agustin
+ *  Created on: 24 de abr. de 2016
+ *      Author: pablo
  */
+
+#include "IUserDao.h"
+#include <string>
 
 #ifndef USERDAO_H_
 #define USERDAO_H_
-#include "../model/UserProfile.h"
-#include "GenericDao.h"
 
-class UserDao : public GenericDao{
+class UserDao: public IUserDao{
 
 public:
 	UserDao(){};
-	virtual ~UserDao(){};
+	void merge(Entity* e) throw(InvalidEntityException);
 	Entity* get(std::string id) throw(EntityNotFoundException);
-	void put(Entity* user) throw(InvalidEntityException);
-
+	void put(Entity* entity) throw(InvalidEntityException);
+	virtual ~UserDao(){};
 };
 
-#endif /* USERDAO_H_ */
+
+#endif /* SRC_DAO_USERDAO_H_ */

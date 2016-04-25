@@ -5,21 +5,42 @@
  *      Author: pablo
  */
 
-#include "IAuthenticationController.h"
+#include "AuthenticationController.h"
 
-class AuthenticationController: public IAuthenticationController{
 
-AuthenticationController() {
-	// TODO Auto-generated constructor stub
-
+AuthenticationController::AuthenticationController() {
+	this->authenticationService = new AuthenticationService();
+	this->abmService = new AbmUserService();
+	this->jwToken = new JwToken();
 }
 
-virtual bool isRegisterUser(string username, string password){
-	return true;
+string AuthenticationController::login(string username, string password){
+	string msg_response = NULL;
+	UserProfile* userProfile = NULL;
+	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AuthenticationController"));
+
+	try{
+		userProfile = this->authenticationService->getUserLogin(username,password);
+
+		if(userProfile != NULL){ //Si se pudo loguear, genera el token y modifica el usuario para guardarlo
+			string token = jwToken->generarToken(username);
+			userProfile->setToken(token);
+			abmService->modifyUser(userProfile);
+			msg_response = userProfile->toJson();
+		}
+
+	}catch(exception & e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+		msg_response = "{ \"result\": \"failed\" }";
+	}
+
+
+
+	return msg_response;
 }
 
-virtual ~AuthenticationController() {
-	// TODO Auto-generated destructor stub
+AuthenticationController::~AuthenticationController() {
+	delete this->authenticationService;
+	delete this->abmService;
+	delete this->jwToken;
 }
-
-};

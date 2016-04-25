@@ -8,7 +8,6 @@
 #ifndef SRC_CONTROLLER_ABMUSERCONTROLLER_H_
 #define SRC_CONTROLLER_ABMUSERCONTROLLER_H_
 
-#include "../model/UserLogin.h"
 #include "../service/AbmUserService.h"
 #include "AbstractController.h"
 #include "../webserver/mongoose.h"

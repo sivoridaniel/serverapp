@@ -13,6 +13,7 @@
 #include "rocksdb/db.h"
 #include "../exception/EntityNotFoundException.h"
 #include "../exception/WriteDbException.h"
+#include "../exception/MergeDbException.h"
 
 using namespace std;
 
@@ -29,6 +30,7 @@ public:
 	}
 
 	static void put(string id, string json, int columnFamily) throw(WriteDbException);
+	static void merge(string id, string json, int columnFamily) throw(MergeDbException);
 	static string get(string id, int columnFamily) throw(EntityNotFoundException);
 };
 

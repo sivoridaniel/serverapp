@@ -15,6 +15,7 @@ public:
 	virtual ~GenericDao(){}
 	virtual Entity* get(std::string id) throw(EntityNotFoundException)=0;
 	virtual void put(Entity* entity) throw(InvalidEntityException)=0;
+
 };
 
 #endif /* GENERICDAO_H_ */

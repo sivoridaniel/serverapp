@@ -9,15 +9,20 @@
 #define SRC_SERVICE_ABMUSERSERVICE_H_
 
 #include "../dao/UserDao.h"
+#include <log4cplus/logger.h>
+#include <log4cplus/loggingmacros.h>
 #include <string>
+
 using namespace std;
+using namespace log4cplus;
 
 class AbmUserService {
 private:
-	UserDao* userDao;
+	IUserDao* userDao;
 public:
 	AbmUserService();
-	string createNewUser(string name,string password,string email);
+	string createNewUser(string name,string password,string token,string email);
+	void modifyUser(UserProfile* userProfile)throw (MergeDbException);
 	virtual ~AbmUserService();
 };
 

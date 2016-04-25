@@ -22,6 +22,7 @@ UserProfile::UserProfile(std::string json) {
 	}
 	this->name = root.get("name", "").asString();
 	this->password = root.get("password", "").asString();
+	this->token = root.get("token", "").asString();
 	this->email = root.get("email", "").asString();
 	this->location = new Location(0,0);
 }
@@ -29,6 +30,7 @@ UserProfile::UserProfile(std::string json) {
 UserProfile::~UserProfile() {
 	this->name = "";
 	this->password = "";
+	this->token = "";
 	for (std::list< Interest* >::iterator it=interests.begin(); it!=interests.end(); ++it){
 		Interest* interest = *it;
 		delete interest;
@@ -52,7 +54,7 @@ std::string UserProfile::toJson(){
 	root["id"] = this->id;
 	root["name"] = this->name;
 	root["alias"] = this->alias;
-	root["password"] = this->password;
+	root["token"] = this->token;
 	root["email"] = this->email;
 	root["photo_profile"] = this->photoProfile;
 	root["interests"] = vecInterests;

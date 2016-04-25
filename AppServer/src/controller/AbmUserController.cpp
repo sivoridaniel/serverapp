@@ -43,7 +43,7 @@ string AbmUserController::event_handler_new_user(struct mg_connection *nc, struc
 	string sfirstName(firstName);
 	string semail(email);
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Guardando en db usuario " << sname));
-	string result = abmService->createNewUser(sname,spassword, semail);
+	string result = abmService->createNewUser(sname,spassword,"", semail);
 
 	/* Send result back as a JSON object */
 	mg_printf_http_chunk(nc, "{ \"result\": \"%s\" }", result.c_str());

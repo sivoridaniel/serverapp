@@ -17,6 +17,7 @@ using namespace std;
 class AbstractController {
 public:
 	virtual string connect(struct mg_connection *nc, struct http_message *hm)=0;
+	virtual ~AbstractController(){};
 };
 
 #endif /* SRC_CONTROLLER_ABSTRACTCONTROLLER_H_ */

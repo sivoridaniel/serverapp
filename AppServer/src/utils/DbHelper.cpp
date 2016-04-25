@@ -50,6 +50,14 @@ void DbHelper::put(string id, string json, int columnFamily)
 	}
 }
 
+void DbHelper::merge(string id, string json, int columnFamily) throw(MergeDbException){
+	rocksdb::Status s = DbHelper::getDb()->Merge(rocksdb::WriteOptions(),
+						handles[columnFamily],id,json);
+	if (!s.ok()){
+		throw MergeDbException();
+	}
+}
+
 string DbHelper::get(string id, int columnFamily)
 		throw (EntityNotFoundException) {
 	string json;

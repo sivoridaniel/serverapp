@@ -23,6 +23,7 @@ private:
 	std::string name;
 	std::string alias;
 	std::string password;
+	std::string token;
 	std::string email;
 	std::string photoProfile;
 	std::list<Interest*> interests;
@@ -35,7 +36,6 @@ public:
 	virtual ~UserProfile();
 
 	std::string toJson();
-
 
 	const std::string& getName() const {
 		return name;
@@ -51,6 +51,14 @@ public:
 
 	void setPassword(const std::string& password) {
 		this->password = password;
+	}
+
+	const std::string& getToken() const{
+		return token;
+	}
+
+	void setToken(const std::string& token){
+		this->token = token;
 	}
 
 	const std::string& getEmail() const {
