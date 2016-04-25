@@ -23,7 +23,7 @@ string JwToken::generarToken(string username)throw (TokenException){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("JwToken"));
 	jwt *jwt = NULL;
 	unsigned char key256[32] = "012345678901234567890123456789X";//(unsigned char*)KEY_DATA(); //Key Data 32 bytes for algorithm
-	char* seconds_expire = "60";
+	string seconds_expire = "60";
 	char *out;
 	string ret_token="";
 	time_t timestamp = time(NULL);
@@ -39,7 +39,7 @@ string JwToken::generarToken(string username)throw (TokenException){
 			                MSG_ERROR_PAYLOAD(),logger); //Payload -> "username":"xxxx"
 	evaluateOperation(jwt_add_grant(jwt, "timestamp", timestamp_str),(char *)"",
 			                MSG_ERROR_PAYLOAD(),logger); //Payload -> "timestamp":"long int"
-	evaluateOperation(jwt_add_grant(jwt, "expire", seconds_expire),(char *)"",
+	evaluateOperation(jwt_add_grant(jwt, "expire", seconds_expire.c_str()),(char *)"",
 							MSG_ERROR_PAYLOAD(),logger); //Payload -> "expire": "cantidad de segundos en que expira el token"
 
 	out = jwt_encode_str(jwt);
@@ -59,14 +59,14 @@ bool JwToken::isTokenValid(string token)throw (TokenException){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("JwToken"));
 	jwt *jwt = NULL;
 	unsigned char key256[32] = "012345678901234567890123456789X";//(unsigned char*)KEY_DATA(); //Key Data 32 bytes for algorithm
-	char* seconds_expire_str = "60";
+	string seconds_expire_str = "60";
 	time_t timestamp = time(NULL);
 
 	evaluateOperation(jwt_decode(&jwt, token.c_str(), key256, sizeof(key256)),(char *)"",
 	                  MSG_ERROR_DECODE_TOKEN(),logger);
 
 	long int timestampold = atol(jwt_get_grant(jwt,"timestamp"));
-	int seconds_expire = atoi(seconds_expire_str);
+	int seconds_expire = atoi(seconds_expire_str.c_str());
 	bool isNotExpired=((timestamp - timestampold)<=seconds_expire); //Si es el timestamp no supero la cantidad de segundos para expirar
 
 	jwt_free(jwt);
