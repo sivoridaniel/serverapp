@@ -27,6 +27,7 @@ private:
 
 public:
 	AuthenticationService();
+	AuthenticationService(IUserDao * userDao);
 	UserProfile* getUserLogin(string username,string password) throw(IncorrectPasswordException, EntityNotFoundException);
 	virtual ~AuthenticationService();
 

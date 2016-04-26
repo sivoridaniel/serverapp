@@ -2,7 +2,9 @@ cmake_minimum_required (VERSION 3.2.2)
 project (AppServer C CXX)
 
 if(UNIX)
-	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++11 -DROCKSDB_PLATFORM_POSIX -DROCKSDB_LIB_IO_POSIX  -DOS_LINUX -fno-builtin-memcmp -DROCKSDB_FALLOCATE_PRESENT -DROCKSDB_MALLOC_USABLE_SIZE -march=native -pthread -lrt -lz -lsnappy -lbz2")
+	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++11 -DROCKSDB_PLATFORM_POSIX -DROCKSDB_LIB_IO_POSIX  -DOS_LINUX -fno-builtin-memcmp -DROCKSDB_FALLOCATE_PRESENT -DROCKSDB_MALLOC_USABLE_SIZE -march=native -pthread -lrt -lz -lsnappy -lbz2 -g -O0 -Wall -fprofile-arcs -ftest-coverage")
+	SET(GCOV_COMPILE_FLAGS -fprofile-arcs -ftest-coverage)
+        SET(GCOV_LINK_FLAGS -lgcov;)
 endif()
 
 file(GLOB CONTROLLER_SRC ../src/controller/*.cpp)
@@ -44,8 +46,6 @@ set_target_properties(jansson PROPERTIES IMPORTED_LOCATION /usr/local/lib/libjan
 add_library(jwt SHARED IMPORTED)
 set_target_properties(jwt PROPERTIES IMPORTED_LOCATION /usr/local/lib/libjwt.so)
 
-
-
 add_library(webserver ${WEBSERVER_SRC})
 add_library(controller ${CONTROLLER_SRC})
 add_library(utils ${UTILS_SRC})
@@ -62,6 +62,7 @@ add_executable(AppServer ../src/restful_server.cpp)
 target_compile_features(AppServer PRIVATE cxx_range_for)
 target_link_libraries(AppServer ${CMAKE_THREAD_LIBS_INIT} rt zlib snappy bzip2 rocksdb log4cplus jansson jwt webserver controller dao service utils  json model)
 
+add_custom_command(OUTPUT AppServer POST_BUILD COMMAND lcov –c –d reportCoverage.info COMMAND genhtml reportCoverage.info --output-directory reportsCoverage)
 
 
 

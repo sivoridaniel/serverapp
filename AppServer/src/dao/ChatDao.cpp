@@ -16,11 +16,11 @@ ChatDao::~ChatDao() {
 	// TODO Auto-generated destructor stub
 }
 
-Entity* ChatDao::get(std::string id) throw(EntityNotFoundException){
+Entity* ChatDao::get(std::string id) const throw(EntityNotFoundException){
 	//TODO A implementar
 	return NULL;
 
 }
-void ChatDao::put(Entity* entity) throw(InvalidEntityException){
+void ChatDao::put(Entity* entity) const throw(InvalidEntityException){
 	//TODO A implementar
 }

@@ -15,8 +15,8 @@ class ChatDao : public GenericDao{
 public:
 	ChatDao();
 	virtual ~ChatDao();
-	Entity* get(std::string id) throw(EntityNotFoundException);
-	void put(Entity* entity) throw(InvalidEntityException);
+	Entity* get(std::string id) const throw(EntityNotFoundException);
+	void put(Entity* entity) const throw(InvalidEntityException);
 };
 
 #endif /* CHATDAO_H_ */

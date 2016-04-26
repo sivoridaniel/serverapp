@@ -15,8 +15,8 @@ class MatchDao : public GenericDao{
 public:
 	MatchDao(){};
 	virtual ~MatchDao(){};
-	Entity* get(std::string id) throw(EntityNotFoundException);
-	void put(Entity* entity) throw(InvalidEntityException);
+	Entity* get(std::string id) const throw(EntityNotFoundException);
+	void put(Entity* entity) const throw(InvalidEntityException);
 };
 
 #endif /* MATCHDAO_H_ */

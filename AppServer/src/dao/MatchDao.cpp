@@ -7,7 +7,7 @@
 
 #include "MatchDao.h"
 
-Entity* MatchDao::get(std::string id) throw(EntityNotFoundException){
+Entity* MatchDao::get(std::string id) const throw(EntityNotFoundException){
 
 	std::string json;
 
@@ -18,7 +18,7 @@ Entity* MatchDao::get(std::string id) throw(EntityNotFoundException){
 	return match;
 }
 
-void MatchDao::put(Entity* e) throw(InvalidEntityException){
+void MatchDao::put(Entity* e) const throw(InvalidEntityException){
 
 	Match* match = dynamic_cast<Match*>(e);
 	if (match==0){

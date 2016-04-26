@@ -13,8 +13,8 @@ class GenericDao{
 public:
 	GenericDao(){}
 	virtual ~GenericDao(){}
-	virtual Entity* get(std::string id) throw(EntityNotFoundException)=0;
-	virtual void put(Entity* entity) throw(InvalidEntityException)=0;
+	virtual Entity* get(std::string id) const throw(EntityNotFoundException)=0;
+	virtual void put(Entity* entity) const throw(InvalidEntityException)=0;
 
 };
 

@@ -14,7 +14,7 @@ class IUserDao: public GenericDao{
 
 public:
 	virtual ~IUserDao(){};
-	virtual void merge(Entity* e) throw(InvalidEntityException)=0;
+	virtual void merge(Entity* e) const throw(InvalidEntityException)=0;
 
 };
 

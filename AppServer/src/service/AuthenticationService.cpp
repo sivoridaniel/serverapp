@@ -11,6 +11,10 @@ AuthenticationService::AuthenticationService() {
 	this->userDao = new UserDao();
 }
 
+AuthenticationService::AuthenticationService(IUserDao* userDao){
+	this->userDao = userDao;
+}
+
 UserProfile* AuthenticationService::getUserLogin(string username, string password)throw(IncorrectPasswordException, EntityNotFoundException){
 
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AuthenticationService"));
@@ -20,7 +24,7 @@ UserProfile* AuthenticationService::getUserLogin(string username, string passwor
 
 		userProfile=(UserProfile*)userDao->get(username);
 
-		if(!password.compare(userProfile->getPassword())){
+		if(password.compare(userProfile->getPassword())!=0){
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Usuario "<<username<<" con contraseña incorrecta."));
 			throw IncorrectPasswordException();
 		}
@@ -33,6 +37,7 @@ UserProfile* AuthenticationService::getUserLogin(string username, string passwor
 }
 
 AuthenticationService::~AuthenticationService() {
-	delete userDao;
+	if(dynamic_cast<UserDao*>(userDao)) //Por si estoy haciendo el Mock del Dao no debo liberar
+		delete userDao;
 }
 

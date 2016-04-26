@@ -7,7 +7,7 @@
 
 #include "UserDao.h"
 
-Entity* UserDao::get(std::string id) throw(EntityNotFoundException){
+Entity* UserDao::get(std::string id) const throw(EntityNotFoundException){
 
 	std::string json;
 
@@ -18,7 +18,7 @@ Entity* UserDao::get(std::string id) throw(EntityNotFoundException){
 	return usr;
 }
 
-void UserDao::merge(Entity* e) throw(InvalidEntityException){
+void UserDao::merge(Entity* e) const throw(InvalidEntityException){
 
 	UserProfile* user = dynamic_cast<UserProfile*>(e);
 
@@ -33,7 +33,7 @@ void UserDao::merge(Entity* e) throw(InvalidEntityException){
 
 }
 
-void UserDao::put(Entity* e) throw(InvalidEntityException){
+void UserDao::put(Entity* e) const throw(InvalidEntityException){
 
 	UserProfile* user = dynamic_cast<UserProfile*>(e);
 	if (user==0){
