@@ -57,7 +57,8 @@ before_script:
 - cd ..
 - sudo cmake .
 - sudo make install
-- cd ../../doxygen
+- cd ..
+- cd ../doxygen
 - sudo mkdir build
 - cd build
 - sudo cmake -G "Unix Makefiles" ..
