@@ -20,11 +20,14 @@ before_install:
 - sudo apt-get install -y libbz2-dev
 - sudo apt-get install -y -qq check libssl-dev
 - sudo apt-get install -y lcov
+- sudo apt-get install -y flex
+- sudo apt-get install -y bison
 before_script:
 - sudo chmod -R 777 rocksdb-4.4
 - sudo chmod -R 777 log4cplus-1.2.0
 - sudo chmod -R 777 json-web-token
 - sudo chmod -R 777 googletest
+- sudo chmod -R 777 doxygen
 - cd log4cplus-1.2.0
 - sudo ./configure
 - sudo make
@@ -53,6 +56,12 @@ before_script:
 - sudo ./configure
 - cd ..
 - sudo cmake .
+- sudo make install
+- cd ../../doxygen
+- sudo mkdir build
+- cd build
+- sudo cmake -G "Unix Makefiles" ..
+- sudo make
 - sudo make install
 
 script:
