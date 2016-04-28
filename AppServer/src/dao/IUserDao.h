@@ -9,12 +9,13 @@
 #define IUSERDAO_H_
 #include "../model/UserProfile.h"
 #include "GenericDao.h"
-
+/**
+ * Clase abstracta para poder mockear UserDao con gmock.
+ */
 class IUserDao: public GenericDao{
 
 public:
 	virtual ~IUserDao(){};
-	virtual void merge(Entity* e) const throw(InvalidEntityException)=0;
 
 };
 

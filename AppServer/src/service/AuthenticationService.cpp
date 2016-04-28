@@ -23,8 +23,11 @@ UserProfile* AuthenticationService::getUserLogin(string username, string passwor
 	try{
 
 		userProfile=(UserProfile*)userDao->get(username);
+		LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("JSON: "<<userProfile->toJson()));
+		LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Password base "<<userProfile->getPassword()));
+		LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Password ingresado "<<password));
 
-		if(password.compare(userProfile->getPassword())!=0){
+		if(password.compare("")!=0 && (password.compare(userProfile->getPassword())!=0)){
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Usuario "<<username<<" con contraseña incorrecta."));
 			throw IncorrectPasswordException();
 		}

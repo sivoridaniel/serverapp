@@ -15,7 +15,6 @@ class UserDao: public IUserDao{
 
 public:
 	UserDao(){};
-	void merge(Entity* e) const throw(InvalidEntityException);
 	Entity* get(std::string id) const throw(EntityNotFoundException);
 	void put(Entity* entity) const throw(InvalidEntityException);
 	virtual ~UserDao(){};

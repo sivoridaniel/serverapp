@@ -18,9 +18,20 @@
 using namespace std;
 using namespace log4cplus;
 
+/**
+ * Clase que maneja las peticiones del usuario por api rest
+ * de creación de nuevo usuario, y obtención de un usuario en particular.
+ */
 class AbmUserController: public AbstractController{
 public:
 	AbmUserController();
+	/**
+	 * Se maneja la uri de consulta o creación de nuevo usuario.
+	 *
+	 * @param mg_connection*
+	 * @param http_message*
+	 * @result string json result
+	 */
 	string connect(struct mg_connection *nc, struct http_message *hm);
 	virtual ~AbmUserController();
 private:

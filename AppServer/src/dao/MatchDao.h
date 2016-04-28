@@ -11,6 +11,10 @@
 #include "../model/Match.h"
 #include "GenericDao.h"
 
+/**
+ * Clase para realizar las operaciones en la base con respecto a la entity
+ * Match.
+ */
 class MatchDao : public GenericDao{
 public:
 	MatchDao(){};

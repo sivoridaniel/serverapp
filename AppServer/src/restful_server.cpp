@@ -49,6 +49,7 @@ int main(int argc, char *argv[]) {
   config.configure();
 
   Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("main"));
+
   LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Mongoose webserver 6.3"));
   LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Iniciando Base de Datos RocksDB 4.4"));
   string dbpath = "/tmp/testdb";

@@ -27,11 +27,6 @@ public:
 	{
 	    return MockFunctionGet(id);
 	}
-	MOCK_CONST_METHOD1(MockFunctionMerge, void(Entity* e) );
-	virtual void merge(Entity *e) const throw(InvalidEntityException)
-		{
-			MockFunctionMerge(e);
-		}
 	MOCK_CONST_METHOD1( MockFunctionPut, void(Entity* e) );
 	virtual void put(Entity * e) const throw(InvalidEntityException)
 	{

@@ -18,6 +18,9 @@
 using namespace std;
 using namespace log4cplus;
 
+/**
+ * Matcheo de usuario por intereses.
+ */
 class MatchService {
 private:
 	MatchDao* matchDao;
@@ -25,9 +28,40 @@ private:
 public:
 	MatchService();
 	virtual ~MatchService();
-
+	/**
+	 * Agrega a la lista de likes el usuario por el cual se tiene interes.
+	 *
+	 * En caso de no poder actualizarse la lista de likes se disparará la excepcion
+	 * IllegalStateException o EntityNotFoundException.
+	 *
+	 *
+	 * @param string idUser
+	 * @param string idUserAccepted
+	 * @throw IllegalStateException, EntityNotFoundException
+	 * @return bool Si se pudo agregar el usuario a la lista de likes
+	 */
 	bool addToYesList(string idUser, string idUserAccepted) throw(IllegalStateException, EntityNotFoundException);
+	/**
+	 * En caso de que el usuario rechace a alguno de la lista, se lo agregará
+	 * a la lista de rechazados.
+	 *
+	 * En caso de no poder actualizarse la lista de rechazados se disparará la excepcion
+	 * IllegalStateException o EntityNotFoundException.
+	 *
+	 * @param string idUser
+	 * @param string idUserRejected
+	 * @throw IllegalStateException, EntityNotFoundException
+	 */
 	void addToNoList(string idUser, string idUserRejected) throw(IllegalStateException, EntityNotFoundException);
+	/**
+	 * Devuelve la lista de likes de un usuario.
+	 * En caso de no poder realizar la operación disparará la excepción EntityNotFoundException.
+	 *
+	 * @param idUser
+	 * @throw EntityNotFoundException
+	 * @return list<string>
+	 *
+	 */
 	list<string> getNewMatches(string idUser) throw (EntityNotFoundException);
 	void confirmUser(string idUser, string idUserConfirmed) throw(IllegalStateException, EntityNotFoundException);
 };

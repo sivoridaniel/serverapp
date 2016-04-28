@@ -18,7 +18,9 @@
 
 using namespace std;
 using namespace log4cplus;
-
+/**
+ * Para manejar la api rest de matching
+ */
 class MatchController : public AbstractController{
 
 private:
@@ -26,7 +28,14 @@ private:
 public:
 	MatchController();
 	virtual ~MatchController();
-
+	/**
+	 * Se pasa los parametros del mensaje (uri de llamada para realizar la petición deseada
+	 * por el usuario mediante api rest) junto con la conexion de mongoose.
+	 *
+	 * @param mg_connection*
+	 * @param http_message*
+	 * @result string json result
+	 */
 	string connect(struct mg_connection *nc, struct http_message *hm);
 
 private:

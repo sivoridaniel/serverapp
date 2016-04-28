@@ -59,6 +59,7 @@ std::string UserProfile::toJson(){
 	root["photo_profile"] = this->photoProfile;
 	root["interests"] = vecInterests;
 	root["location"] = jsonLocation;
+	root["password"] = this->password;
 	std::string json = writer.write(root);
 	return json;
 }

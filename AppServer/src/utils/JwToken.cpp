@@ -21,7 +21,7 @@ void JwToken::evaluateOperation(int intcod,char* pcharcod,string msgError,Logger
 
 string JwToken::generarToken(string username)throw (TokenException){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("JwToken"));
-	jwt *jwt = NULL;
+	jwt *jwt=NULL;
 	unsigned char key256[32] = "012345678901234567890123456789X";//(unsigned char*)KEY_DATA(); //Key Data 32 bytes for algorithm
 	string seconds_expire = "60";
 	char *out;
@@ -62,6 +62,7 @@ bool JwToken::isTokenValid(string token)throw (TokenException){
 	string seconds_expire_str = "60";
 	time_t timestamp = time(NULL);
 
+	evaluateOperation(jwt_new(&jwt),(char *)"",MSG_ERROR_NEW_JWT(),logger);
 	evaluateOperation(jwt_decode(&jwt, token.c_str(), key256, sizeof(key256)),(char *)"",
 	                  MSG_ERROR_DECODE_TOKEN(),logger);
 
@@ -72,6 +73,22 @@ bool JwToken::isTokenValid(string token)throw (TokenException){
 	jwt_free(jwt);
 
 	return isNotExpired;
+}
+
+string JwToken::getUserName(string token)throw (TokenException){
+	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("JwToken"));
+	jwt *jwt = NULL;
+	unsigned char key256[32] = "012345678901234567890123456789X";//(unsigned char*)KEY_DATA(); //Key Data 32 bytes for algorithm
+
+	evaluateOperation(jwt_new(&jwt),(char *)"",MSG_ERROR_NEW_JWT(),logger);
+	evaluateOperation(jwt_decode(&jwt, token.c_str(), key256, sizeof(key256)),(char *)"",
+					  MSG_ERROR_DECODE_USERNAME(),logger);
+
+	string username = jwt_get_grant(jwt,"username");
+
+	jwt_free(jwt);
+
+	return username;
 }
 
 JwToken::~JwToken(){

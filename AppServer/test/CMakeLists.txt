@@ -12,8 +12,6 @@ set(GTEST_DIR ../../googletest)
 
 set(CMAKE_CURRENT_SOURCE_DIR ../cmake)
 
-include(${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists.txt)
-
 include_directories(SYSTEM ${GTEST_DIR}/googletest/include ${GTEST_DIR}/googlemock/include) 
 
 enable_testing()
@@ -22,7 +20,7 @@ add_subdirectory(${GTEST_DIR} /googlemock)
 
 include_directories(SYSTEM ${GTEST_DIR}/googletest/include ${GTEST_DIR}/googlemock/include) 
 
-set(UNITTEST_SRC MockAuthenticationController.cc)
+set(UNITTEST_SRC ../test/MockAuthenticationController.cc)
 
 set(SRC_FILES ${WEBSERVER_SRC} ${CONTROLLER_SRC} ${UTILS_SRC} ${DAO_SRC} ${JSON_SRC} ${MODEL_SRC} ${SERVICE_SRC} ${UNITTEST_SRC})
 

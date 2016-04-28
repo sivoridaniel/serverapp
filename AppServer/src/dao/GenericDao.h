@@ -8,12 +8,31 @@
 #include "../utils/DbHelper.h"
 #include "../utils/ColumnFamilies.h"
 
+/**
+ * Clase abstracta padre que implementan todos los DAOS para poder realizar las operaciones
+ * en las entities correspondientes.
+ */
 class GenericDao{
 
 public:
 	GenericDao(){}
 	virtual ~GenericDao(){}
+	/**
+	 * Devuelve la entity de un usuario en particular, dada la clave de
+	 * busqueda id.
+	 *
+	 * @param string id
+	 * @throw EntityNotFoundException
+	 * @return Entity
+	 *
+	 */
 	virtual Entity* get(std::string id) const throw(EntityNotFoundException)=0;
+	/**
+	 * Persiste la entidad cuya estructura es (clave-valor).
+	 *
+	 * @param Entity
+	 * @throw InvalidEntityException
+	 */
 	virtual void put(Entity* entity) const throw(InvalidEntityException)=0;
 
 };

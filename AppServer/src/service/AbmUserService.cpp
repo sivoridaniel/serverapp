@@ -30,11 +30,11 @@ string AbmUserService::createNewUser(string name,string password,string token,st
     return result;
 }
 
-void AbmUserService::modifyUser(UserProfile* userProfile)throw (MergeDbException){
+void AbmUserService::modifyUser(UserProfile* userProfile)throw (InvalidEntityException){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserService"));
 	try{
-		this->userDao->merge(userProfile);
-	}catch(MergeDbException& m){
+		this->userDao->put(userProfile);
+	}catch(InvalidEntityException& m){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario "<<userProfile->getName()<<" con id "
 				        <<userProfile->getId()<<" no se pudo actualizar."));
 		throw m;

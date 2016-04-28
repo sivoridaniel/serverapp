@@ -14,11 +14,17 @@
 
 #include "AbmUserController.h"
 #include "MatchController.h"
+#include "AuthenticationController.h"
 #include <string>
 
 
 using namespace std;
 
+/**
+ * Factory de services.
+ * Los services se instanciaran por unica vez (patrón singleton).
+ *
+ */
 class FactoryController {
 private:
 
@@ -26,11 +32,18 @@ private:
 	/*CONTROLLERS*/
 	static AbmUserController* abmUserController;
 	static MatchController* matchController;
+	static AuthenticationController* authenticationController;
 
 	//Método que crea los controllers
 	static void createControllers();
 public:
 	FactoryController(void){};
+	/**
+	 * Se crea por unica vez la instancia de la fabrica de singletons, dado
+	 * que tambien es un singleton.
+	 *
+	 * @return FactoryController*
+	 */
 	static FactoryController* getInstance(){
 		//createControllers();
 		if(singletonFactoryCtrl == NULL){
@@ -39,6 +52,13 @@ public:
 		}
 		return singletonFactoryCtrl;
 	};
+	/**
+	 * Metodo para manejar los controllers de cada servicio.
+	 *
+	 * @param mg_connection*
+	 * @param struct http_message*
+	 * @param struct mg_serve_http_opts
+	 */
 	void connect(struct mg_connection *nc, struct http_message *hm, struct mg_serve_http_opts s_http_server_opts);
 	~FactoryController(void);
 

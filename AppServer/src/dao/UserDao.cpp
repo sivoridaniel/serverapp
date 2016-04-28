@@ -18,21 +18,6 @@ Entity* UserDao::get(std::string id) const throw(EntityNotFoundException){
 	return usr;
 }
 
-void UserDao::merge(Entity* e) const throw(InvalidEntityException){
-
-	UserProfile* user = dynamic_cast<UserProfile*>(e);
-
-	if (user==0){
-			throw InvalidEntityException();
-	}
-
-	std::string id = user->getName();
-	std::string json = user->toJson();
-
-	DbHelper::merge(id,json,USER);
-
-}
-
 void UserDao::put(Entity* e) const throw(InvalidEntityException){
 
 	UserProfile* user = dynamic_cast<UserProfile*>(e);
