@@ -63,9 +63,6 @@ before_script:
 - sudo make install
 
 script:
-- cd ../AppServer/test
+- cd ../AppServer/cmake
 - sudo cmake .
-- sudo make
-- cd ../cmake
-- sudo cmake .
-- sudo make
+- sudo make test
