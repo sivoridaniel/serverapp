@@ -66,4 +66,3 @@ script:
 - cd ../AppServer/cmake
 - sudo cmake .
 - sudo make
-- sudo make test
