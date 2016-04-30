@@ -13,3 +13,9 @@
 
 /doxygen_docs
 /doxygen.tag
+
+CMakeFiles
+CMakeCache.txt
+cmake_install.cmake
+*.a
+Makefile
