@@ -1,6 +1,6 @@
-#line 2 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/scanner.cpp"
+#line 2 "/home/agustin/git/serverapp/doxygen/generated_src/scanner.cpp"
 
-#line 4 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/scanner.cpp"
+#line 4 "/home/agustin/git/serverapp/doxygen/generated_src/scanner.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -11522,7 +11522,7 @@ static int yyread(char *buf,int max_size)
 
 
 
-#line 11526 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/scanner.cpp"
+#line 11526 "/home/agustin/git/serverapp/doxygen/generated_src/scanner.cpp"
 
 #define INITIAL 0
 #define AlignAs 1
@@ -11889,7 +11889,7 @@ YY_DECL
 #line 775 "scanner.l"
 
 
-#line 11893 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/scanner.cpp"
+#line 11893 "/home/agustin/git/serverapp/doxygen/generated_src/scanner.cpp"
 
 	while ( 1 )		/* loops until end-of-file is reached */
 		{
@@ -21042,7 +21042,7 @@ YY_RULE_SETUP
 #line 6593 "scanner.l"
 ECHO;
 	YY_BREAK
-#line 21046 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/scanner.cpp"
+#line 21046 "/home/agustin/git/serverapp/doxygen/generated_src/scanner.cpp"
 			case YY_STATE_EOF(INITIAL):
 			case YY_STATE_EOF(AlignAs):
 			case YY_STATE_EOF(AlignAsEnd):

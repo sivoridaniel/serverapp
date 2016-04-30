@@ -2,6 +2,7 @@ cmake_minimum_required (VERSION 3.2.2)
 project (AppServer C CXX)
 
 set(CMAKE_TEST ../test)
+set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/modules)
 
 if(UNIX)
 	SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=c++11 -DROCKSDB_PLATFORM_POSIX -DROCKSDB_LIB_IO_POSIX  -DOS_LINUX -fno-builtin-memcmp -DROCKSDB_FALLOCATE_PRESENT -DROCKSDB_MALLOC_USABLE_SIZE -march=native -pthread -lrt -lz -lsnappy -lbz2 -g -O0 -Wall -fprofile-arcs -ftest-coverage")
@@ -23,6 +24,7 @@ find_package(Threads REQUIRED)
 find_package(ZLIB REQUIRED)
 find_package(BZip2 REQUIRED)
 find_package(PkgConfig)
+find_package(Snappy)
 
 set(JWT_INCLUDE_DIR ../../json-web-token/libjwt/include)
 
@@ -40,7 +42,7 @@ add_library(bzip2 SHARED IMPORTED)
 set_target_properties(bzip2 PROPERTIES IMPORTED_LOCATION /usr/lib/x86_64-linux-gnu/libbz2.so)
 
 add_library(rocksdb STATIC IMPORTED)
-set_target_properties(rocksdb PROPERTIES IMPORTED_LOCATION "/usr/local/lib/librocksdb.a" INTERFACE_LINK_LIBRARIES "/usr/lib/x86_64-linux-gnu/libbz2.so;/usr/lib/x86_64-linux-gnu/libz.so;/usr/lib/libsnappy.so")
+set_target_properties(rocksdb PROPERTIES IMPORTED_LOCATION "/usr/local/lib/librocksdb.a" INTERFACE_LINK_LIBRARIES "/usr/lib/x86_64-linux-gnu/libbz2.so;/usr/lib/x86_64-linux-gnu/libz.so;${SNAPPY_LIBRARIES}")
 
 add_library(log4cplus SHARED IMPORTED)
 set_target_properties(log4cplus PROPERTIES IMPORTED_LOCATION /usr/local/lib/liblog4cplus-1.2.so.5.1.4)

@@ -43,10 +43,10 @@ RM = /usr/local/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pablo/Escritorio/workspace/taller/serverapp/doxygen
+CMAKE_SOURCE_DIR = /home/agustin/git/serverapp/doxygen
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pablo/Escritorio/workspace/taller/serverapp/doxygen
+CMAKE_BINARY_DIR = /home/agustin/git/serverapp/doxygen
 
 # Include any dependencies generated for this target.
 include src/CMakeFiles/_doxygen.dir/depend.make
@@ -57,259 +57,259 @@ include src/CMakeFiles/_doxygen.dir/progress.make
 # Include the compile flags for this target's objects.
 include src/CMakeFiles/_doxygen.dir/flags.make
 
-generated_src/lang_cfg.h: src/translator_tr.h
-generated_src/lang_cfg.h: src/translator_sv.h
-generated_src/lang_cfg.h: src/translator_si.h
-generated_src/lang_cfg.h: src/translator_kr.h
-generated_src/lang_cfg.h: src/translator_hu.h
-generated_src/lang_cfg.h: src/translator_pl.h
-generated_src/lang_cfg.h: src/translator_it.h
-generated_src/lang_cfg.h: src/translator_cz.h
-generated_src/lang_cfg.h: src/translator_sr.h
-generated_src/lang_cfg.h: src/translator_je.h
 generated_src/lang_cfg.h: src/translator_gr.h
-generated_src/lang_cfg.h: src/translator_no.h
-generated_src/lang_cfg.h: src/translator_za.h
-generated_src/lang_cfg.h: src/translator_jp.h
-generated_src/lang_cfg.h: src/translator_tw.h
-generated_src/lang_cfg.h: src/translator_hr.h
-generated_src/lang_cfg.h: src/translator_vi.h
-generated_src/lang_cfg.h: src/translator_mk.h
-generated_src/lang_cfg.h: src/translator_ua.h
-generated_src/lang_cfg.h: src/translator_fr.h
-generated_src/lang_cfg.h: src/translator_nl.h
-generated_src/lang_cfg.h: src/translator_es.h
-generated_src/lang_cfg.h: src/translator_pt.h
 generated_src/lang_cfg.h: src/translator_ca.h
-generated_src/lang_cfg.h: src/translator_fa.h
+generated_src/lang_cfg.h: src/translator_ua.h
+generated_src/lang_cfg.h: src/translator_je.h
+generated_src/lang_cfg.h: src/translator_kr.h
 generated_src/lang_cfg.h: src/translator_lv.h
-generated_src/lang_cfg.h: src/translator_id.h
-generated_src/lang_cfg.h: src/translator_en.h
+generated_src/lang_cfg.h: src/translator_za.h
+generated_src/lang_cfg.h: src/translator_mk.h
+generated_src/lang_cfg.h: src/translator_br.h
+generated_src/lang_cfg.h: src/translator_tr.h
 generated_src/lang_cfg.h: src/translator_lt.h
-generated_src/lang_cfg.h: src/translator_fi.h
-generated_src/lang_cfg.h: src/translator_ar.h
+generated_src/lang_cfg.h: src/translator_sk.h
+generated_src/lang_cfg.h: src/translator_es.h
+generated_src/lang_cfg.h: src/translator_cz.h
+generated_src/lang_cfg.h: src/translator_tw.h
 generated_src/lang_cfg.h: src/translator_ro.h
 generated_src/lang_cfg.h: src/translator_eo.h
-generated_src/lang_cfg.h: src/translator_de.h
+generated_src/lang_cfg.h: src/translator_sv.h
+generated_src/lang_cfg.h: src/translator_hr.h
+generated_src/lang_cfg.h: src/translator_fa.h
+generated_src/lang_cfg.h: src/translator_vi.h
+generated_src/lang_cfg.h: src/translator_sc.h
+generated_src/lang_cfg.h: src/translator_sr.h
+generated_src/lang_cfg.h: src/translator_ru.h
+generated_src/lang_cfg.h: src/translator_hu.h
+generated_src/lang_cfg.h: src/translator_id.h
+generated_src/lang_cfg.h: src/translator_jp.h
+generated_src/lang_cfg.h: src/translator_it.h
+generated_src/lang_cfg.h: src/translator_no.h
+generated_src/lang_cfg.h: src/translator_am.h
+generated_src/lang_cfg.h: src/translator_en.h
+generated_src/lang_cfg.h: src/translator_cn.h
 generated_src/lang_cfg.h: src/translator_ke.h
 generated_src/lang_cfg.h: src/translator_dk.h
-generated_src/lang_cfg.h: src/translator_cn.h
-generated_src/lang_cfg.h: src/translator_ru.h
-generated_src/lang_cfg.h: src/translator_sc.h
-generated_src/lang_cfg.h: src/translator_sk.h
-generated_src/lang_cfg.h: src/translator_am.h
-generated_src/lang_cfg.h: src/translator_br.h
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/lang_cfg.h"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/local/bin/cmake -P /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/cmake/lang_cfg.cmake TR SV SI KR HU PL IT CZ SR JE GR NO ZA JP TW HR VI MK UA FR NL ES PT CA FA LV ID EN LT FI AR RO EO DE KE DK CN RU SC SK AM BR 2> /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/lang_cfg.h
+generated_src/lang_cfg.h: src/translator_nl.h
+generated_src/lang_cfg.h: src/translator_ar.h
+generated_src/lang_cfg.h: src/translator_fr.h
+generated_src/lang_cfg.h: src/translator_pt.h
+generated_src/lang_cfg.h: src/translator_fi.h
+generated_src/lang_cfg.h: src/translator_de.h
+generated_src/lang_cfg.h: src/translator_si.h
+generated_src/lang_cfg.h: src/translator_pl.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating /home/agustin/git/serverapp/doxygen/generated_src/lang_cfg.h"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/local/bin/cmake -P /home/agustin/git/serverapp/doxygen/cmake/lang_cfg.cmake GR CA UA JE KR LV ZA MK BR TR LT SK ES CZ TW RO EO SV HR FA VI SC SR RU HU ID JP IT NO AM EN CN KE DK NL AR FR PT FI DE SI PL 2> /home/agustin/git/serverapp/doxygen/generated_src/lang_cfg.h
 
 generated_src/layout_default.xml.h: src/layout_default.xml
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating ../generated_src/layout_default.xml.h"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/python /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/to_c_cmd.py < /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/layout_default.xml > /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/layout_default.xml.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating ../generated_src/layout_default.xml.h"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/python /home/agustin/git/serverapp/doxygen/src/to_c_cmd.py < /home/agustin/git/serverapp/doxygen/src/layout_default.xml > /home/agustin/git/serverapp/doxygen/generated_src/layout_default.xml.h
 
 generated_src/ce_parse.h: src/constexp.y
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating ../generated_src/ce_parse.h"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src && /usr/bin/bison -l -d -p ce_parsexpYY /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/constexp.y -o ce_parse.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Generating ../generated_src/ce_parse.h"
+	cd /home/agustin/git/serverapp/doxygen/generated_src && /usr/bin/bison -l -d -p ce_parsexpYY /home/agustin/git/serverapp/doxygen/src/constexp.y -o ce_parse.c
 
 generated_src/configvalues.h: src/config.xml
 generated_src/configvalues.h: src/configgen.py
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating ../generated_src/configvalues.h"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/python /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/configgen.py -maph /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/config.xml > /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/configvalues.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Generating ../generated_src/configvalues.h"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/python /home/agustin/git/serverapp/doxygen/src/configgen.py -maph /home/agustin/git/serverapp/doxygen/src/config.xml > /home/agustin/git/serverapp/doxygen/generated_src/configvalues.h
 
 generated_src/resources.cpp: templates/xml/compound.xsd
 generated_src/resources.cpp: templates/xml/index.xsd
+generated_src/resources.cpp: templates/latex/latexfiles.tpl
+generated_src/resources.cpp: templates/latex/latexmakefile.tpl
+generated_src/resources.cpp: templates/latex/latexannotated.tpl
+generated_src/resources.cpp: templates/latex/latextypeconstraints.tpl
+generated_src/resources.cpp: templates/latex/latexobjlink.tpl
+generated_src/resources.cpp: templates/latex/latexnamespaces.tpl
+generated_src/resources.cpp: templates/latex/latexrefman.tpl
+generated_src/resources.cpp: templates/latex/latexclass.tpl
+generated_src/resources.cpp: templates/latex/doxygen.sty
+generated_src/resources.cpp: templates/latex/latexlayout.tpl
+generated_src/resources.cpp: templates/latex/latexmodules.tpl
+generated_src/resources.cpp: templates/latex/latexinclude.tpl
+generated_src/resources.cpp: templates/html/closed.luma
+generated_src/resources.cpp: templates/html/htmlmemdecls.tpl
+generated_src/resources.cpp: templates/html/htmlinlineclasses.tpl
+generated_src/resources.cpp: templates/html/htmltypeconstraints.tpl
+generated_src/resources.cpp: templates/html/htmlannotated.tpl
+generated_src/resources.cpp: templates/html/close.png
 generated_src/resources.cpp: templates/html/nav_g.png
-generated_src/resources.cpp: templates/html/sync_on.luma
-generated_src/resources.cpp: templates/html/search.js
-generated_src/resources.cpp: templates/html/htmlinclude.tpl
-generated_src/resources.cpp: templates/html/search_r.png
-generated_src/resources.cpp: templates/html/htmlnamespace.tpl
 generated_src/resources.cpp: templates/html/htmlmodule.tpl
-generated_src/resources.cpp: templates/html/htmldynheader.tpl
-generated_src/resources.cpp: templates/html/arrowdown.luma
-generated_src/resources.cpp: templates/html/htmlpages.tpl
-generated_src/resources.cpp: templates/html/htmlhierarchy.tpl
-generated_src/resources.cpp: templates/html/navtree.js
-generated_src/resources.cpp: templates/html/htmlmembertabs.tpl
-generated_src/resources.cpp: templates/html/htmlbase.tpl
-generated_src/resources.cpp: templates/html/mag_sel.png
-generated_src/resources.cpp: templates/html/htmlnavpath.tpl
-generated_src/resources.cpp: templates/html/htmljssearchindex.tpl
-generated_src/resources.cpp: templates/html/nav_h.lum
-generated_src/resources.cpp: templates/html/htmljssearchdata.tpl
-generated_src/resources.cpp: templates/html/arrowright.luma
-generated_src/resources.cpp: templates/html/bib2xhtml.pl
-generated_src/resources.cpp: templates/html/htmlclmembersindex.tpl
-generated_src/resources.cpp: templates/html/sync_off.luma
-generated_src/resources.cpp: templates/html/svgpan.js
-generated_src/resources.cpp: templates/html/folderclosed.luma
-generated_src/resources.cpp: templates/html/htmlsource.tpl
-generated_src/resources.cpp: templates/html/doxygen.bst
+generated_src/resources.cpp: templates/html/htmltabs.tpl
+generated_src/resources.cpp: templates/html/htmlgraphhierarchy.tpl
+generated_src/resources.cpp: templates/html/search.js
 generated_src/resources.cpp: templates/html/htmlflmembers.tpl
+generated_src/resources.cpp: templates/html/resize.js
+generated_src/resources.cpp: templates/html/bdwn.luma
+generated_src/resources.cpp: templates/html/htmljsnavtree.tpl
+generated_src/resources.cpp: templates/html/mag.png
+generated_src/resources.cpp: templates/html/dynsections.js
+generated_src/resources.cpp: templates/html/svgpan.js
+generated_src/resources.cpp: templates/html/search_l.png
+generated_src/resources.cpp: templates/html/folderopen.luma
+generated_src/resources.cpp: templates/html/htmljsnavindex.tpl
+generated_src/resources.cpp: templates/html/tab_h.lum
+generated_src/resources.cpp: templates/html/header.html
+generated_src/resources.cpp: templates/html/search_opensearch.php
+generated_src/resources.cpp: templates/html/htmlpage.tpl
+generated_src/resources.cpp: templates/html/htmlbase.tpl
+generated_src/resources.cpp: templates/html/htmlclmembers.tpl
+generated_src/resources.cpp: templates/html/htmlmembertabs.tpl
+generated_src/resources.cpp: templates/html/doxygen.css
+generated_src/resources.cpp: templates/html/htmlnsmembersindex.tpl
+generated_src/resources.cpp: templates/html/htmlindexpages.tpl
+generated_src/resources.cpp: templates/html/htmlnamespace.tpl
+generated_src/resources.cpp: templates/html/sync_off.luma
+generated_src/resources.cpp: templates/html/navtree.js
+generated_src/resources.cpp: templates/html/htmlinclude.tpl
+generated_src/resources.cpp: templates/html/tab_a.lum
+generated_src/resources.cpp: templates/html/htmldirtree.tpl
+generated_src/resources.cpp: templates/html/htmlnsmembers.tpl
+generated_src/resources.cpp: templates/html/mag_sel.png
+generated_src/resources.cpp: templates/html/htmlexample.tpl
+generated_src/resources.cpp: templates/html/htmlclasses.tpl
+generated_src/resources.cpp: templates/html/htmlallmembers.tpl
+generated_src/resources.cpp: templates/html/htmlsearchresult.tpl
+generated_src/resources.cpp: templates/html/htmldyncontents.tpl
+generated_src/resources.cpp: templates/html/nav_h.lum
+generated_src/resources.cpp: templates/html/htmlhierarchy.tpl
+generated_src/resources.cpp: templates/html/htmlpages.tpl
+generated_src/resources.cpp: templates/html/htmlmemdecl.tpl
+generated_src/resources.cpp: templates/html/tabs.css
+generated_src/resources.cpp: templates/html/htmlmeminherit.tpl
+generated_src/resources.cpp: templates/html/htmlfile.tpl
+generated_src/resources.cpp: templates/html/arrowdown.luma
+generated_src/resources.cpp: templates/html/footer.html
+generated_src/resources.cpp: templates/html/htmllayout.tpl
+generated_src/resources.cpp: templates/html/jquery.js
+generated_src/resources.cpp: templates/html/bc_s.luma
+generated_src/resources.cpp: templates/html/tab_s.lum
+generated_src/resources.cpp: templates/html/sync_on.luma
+generated_src/resources.cpp: templates/html/search_m.png
+generated_src/resources.cpp: templates/html/htmlclass.tpl
+generated_src/resources.cpp: templates/html/splitbar.lum
+generated_src/resources.cpp: templates/html/search_noidx.css
+generated_src/resources.cpp: templates/html/htmlmemsummary.tpl
+generated_src/resources.cpp: templates/html/bib2xhtml.pl
+generated_src/resources.cpp: templates/html/htmldeclcomp.tpl
+generated_src/resources.cpp: templates/html/htmlnavpath.tpl
+generated_src/resources.cpp: templates/html/htmlmemberindex.tpl
+generated_src/resources.cpp: templates/html/htmlnavtree.tpl
+generated_src/resources.cpp: templates/html/arrowright.luma
+generated_src/resources.cpp: templates/html/htmlmemlist.tpl
+generated_src/resources.cpp: templates/html/htmlsource.tpl
+generated_src/resources.cpp: templates/html/search.css
+generated_src/resources.cpp: templates/html/htmlclmembersindex.tpl
+generated_src/resources.cpp: templates/html/htmljssearchdata.tpl
+generated_src/resources.cpp: templates/html/htmlmemdef.tpl
+generated_src/resources.cpp: templates/html/nav_f.lum
+generated_src/resources.cpp: templates/html/doxygen.luma
+generated_src/resources.cpp: templates/html/search_functions.php
+generated_src/resources.cpp: templates/html/htmljssearchindex.tpl
+generated_src/resources.cpp: templates/html/extsearch.js
+generated_src/resources.cpp: templates/html/htmlnamespaces.tpl
 generated_src/resources.cpp: templates/html/htmlfiles.tpl
 generated_src/resources.cpp: templates/html/open.luma
-generated_src/resources.cpp: templates/html/htmlclass.tpl
-generated_src/resources.cpp: templates/html/htmljsnavindex.tpl
-generated_src/resources.cpp: templates/html/htmlmemdef.tpl
-generated_src/resources.cpp: templates/html/htmljsnavtree.tpl
-generated_src/resources.cpp: templates/html/htmltabs.tpl
-generated_src/resources.cpp: templates/html/extsearch.js
-generated_src/resources.cpp: templates/html/htmlmemdecl.tpl
-generated_src/resources.cpp: templates/html/footer.html
-generated_src/resources.cpp: templates/html/search_opensearch.php
-generated_src/resources.cpp: templates/html/htmllayout.tpl
-generated_src/resources.cpp: templates/html/htmlpage.tpl
-generated_src/resources.cpp: templates/html/search_functions.php
-generated_src/resources.cpp: templates/html/htmldirtree.tpl
-generated_src/resources.cpp: templates/html/htmlmembersindex.tpl
-generated_src/resources.cpp: templates/html/htmlmemberindex.tpl
-generated_src/resources.cpp: templates/html/bdwn.luma
-generated_src/resources.cpp: templates/html/mag.png
-generated_src/resources.cpp: templates/html/htmldyncontents.tpl
-generated_src/resources.cpp: templates/html/header.html
-generated_src/resources.cpp: templates/html/doxygen.css
-generated_src/resources.cpp: templates/html/tabs.css
-generated_src/resources.cpp: templates/html/search_noidx.css
-generated_src/resources.cpp: templates/html/jquery.js
-generated_src/resources.cpp: templates/html/htmlexample.tpl
-generated_src/resources.cpp: templates/html/htmlclmembers.tpl
-generated_src/resources.cpp: templates/html/tab_h.lum
-generated_src/resources.cpp: templates/html/htmlclasses.tpl
-generated_src/resources.cpp: templates/html/htmlnavtree.tpl
-generated_src/resources.cpp: templates/html/resize.js
-generated_src/resources.cpp: templates/html/folderopen.luma
-generated_src/resources.cpp: templates/html/htmlsearchresult.tpl
-generated_src/resources.cpp: templates/html/dynsections.js
-generated_src/resources.cpp: templates/html/htmltypeconstraints.tpl
-generated_src/resources.cpp: templates/html/doxygen.luma
-generated_src/resources.cpp: templates/html/search_l.png
-generated_src/resources.cpp: templates/html/tab_s.lum
-generated_src/resources.cpp: templates/html/htmlallmembers.tpl
-generated_src/resources.cpp: templates/html/htmlmemdecls.tpl
-generated_src/resources.cpp: templates/html/tab_b.lum
-generated_src/resources.cpp: templates/html/nav_f.lum
-generated_src/resources.cpp: templates/html/htmlindexpages.tpl
-generated_src/resources.cpp: templates/html/htmldir.tpl
-generated_src/resources.cpp: templates/html/htmlinlineclasses.tpl
+generated_src/resources.cpp: templates/html/htmlobjlink.tpl
+generated_src/resources.cpp: templates/html/htmldynheader.tpl
+generated_src/resources.cpp: templates/html/doxygen.bst
+generated_src/resources.cpp: templates/html/navtree.css
 generated_src/resources.cpp: templates/html/htmlexamples.tpl
 generated_src/resources.cpp: templates/html/htmlmodules.tpl
-generated_src/resources.cpp: templates/html/search_m.png
-generated_src/resources.cpp: templates/html/htmlgraphhierarchy.tpl
-generated_src/resources.cpp: templates/html/htmlmeminherit.tpl
-generated_src/resources.cpp: templates/html/htmlnamespaces.tpl
-generated_src/resources.cpp: templates/html/closed.luma
-generated_src/resources.cpp: templates/html/htmlnsmembers.tpl
-generated_src/resources.cpp: templates/html/htmlnsmembersindex.tpl
-generated_src/resources.cpp: templates/html/htmlobjlink.tpl
-generated_src/resources.cpp: templates/html/close.png
-generated_src/resources.cpp: templates/html/splitbar.lum
 generated_src/resources.cpp: templates/html/doc.luma
-generated_src/resources.cpp: templates/html/htmlmemsummary.tpl
-generated_src/resources.cpp: templates/html/bc_s.luma
-generated_src/resources.cpp: templates/html/htmlannotated.tpl
-generated_src/resources.cpp: templates/html/navtree.css
-generated_src/resources.cpp: templates/html/htmlfile.tpl
-generated_src/resources.cpp: templates/html/htmlmemlist.tpl
-generated_src/resources.cpp: templates/html/search.css
-generated_src/resources.cpp: templates/html/tab_a.lum
-generated_src/resources.cpp: templates/html/htmldeclcomp.tpl
-generated_src/resources.cpp: templates/latex/doxygen.sty
-generated_src/resources.cpp: templates/latex/latextypeconstraints.tpl
-generated_src/resources.cpp: templates/latex/latexannotated.tpl
-generated_src/resources.cpp: templates/latex/latexmakefile.tpl
-generated_src/resources.cpp: templates/latex/latexrefman.tpl
-generated_src/resources.cpp: templates/latex/latexnamespaces.tpl
-generated_src/resources.cpp: templates/latex/latexclass.tpl
-generated_src/resources.cpp: templates/latex/latexinclude.tpl
-generated_src/resources.cpp: templates/latex/latexfiles.tpl
-generated_src/resources.cpp: templates/latex/latexmodules.tpl
-generated_src/resources.cpp: templates/latex/latexobjlink.tpl
-generated_src/resources.cpp: templates/latex/latexlayout.tpl
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/resources.cpp"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/python /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/res2cc_cmd.py /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/templates /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/resources.cpp
+generated_src/resources.cpp: templates/html/search_r.png
+generated_src/resources.cpp: templates/html/tab_b.lum
+generated_src/resources.cpp: templates/html/folderclosed.luma
+generated_src/resources.cpp: templates/html/htmlmembersindex.tpl
+generated_src/resources.cpp: templates/html/htmldir.tpl
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Generating /home/agustin/git/serverapp/doxygen/generated_src/resources.cpp"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/python /home/agustin/git/serverapp/doxygen/src/res2cc_cmd.py /home/agustin/git/serverapp/doxygen/templates /home/agustin/git/serverapp/doxygen/generated_src/resources.cpp
 
 generated_src/scanner.cpp: src/scanner.l
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "[FLEX][scanner] Building scanner with flex 2.5.39"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PscannerYY -o/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/scanner.cpp scanner.l
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "[FLEX][scanner] Building scanner with flex 2.5.39"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PscannerYY -o/home/agustin/git/serverapp/doxygen/generated_src/scanner.cpp scanner.l
 
 generated_src/code.cpp: src/code.l
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "[FLEX][code] Building scanner with flex 2.5.39"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PcodeYY -o/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/code.cpp code.l
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "[FLEX][code] Building scanner with flex 2.5.39"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PcodeYY -o/home/agustin/git/serverapp/doxygen/generated_src/code.cpp code.l
 
 generated_src/pyscanner.cpp: src/pyscanner.l
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "[FLEX][pyscanner] Building scanner with flex 2.5.39"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PpyscannerYY -o/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pyscanner.cpp pyscanner.l
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "[FLEX][pyscanner] Building scanner with flex 2.5.39"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PpyscannerYY -o/home/agustin/git/serverapp/doxygen/generated_src/pyscanner.cpp pyscanner.l
 
 generated_src/pycode.cpp: src/pycode.l
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "[FLEX][pycode] Building scanner with flex 2.5.39"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PpycodeYY -o/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pycode.cpp pycode.l
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "[FLEX][pycode] Building scanner with flex 2.5.39"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PpycodeYY -o/home/agustin/git/serverapp/doxygen/generated_src/pycode.cpp pycode.l
 
 generated_src/fortranscanner.cpp: src/fortranscanner.l
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "[FLEX][fortranscanner] Building scanner with flex 2.5.39"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PfortranscannerYY -i -o/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/fortranscanner.cpp fortranscanner.l
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "[FLEX][fortranscanner] Building scanner with flex 2.5.39"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PfortranscannerYY -i -o/home/agustin/git/serverapp/doxygen/generated_src/fortranscanner.cpp fortranscanner.l
 
 generated_src/fortrancode.cpp: src/fortrancode.l
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "[FLEX][fortrancode] Building scanner with flex 2.5.39"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PfortrancodeYY -i -o/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/fortrancode.cpp fortrancode.l
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "[FLEX][fortrancode] Building scanner with flex 2.5.39"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PfortrancodeYY -i -o/home/agustin/git/serverapp/doxygen/generated_src/fortrancode.cpp fortrancode.l
 
 generated_src/vhdlcode.cpp: src/vhdlcode.l
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "[FLEX][vhdlcode] Building scanner with flex 2.5.39"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PvhdlcodeYY -i -o/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/vhdlcode.cpp vhdlcode.l
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "[FLEX][vhdlcode] Building scanner with flex 2.5.39"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PvhdlcodeYY -i -o/home/agustin/git/serverapp/doxygen/generated_src/vhdlcode.cpp vhdlcode.l
 
 generated_src/tclscanner.cpp: src/tclscanner.l
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "[FLEX][tclscanner] Building scanner with flex 2.5.39"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PtclscannerYY -i -o/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/tclscanner.cpp tclscanner.l
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "[FLEX][tclscanner] Building scanner with flex 2.5.39"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PtclscannerYY -i -o/home/agustin/git/serverapp/doxygen/generated_src/tclscanner.cpp tclscanner.l
 
 generated_src/pre.cpp: src/pre.l
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "[FLEX][pre] Building scanner with flex 2.5.39"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PpreYY -o/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pre.cpp pre.l
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "[FLEX][pre] Building scanner with flex 2.5.39"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PpreYY -o/home/agustin/git/serverapp/doxygen/generated_src/pre.cpp pre.l
 
 generated_src/declinfo.cpp: src/declinfo.l
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "[FLEX][declinfo] Building scanner with flex 2.5.39"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PdeclinfoYY -o/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/declinfo.cpp declinfo.l
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "[FLEX][declinfo] Building scanner with flex 2.5.39"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PdeclinfoYY -o/home/agustin/git/serverapp/doxygen/generated_src/declinfo.cpp declinfo.l
 
 generated_src/defargs.cpp: src/defargs.l
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "[FLEX][defargs] Building scanner with flex 2.5.39"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PdefargsYY -o/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/defargs.cpp defargs.l
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "[FLEX][defargs] Building scanner with flex 2.5.39"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PdefargsYY -o/home/agustin/git/serverapp/doxygen/generated_src/defargs.cpp defargs.l
 
 generated_src/doctokenizer.cpp: src/doctokenizer.l
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "[FLEX][doctokenizer] Building scanner with flex 2.5.39"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PdoctokenizerYY -o/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/doctokenizer.cpp doctokenizer.l
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "[FLEX][doctokenizer] Building scanner with flex 2.5.39"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PdoctokenizerYY -o/home/agustin/git/serverapp/doxygen/generated_src/doctokenizer.cpp doctokenizer.l
 
 generated_src/commentcnv.cpp: src/commentcnv.l
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "[FLEX][commentcnv] Building scanner with flex 2.5.39"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PcommentcnvYY -o/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/commentcnv.cpp commentcnv.l
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "[FLEX][commentcnv] Building scanner with flex 2.5.39"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PcommentcnvYY -o/home/agustin/git/serverapp/doxygen/generated_src/commentcnv.cpp commentcnv.l
 
 generated_src/commentscan.cpp: src/commentscan.l
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "[FLEX][commentscan] Building scanner with flex 2.5.39"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PcommentscanYY -o/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/commentscan.cpp commentscan.l
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "[FLEX][commentscan] Building scanner with flex 2.5.39"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PcommentscanYY -o/home/agustin/git/serverapp/doxygen/generated_src/commentscan.cpp commentscan.l
 
 generated_src/constexp.cpp: src/constexp.l
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "[FLEX][constexp] Building scanner with flex 2.5.39"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PconstexpYY -o/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/constexp.cpp constexp.l
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "[FLEX][constexp] Building scanner with flex 2.5.39"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PconstexpYY -o/home/agustin/git/serverapp/doxygen/generated_src/constexp.cpp constexp.l
 
 generated_src/xmlcode.cpp: src/xmlcode.l
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "[FLEX][xmlcode] Building scanner with flex 2.5.39"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PxmlcodeYY -o/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/xmlcode.cpp xmlcode.l
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "[FLEX][xmlcode] Building scanner with flex 2.5.39"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/flex $(LEX_FLAGS) -PxmlcodeYY -o/home/agustin/git/serverapp/doxygen/generated_src/xmlcode.cpp xmlcode.l
 
 generated_src/ce_parse.cpp: src/constexp.y
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "[BISON][constexp] Building parser with bison 3.0.2"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/bison $(YACC_FLAGS) -l -p constexpYY -d -o /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/ce_parse.cpp constexp.y
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "[BISON][constexp] Building parser with bison 3.0.2"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/bison $(YACC_FLAGS) -l -p constexpYY -d -o /home/agustin/git/serverapp/doxygen/generated_src/ce_parse.cpp constexp.y
 
 generated_src/ce_parse.hpp: generated_src/ce_parse.cpp
 	@$(CMAKE_COMMAND) -E touch_nocreate generated_src/ce_parse.hpp
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/version.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/__/generated_src/version.cpp.o: generated_src/version.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/version.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/version.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/version.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/version.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/version.cpp.o -c /home/agustin/git/serverapp/doxygen/generated_src/version.cpp
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/version.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/__/generated_src/version.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/version.cpp > CMakeFiles/_doxygen.dir/__/generated_src/version.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/generated_src/version.cpp > CMakeFiles/_doxygen.dir/__/generated_src/version.cpp.i
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/version.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/__/generated_src/version.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/version.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/version.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/generated_src/version.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/version.cpp.s
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/version.cpp.o.requires:
 
@@ -324,16 +324,16 @@ src/CMakeFiles/_doxygen.dir/__/generated_src/version.cpp.o.provides.build: src/C
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/resources.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/__/generated_src/resources.cpp.o: generated_src/resources.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/resources.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/resources.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/resources.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/resources.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/resources.cpp.o -c /home/agustin/git/serverapp/doxygen/generated_src/resources.cpp
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/resources.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/__/generated_src/resources.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/resources.cpp > CMakeFiles/_doxygen.dir/__/generated_src/resources.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/generated_src/resources.cpp > CMakeFiles/_doxygen.dir/__/generated_src/resources.cpp.i
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/resources.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/__/generated_src/resources.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/resources.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/resources.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/generated_src/resources.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/resources.cpp.s
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/resources.cpp.o.requires:
 
@@ -348,16 +348,16 @@ src/CMakeFiles/_doxygen.dir/__/generated_src/resources.cpp.o.provides.build: src
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/scanner.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/__/generated_src/scanner.cpp.o: generated_src/scanner.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/scanner.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/scanner.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/scanner.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/scanner.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/scanner.cpp.o -c /home/agustin/git/serverapp/doxygen/generated_src/scanner.cpp
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/scanner.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/__/generated_src/scanner.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/scanner.cpp > CMakeFiles/_doxygen.dir/__/generated_src/scanner.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/generated_src/scanner.cpp > CMakeFiles/_doxygen.dir/__/generated_src/scanner.cpp.i
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/scanner.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/__/generated_src/scanner.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/scanner.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/scanner.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/generated_src/scanner.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/scanner.cpp.s
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/scanner.cpp.o.requires:
 
@@ -372,16 +372,16 @@ src/CMakeFiles/_doxygen.dir/__/generated_src/scanner.cpp.o.provides.build: src/C
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/code.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/__/generated_src/code.cpp.o: generated_src/code.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/code.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/code.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/code.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/code.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/code.cpp.o -c /home/agustin/git/serverapp/doxygen/generated_src/code.cpp
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/code.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/__/generated_src/code.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/code.cpp > CMakeFiles/_doxygen.dir/__/generated_src/code.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/generated_src/code.cpp > CMakeFiles/_doxygen.dir/__/generated_src/code.cpp.i
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/code.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/__/generated_src/code.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/code.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/code.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/generated_src/code.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/code.cpp.s
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/code.cpp.o.requires:
 
@@ -396,16 +396,16 @@ src/CMakeFiles/_doxygen.dir/__/generated_src/code.cpp.o.provides.build: src/CMak
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/pyscanner.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/__/generated_src/pyscanner.cpp.o: generated_src/pyscanner.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/pyscanner.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/pyscanner.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pyscanner.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/pyscanner.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/pyscanner.cpp.o -c /home/agustin/git/serverapp/doxygen/generated_src/pyscanner.cpp
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/pyscanner.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/__/generated_src/pyscanner.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pyscanner.cpp > CMakeFiles/_doxygen.dir/__/generated_src/pyscanner.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/generated_src/pyscanner.cpp > CMakeFiles/_doxygen.dir/__/generated_src/pyscanner.cpp.i
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/pyscanner.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/__/generated_src/pyscanner.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pyscanner.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/pyscanner.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/generated_src/pyscanner.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/pyscanner.cpp.s
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/pyscanner.cpp.o.requires:
 
@@ -420,16 +420,16 @@ src/CMakeFiles/_doxygen.dir/__/generated_src/pyscanner.cpp.o.provides.build: src
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/pycode.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/__/generated_src/pycode.cpp.o: generated_src/pycode.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/pycode.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/pycode.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pycode.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/pycode.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/pycode.cpp.o -c /home/agustin/git/serverapp/doxygen/generated_src/pycode.cpp
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/pycode.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/__/generated_src/pycode.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pycode.cpp > CMakeFiles/_doxygen.dir/__/generated_src/pycode.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/generated_src/pycode.cpp > CMakeFiles/_doxygen.dir/__/generated_src/pycode.cpp.i
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/pycode.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/__/generated_src/pycode.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pycode.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/pycode.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/generated_src/pycode.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/pycode.cpp.s
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/pycode.cpp.o.requires:
 
@@ -444,16 +444,16 @@ src/CMakeFiles/_doxygen.dir/__/generated_src/pycode.cpp.o.provides.build: src/CM
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/fortranscanner.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/__/generated_src/fortranscanner.cpp.o: generated_src/fortranscanner.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/fortranscanner.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/fortranscanner.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/fortranscanner.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/fortranscanner.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/fortranscanner.cpp.o -c /home/agustin/git/serverapp/doxygen/generated_src/fortranscanner.cpp
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/fortranscanner.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/__/generated_src/fortranscanner.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/fortranscanner.cpp > CMakeFiles/_doxygen.dir/__/generated_src/fortranscanner.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/generated_src/fortranscanner.cpp > CMakeFiles/_doxygen.dir/__/generated_src/fortranscanner.cpp.i
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/fortranscanner.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/__/generated_src/fortranscanner.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/fortranscanner.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/fortranscanner.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/generated_src/fortranscanner.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/fortranscanner.cpp.s
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/fortranscanner.cpp.o.requires:
 
@@ -468,16 +468,16 @@ src/CMakeFiles/_doxygen.dir/__/generated_src/fortranscanner.cpp.o.provides.build
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/fortrancode.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/__/generated_src/fortrancode.cpp.o: generated_src/fortrancode.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/fortrancode.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/fortrancode.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/fortrancode.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/fortrancode.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/fortrancode.cpp.o -c /home/agustin/git/serverapp/doxygen/generated_src/fortrancode.cpp
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/fortrancode.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/__/generated_src/fortrancode.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/fortrancode.cpp > CMakeFiles/_doxygen.dir/__/generated_src/fortrancode.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/generated_src/fortrancode.cpp > CMakeFiles/_doxygen.dir/__/generated_src/fortrancode.cpp.i
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/fortrancode.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/__/generated_src/fortrancode.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/fortrancode.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/fortrancode.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/generated_src/fortrancode.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/fortrancode.cpp.s
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/fortrancode.cpp.o.requires:
 
@@ -492,16 +492,16 @@ src/CMakeFiles/_doxygen.dir/__/generated_src/fortrancode.cpp.o.provides.build: s
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/vhdlcode.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/__/generated_src/vhdlcode.cpp.o: generated_src/vhdlcode.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/vhdlcode.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/vhdlcode.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/vhdlcode.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/vhdlcode.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/vhdlcode.cpp.o -c /home/agustin/git/serverapp/doxygen/generated_src/vhdlcode.cpp
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/vhdlcode.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/__/generated_src/vhdlcode.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/vhdlcode.cpp > CMakeFiles/_doxygen.dir/__/generated_src/vhdlcode.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/generated_src/vhdlcode.cpp > CMakeFiles/_doxygen.dir/__/generated_src/vhdlcode.cpp.i
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/vhdlcode.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/__/generated_src/vhdlcode.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/vhdlcode.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/vhdlcode.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/generated_src/vhdlcode.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/vhdlcode.cpp.s
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/vhdlcode.cpp.o.requires:
 
@@ -516,16 +516,16 @@ src/CMakeFiles/_doxygen.dir/__/generated_src/vhdlcode.cpp.o.provides.build: src/
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/tclscanner.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/__/generated_src/tclscanner.cpp.o: generated_src/tclscanner.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/tclscanner.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/tclscanner.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/tclscanner.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/tclscanner.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/tclscanner.cpp.o -c /home/agustin/git/serverapp/doxygen/generated_src/tclscanner.cpp
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/tclscanner.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/__/generated_src/tclscanner.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/tclscanner.cpp > CMakeFiles/_doxygen.dir/__/generated_src/tclscanner.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/generated_src/tclscanner.cpp > CMakeFiles/_doxygen.dir/__/generated_src/tclscanner.cpp.i
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/tclscanner.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/__/generated_src/tclscanner.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/tclscanner.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/tclscanner.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/generated_src/tclscanner.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/tclscanner.cpp.s
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/tclscanner.cpp.o.requires:
 
@@ -540,16 +540,16 @@ src/CMakeFiles/_doxygen.dir/__/generated_src/tclscanner.cpp.o.provides.build: sr
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/pre.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/__/generated_src/pre.cpp.o: generated_src/pre.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/pre.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/pre.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pre.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/pre.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/pre.cpp.o -c /home/agustin/git/serverapp/doxygen/generated_src/pre.cpp
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/pre.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/__/generated_src/pre.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pre.cpp > CMakeFiles/_doxygen.dir/__/generated_src/pre.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/generated_src/pre.cpp > CMakeFiles/_doxygen.dir/__/generated_src/pre.cpp.i
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/pre.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/__/generated_src/pre.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pre.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/pre.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/generated_src/pre.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/pre.cpp.s
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/pre.cpp.o.requires:
 
@@ -564,16 +564,16 @@ src/CMakeFiles/_doxygen.dir/__/generated_src/pre.cpp.o.provides.build: src/CMake
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/declinfo.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/__/generated_src/declinfo.cpp.o: generated_src/declinfo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/declinfo.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/declinfo.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/declinfo.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/declinfo.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/declinfo.cpp.o -c /home/agustin/git/serverapp/doxygen/generated_src/declinfo.cpp
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/declinfo.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/__/generated_src/declinfo.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/declinfo.cpp > CMakeFiles/_doxygen.dir/__/generated_src/declinfo.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/generated_src/declinfo.cpp > CMakeFiles/_doxygen.dir/__/generated_src/declinfo.cpp.i
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/declinfo.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/__/generated_src/declinfo.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/declinfo.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/declinfo.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/generated_src/declinfo.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/declinfo.cpp.s
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/declinfo.cpp.o.requires:
 
@@ -588,16 +588,16 @@ src/CMakeFiles/_doxygen.dir/__/generated_src/declinfo.cpp.o.provides.build: src/
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/defargs.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/__/generated_src/defargs.cpp.o: generated_src/defargs.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/defargs.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/defargs.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/defargs.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/defargs.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/defargs.cpp.o -c /home/agustin/git/serverapp/doxygen/generated_src/defargs.cpp
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/defargs.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/__/generated_src/defargs.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/defargs.cpp > CMakeFiles/_doxygen.dir/__/generated_src/defargs.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/generated_src/defargs.cpp > CMakeFiles/_doxygen.dir/__/generated_src/defargs.cpp.i
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/defargs.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/__/generated_src/defargs.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/defargs.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/defargs.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/generated_src/defargs.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/defargs.cpp.s
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/defargs.cpp.o.requires:
 
@@ -612,16 +612,16 @@ src/CMakeFiles/_doxygen.dir/__/generated_src/defargs.cpp.o.provides.build: src/C
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/doctokenizer.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/__/generated_src/doctokenizer.cpp.o: generated_src/doctokenizer.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/doctokenizer.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/doctokenizer.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/doctokenizer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/doctokenizer.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/doctokenizer.cpp.o -c /home/agustin/git/serverapp/doxygen/generated_src/doctokenizer.cpp
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/doctokenizer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/__/generated_src/doctokenizer.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/doctokenizer.cpp > CMakeFiles/_doxygen.dir/__/generated_src/doctokenizer.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/generated_src/doctokenizer.cpp > CMakeFiles/_doxygen.dir/__/generated_src/doctokenizer.cpp.i
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/doctokenizer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/__/generated_src/doctokenizer.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/doctokenizer.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/doctokenizer.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/generated_src/doctokenizer.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/doctokenizer.cpp.s
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/doctokenizer.cpp.o.requires:
 
@@ -636,16 +636,16 @@ src/CMakeFiles/_doxygen.dir/__/generated_src/doctokenizer.cpp.o.provides.build: 
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/commentcnv.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/__/generated_src/commentcnv.cpp.o: generated_src/commentcnv.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/commentcnv.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/commentcnv.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/commentcnv.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/commentcnv.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/commentcnv.cpp.o -c /home/agustin/git/serverapp/doxygen/generated_src/commentcnv.cpp
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/commentcnv.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/__/generated_src/commentcnv.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/commentcnv.cpp > CMakeFiles/_doxygen.dir/__/generated_src/commentcnv.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/generated_src/commentcnv.cpp > CMakeFiles/_doxygen.dir/__/generated_src/commentcnv.cpp.i
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/commentcnv.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/__/generated_src/commentcnv.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/commentcnv.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/commentcnv.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/generated_src/commentcnv.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/commentcnv.cpp.s
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/commentcnv.cpp.o.requires:
 
@@ -660,16 +660,16 @@ src/CMakeFiles/_doxygen.dir/__/generated_src/commentcnv.cpp.o.provides.build: sr
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/commentscan.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/__/generated_src/commentscan.cpp.o: generated_src/commentscan.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/commentscan.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/commentscan.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/commentscan.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/commentscan.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/commentscan.cpp.o -c /home/agustin/git/serverapp/doxygen/generated_src/commentscan.cpp
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/commentscan.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/__/generated_src/commentscan.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/commentscan.cpp > CMakeFiles/_doxygen.dir/__/generated_src/commentscan.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/generated_src/commentscan.cpp > CMakeFiles/_doxygen.dir/__/generated_src/commentscan.cpp.i
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/commentscan.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/__/generated_src/commentscan.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/commentscan.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/commentscan.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/generated_src/commentscan.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/commentscan.cpp.s
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/commentscan.cpp.o.requires:
 
@@ -684,16 +684,16 @@ src/CMakeFiles/_doxygen.dir/__/generated_src/commentscan.cpp.o.provides.build: s
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/constexp.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/__/generated_src/constexp.cpp.o: generated_src/constexp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/constexp.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/constexp.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/constexp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/constexp.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/constexp.cpp.o -c /home/agustin/git/serverapp/doxygen/generated_src/constexp.cpp
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/constexp.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/__/generated_src/constexp.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/constexp.cpp > CMakeFiles/_doxygen.dir/__/generated_src/constexp.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/generated_src/constexp.cpp > CMakeFiles/_doxygen.dir/__/generated_src/constexp.cpp.i
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/constexp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/__/generated_src/constexp.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/constexp.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/constexp.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/generated_src/constexp.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/constexp.cpp.s
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/constexp.cpp.o.requires:
 
@@ -708,16 +708,16 @@ src/CMakeFiles/_doxygen.dir/__/generated_src/constexp.cpp.o.provides.build: src/
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/xmlcode.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/__/generated_src/xmlcode.cpp.o: generated_src/xmlcode.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/xmlcode.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/xmlcode.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/xmlcode.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/xmlcode.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/xmlcode.cpp.o -c /home/agustin/git/serverapp/doxygen/generated_src/xmlcode.cpp
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/xmlcode.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/__/generated_src/xmlcode.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/xmlcode.cpp > CMakeFiles/_doxygen.dir/__/generated_src/xmlcode.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/generated_src/xmlcode.cpp > CMakeFiles/_doxygen.dir/__/generated_src/xmlcode.cpp.i
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/xmlcode.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/__/generated_src/xmlcode.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/xmlcode.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/xmlcode.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/generated_src/xmlcode.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/xmlcode.cpp.s
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/xmlcode.cpp.o.requires:
 
@@ -732,16 +732,16 @@ src/CMakeFiles/_doxygen.dir/__/generated_src/xmlcode.cpp.o.provides.build: src/C
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/ce_parse.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/__/generated_src/ce_parse.cpp.o: generated_src/ce_parse.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/ce_parse.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/ce_parse.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/ce_parse.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object src/CMakeFiles/_doxygen.dir/__/generated_src/ce_parse.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/__/generated_src/ce_parse.cpp.o -c /home/agustin/git/serverapp/doxygen/generated_src/ce_parse.cpp
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/ce_parse.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/__/generated_src/ce_parse.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/ce_parse.cpp > CMakeFiles/_doxygen.dir/__/generated_src/ce_parse.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/generated_src/ce_parse.cpp > CMakeFiles/_doxygen.dir/__/generated_src/ce_parse.cpp.i
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/ce_parse.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/__/generated_src/ce_parse.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/ce_parse.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/ce_parse.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/generated_src/ce_parse.cpp -o CMakeFiles/_doxygen.dir/__/generated_src/ce_parse.cpp.s
 
 src/CMakeFiles/_doxygen.dir/__/generated_src/ce_parse.cpp.o.requires:
 
@@ -756,16 +756,16 @@ src/CMakeFiles/_doxygen.dir/__/generated_src/ce_parse.cpp.o.provides.build: src/
 
 src/CMakeFiles/_doxygen.dir/plantuml.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/plantuml.cpp.o: src/plantuml.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object src/CMakeFiles/_doxygen.dir/plantuml.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/plantuml.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/plantuml.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object src/CMakeFiles/_doxygen.dir/plantuml.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/plantuml.cpp.o -c /home/agustin/git/serverapp/doxygen/src/plantuml.cpp
 
 src/CMakeFiles/_doxygen.dir/plantuml.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/plantuml.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/plantuml.cpp > CMakeFiles/_doxygen.dir/plantuml.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/plantuml.cpp > CMakeFiles/_doxygen.dir/plantuml.cpp.i
 
 src/CMakeFiles/_doxygen.dir/plantuml.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/plantuml.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/plantuml.cpp -o CMakeFiles/_doxygen.dir/plantuml.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/plantuml.cpp -o CMakeFiles/_doxygen.dir/plantuml.cpp.s
 
 src/CMakeFiles/_doxygen.dir/plantuml.cpp.o.requires:
 
@@ -780,16 +780,16 @@ src/CMakeFiles/_doxygen.dir/plantuml.cpp.o.provides.build: src/CMakeFiles/_doxyg
 
 src/CMakeFiles/_doxygen.dir/arguments.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/arguments.cpp.o: src/arguments.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object src/CMakeFiles/_doxygen.dir/arguments.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/arguments.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/arguments.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object src/CMakeFiles/_doxygen.dir/arguments.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/arguments.cpp.o -c /home/agustin/git/serverapp/doxygen/src/arguments.cpp
 
 src/CMakeFiles/_doxygen.dir/arguments.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/arguments.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/arguments.cpp > CMakeFiles/_doxygen.dir/arguments.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/arguments.cpp > CMakeFiles/_doxygen.dir/arguments.cpp.i
 
 src/CMakeFiles/_doxygen.dir/arguments.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/arguments.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/arguments.cpp -o CMakeFiles/_doxygen.dir/arguments.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/arguments.cpp -o CMakeFiles/_doxygen.dir/arguments.cpp.s
 
 src/CMakeFiles/_doxygen.dir/arguments.cpp.o.requires:
 
@@ -804,16 +804,16 @@ src/CMakeFiles/_doxygen.dir/arguments.cpp.o.provides.build: src/CMakeFiles/_doxy
 
 src/CMakeFiles/_doxygen.dir/cite.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/cite.cpp.o: src/cite.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object src/CMakeFiles/_doxygen.dir/cite.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/cite.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/cite.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object src/CMakeFiles/_doxygen.dir/cite.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/cite.cpp.o -c /home/agustin/git/serverapp/doxygen/src/cite.cpp
 
 src/CMakeFiles/_doxygen.dir/cite.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/cite.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/cite.cpp > CMakeFiles/_doxygen.dir/cite.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/cite.cpp > CMakeFiles/_doxygen.dir/cite.cpp.i
 
 src/CMakeFiles/_doxygen.dir/cite.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/cite.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/cite.cpp -o CMakeFiles/_doxygen.dir/cite.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/cite.cpp -o CMakeFiles/_doxygen.dir/cite.cpp.s
 
 src/CMakeFiles/_doxygen.dir/cite.cpp.o.requires:
 
@@ -828,16 +828,16 @@ src/CMakeFiles/_doxygen.dir/cite.cpp.o.provides.build: src/CMakeFiles/_doxygen.d
 
 src/CMakeFiles/_doxygen.dir/clangparser.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/clangparser.cpp.o: src/clangparser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object src/CMakeFiles/_doxygen.dir/clangparser.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/clangparser.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/clangparser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object src/CMakeFiles/_doxygen.dir/clangparser.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/clangparser.cpp.o -c /home/agustin/git/serverapp/doxygen/src/clangparser.cpp
 
 src/CMakeFiles/_doxygen.dir/clangparser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/clangparser.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/clangparser.cpp > CMakeFiles/_doxygen.dir/clangparser.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/clangparser.cpp > CMakeFiles/_doxygen.dir/clangparser.cpp.i
 
 src/CMakeFiles/_doxygen.dir/clangparser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/clangparser.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/clangparser.cpp -o CMakeFiles/_doxygen.dir/clangparser.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/clangparser.cpp -o CMakeFiles/_doxygen.dir/clangparser.cpp.s
 
 src/CMakeFiles/_doxygen.dir/clangparser.cpp.o.requires:
 
@@ -852,16 +852,16 @@ src/CMakeFiles/_doxygen.dir/clangparser.cpp.o.provides.build: src/CMakeFiles/_do
 
 src/CMakeFiles/_doxygen.dir/fileparser.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/fileparser.cpp.o: src/fileparser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object src/CMakeFiles/_doxygen.dir/fileparser.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/fileparser.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/fileparser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object src/CMakeFiles/_doxygen.dir/fileparser.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/fileparser.cpp.o -c /home/agustin/git/serverapp/doxygen/src/fileparser.cpp
 
 src/CMakeFiles/_doxygen.dir/fileparser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/fileparser.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/fileparser.cpp > CMakeFiles/_doxygen.dir/fileparser.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/fileparser.cpp > CMakeFiles/_doxygen.dir/fileparser.cpp.i
 
 src/CMakeFiles/_doxygen.dir/fileparser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/fileparser.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/fileparser.cpp -o CMakeFiles/_doxygen.dir/fileparser.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/fileparser.cpp -o CMakeFiles/_doxygen.dir/fileparser.cpp.s
 
 src/CMakeFiles/_doxygen.dir/fileparser.cpp.o.requires:
 
@@ -876,16 +876,16 @@ src/CMakeFiles/_doxygen.dir/fileparser.cpp.o.provides.build: src/CMakeFiles/_dox
 
 src/CMakeFiles/_doxygen.dir/classdef.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/classdef.cpp.o: src/classdef.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object src/CMakeFiles/_doxygen.dir/classdef.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/classdef.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/classdef.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object src/CMakeFiles/_doxygen.dir/classdef.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/classdef.cpp.o -c /home/agustin/git/serverapp/doxygen/src/classdef.cpp
 
 src/CMakeFiles/_doxygen.dir/classdef.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/classdef.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/classdef.cpp > CMakeFiles/_doxygen.dir/classdef.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/classdef.cpp > CMakeFiles/_doxygen.dir/classdef.cpp.i
 
 src/CMakeFiles/_doxygen.dir/classdef.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/classdef.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/classdef.cpp -o CMakeFiles/_doxygen.dir/classdef.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/classdef.cpp -o CMakeFiles/_doxygen.dir/classdef.cpp.s
 
 src/CMakeFiles/_doxygen.dir/classdef.cpp.o.requires:
 
@@ -900,16 +900,16 @@ src/CMakeFiles/_doxygen.dir/classdef.cpp.o.provides.build: src/CMakeFiles/_doxyg
 
 src/CMakeFiles/_doxygen.dir/classlist.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/classlist.cpp.o: src/classlist.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object src/CMakeFiles/_doxygen.dir/classlist.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/classlist.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/classlist.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object src/CMakeFiles/_doxygen.dir/classlist.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/classlist.cpp.o -c /home/agustin/git/serverapp/doxygen/src/classlist.cpp
 
 src/CMakeFiles/_doxygen.dir/classlist.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/classlist.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/classlist.cpp > CMakeFiles/_doxygen.dir/classlist.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/classlist.cpp > CMakeFiles/_doxygen.dir/classlist.cpp.i
 
 src/CMakeFiles/_doxygen.dir/classlist.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/classlist.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/classlist.cpp -o CMakeFiles/_doxygen.dir/classlist.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/classlist.cpp -o CMakeFiles/_doxygen.dir/classlist.cpp.s
 
 src/CMakeFiles/_doxygen.dir/classlist.cpp.o.requires:
 
@@ -924,16 +924,16 @@ src/CMakeFiles/_doxygen.dir/classlist.cpp.o.provides.build: src/CMakeFiles/_doxy
 
 src/CMakeFiles/_doxygen.dir/cmdmapper.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/cmdmapper.cpp.o: src/cmdmapper.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object src/CMakeFiles/_doxygen.dir/cmdmapper.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/cmdmapper.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/cmdmapper.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object src/CMakeFiles/_doxygen.dir/cmdmapper.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/cmdmapper.cpp.o -c /home/agustin/git/serverapp/doxygen/src/cmdmapper.cpp
 
 src/CMakeFiles/_doxygen.dir/cmdmapper.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/cmdmapper.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/cmdmapper.cpp > CMakeFiles/_doxygen.dir/cmdmapper.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/cmdmapper.cpp > CMakeFiles/_doxygen.dir/cmdmapper.cpp.i
 
 src/CMakeFiles/_doxygen.dir/cmdmapper.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/cmdmapper.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/cmdmapper.cpp -o CMakeFiles/_doxygen.dir/cmdmapper.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/cmdmapper.cpp -o CMakeFiles/_doxygen.dir/cmdmapper.cpp.s
 
 src/CMakeFiles/_doxygen.dir/cmdmapper.cpp.o.requires:
 
@@ -948,16 +948,16 @@ src/CMakeFiles/_doxygen.dir/cmdmapper.cpp.o.provides.build: src/CMakeFiles/_doxy
 
 src/CMakeFiles/_doxygen.dir/condparser.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/condparser.cpp.o: src/condparser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object src/CMakeFiles/_doxygen.dir/condparser.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/condparser.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/condparser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object src/CMakeFiles/_doxygen.dir/condparser.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/condparser.cpp.o -c /home/agustin/git/serverapp/doxygen/src/condparser.cpp
 
 src/CMakeFiles/_doxygen.dir/condparser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/condparser.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/condparser.cpp > CMakeFiles/_doxygen.dir/condparser.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/condparser.cpp > CMakeFiles/_doxygen.dir/condparser.cpp.i
 
 src/CMakeFiles/_doxygen.dir/condparser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/condparser.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/condparser.cpp -o CMakeFiles/_doxygen.dir/condparser.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/condparser.cpp -o CMakeFiles/_doxygen.dir/condparser.cpp.s
 
 src/CMakeFiles/_doxygen.dir/condparser.cpp.o.requires:
 
@@ -972,16 +972,16 @@ src/CMakeFiles/_doxygen.dir/condparser.cpp.o.provides.build: src/CMakeFiles/_dox
 
 src/CMakeFiles/_doxygen.dir/context.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/context.cpp.o: src/context.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object src/CMakeFiles/_doxygen.dir/context.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/context.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/context.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object src/CMakeFiles/_doxygen.dir/context.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/context.cpp.o -c /home/agustin/git/serverapp/doxygen/src/context.cpp
 
 src/CMakeFiles/_doxygen.dir/context.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/context.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/context.cpp > CMakeFiles/_doxygen.dir/context.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/context.cpp > CMakeFiles/_doxygen.dir/context.cpp.i
 
 src/CMakeFiles/_doxygen.dir/context.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/context.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/context.cpp -o CMakeFiles/_doxygen.dir/context.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/context.cpp -o CMakeFiles/_doxygen.dir/context.cpp.s
 
 src/CMakeFiles/_doxygen.dir/context.cpp.o.requires:
 
@@ -996,16 +996,16 @@ src/CMakeFiles/_doxygen.dir/context.cpp.o.provides.build: src/CMakeFiles/_doxyge
 
 src/CMakeFiles/_doxygen.dir/cppvalue.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/cppvalue.cpp.o: src/cppvalue.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object src/CMakeFiles/_doxygen.dir/cppvalue.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/cppvalue.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/cppvalue.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object src/CMakeFiles/_doxygen.dir/cppvalue.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/cppvalue.cpp.o -c /home/agustin/git/serverapp/doxygen/src/cppvalue.cpp
 
 src/CMakeFiles/_doxygen.dir/cppvalue.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/cppvalue.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/cppvalue.cpp > CMakeFiles/_doxygen.dir/cppvalue.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/cppvalue.cpp > CMakeFiles/_doxygen.dir/cppvalue.cpp.i
 
 src/CMakeFiles/_doxygen.dir/cppvalue.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/cppvalue.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/cppvalue.cpp -o CMakeFiles/_doxygen.dir/cppvalue.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/cppvalue.cpp -o CMakeFiles/_doxygen.dir/cppvalue.cpp.s
 
 src/CMakeFiles/_doxygen.dir/cppvalue.cpp.o.requires:
 
@@ -1020,16 +1020,16 @@ src/CMakeFiles/_doxygen.dir/cppvalue.cpp.o.provides.build: src/CMakeFiles/_doxyg
 
 src/CMakeFiles/_doxygen.dir/debug.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/debug.cpp.o: src/debug.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object src/CMakeFiles/_doxygen.dir/debug.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/debug.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/debug.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object src/CMakeFiles/_doxygen.dir/debug.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/debug.cpp.o -c /home/agustin/git/serverapp/doxygen/src/debug.cpp
 
 src/CMakeFiles/_doxygen.dir/debug.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/debug.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/debug.cpp > CMakeFiles/_doxygen.dir/debug.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/debug.cpp > CMakeFiles/_doxygen.dir/debug.cpp.i
 
 src/CMakeFiles/_doxygen.dir/debug.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/debug.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/debug.cpp -o CMakeFiles/_doxygen.dir/debug.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/debug.cpp -o CMakeFiles/_doxygen.dir/debug.cpp.s
 
 src/CMakeFiles/_doxygen.dir/debug.cpp.o.requires:
 
@@ -1044,16 +1044,16 @@ src/CMakeFiles/_doxygen.dir/debug.cpp.o.provides.build: src/CMakeFiles/_doxygen.
 
 src/CMakeFiles/_doxygen.dir/defgen.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/defgen.cpp.o: src/defgen.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object src/CMakeFiles/_doxygen.dir/defgen.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/defgen.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/defgen.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object src/CMakeFiles/_doxygen.dir/defgen.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/defgen.cpp.o -c /home/agustin/git/serverapp/doxygen/src/defgen.cpp
 
 src/CMakeFiles/_doxygen.dir/defgen.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/defgen.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/defgen.cpp > CMakeFiles/_doxygen.dir/defgen.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/defgen.cpp > CMakeFiles/_doxygen.dir/defgen.cpp.i
 
 src/CMakeFiles/_doxygen.dir/defgen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/defgen.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/defgen.cpp -o CMakeFiles/_doxygen.dir/defgen.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/defgen.cpp -o CMakeFiles/_doxygen.dir/defgen.cpp.s
 
 src/CMakeFiles/_doxygen.dir/defgen.cpp.o.requires:
 
@@ -1068,16 +1068,16 @@ src/CMakeFiles/_doxygen.dir/defgen.cpp.o.provides.build: src/CMakeFiles/_doxygen
 
 src/CMakeFiles/_doxygen.dir/define.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/define.cpp.o: src/define.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object src/CMakeFiles/_doxygen.dir/define.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/define.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/define.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object src/CMakeFiles/_doxygen.dir/define.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/define.cpp.o -c /home/agustin/git/serverapp/doxygen/src/define.cpp
 
 src/CMakeFiles/_doxygen.dir/define.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/define.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/define.cpp > CMakeFiles/_doxygen.dir/define.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/define.cpp > CMakeFiles/_doxygen.dir/define.cpp.i
 
 src/CMakeFiles/_doxygen.dir/define.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/define.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/define.cpp -o CMakeFiles/_doxygen.dir/define.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/define.cpp -o CMakeFiles/_doxygen.dir/define.cpp.s
 
 src/CMakeFiles/_doxygen.dir/define.cpp.o.requires:
 
@@ -1092,16 +1092,16 @@ src/CMakeFiles/_doxygen.dir/define.cpp.o.provides.build: src/CMakeFiles/_doxygen
 
 src/CMakeFiles/_doxygen.dir/definition.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/definition.cpp.o: src/definition.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object src/CMakeFiles/_doxygen.dir/definition.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/definition.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/definition.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object src/CMakeFiles/_doxygen.dir/definition.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/definition.cpp.o -c /home/agustin/git/serverapp/doxygen/src/definition.cpp
 
 src/CMakeFiles/_doxygen.dir/definition.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/definition.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/definition.cpp > CMakeFiles/_doxygen.dir/definition.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/definition.cpp > CMakeFiles/_doxygen.dir/definition.cpp.i
 
 src/CMakeFiles/_doxygen.dir/definition.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/definition.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/definition.cpp -o CMakeFiles/_doxygen.dir/definition.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/definition.cpp -o CMakeFiles/_doxygen.dir/definition.cpp.s
 
 src/CMakeFiles/_doxygen.dir/definition.cpp.o.requires:
 
@@ -1116,16 +1116,16 @@ src/CMakeFiles/_doxygen.dir/definition.cpp.o.provides.build: src/CMakeFiles/_dox
 
 src/CMakeFiles/_doxygen.dir/diagram.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/diagram.cpp.o: src/diagram.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building CXX object src/CMakeFiles/_doxygen.dir/diagram.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/diagram.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/diagram.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building CXX object src/CMakeFiles/_doxygen.dir/diagram.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/diagram.cpp.o -c /home/agustin/git/serverapp/doxygen/src/diagram.cpp
 
 src/CMakeFiles/_doxygen.dir/diagram.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/diagram.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/diagram.cpp > CMakeFiles/_doxygen.dir/diagram.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/diagram.cpp > CMakeFiles/_doxygen.dir/diagram.cpp.i
 
 src/CMakeFiles/_doxygen.dir/diagram.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/diagram.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/diagram.cpp -o CMakeFiles/_doxygen.dir/diagram.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/diagram.cpp -o CMakeFiles/_doxygen.dir/diagram.cpp.s
 
 src/CMakeFiles/_doxygen.dir/diagram.cpp.o.requires:
 
@@ -1140,16 +1140,16 @@ src/CMakeFiles/_doxygen.dir/diagram.cpp.o.provides.build: src/CMakeFiles/_doxyge
 
 src/CMakeFiles/_doxygen.dir/dirdef.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/dirdef.cpp.o: src/dirdef.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building CXX object src/CMakeFiles/_doxygen.dir/dirdef.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/dirdef.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/dirdef.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building CXX object src/CMakeFiles/_doxygen.dir/dirdef.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/dirdef.cpp.o -c /home/agustin/git/serverapp/doxygen/src/dirdef.cpp
 
 src/CMakeFiles/_doxygen.dir/dirdef.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/dirdef.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/dirdef.cpp > CMakeFiles/_doxygen.dir/dirdef.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/dirdef.cpp > CMakeFiles/_doxygen.dir/dirdef.cpp.i
 
 src/CMakeFiles/_doxygen.dir/dirdef.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/dirdef.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/dirdef.cpp -o CMakeFiles/_doxygen.dir/dirdef.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/dirdef.cpp -o CMakeFiles/_doxygen.dir/dirdef.cpp.s
 
 src/CMakeFiles/_doxygen.dir/dirdef.cpp.o.requires:
 
@@ -1164,16 +1164,16 @@ src/CMakeFiles/_doxygen.dir/dirdef.cpp.o.provides.build: src/CMakeFiles/_doxygen
 
 src/CMakeFiles/_doxygen.dir/docparser.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/docparser.cpp.o: src/docparser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building CXX object src/CMakeFiles/_doxygen.dir/docparser.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/docparser.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/docparser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building CXX object src/CMakeFiles/_doxygen.dir/docparser.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/docparser.cpp.o -c /home/agustin/git/serverapp/doxygen/src/docparser.cpp
 
 src/CMakeFiles/_doxygen.dir/docparser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/docparser.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/docparser.cpp > CMakeFiles/_doxygen.dir/docparser.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/docparser.cpp > CMakeFiles/_doxygen.dir/docparser.cpp.i
 
 src/CMakeFiles/_doxygen.dir/docparser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/docparser.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/docparser.cpp -o CMakeFiles/_doxygen.dir/docparser.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/docparser.cpp -o CMakeFiles/_doxygen.dir/docparser.cpp.s
 
 src/CMakeFiles/_doxygen.dir/docparser.cpp.o.requires:
 
@@ -1188,16 +1188,16 @@ src/CMakeFiles/_doxygen.dir/docparser.cpp.o.provides.build: src/CMakeFiles/_doxy
 
 src/CMakeFiles/_doxygen.dir/docsets.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/docsets.cpp.o: src/docsets.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building CXX object src/CMakeFiles/_doxygen.dir/docsets.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/docsets.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/docsets.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building CXX object src/CMakeFiles/_doxygen.dir/docsets.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/docsets.cpp.o -c /home/agustin/git/serverapp/doxygen/src/docsets.cpp
 
 src/CMakeFiles/_doxygen.dir/docsets.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/docsets.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/docsets.cpp > CMakeFiles/_doxygen.dir/docsets.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/docsets.cpp > CMakeFiles/_doxygen.dir/docsets.cpp.i
 
 src/CMakeFiles/_doxygen.dir/docsets.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/docsets.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/docsets.cpp -o CMakeFiles/_doxygen.dir/docsets.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/docsets.cpp -o CMakeFiles/_doxygen.dir/docsets.cpp.s
 
 src/CMakeFiles/_doxygen.dir/docsets.cpp.o.requires:
 
@@ -1212,16 +1212,16 @@ src/CMakeFiles/_doxygen.dir/docsets.cpp.o.provides.build: src/CMakeFiles/_doxyge
 
 src/CMakeFiles/_doxygen.dir/dot.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/dot.cpp.o: src/dot.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building CXX object src/CMakeFiles/_doxygen.dir/dot.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/dot.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/dot.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building CXX object src/CMakeFiles/_doxygen.dir/dot.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/dot.cpp.o -c /home/agustin/git/serverapp/doxygen/src/dot.cpp
 
 src/CMakeFiles/_doxygen.dir/dot.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/dot.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/dot.cpp > CMakeFiles/_doxygen.dir/dot.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/dot.cpp > CMakeFiles/_doxygen.dir/dot.cpp.i
 
 src/CMakeFiles/_doxygen.dir/dot.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/dot.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/dot.cpp -o CMakeFiles/_doxygen.dir/dot.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/dot.cpp -o CMakeFiles/_doxygen.dir/dot.cpp.s
 
 src/CMakeFiles/_doxygen.dir/dot.cpp.o.requires:
 
@@ -1236,16 +1236,16 @@ src/CMakeFiles/_doxygen.dir/dot.cpp.o.provides.build: src/CMakeFiles/_doxygen.di
 
 src/CMakeFiles/_doxygen.dir/doxygen.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/doxygen.cpp.o: src/doxygen.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building CXX object src/CMakeFiles/_doxygen.dir/doxygen.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/doxygen.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/doxygen.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building CXX object src/CMakeFiles/_doxygen.dir/doxygen.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/doxygen.cpp.o -c /home/agustin/git/serverapp/doxygen/src/doxygen.cpp
 
 src/CMakeFiles/_doxygen.dir/doxygen.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/doxygen.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/doxygen.cpp > CMakeFiles/_doxygen.dir/doxygen.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/doxygen.cpp > CMakeFiles/_doxygen.dir/doxygen.cpp.i
 
 src/CMakeFiles/_doxygen.dir/doxygen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/doxygen.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/doxygen.cpp -o CMakeFiles/_doxygen.dir/doxygen.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/doxygen.cpp -o CMakeFiles/_doxygen.dir/doxygen.cpp.s
 
 src/CMakeFiles/_doxygen.dir/doxygen.cpp.o.requires:
 
@@ -1260,16 +1260,16 @@ src/CMakeFiles/_doxygen.dir/doxygen.cpp.o.provides.build: src/CMakeFiles/_doxyge
 
 src/CMakeFiles/_doxygen.dir/eclipsehelp.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/eclipsehelp.cpp.o: src/eclipsehelp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building CXX object src/CMakeFiles/_doxygen.dir/eclipsehelp.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/eclipsehelp.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/eclipsehelp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building CXX object src/CMakeFiles/_doxygen.dir/eclipsehelp.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/eclipsehelp.cpp.o -c /home/agustin/git/serverapp/doxygen/src/eclipsehelp.cpp
 
 src/CMakeFiles/_doxygen.dir/eclipsehelp.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/eclipsehelp.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/eclipsehelp.cpp > CMakeFiles/_doxygen.dir/eclipsehelp.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/eclipsehelp.cpp > CMakeFiles/_doxygen.dir/eclipsehelp.cpp.i
 
 src/CMakeFiles/_doxygen.dir/eclipsehelp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/eclipsehelp.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/eclipsehelp.cpp -o CMakeFiles/_doxygen.dir/eclipsehelp.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/eclipsehelp.cpp -o CMakeFiles/_doxygen.dir/eclipsehelp.cpp.s
 
 src/CMakeFiles/_doxygen.dir/eclipsehelp.cpp.o.requires:
 
@@ -1284,16 +1284,16 @@ src/CMakeFiles/_doxygen.dir/eclipsehelp.cpp.o.provides.build: src/CMakeFiles/_do
 
 src/CMakeFiles/_doxygen.dir/entry.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/entry.cpp.o: src/entry.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building CXX object src/CMakeFiles/_doxygen.dir/entry.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/entry.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/entry.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building CXX object src/CMakeFiles/_doxygen.dir/entry.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/entry.cpp.o -c /home/agustin/git/serverapp/doxygen/src/entry.cpp
 
 src/CMakeFiles/_doxygen.dir/entry.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/entry.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/entry.cpp > CMakeFiles/_doxygen.dir/entry.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/entry.cpp > CMakeFiles/_doxygen.dir/entry.cpp.i
 
 src/CMakeFiles/_doxygen.dir/entry.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/entry.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/entry.cpp -o CMakeFiles/_doxygen.dir/entry.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/entry.cpp -o CMakeFiles/_doxygen.dir/entry.cpp.s
 
 src/CMakeFiles/_doxygen.dir/entry.cpp.o.requires:
 
@@ -1308,16 +1308,16 @@ src/CMakeFiles/_doxygen.dir/entry.cpp.o.provides.build: src/CMakeFiles/_doxygen.
 
 src/CMakeFiles/_doxygen.dir/filedef.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/filedef.cpp.o: src/filedef.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building CXX object src/CMakeFiles/_doxygen.dir/filedef.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/filedef.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/filedef.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building CXX object src/CMakeFiles/_doxygen.dir/filedef.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/filedef.cpp.o -c /home/agustin/git/serverapp/doxygen/src/filedef.cpp
 
 src/CMakeFiles/_doxygen.dir/filedef.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/filedef.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/filedef.cpp > CMakeFiles/_doxygen.dir/filedef.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/filedef.cpp > CMakeFiles/_doxygen.dir/filedef.cpp.i
 
 src/CMakeFiles/_doxygen.dir/filedef.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/filedef.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/filedef.cpp -o CMakeFiles/_doxygen.dir/filedef.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/filedef.cpp -o CMakeFiles/_doxygen.dir/filedef.cpp.s
 
 src/CMakeFiles/_doxygen.dir/filedef.cpp.o.requires:
 
@@ -1332,16 +1332,16 @@ src/CMakeFiles/_doxygen.dir/filedef.cpp.o.provides.build: src/CMakeFiles/_doxyge
 
 src/CMakeFiles/_doxygen.dir/filename.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/filename.cpp.o: src/filename.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building CXX object src/CMakeFiles/_doxygen.dir/filename.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/filename.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/filename.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building CXX object src/CMakeFiles/_doxygen.dir/filename.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/filename.cpp.o -c /home/agustin/git/serverapp/doxygen/src/filename.cpp
 
 src/CMakeFiles/_doxygen.dir/filename.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/filename.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/filename.cpp > CMakeFiles/_doxygen.dir/filename.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/filename.cpp > CMakeFiles/_doxygen.dir/filename.cpp.i
 
 src/CMakeFiles/_doxygen.dir/filename.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/filename.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/filename.cpp -o CMakeFiles/_doxygen.dir/filename.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/filename.cpp -o CMakeFiles/_doxygen.dir/filename.cpp.s
 
 src/CMakeFiles/_doxygen.dir/filename.cpp.o.requires:
 
@@ -1356,16 +1356,16 @@ src/CMakeFiles/_doxygen.dir/filename.cpp.o.provides.build: src/CMakeFiles/_doxyg
 
 src/CMakeFiles/_doxygen.dir/formula.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/formula.cpp.o: src/formula.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building CXX object src/CMakeFiles/_doxygen.dir/formula.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/formula.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/formula.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building CXX object src/CMakeFiles/_doxygen.dir/formula.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/formula.cpp.o -c /home/agustin/git/serverapp/doxygen/src/formula.cpp
 
 src/CMakeFiles/_doxygen.dir/formula.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/formula.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/formula.cpp > CMakeFiles/_doxygen.dir/formula.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/formula.cpp > CMakeFiles/_doxygen.dir/formula.cpp.i
 
 src/CMakeFiles/_doxygen.dir/formula.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/formula.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/formula.cpp -o CMakeFiles/_doxygen.dir/formula.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/formula.cpp -o CMakeFiles/_doxygen.dir/formula.cpp.s
 
 src/CMakeFiles/_doxygen.dir/formula.cpp.o.requires:
 
@@ -1380,16 +1380,16 @@ src/CMakeFiles/_doxygen.dir/formula.cpp.o.provides.build: src/CMakeFiles/_doxyge
 
 src/CMakeFiles/_doxygen.dir/ftextstream.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/ftextstream.cpp.o: src/ftextstream.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building CXX object src/CMakeFiles/_doxygen.dir/ftextstream.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/ftextstream.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/ftextstream.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building CXX object src/CMakeFiles/_doxygen.dir/ftextstream.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/ftextstream.cpp.o -c /home/agustin/git/serverapp/doxygen/src/ftextstream.cpp
 
 src/CMakeFiles/_doxygen.dir/ftextstream.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/ftextstream.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/ftextstream.cpp > CMakeFiles/_doxygen.dir/ftextstream.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/ftextstream.cpp > CMakeFiles/_doxygen.dir/ftextstream.cpp.i
 
 src/CMakeFiles/_doxygen.dir/ftextstream.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/ftextstream.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/ftextstream.cpp -o CMakeFiles/_doxygen.dir/ftextstream.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/ftextstream.cpp -o CMakeFiles/_doxygen.dir/ftextstream.cpp.s
 
 src/CMakeFiles/_doxygen.dir/ftextstream.cpp.o.requires:
 
@@ -1404,16 +1404,16 @@ src/CMakeFiles/_doxygen.dir/ftextstream.cpp.o.provides.build: src/CMakeFiles/_do
 
 src/CMakeFiles/_doxygen.dir/ftvhelp.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/ftvhelp.cpp.o: src/ftvhelp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building CXX object src/CMakeFiles/_doxygen.dir/ftvhelp.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/ftvhelp.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/ftvhelp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building CXX object src/CMakeFiles/_doxygen.dir/ftvhelp.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/ftvhelp.cpp.o -c /home/agustin/git/serverapp/doxygen/src/ftvhelp.cpp
 
 src/CMakeFiles/_doxygen.dir/ftvhelp.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/ftvhelp.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/ftvhelp.cpp > CMakeFiles/_doxygen.dir/ftvhelp.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/ftvhelp.cpp > CMakeFiles/_doxygen.dir/ftvhelp.cpp.i
 
 src/CMakeFiles/_doxygen.dir/ftvhelp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/ftvhelp.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/ftvhelp.cpp -o CMakeFiles/_doxygen.dir/ftvhelp.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/ftvhelp.cpp -o CMakeFiles/_doxygen.dir/ftvhelp.cpp.s
 
 src/CMakeFiles/_doxygen.dir/ftvhelp.cpp.o.requires:
 
@@ -1428,16 +1428,16 @@ src/CMakeFiles/_doxygen.dir/ftvhelp.cpp.o.provides.build: src/CMakeFiles/_doxyge
 
 src/CMakeFiles/_doxygen.dir/groupdef.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/groupdef.cpp.o: src/groupdef.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building CXX object src/CMakeFiles/_doxygen.dir/groupdef.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/groupdef.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/groupdef.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building CXX object src/CMakeFiles/_doxygen.dir/groupdef.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/groupdef.cpp.o -c /home/agustin/git/serverapp/doxygen/src/groupdef.cpp
 
 src/CMakeFiles/_doxygen.dir/groupdef.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/groupdef.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/groupdef.cpp > CMakeFiles/_doxygen.dir/groupdef.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/groupdef.cpp > CMakeFiles/_doxygen.dir/groupdef.cpp.i
 
 src/CMakeFiles/_doxygen.dir/groupdef.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/groupdef.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/groupdef.cpp -o CMakeFiles/_doxygen.dir/groupdef.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/groupdef.cpp -o CMakeFiles/_doxygen.dir/groupdef.cpp.s
 
 src/CMakeFiles/_doxygen.dir/groupdef.cpp.o.requires:
 
@@ -1452,16 +1452,16 @@ src/CMakeFiles/_doxygen.dir/groupdef.cpp.o.provides.build: src/CMakeFiles/_doxyg
 
 src/CMakeFiles/_doxygen.dir/htags.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/htags.cpp.o: src/htags.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building CXX object src/CMakeFiles/_doxygen.dir/htags.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/htags.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/htags.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building CXX object src/CMakeFiles/_doxygen.dir/htags.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/htags.cpp.o -c /home/agustin/git/serverapp/doxygen/src/htags.cpp
 
 src/CMakeFiles/_doxygen.dir/htags.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/htags.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/htags.cpp > CMakeFiles/_doxygen.dir/htags.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/htags.cpp > CMakeFiles/_doxygen.dir/htags.cpp.i
 
 src/CMakeFiles/_doxygen.dir/htags.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/htags.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/htags.cpp -o CMakeFiles/_doxygen.dir/htags.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/htags.cpp -o CMakeFiles/_doxygen.dir/htags.cpp.s
 
 src/CMakeFiles/_doxygen.dir/htags.cpp.o.requires:
 
@@ -1476,16 +1476,16 @@ src/CMakeFiles/_doxygen.dir/htags.cpp.o.provides.build: src/CMakeFiles/_doxygen.
 
 src/CMakeFiles/_doxygen.dir/htmldocvisitor.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/htmldocvisitor.cpp.o: src/htmldocvisitor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building CXX object src/CMakeFiles/_doxygen.dir/htmldocvisitor.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/htmldocvisitor.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/htmldocvisitor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building CXX object src/CMakeFiles/_doxygen.dir/htmldocvisitor.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/htmldocvisitor.cpp.o -c /home/agustin/git/serverapp/doxygen/src/htmldocvisitor.cpp
 
 src/CMakeFiles/_doxygen.dir/htmldocvisitor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/htmldocvisitor.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/htmldocvisitor.cpp > CMakeFiles/_doxygen.dir/htmldocvisitor.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/htmldocvisitor.cpp > CMakeFiles/_doxygen.dir/htmldocvisitor.cpp.i
 
 src/CMakeFiles/_doxygen.dir/htmldocvisitor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/htmldocvisitor.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/htmldocvisitor.cpp -o CMakeFiles/_doxygen.dir/htmldocvisitor.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/htmldocvisitor.cpp -o CMakeFiles/_doxygen.dir/htmldocvisitor.cpp.s
 
 src/CMakeFiles/_doxygen.dir/htmldocvisitor.cpp.o.requires:
 
@@ -1500,16 +1500,16 @@ src/CMakeFiles/_doxygen.dir/htmldocvisitor.cpp.o.provides.build: src/CMakeFiles/
 
 src/CMakeFiles/_doxygen.dir/htmlentity.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/htmlentity.cpp.o: src/htmlentity.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building CXX object src/CMakeFiles/_doxygen.dir/htmlentity.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/htmlentity.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/htmlentity.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building CXX object src/CMakeFiles/_doxygen.dir/htmlentity.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/htmlentity.cpp.o -c /home/agustin/git/serverapp/doxygen/src/htmlentity.cpp
 
 src/CMakeFiles/_doxygen.dir/htmlentity.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/htmlentity.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/htmlentity.cpp > CMakeFiles/_doxygen.dir/htmlentity.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/htmlentity.cpp > CMakeFiles/_doxygen.dir/htmlentity.cpp.i
 
 src/CMakeFiles/_doxygen.dir/htmlentity.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/htmlentity.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/htmlentity.cpp -o CMakeFiles/_doxygen.dir/htmlentity.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/htmlentity.cpp -o CMakeFiles/_doxygen.dir/htmlentity.cpp.s
 
 src/CMakeFiles/_doxygen.dir/htmlentity.cpp.o.requires:
 
@@ -1524,16 +1524,16 @@ src/CMakeFiles/_doxygen.dir/htmlentity.cpp.o.provides.build: src/CMakeFiles/_dox
 
 src/CMakeFiles/_doxygen.dir/resourcemgr.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/resourcemgr.cpp.o: src/resourcemgr.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building CXX object src/CMakeFiles/_doxygen.dir/resourcemgr.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/resourcemgr.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/resourcemgr.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building CXX object src/CMakeFiles/_doxygen.dir/resourcemgr.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/resourcemgr.cpp.o -c /home/agustin/git/serverapp/doxygen/src/resourcemgr.cpp
 
 src/CMakeFiles/_doxygen.dir/resourcemgr.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/resourcemgr.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/resourcemgr.cpp > CMakeFiles/_doxygen.dir/resourcemgr.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/resourcemgr.cpp > CMakeFiles/_doxygen.dir/resourcemgr.cpp.i
 
 src/CMakeFiles/_doxygen.dir/resourcemgr.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/resourcemgr.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/resourcemgr.cpp -o CMakeFiles/_doxygen.dir/resourcemgr.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/resourcemgr.cpp -o CMakeFiles/_doxygen.dir/resourcemgr.cpp.s
 
 src/CMakeFiles/_doxygen.dir/resourcemgr.cpp.o.requires:
 
@@ -1548,16 +1548,16 @@ src/CMakeFiles/_doxygen.dir/resourcemgr.cpp.o.provides.build: src/CMakeFiles/_do
 
 src/CMakeFiles/_doxygen.dir/htmlgen.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/htmlgen.cpp.o: src/htmlgen.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building CXX object src/CMakeFiles/_doxygen.dir/htmlgen.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/htmlgen.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/htmlgen.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building CXX object src/CMakeFiles/_doxygen.dir/htmlgen.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/htmlgen.cpp.o -c /home/agustin/git/serverapp/doxygen/src/htmlgen.cpp
 
 src/CMakeFiles/_doxygen.dir/htmlgen.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/htmlgen.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/htmlgen.cpp > CMakeFiles/_doxygen.dir/htmlgen.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/htmlgen.cpp > CMakeFiles/_doxygen.dir/htmlgen.cpp.i
 
 src/CMakeFiles/_doxygen.dir/htmlgen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/htmlgen.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/htmlgen.cpp -o CMakeFiles/_doxygen.dir/htmlgen.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/htmlgen.cpp -o CMakeFiles/_doxygen.dir/htmlgen.cpp.s
 
 src/CMakeFiles/_doxygen.dir/htmlgen.cpp.o.requires:
 
@@ -1572,16 +1572,16 @@ src/CMakeFiles/_doxygen.dir/htmlgen.cpp.o.provides.build: src/CMakeFiles/_doxyge
 
 src/CMakeFiles/_doxygen.dir/htmlhelp.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/htmlhelp.cpp.o: src/htmlhelp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building CXX object src/CMakeFiles/_doxygen.dir/htmlhelp.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/htmlhelp.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/htmlhelp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building CXX object src/CMakeFiles/_doxygen.dir/htmlhelp.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/htmlhelp.cpp.o -c /home/agustin/git/serverapp/doxygen/src/htmlhelp.cpp
 
 src/CMakeFiles/_doxygen.dir/htmlhelp.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/htmlhelp.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/htmlhelp.cpp > CMakeFiles/_doxygen.dir/htmlhelp.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/htmlhelp.cpp > CMakeFiles/_doxygen.dir/htmlhelp.cpp.i
 
 src/CMakeFiles/_doxygen.dir/htmlhelp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/htmlhelp.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/htmlhelp.cpp -o CMakeFiles/_doxygen.dir/htmlhelp.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/htmlhelp.cpp -o CMakeFiles/_doxygen.dir/htmlhelp.cpp.s
 
 src/CMakeFiles/_doxygen.dir/htmlhelp.cpp.o.requires:
 
@@ -1596,16 +1596,16 @@ src/CMakeFiles/_doxygen.dir/htmlhelp.cpp.o.provides.build: src/CMakeFiles/_doxyg
 
 src/CMakeFiles/_doxygen.dir/image.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/image.cpp.o: src/image.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building CXX object src/CMakeFiles/_doxygen.dir/image.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/image.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/image.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building CXX object src/CMakeFiles/_doxygen.dir/image.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/image.cpp.o -c /home/agustin/git/serverapp/doxygen/src/image.cpp
 
 src/CMakeFiles/_doxygen.dir/image.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/image.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/image.cpp > CMakeFiles/_doxygen.dir/image.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/image.cpp > CMakeFiles/_doxygen.dir/image.cpp.i
 
 src/CMakeFiles/_doxygen.dir/image.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/image.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/image.cpp -o CMakeFiles/_doxygen.dir/image.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/image.cpp -o CMakeFiles/_doxygen.dir/image.cpp.s
 
 src/CMakeFiles/_doxygen.dir/image.cpp.o.requires:
 
@@ -1620,16 +1620,16 @@ src/CMakeFiles/_doxygen.dir/image.cpp.o.provides.build: src/CMakeFiles/_doxygen.
 
 src/CMakeFiles/_doxygen.dir/index.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/index.cpp.o: src/index.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building CXX object src/CMakeFiles/_doxygen.dir/index.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/index.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/index.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building CXX object src/CMakeFiles/_doxygen.dir/index.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/index.cpp.o -c /home/agustin/git/serverapp/doxygen/src/index.cpp
 
 src/CMakeFiles/_doxygen.dir/index.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/index.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/index.cpp > CMakeFiles/_doxygen.dir/index.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/index.cpp > CMakeFiles/_doxygen.dir/index.cpp.i
 
 src/CMakeFiles/_doxygen.dir/index.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/index.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/index.cpp -o CMakeFiles/_doxygen.dir/index.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/index.cpp -o CMakeFiles/_doxygen.dir/index.cpp.s
 
 src/CMakeFiles/_doxygen.dir/index.cpp.o.requires:
 
@@ -1644,16 +1644,16 @@ src/CMakeFiles/_doxygen.dir/index.cpp.o.provides.build: src/CMakeFiles/_doxygen.
 
 src/CMakeFiles/_doxygen.dir/language.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/language.cpp.o: src/language.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building CXX object src/CMakeFiles/_doxygen.dir/language.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/language.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/language.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building CXX object src/CMakeFiles/_doxygen.dir/language.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/language.cpp.o -c /home/agustin/git/serverapp/doxygen/src/language.cpp
 
 src/CMakeFiles/_doxygen.dir/language.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/language.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/language.cpp > CMakeFiles/_doxygen.dir/language.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/language.cpp > CMakeFiles/_doxygen.dir/language.cpp.i
 
 src/CMakeFiles/_doxygen.dir/language.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/language.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/language.cpp -o CMakeFiles/_doxygen.dir/language.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/language.cpp -o CMakeFiles/_doxygen.dir/language.cpp.s
 
 src/CMakeFiles/_doxygen.dir/language.cpp.o.requires:
 
@@ -1668,16 +1668,16 @@ src/CMakeFiles/_doxygen.dir/language.cpp.o.provides.build: src/CMakeFiles/_doxyg
 
 src/CMakeFiles/_doxygen.dir/latexdocvisitor.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/latexdocvisitor.cpp.o: src/latexdocvisitor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building CXX object src/CMakeFiles/_doxygen.dir/latexdocvisitor.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/latexdocvisitor.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/latexdocvisitor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building CXX object src/CMakeFiles/_doxygen.dir/latexdocvisitor.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/latexdocvisitor.cpp.o -c /home/agustin/git/serverapp/doxygen/src/latexdocvisitor.cpp
 
 src/CMakeFiles/_doxygen.dir/latexdocvisitor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/latexdocvisitor.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/latexdocvisitor.cpp > CMakeFiles/_doxygen.dir/latexdocvisitor.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/latexdocvisitor.cpp > CMakeFiles/_doxygen.dir/latexdocvisitor.cpp.i
 
 src/CMakeFiles/_doxygen.dir/latexdocvisitor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/latexdocvisitor.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/latexdocvisitor.cpp -o CMakeFiles/_doxygen.dir/latexdocvisitor.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/latexdocvisitor.cpp -o CMakeFiles/_doxygen.dir/latexdocvisitor.cpp.s
 
 src/CMakeFiles/_doxygen.dir/latexdocvisitor.cpp.o.requires:
 
@@ -1692,16 +1692,16 @@ src/CMakeFiles/_doxygen.dir/latexdocvisitor.cpp.o.provides.build: src/CMakeFiles
 
 src/CMakeFiles/_doxygen.dir/latexgen.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/latexgen.cpp.o: src/latexgen.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building CXX object src/CMakeFiles/_doxygen.dir/latexgen.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/latexgen.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/latexgen.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building CXX object src/CMakeFiles/_doxygen.dir/latexgen.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/latexgen.cpp.o -c /home/agustin/git/serverapp/doxygen/src/latexgen.cpp
 
 src/CMakeFiles/_doxygen.dir/latexgen.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/latexgen.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/latexgen.cpp > CMakeFiles/_doxygen.dir/latexgen.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/latexgen.cpp > CMakeFiles/_doxygen.dir/latexgen.cpp.i
 
 src/CMakeFiles/_doxygen.dir/latexgen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/latexgen.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/latexgen.cpp -o CMakeFiles/_doxygen.dir/latexgen.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/latexgen.cpp -o CMakeFiles/_doxygen.dir/latexgen.cpp.s
 
 src/CMakeFiles/_doxygen.dir/latexgen.cpp.o.requires:
 
@@ -1716,16 +1716,16 @@ src/CMakeFiles/_doxygen.dir/latexgen.cpp.o.provides.build: src/CMakeFiles/_doxyg
 
 src/CMakeFiles/_doxygen.dir/layout.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/layout.cpp.o: src/layout.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building CXX object src/CMakeFiles/_doxygen.dir/layout.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/layout.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/layout.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building CXX object src/CMakeFiles/_doxygen.dir/layout.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/layout.cpp.o -c /home/agustin/git/serverapp/doxygen/src/layout.cpp
 
 src/CMakeFiles/_doxygen.dir/layout.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/layout.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/layout.cpp > CMakeFiles/_doxygen.dir/layout.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/layout.cpp > CMakeFiles/_doxygen.dir/layout.cpp.i
 
 src/CMakeFiles/_doxygen.dir/layout.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/layout.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/layout.cpp -o CMakeFiles/_doxygen.dir/layout.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/layout.cpp -o CMakeFiles/_doxygen.dir/layout.cpp.s
 
 src/CMakeFiles/_doxygen.dir/layout.cpp.o.requires:
 
@@ -1740,16 +1740,16 @@ src/CMakeFiles/_doxygen.dir/layout.cpp.o.provides.build: src/CMakeFiles/_doxygen
 
 src/CMakeFiles/_doxygen.dir/lodepng.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/lodepng.cpp.o: src/lodepng.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building CXX object src/CMakeFiles/_doxygen.dir/lodepng.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/lodepng.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/lodepng.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building CXX object src/CMakeFiles/_doxygen.dir/lodepng.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/lodepng.cpp.o -c /home/agustin/git/serverapp/doxygen/src/lodepng.cpp
 
 src/CMakeFiles/_doxygen.dir/lodepng.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/lodepng.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/lodepng.cpp > CMakeFiles/_doxygen.dir/lodepng.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/lodepng.cpp > CMakeFiles/_doxygen.dir/lodepng.cpp.i
 
 src/CMakeFiles/_doxygen.dir/lodepng.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/lodepng.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/lodepng.cpp -o CMakeFiles/_doxygen.dir/lodepng.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/lodepng.cpp -o CMakeFiles/_doxygen.dir/lodepng.cpp.s
 
 src/CMakeFiles/_doxygen.dir/lodepng.cpp.o.requires:
 
@@ -1764,16 +1764,16 @@ src/CMakeFiles/_doxygen.dir/lodepng.cpp.o.provides.build: src/CMakeFiles/_doxyge
 
 src/CMakeFiles/_doxygen.dir/logos.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/logos.cpp.o: src/logos.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building CXX object src/CMakeFiles/_doxygen.dir/logos.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/logos.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/logos.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building CXX object src/CMakeFiles/_doxygen.dir/logos.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/logos.cpp.o -c /home/agustin/git/serverapp/doxygen/src/logos.cpp
 
 src/CMakeFiles/_doxygen.dir/logos.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/logos.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/logos.cpp > CMakeFiles/_doxygen.dir/logos.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/logos.cpp > CMakeFiles/_doxygen.dir/logos.cpp.i
 
 src/CMakeFiles/_doxygen.dir/logos.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/logos.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/logos.cpp -o CMakeFiles/_doxygen.dir/logos.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/logos.cpp -o CMakeFiles/_doxygen.dir/logos.cpp.s
 
 src/CMakeFiles/_doxygen.dir/logos.cpp.o.requires:
 
@@ -1788,16 +1788,16 @@ src/CMakeFiles/_doxygen.dir/logos.cpp.o.provides.build: src/CMakeFiles/_doxygen.
 
 src/CMakeFiles/_doxygen.dir/mandocvisitor.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/mandocvisitor.cpp.o: src/mandocvisitor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building CXX object src/CMakeFiles/_doxygen.dir/mandocvisitor.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/mandocvisitor.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/mandocvisitor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building CXX object src/CMakeFiles/_doxygen.dir/mandocvisitor.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/mandocvisitor.cpp.o -c /home/agustin/git/serverapp/doxygen/src/mandocvisitor.cpp
 
 src/CMakeFiles/_doxygen.dir/mandocvisitor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/mandocvisitor.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/mandocvisitor.cpp > CMakeFiles/_doxygen.dir/mandocvisitor.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/mandocvisitor.cpp > CMakeFiles/_doxygen.dir/mandocvisitor.cpp.i
 
 src/CMakeFiles/_doxygen.dir/mandocvisitor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/mandocvisitor.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/mandocvisitor.cpp -o CMakeFiles/_doxygen.dir/mandocvisitor.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/mandocvisitor.cpp -o CMakeFiles/_doxygen.dir/mandocvisitor.cpp.s
 
 src/CMakeFiles/_doxygen.dir/mandocvisitor.cpp.o.requires:
 
@@ -1812,16 +1812,16 @@ src/CMakeFiles/_doxygen.dir/mandocvisitor.cpp.o.provides.build: src/CMakeFiles/_
 
 src/CMakeFiles/_doxygen.dir/mangen.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/mangen.cpp.o: src/mangen.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building CXX object src/CMakeFiles/_doxygen.dir/mangen.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/mangen.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/mangen.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building CXX object src/CMakeFiles/_doxygen.dir/mangen.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/mangen.cpp.o -c /home/agustin/git/serverapp/doxygen/src/mangen.cpp
 
 src/CMakeFiles/_doxygen.dir/mangen.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/mangen.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/mangen.cpp > CMakeFiles/_doxygen.dir/mangen.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/mangen.cpp > CMakeFiles/_doxygen.dir/mangen.cpp.i
 
 src/CMakeFiles/_doxygen.dir/mangen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/mangen.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/mangen.cpp -o CMakeFiles/_doxygen.dir/mangen.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/mangen.cpp -o CMakeFiles/_doxygen.dir/mangen.cpp.s
 
 src/CMakeFiles/_doxygen.dir/mangen.cpp.o.requires:
 
@@ -1836,16 +1836,16 @@ src/CMakeFiles/_doxygen.dir/mangen.cpp.o.provides.build: src/CMakeFiles/_doxygen
 
 src/CMakeFiles/_doxygen.dir/sqlite3gen.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/sqlite3gen.cpp.o: src/sqlite3gen.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building CXX object src/CMakeFiles/_doxygen.dir/sqlite3gen.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/sqlite3gen.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/sqlite3gen.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building CXX object src/CMakeFiles/_doxygen.dir/sqlite3gen.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/sqlite3gen.cpp.o -c /home/agustin/git/serverapp/doxygen/src/sqlite3gen.cpp
 
 src/CMakeFiles/_doxygen.dir/sqlite3gen.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/sqlite3gen.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/sqlite3gen.cpp > CMakeFiles/_doxygen.dir/sqlite3gen.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/sqlite3gen.cpp > CMakeFiles/_doxygen.dir/sqlite3gen.cpp.i
 
 src/CMakeFiles/_doxygen.dir/sqlite3gen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/sqlite3gen.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/sqlite3gen.cpp -o CMakeFiles/_doxygen.dir/sqlite3gen.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/sqlite3gen.cpp -o CMakeFiles/_doxygen.dir/sqlite3gen.cpp.s
 
 src/CMakeFiles/_doxygen.dir/sqlite3gen.cpp.o.requires:
 
@@ -1860,16 +1860,16 @@ src/CMakeFiles/_doxygen.dir/sqlite3gen.cpp.o.provides.build: src/CMakeFiles/_dox
 
 src/CMakeFiles/_doxygen.dir/markdown.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/markdown.cpp.o: src/markdown.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building CXX object src/CMakeFiles/_doxygen.dir/markdown.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/markdown.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/markdown.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Building CXX object src/CMakeFiles/_doxygen.dir/markdown.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/markdown.cpp.o -c /home/agustin/git/serverapp/doxygen/src/markdown.cpp
 
 src/CMakeFiles/_doxygen.dir/markdown.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/markdown.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/markdown.cpp > CMakeFiles/_doxygen.dir/markdown.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/markdown.cpp > CMakeFiles/_doxygen.dir/markdown.cpp.i
 
 src/CMakeFiles/_doxygen.dir/markdown.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/markdown.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/markdown.cpp -o CMakeFiles/_doxygen.dir/markdown.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/markdown.cpp -o CMakeFiles/_doxygen.dir/markdown.cpp.s
 
 src/CMakeFiles/_doxygen.dir/markdown.cpp.o.requires:
 
@@ -1884,16 +1884,16 @@ src/CMakeFiles/_doxygen.dir/markdown.cpp.o.provides.build: src/CMakeFiles/_doxyg
 
 src/CMakeFiles/_doxygen.dir/marshal.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/marshal.cpp.o: src/marshal.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building CXX object src/CMakeFiles/_doxygen.dir/marshal.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/marshal.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/marshal.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_89) "Building CXX object src/CMakeFiles/_doxygen.dir/marshal.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/marshal.cpp.o -c /home/agustin/git/serverapp/doxygen/src/marshal.cpp
 
 src/CMakeFiles/_doxygen.dir/marshal.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/marshal.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/marshal.cpp > CMakeFiles/_doxygen.dir/marshal.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/marshal.cpp > CMakeFiles/_doxygen.dir/marshal.cpp.i
 
 src/CMakeFiles/_doxygen.dir/marshal.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/marshal.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/marshal.cpp -o CMakeFiles/_doxygen.dir/marshal.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/marshal.cpp -o CMakeFiles/_doxygen.dir/marshal.cpp.s
 
 src/CMakeFiles/_doxygen.dir/marshal.cpp.o.requires:
 
@@ -1908,16 +1908,16 @@ src/CMakeFiles/_doxygen.dir/marshal.cpp.o.provides.build: src/CMakeFiles/_doxyge
 
 src/CMakeFiles/_doxygen.dir/memberdef.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/memberdef.cpp.o: src/memberdef.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building CXX object src/CMakeFiles/_doxygen.dir/memberdef.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/memberdef.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/memberdef.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_90) "Building CXX object src/CMakeFiles/_doxygen.dir/memberdef.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/memberdef.cpp.o -c /home/agustin/git/serverapp/doxygen/src/memberdef.cpp
 
 src/CMakeFiles/_doxygen.dir/memberdef.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/memberdef.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/memberdef.cpp > CMakeFiles/_doxygen.dir/memberdef.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/memberdef.cpp > CMakeFiles/_doxygen.dir/memberdef.cpp.i
 
 src/CMakeFiles/_doxygen.dir/memberdef.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/memberdef.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/memberdef.cpp -o CMakeFiles/_doxygen.dir/memberdef.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/memberdef.cpp -o CMakeFiles/_doxygen.dir/memberdef.cpp.s
 
 src/CMakeFiles/_doxygen.dir/memberdef.cpp.o.requires:
 
@@ -1932,16 +1932,16 @@ src/CMakeFiles/_doxygen.dir/memberdef.cpp.o.provides.build: src/CMakeFiles/_doxy
 
 src/CMakeFiles/_doxygen.dir/membergroup.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/membergroup.cpp.o: src/membergroup.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building CXX object src/CMakeFiles/_doxygen.dir/membergroup.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/membergroup.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/membergroup.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_91) "Building CXX object src/CMakeFiles/_doxygen.dir/membergroup.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/membergroup.cpp.o -c /home/agustin/git/serverapp/doxygen/src/membergroup.cpp
 
 src/CMakeFiles/_doxygen.dir/membergroup.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/membergroup.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/membergroup.cpp > CMakeFiles/_doxygen.dir/membergroup.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/membergroup.cpp > CMakeFiles/_doxygen.dir/membergroup.cpp.i
 
 src/CMakeFiles/_doxygen.dir/membergroup.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/membergroup.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/membergroup.cpp -o CMakeFiles/_doxygen.dir/membergroup.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/membergroup.cpp -o CMakeFiles/_doxygen.dir/membergroup.cpp.s
 
 src/CMakeFiles/_doxygen.dir/membergroup.cpp.o.requires:
 
@@ -1956,16 +1956,16 @@ src/CMakeFiles/_doxygen.dir/membergroup.cpp.o.provides.build: src/CMakeFiles/_do
 
 src/CMakeFiles/_doxygen.dir/memberlist.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/memberlist.cpp.o: src/memberlist.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building CXX object src/CMakeFiles/_doxygen.dir/memberlist.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/memberlist.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/memberlist.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_92) "Building CXX object src/CMakeFiles/_doxygen.dir/memberlist.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/memberlist.cpp.o -c /home/agustin/git/serverapp/doxygen/src/memberlist.cpp
 
 src/CMakeFiles/_doxygen.dir/memberlist.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/memberlist.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/memberlist.cpp > CMakeFiles/_doxygen.dir/memberlist.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/memberlist.cpp > CMakeFiles/_doxygen.dir/memberlist.cpp.i
 
 src/CMakeFiles/_doxygen.dir/memberlist.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/memberlist.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/memberlist.cpp -o CMakeFiles/_doxygen.dir/memberlist.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/memberlist.cpp -o CMakeFiles/_doxygen.dir/memberlist.cpp.s
 
 src/CMakeFiles/_doxygen.dir/memberlist.cpp.o.requires:
 
@@ -1980,16 +1980,16 @@ src/CMakeFiles/_doxygen.dir/memberlist.cpp.o.provides.build: src/CMakeFiles/_dox
 
 src/CMakeFiles/_doxygen.dir/membername.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/membername.cpp.o: src/membername.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building CXX object src/CMakeFiles/_doxygen.dir/membername.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/membername.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/membername.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_93) "Building CXX object src/CMakeFiles/_doxygen.dir/membername.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/membername.cpp.o -c /home/agustin/git/serverapp/doxygen/src/membername.cpp
 
 src/CMakeFiles/_doxygen.dir/membername.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/membername.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/membername.cpp > CMakeFiles/_doxygen.dir/membername.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/membername.cpp > CMakeFiles/_doxygen.dir/membername.cpp.i
 
 src/CMakeFiles/_doxygen.dir/membername.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/membername.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/membername.cpp -o CMakeFiles/_doxygen.dir/membername.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/membername.cpp -o CMakeFiles/_doxygen.dir/membername.cpp.s
 
 src/CMakeFiles/_doxygen.dir/membername.cpp.o.requires:
 
@@ -2004,16 +2004,16 @@ src/CMakeFiles/_doxygen.dir/membername.cpp.o.provides.build: src/CMakeFiles/_dox
 
 src/CMakeFiles/_doxygen.dir/message.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/message.cpp.o: src/message.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building CXX object src/CMakeFiles/_doxygen.dir/message.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/message.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/message.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_94) "Building CXX object src/CMakeFiles/_doxygen.dir/message.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/message.cpp.o -c /home/agustin/git/serverapp/doxygen/src/message.cpp
 
 src/CMakeFiles/_doxygen.dir/message.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/message.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/message.cpp > CMakeFiles/_doxygen.dir/message.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/message.cpp > CMakeFiles/_doxygen.dir/message.cpp.i
 
 src/CMakeFiles/_doxygen.dir/message.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/message.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/message.cpp -o CMakeFiles/_doxygen.dir/message.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/message.cpp -o CMakeFiles/_doxygen.dir/message.cpp.s
 
 src/CMakeFiles/_doxygen.dir/message.cpp.o.requires:
 
@@ -2028,16 +2028,16 @@ src/CMakeFiles/_doxygen.dir/message.cpp.o.provides.build: src/CMakeFiles/_doxyge
 
 src/CMakeFiles/_doxygen.dir/msc.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/msc.cpp.o: src/msc.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building CXX object src/CMakeFiles/_doxygen.dir/msc.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/msc.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/msc.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_95) "Building CXX object src/CMakeFiles/_doxygen.dir/msc.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/msc.cpp.o -c /home/agustin/git/serverapp/doxygen/src/msc.cpp
 
 src/CMakeFiles/_doxygen.dir/msc.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/msc.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/msc.cpp > CMakeFiles/_doxygen.dir/msc.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/msc.cpp > CMakeFiles/_doxygen.dir/msc.cpp.i
 
 src/CMakeFiles/_doxygen.dir/msc.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/msc.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/msc.cpp -o CMakeFiles/_doxygen.dir/msc.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/msc.cpp -o CMakeFiles/_doxygen.dir/msc.cpp.s
 
 src/CMakeFiles/_doxygen.dir/msc.cpp.o.requires:
 
@@ -2052,16 +2052,16 @@ src/CMakeFiles/_doxygen.dir/msc.cpp.o.provides.build: src/CMakeFiles/_doxygen.di
 
 src/CMakeFiles/_doxygen.dir/dia.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/dia.cpp.o: src/dia.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building CXX object src/CMakeFiles/_doxygen.dir/dia.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/dia.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/dia.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_96) "Building CXX object src/CMakeFiles/_doxygen.dir/dia.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/dia.cpp.o -c /home/agustin/git/serverapp/doxygen/src/dia.cpp
 
 src/CMakeFiles/_doxygen.dir/dia.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/dia.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/dia.cpp > CMakeFiles/_doxygen.dir/dia.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/dia.cpp > CMakeFiles/_doxygen.dir/dia.cpp.i
 
 src/CMakeFiles/_doxygen.dir/dia.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/dia.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/dia.cpp -o CMakeFiles/_doxygen.dir/dia.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/dia.cpp -o CMakeFiles/_doxygen.dir/dia.cpp.s
 
 src/CMakeFiles/_doxygen.dir/dia.cpp.o.requires:
 
@@ -2076,16 +2076,16 @@ src/CMakeFiles/_doxygen.dir/dia.cpp.o.provides.build: src/CMakeFiles/_doxygen.di
 
 src/CMakeFiles/_doxygen.dir/namespacedef.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/namespacedef.cpp.o: src/namespacedef.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building CXX object src/CMakeFiles/_doxygen.dir/namespacedef.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/namespacedef.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/namespacedef.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_97) "Building CXX object src/CMakeFiles/_doxygen.dir/namespacedef.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/namespacedef.cpp.o -c /home/agustin/git/serverapp/doxygen/src/namespacedef.cpp
 
 src/CMakeFiles/_doxygen.dir/namespacedef.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/namespacedef.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/namespacedef.cpp > CMakeFiles/_doxygen.dir/namespacedef.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/namespacedef.cpp > CMakeFiles/_doxygen.dir/namespacedef.cpp.i
 
 src/CMakeFiles/_doxygen.dir/namespacedef.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/namespacedef.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/namespacedef.cpp -o CMakeFiles/_doxygen.dir/namespacedef.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/namespacedef.cpp -o CMakeFiles/_doxygen.dir/namespacedef.cpp.s
 
 src/CMakeFiles/_doxygen.dir/namespacedef.cpp.o.requires:
 
@@ -2100,16 +2100,16 @@ src/CMakeFiles/_doxygen.dir/namespacedef.cpp.o.provides.build: src/CMakeFiles/_d
 
 src/CMakeFiles/_doxygen.dir/objcache.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/objcache.cpp.o: src/objcache.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Building CXX object src/CMakeFiles/_doxygen.dir/objcache.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/objcache.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/objcache.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_98) "Building CXX object src/CMakeFiles/_doxygen.dir/objcache.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/objcache.cpp.o -c /home/agustin/git/serverapp/doxygen/src/objcache.cpp
 
 src/CMakeFiles/_doxygen.dir/objcache.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/objcache.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/objcache.cpp > CMakeFiles/_doxygen.dir/objcache.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/objcache.cpp > CMakeFiles/_doxygen.dir/objcache.cpp.i
 
 src/CMakeFiles/_doxygen.dir/objcache.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/objcache.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/objcache.cpp -o CMakeFiles/_doxygen.dir/objcache.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/objcache.cpp -o CMakeFiles/_doxygen.dir/objcache.cpp.s
 
 src/CMakeFiles/_doxygen.dir/objcache.cpp.o.requires:
 
@@ -2124,16 +2124,16 @@ src/CMakeFiles/_doxygen.dir/objcache.cpp.o.provides.build: src/CMakeFiles/_doxyg
 
 src/CMakeFiles/_doxygen.dir/outputgen.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/outputgen.cpp.o: src/outputgen.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Building CXX object src/CMakeFiles/_doxygen.dir/outputgen.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/outputgen.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/outputgen.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_99) "Building CXX object src/CMakeFiles/_doxygen.dir/outputgen.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/outputgen.cpp.o -c /home/agustin/git/serverapp/doxygen/src/outputgen.cpp
 
 src/CMakeFiles/_doxygen.dir/outputgen.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/outputgen.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/outputgen.cpp > CMakeFiles/_doxygen.dir/outputgen.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/outputgen.cpp > CMakeFiles/_doxygen.dir/outputgen.cpp.i
 
 src/CMakeFiles/_doxygen.dir/outputgen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/outputgen.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/outputgen.cpp -o CMakeFiles/_doxygen.dir/outputgen.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/outputgen.cpp -o CMakeFiles/_doxygen.dir/outputgen.cpp.s
 
 src/CMakeFiles/_doxygen.dir/outputgen.cpp.o.requires:
 
@@ -2148,16 +2148,16 @@ src/CMakeFiles/_doxygen.dir/outputgen.cpp.o.provides.build: src/CMakeFiles/_doxy
 
 src/CMakeFiles/_doxygen.dir/outputlist.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/outputlist.cpp.o: src/outputlist.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Building CXX object src/CMakeFiles/_doxygen.dir/outputlist.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/outputlist.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/outputlist.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_100) "Building CXX object src/CMakeFiles/_doxygen.dir/outputlist.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/outputlist.cpp.o -c /home/agustin/git/serverapp/doxygen/src/outputlist.cpp
 
 src/CMakeFiles/_doxygen.dir/outputlist.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/outputlist.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/outputlist.cpp > CMakeFiles/_doxygen.dir/outputlist.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/outputlist.cpp > CMakeFiles/_doxygen.dir/outputlist.cpp.i
 
 src/CMakeFiles/_doxygen.dir/outputlist.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/outputlist.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/outputlist.cpp -o CMakeFiles/_doxygen.dir/outputlist.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/outputlist.cpp -o CMakeFiles/_doxygen.dir/outputlist.cpp.s
 
 src/CMakeFiles/_doxygen.dir/outputlist.cpp.o.requires:
 
@@ -2172,16 +2172,16 @@ src/CMakeFiles/_doxygen.dir/outputlist.cpp.o.provides.build: src/CMakeFiles/_dox
 
 src/CMakeFiles/_doxygen.dir/pagedef.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/pagedef.cpp.o: src/pagedef.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Building CXX object src/CMakeFiles/_doxygen.dir/pagedef.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/pagedef.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/pagedef.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_101) "Building CXX object src/CMakeFiles/_doxygen.dir/pagedef.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/pagedef.cpp.o -c /home/agustin/git/serverapp/doxygen/src/pagedef.cpp
 
 src/CMakeFiles/_doxygen.dir/pagedef.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/pagedef.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/pagedef.cpp > CMakeFiles/_doxygen.dir/pagedef.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/pagedef.cpp > CMakeFiles/_doxygen.dir/pagedef.cpp.i
 
 src/CMakeFiles/_doxygen.dir/pagedef.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/pagedef.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/pagedef.cpp -o CMakeFiles/_doxygen.dir/pagedef.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/pagedef.cpp -o CMakeFiles/_doxygen.dir/pagedef.cpp.s
 
 src/CMakeFiles/_doxygen.dir/pagedef.cpp.o.requires:
 
@@ -2196,16 +2196,16 @@ src/CMakeFiles/_doxygen.dir/pagedef.cpp.o.provides.build: src/CMakeFiles/_doxyge
 
 src/CMakeFiles/_doxygen.dir/perlmodgen.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/perlmodgen.cpp.o: src/perlmodgen.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Building CXX object src/CMakeFiles/_doxygen.dir/perlmodgen.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/perlmodgen.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/perlmodgen.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_102) "Building CXX object src/CMakeFiles/_doxygen.dir/perlmodgen.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/perlmodgen.cpp.o -c /home/agustin/git/serverapp/doxygen/src/perlmodgen.cpp
 
 src/CMakeFiles/_doxygen.dir/perlmodgen.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/perlmodgen.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/perlmodgen.cpp > CMakeFiles/_doxygen.dir/perlmodgen.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/perlmodgen.cpp > CMakeFiles/_doxygen.dir/perlmodgen.cpp.i
 
 src/CMakeFiles/_doxygen.dir/perlmodgen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/perlmodgen.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/perlmodgen.cpp -o CMakeFiles/_doxygen.dir/perlmodgen.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/perlmodgen.cpp -o CMakeFiles/_doxygen.dir/perlmodgen.cpp.s
 
 src/CMakeFiles/_doxygen.dir/perlmodgen.cpp.o.requires:
 
@@ -2220,16 +2220,16 @@ src/CMakeFiles/_doxygen.dir/perlmodgen.cpp.o.provides.build: src/CMakeFiles/_dox
 
 src/CMakeFiles/_doxygen.dir/qhp.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/qhp.cpp.o: src/qhp.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_103) "Building CXX object src/CMakeFiles/_doxygen.dir/qhp.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/qhp.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/qhp.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_103) "Building CXX object src/CMakeFiles/_doxygen.dir/qhp.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/qhp.cpp.o -c /home/agustin/git/serverapp/doxygen/src/qhp.cpp
 
 src/CMakeFiles/_doxygen.dir/qhp.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/qhp.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/qhp.cpp > CMakeFiles/_doxygen.dir/qhp.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/qhp.cpp > CMakeFiles/_doxygen.dir/qhp.cpp.i
 
 src/CMakeFiles/_doxygen.dir/qhp.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/qhp.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/qhp.cpp -o CMakeFiles/_doxygen.dir/qhp.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/qhp.cpp -o CMakeFiles/_doxygen.dir/qhp.cpp.s
 
 src/CMakeFiles/_doxygen.dir/qhp.cpp.o.requires:
 
@@ -2244,16 +2244,16 @@ src/CMakeFiles/_doxygen.dir/qhp.cpp.o.provides.build: src/CMakeFiles/_doxygen.di
 
 src/CMakeFiles/_doxygen.dir/qhpxmlwriter.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/qhpxmlwriter.cpp.o: src/qhpxmlwriter.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Building CXX object src/CMakeFiles/_doxygen.dir/qhpxmlwriter.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/qhpxmlwriter.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/qhpxmlwriter.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_104) "Building CXX object src/CMakeFiles/_doxygen.dir/qhpxmlwriter.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/qhpxmlwriter.cpp.o -c /home/agustin/git/serverapp/doxygen/src/qhpxmlwriter.cpp
 
 src/CMakeFiles/_doxygen.dir/qhpxmlwriter.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/qhpxmlwriter.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/qhpxmlwriter.cpp > CMakeFiles/_doxygen.dir/qhpxmlwriter.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/qhpxmlwriter.cpp > CMakeFiles/_doxygen.dir/qhpxmlwriter.cpp.i
 
 src/CMakeFiles/_doxygen.dir/qhpxmlwriter.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/qhpxmlwriter.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/qhpxmlwriter.cpp -o CMakeFiles/_doxygen.dir/qhpxmlwriter.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/qhpxmlwriter.cpp -o CMakeFiles/_doxygen.dir/qhpxmlwriter.cpp.s
 
 src/CMakeFiles/_doxygen.dir/qhpxmlwriter.cpp.o.requires:
 
@@ -2268,16 +2268,16 @@ src/CMakeFiles/_doxygen.dir/qhpxmlwriter.cpp.o.provides.build: src/CMakeFiles/_d
 
 src/CMakeFiles/_doxygen.dir/reflist.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/reflist.cpp.o: src/reflist.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Building CXX object src/CMakeFiles/_doxygen.dir/reflist.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/reflist.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/reflist.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Building CXX object src/CMakeFiles/_doxygen.dir/reflist.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/reflist.cpp.o -c /home/agustin/git/serverapp/doxygen/src/reflist.cpp
 
 src/CMakeFiles/_doxygen.dir/reflist.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/reflist.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/reflist.cpp > CMakeFiles/_doxygen.dir/reflist.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/reflist.cpp > CMakeFiles/_doxygen.dir/reflist.cpp.i
 
 src/CMakeFiles/_doxygen.dir/reflist.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/reflist.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/reflist.cpp -o CMakeFiles/_doxygen.dir/reflist.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/reflist.cpp -o CMakeFiles/_doxygen.dir/reflist.cpp.s
 
 src/CMakeFiles/_doxygen.dir/reflist.cpp.o.requires:
 
@@ -2292,16 +2292,16 @@ src/CMakeFiles/_doxygen.dir/reflist.cpp.o.provides.build: src/CMakeFiles/_doxyge
 
 src/CMakeFiles/_doxygen.dir/rtfdocvisitor.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/rtfdocvisitor.cpp.o: src/rtfdocvisitor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_106) "Building CXX object src/CMakeFiles/_doxygen.dir/rtfdocvisitor.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/rtfdocvisitor.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/rtfdocvisitor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_106) "Building CXX object src/CMakeFiles/_doxygen.dir/rtfdocvisitor.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/rtfdocvisitor.cpp.o -c /home/agustin/git/serverapp/doxygen/src/rtfdocvisitor.cpp
 
 src/CMakeFiles/_doxygen.dir/rtfdocvisitor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/rtfdocvisitor.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/rtfdocvisitor.cpp > CMakeFiles/_doxygen.dir/rtfdocvisitor.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/rtfdocvisitor.cpp > CMakeFiles/_doxygen.dir/rtfdocvisitor.cpp.i
 
 src/CMakeFiles/_doxygen.dir/rtfdocvisitor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/rtfdocvisitor.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/rtfdocvisitor.cpp -o CMakeFiles/_doxygen.dir/rtfdocvisitor.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/rtfdocvisitor.cpp -o CMakeFiles/_doxygen.dir/rtfdocvisitor.cpp.s
 
 src/CMakeFiles/_doxygen.dir/rtfdocvisitor.cpp.o.requires:
 
@@ -2316,16 +2316,16 @@ src/CMakeFiles/_doxygen.dir/rtfdocvisitor.cpp.o.provides.build: src/CMakeFiles/_
 
 src/CMakeFiles/_doxygen.dir/rtfgen.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/rtfgen.cpp.o: src/rtfgen.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_107) "Building CXX object src/CMakeFiles/_doxygen.dir/rtfgen.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/rtfgen.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/rtfgen.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_107) "Building CXX object src/CMakeFiles/_doxygen.dir/rtfgen.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/rtfgen.cpp.o -c /home/agustin/git/serverapp/doxygen/src/rtfgen.cpp
 
 src/CMakeFiles/_doxygen.dir/rtfgen.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/rtfgen.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/rtfgen.cpp > CMakeFiles/_doxygen.dir/rtfgen.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/rtfgen.cpp > CMakeFiles/_doxygen.dir/rtfgen.cpp.i
 
 src/CMakeFiles/_doxygen.dir/rtfgen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/rtfgen.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/rtfgen.cpp -o CMakeFiles/_doxygen.dir/rtfgen.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/rtfgen.cpp -o CMakeFiles/_doxygen.dir/rtfgen.cpp.s
 
 src/CMakeFiles/_doxygen.dir/rtfgen.cpp.o.requires:
 
@@ -2340,16 +2340,16 @@ src/CMakeFiles/_doxygen.dir/rtfgen.cpp.o.provides.build: src/CMakeFiles/_doxygen
 
 src/CMakeFiles/_doxygen.dir/rtfstyle.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/rtfstyle.cpp.o: src/rtfstyle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_108) "Building CXX object src/CMakeFiles/_doxygen.dir/rtfstyle.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/rtfstyle.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/rtfstyle.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_108) "Building CXX object src/CMakeFiles/_doxygen.dir/rtfstyle.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/rtfstyle.cpp.o -c /home/agustin/git/serverapp/doxygen/src/rtfstyle.cpp
 
 src/CMakeFiles/_doxygen.dir/rtfstyle.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/rtfstyle.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/rtfstyle.cpp > CMakeFiles/_doxygen.dir/rtfstyle.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/rtfstyle.cpp > CMakeFiles/_doxygen.dir/rtfstyle.cpp.i
 
 src/CMakeFiles/_doxygen.dir/rtfstyle.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/rtfstyle.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/rtfstyle.cpp -o CMakeFiles/_doxygen.dir/rtfstyle.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/rtfstyle.cpp -o CMakeFiles/_doxygen.dir/rtfstyle.cpp.s
 
 src/CMakeFiles/_doxygen.dir/rtfstyle.cpp.o.requires:
 
@@ -2364,16 +2364,16 @@ src/CMakeFiles/_doxygen.dir/rtfstyle.cpp.o.provides.build: src/CMakeFiles/_doxyg
 
 src/CMakeFiles/_doxygen.dir/searchindex.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/searchindex.cpp.o: src/searchindex.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_109) "Building CXX object src/CMakeFiles/_doxygen.dir/searchindex.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/searchindex.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/searchindex.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_109) "Building CXX object src/CMakeFiles/_doxygen.dir/searchindex.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/searchindex.cpp.o -c /home/agustin/git/serverapp/doxygen/src/searchindex.cpp
 
 src/CMakeFiles/_doxygen.dir/searchindex.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/searchindex.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/searchindex.cpp > CMakeFiles/_doxygen.dir/searchindex.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/searchindex.cpp > CMakeFiles/_doxygen.dir/searchindex.cpp.i
 
 src/CMakeFiles/_doxygen.dir/searchindex.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/searchindex.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/searchindex.cpp -o CMakeFiles/_doxygen.dir/searchindex.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/searchindex.cpp -o CMakeFiles/_doxygen.dir/searchindex.cpp.s
 
 src/CMakeFiles/_doxygen.dir/searchindex.cpp.o.requires:
 
@@ -2388,16 +2388,16 @@ src/CMakeFiles/_doxygen.dir/searchindex.cpp.o.provides.build: src/CMakeFiles/_do
 
 src/CMakeFiles/_doxygen.dir/store.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/store.cpp.o: src/store.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_110) "Building CXX object src/CMakeFiles/_doxygen.dir/store.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/store.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/store.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_110) "Building CXX object src/CMakeFiles/_doxygen.dir/store.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/store.cpp.o -c /home/agustin/git/serverapp/doxygen/src/store.cpp
 
 src/CMakeFiles/_doxygen.dir/store.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/store.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/store.cpp > CMakeFiles/_doxygen.dir/store.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/store.cpp > CMakeFiles/_doxygen.dir/store.cpp.i
 
 src/CMakeFiles/_doxygen.dir/store.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/store.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/store.cpp -o CMakeFiles/_doxygen.dir/store.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/store.cpp -o CMakeFiles/_doxygen.dir/store.cpp.s
 
 src/CMakeFiles/_doxygen.dir/store.cpp.o.requires:
 
@@ -2412,16 +2412,16 @@ src/CMakeFiles/_doxygen.dir/store.cpp.o.provides.build: src/CMakeFiles/_doxygen.
 
 src/CMakeFiles/_doxygen.dir/tagreader.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/tagreader.cpp.o: src/tagreader.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_111) "Building CXX object src/CMakeFiles/_doxygen.dir/tagreader.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/tagreader.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/tagreader.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_111) "Building CXX object src/CMakeFiles/_doxygen.dir/tagreader.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/tagreader.cpp.o -c /home/agustin/git/serverapp/doxygen/src/tagreader.cpp
 
 src/CMakeFiles/_doxygen.dir/tagreader.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/tagreader.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/tagreader.cpp > CMakeFiles/_doxygen.dir/tagreader.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/tagreader.cpp > CMakeFiles/_doxygen.dir/tagreader.cpp.i
 
 src/CMakeFiles/_doxygen.dir/tagreader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/tagreader.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/tagreader.cpp -o CMakeFiles/_doxygen.dir/tagreader.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/tagreader.cpp -o CMakeFiles/_doxygen.dir/tagreader.cpp.s
 
 src/CMakeFiles/_doxygen.dir/tagreader.cpp.o.requires:
 
@@ -2436,16 +2436,16 @@ src/CMakeFiles/_doxygen.dir/tagreader.cpp.o.provides.build: src/CMakeFiles/_doxy
 
 src/CMakeFiles/_doxygen.dir/template.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/template.cpp.o: src/template.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_112) "Building CXX object src/CMakeFiles/_doxygen.dir/template.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/template.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/template.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_112) "Building CXX object src/CMakeFiles/_doxygen.dir/template.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/template.cpp.o -c /home/agustin/git/serverapp/doxygen/src/template.cpp
 
 src/CMakeFiles/_doxygen.dir/template.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/template.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/template.cpp > CMakeFiles/_doxygen.dir/template.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/template.cpp > CMakeFiles/_doxygen.dir/template.cpp.i
 
 src/CMakeFiles/_doxygen.dir/template.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/template.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/template.cpp -o CMakeFiles/_doxygen.dir/template.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/template.cpp -o CMakeFiles/_doxygen.dir/template.cpp.s
 
 src/CMakeFiles/_doxygen.dir/template.cpp.o.requires:
 
@@ -2460,16 +2460,16 @@ src/CMakeFiles/_doxygen.dir/template.cpp.o.provides.build: src/CMakeFiles/_doxyg
 
 src/CMakeFiles/_doxygen.dir/textdocvisitor.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/textdocvisitor.cpp.o: src/textdocvisitor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_113) "Building CXX object src/CMakeFiles/_doxygen.dir/textdocvisitor.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/textdocvisitor.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/textdocvisitor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_113) "Building CXX object src/CMakeFiles/_doxygen.dir/textdocvisitor.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/textdocvisitor.cpp.o -c /home/agustin/git/serverapp/doxygen/src/textdocvisitor.cpp
 
 src/CMakeFiles/_doxygen.dir/textdocvisitor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/textdocvisitor.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/textdocvisitor.cpp > CMakeFiles/_doxygen.dir/textdocvisitor.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/textdocvisitor.cpp > CMakeFiles/_doxygen.dir/textdocvisitor.cpp.i
 
 src/CMakeFiles/_doxygen.dir/textdocvisitor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/textdocvisitor.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/textdocvisitor.cpp -o CMakeFiles/_doxygen.dir/textdocvisitor.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/textdocvisitor.cpp -o CMakeFiles/_doxygen.dir/textdocvisitor.cpp.s
 
 src/CMakeFiles/_doxygen.dir/textdocvisitor.cpp.o.requires:
 
@@ -2484,16 +2484,16 @@ src/CMakeFiles/_doxygen.dir/textdocvisitor.cpp.o.provides.build: src/CMakeFiles/
 
 src/CMakeFiles/_doxygen.dir/tooltip.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/tooltip.cpp.o: src/tooltip.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_114) "Building CXX object src/CMakeFiles/_doxygen.dir/tooltip.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/tooltip.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/tooltip.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_114) "Building CXX object src/CMakeFiles/_doxygen.dir/tooltip.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/tooltip.cpp.o -c /home/agustin/git/serverapp/doxygen/src/tooltip.cpp
 
 src/CMakeFiles/_doxygen.dir/tooltip.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/tooltip.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/tooltip.cpp > CMakeFiles/_doxygen.dir/tooltip.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/tooltip.cpp > CMakeFiles/_doxygen.dir/tooltip.cpp.i
 
 src/CMakeFiles/_doxygen.dir/tooltip.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/tooltip.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/tooltip.cpp -o CMakeFiles/_doxygen.dir/tooltip.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/tooltip.cpp -o CMakeFiles/_doxygen.dir/tooltip.cpp.s
 
 src/CMakeFiles/_doxygen.dir/tooltip.cpp.o.requires:
 
@@ -2508,16 +2508,16 @@ src/CMakeFiles/_doxygen.dir/tooltip.cpp.o.provides.build: src/CMakeFiles/_doxyge
 
 src/CMakeFiles/_doxygen.dir/util.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/util.cpp.o: src/util.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_115) "Building CXX object src/CMakeFiles/_doxygen.dir/util.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/util.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/util.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_115) "Building CXX object src/CMakeFiles/_doxygen.dir/util.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/util.cpp.o -c /home/agustin/git/serverapp/doxygen/src/util.cpp
 
 src/CMakeFiles/_doxygen.dir/util.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/util.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/util.cpp > CMakeFiles/_doxygen.dir/util.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/util.cpp > CMakeFiles/_doxygen.dir/util.cpp.i
 
 src/CMakeFiles/_doxygen.dir/util.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/util.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/util.cpp -o CMakeFiles/_doxygen.dir/util.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/util.cpp -o CMakeFiles/_doxygen.dir/util.cpp.s
 
 src/CMakeFiles/_doxygen.dir/util.cpp.o.requires:
 
@@ -2532,16 +2532,16 @@ src/CMakeFiles/_doxygen.dir/util.cpp.o.provides.build: src/CMakeFiles/_doxygen.d
 
 src/CMakeFiles/_doxygen.dir/vhdldocgen.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/vhdldocgen.cpp.o: src/vhdldocgen.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_116) "Building CXX object src/CMakeFiles/_doxygen.dir/vhdldocgen.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/vhdldocgen.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/vhdldocgen.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_116) "Building CXX object src/CMakeFiles/_doxygen.dir/vhdldocgen.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/vhdldocgen.cpp.o -c /home/agustin/git/serverapp/doxygen/src/vhdldocgen.cpp
 
 src/CMakeFiles/_doxygen.dir/vhdldocgen.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/vhdldocgen.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/vhdldocgen.cpp > CMakeFiles/_doxygen.dir/vhdldocgen.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/vhdldocgen.cpp > CMakeFiles/_doxygen.dir/vhdldocgen.cpp.i
 
 src/CMakeFiles/_doxygen.dir/vhdldocgen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/vhdldocgen.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/vhdldocgen.cpp -o CMakeFiles/_doxygen.dir/vhdldocgen.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/vhdldocgen.cpp -o CMakeFiles/_doxygen.dir/vhdldocgen.cpp.s
 
 src/CMakeFiles/_doxygen.dir/vhdldocgen.cpp.o.requires:
 
@@ -2556,16 +2556,16 @@ src/CMakeFiles/_doxygen.dir/vhdldocgen.cpp.o.provides.build: src/CMakeFiles/_dox
 
 src/CMakeFiles/_doxygen.dir/vhdljjparser.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/vhdljjparser.cpp.o: src/vhdljjparser.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_117) "Building CXX object src/CMakeFiles/_doxygen.dir/vhdljjparser.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/vhdljjparser.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/vhdljjparser.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_117) "Building CXX object src/CMakeFiles/_doxygen.dir/vhdljjparser.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/vhdljjparser.cpp.o -c /home/agustin/git/serverapp/doxygen/src/vhdljjparser.cpp
 
 src/CMakeFiles/_doxygen.dir/vhdljjparser.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/vhdljjparser.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/vhdljjparser.cpp > CMakeFiles/_doxygen.dir/vhdljjparser.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/vhdljjparser.cpp > CMakeFiles/_doxygen.dir/vhdljjparser.cpp.i
 
 src/CMakeFiles/_doxygen.dir/vhdljjparser.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/vhdljjparser.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/vhdljjparser.cpp -o CMakeFiles/_doxygen.dir/vhdljjparser.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/vhdljjparser.cpp -o CMakeFiles/_doxygen.dir/vhdljjparser.cpp.s
 
 src/CMakeFiles/_doxygen.dir/vhdljjparser.cpp.o.requires:
 
@@ -2580,16 +2580,16 @@ src/CMakeFiles/_doxygen.dir/vhdljjparser.cpp.o.provides.build: src/CMakeFiles/_d
 
 src/CMakeFiles/_doxygen.dir/xmldocvisitor.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/xmldocvisitor.cpp.o: src/xmldocvisitor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_118) "Building CXX object src/CMakeFiles/_doxygen.dir/xmldocvisitor.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/xmldocvisitor.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/xmldocvisitor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_118) "Building CXX object src/CMakeFiles/_doxygen.dir/xmldocvisitor.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/xmldocvisitor.cpp.o -c /home/agustin/git/serverapp/doxygen/src/xmldocvisitor.cpp
 
 src/CMakeFiles/_doxygen.dir/xmldocvisitor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/xmldocvisitor.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/xmldocvisitor.cpp > CMakeFiles/_doxygen.dir/xmldocvisitor.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/xmldocvisitor.cpp > CMakeFiles/_doxygen.dir/xmldocvisitor.cpp.i
 
 src/CMakeFiles/_doxygen.dir/xmldocvisitor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/xmldocvisitor.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/xmldocvisitor.cpp -o CMakeFiles/_doxygen.dir/xmldocvisitor.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/xmldocvisitor.cpp -o CMakeFiles/_doxygen.dir/xmldocvisitor.cpp.s
 
 src/CMakeFiles/_doxygen.dir/xmldocvisitor.cpp.o.requires:
 
@@ -2604,16 +2604,16 @@ src/CMakeFiles/_doxygen.dir/xmldocvisitor.cpp.o.provides.build: src/CMakeFiles/_
 
 src/CMakeFiles/_doxygen.dir/xmlgen.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/xmlgen.cpp.o: src/xmlgen.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_119) "Building CXX object src/CMakeFiles/_doxygen.dir/xmlgen.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/xmlgen.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/xmlgen.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_119) "Building CXX object src/CMakeFiles/_doxygen.dir/xmlgen.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/xmlgen.cpp.o -c /home/agustin/git/serverapp/doxygen/src/xmlgen.cpp
 
 src/CMakeFiles/_doxygen.dir/xmlgen.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/xmlgen.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/xmlgen.cpp > CMakeFiles/_doxygen.dir/xmlgen.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/xmlgen.cpp > CMakeFiles/_doxygen.dir/xmlgen.cpp.i
 
 src/CMakeFiles/_doxygen.dir/xmlgen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/xmlgen.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/xmlgen.cpp -o CMakeFiles/_doxygen.dir/xmlgen.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/xmlgen.cpp -o CMakeFiles/_doxygen.dir/xmlgen.cpp.s
 
 src/CMakeFiles/_doxygen.dir/xmlgen.cpp.o.requires:
 
@@ -2628,16 +2628,16 @@ src/CMakeFiles/_doxygen.dir/xmlgen.cpp.o.provides.build: src/CMakeFiles/_doxygen
 
 src/CMakeFiles/_doxygen.dir/docbookvisitor.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/docbookvisitor.cpp.o: src/docbookvisitor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_120) "Building CXX object src/CMakeFiles/_doxygen.dir/docbookvisitor.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/docbookvisitor.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/docbookvisitor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_120) "Building CXX object src/CMakeFiles/_doxygen.dir/docbookvisitor.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/docbookvisitor.cpp.o -c /home/agustin/git/serverapp/doxygen/src/docbookvisitor.cpp
 
 src/CMakeFiles/_doxygen.dir/docbookvisitor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/docbookvisitor.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/docbookvisitor.cpp > CMakeFiles/_doxygen.dir/docbookvisitor.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/docbookvisitor.cpp > CMakeFiles/_doxygen.dir/docbookvisitor.cpp.i
 
 src/CMakeFiles/_doxygen.dir/docbookvisitor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/docbookvisitor.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/docbookvisitor.cpp -o CMakeFiles/_doxygen.dir/docbookvisitor.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/docbookvisitor.cpp -o CMakeFiles/_doxygen.dir/docbookvisitor.cpp.s
 
 src/CMakeFiles/_doxygen.dir/docbookvisitor.cpp.o.requires:
 
@@ -2652,16 +2652,16 @@ src/CMakeFiles/_doxygen.dir/docbookvisitor.cpp.o.provides.build: src/CMakeFiles/
 
 src/CMakeFiles/_doxygen.dir/docbookgen.cpp.o: src/CMakeFiles/_doxygen.dir/flags.make
 src/CMakeFiles/_doxygen.dir/docbookgen.cpp.o: src/docbookgen.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Building CXX object src/CMakeFiles/_doxygen.dir/docbookgen.cpp.o"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/docbookgen.cpp.o -c /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/docbookgen.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Building CXX object src/CMakeFiles/_doxygen.dir/docbookgen.cpp.o"
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/_doxygen.dir/docbookgen.cpp.o -c /home/agustin/git/serverapp/doxygen/src/docbookgen.cpp
 
 src/CMakeFiles/_doxygen.dir/docbookgen.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/_doxygen.dir/docbookgen.cpp.i"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/docbookgen.cpp > CMakeFiles/_doxygen.dir/docbookgen.cpp.i
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/agustin/git/serverapp/doxygen/src/docbookgen.cpp > CMakeFiles/_doxygen.dir/docbookgen.cpp.i
 
 src/CMakeFiles/_doxygen.dir/docbookgen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/_doxygen.dir/docbookgen.cpp.s"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/docbookgen.cpp -o CMakeFiles/_doxygen.dir/docbookgen.cpp.s
+	cd /home/agustin/git/serverapp/doxygen/src && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/agustin/git/serverapp/doxygen/src/docbookgen.cpp -o CMakeFiles/_doxygen.dir/docbookgen.cpp.s
 
 src/CMakeFiles/_doxygen.dir/docbookgen.cpp.o.requires:
 
@@ -2880,9 +2880,9 @@ lib/lib_doxygen.a: src/CMakeFiles/_doxygen.dir/docbookvisitor.cpp.o
 lib/lib_doxygen.a: src/CMakeFiles/_doxygen.dir/docbookgen.cpp.o
 lib/lib_doxygen.a: src/CMakeFiles/_doxygen.dir/build.make
 lib/lib_doxygen.a: src/CMakeFiles/_doxygen.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Linking CXX static library ../lib/lib_doxygen.a"
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && $(CMAKE_COMMAND) -P CMakeFiles/_doxygen.dir/cmake_clean_target.cmake
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/_doxygen.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Linking CXX static library ../lib/lib_doxygen.a"
+	cd /home/agustin/git/serverapp/doxygen/src && $(CMAKE_COMMAND) -P CMakeFiles/_doxygen.dir/cmake_clean_target.cmake
+	cd /home/agustin/git/serverapp/doxygen/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/_doxygen.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 src/CMakeFiles/_doxygen.dir/build: lib/lib_doxygen.a
@@ -2992,7 +2992,7 @@ src/CMakeFiles/_doxygen.dir/requires: src/CMakeFiles/_doxygen.dir/docbookgen.cpp
 .PHONY : src/CMakeFiles/_doxygen.dir/requires
 
 src/CMakeFiles/_doxygen.dir/clean:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src && $(CMAKE_COMMAND) -P CMakeFiles/_doxygen.dir/cmake_clean.cmake
+	cd /home/agustin/git/serverapp/doxygen/src && $(CMAKE_COMMAND) -P CMakeFiles/_doxygen.dir/cmake_clean.cmake
 .PHONY : src/CMakeFiles/_doxygen.dir/clean
 
 src/CMakeFiles/_doxygen.dir/depend: generated_src/lang_cfg.h
@@ -3018,6 +3018,6 @@ src/CMakeFiles/_doxygen.dir/depend: generated_src/constexp.cpp
 src/CMakeFiles/_doxygen.dir/depend: generated_src/xmlcode.cpp
 src/CMakeFiles/_doxygen.dir/depend: generated_src/ce_parse.cpp
 src/CMakeFiles/_doxygen.dir/depend: generated_src/ce_parse.hpp
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pablo/Escritorio/workspace/taller/serverapp/doxygen /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src /home/pablo/Escritorio/workspace/taller/serverapp/doxygen /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/CMakeFiles/_doxygen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/agustin/git/serverapp/doxygen && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/agustin/git/serverapp/doxygen /home/agustin/git/serverapp/doxygen/src /home/agustin/git/serverapp/doxygen /home/agustin/git/serverapp/doxygen/src /home/agustin/git/serverapp/doxygen/src/CMakeFiles/_doxygen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : src/CMakeFiles/_doxygen.dir/depend
 

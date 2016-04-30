@@ -1,4 +1,4 @@
-# Install script for directory: /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/addon/doxysearch
+# Install script for directory: /home/agustin/git/serverapp/doxygen/addon/doxysearch
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -1,6 +1,6 @@
-#line 2 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/vhdlcode.cpp"
+#line 2 "/home/agustin/git/serverapp/doxygen/generated_src/vhdlcode.cpp"
 
-#line 4 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/vhdlcode.cpp"
+#line 4 "/home/agustin/git/serverapp/doxygen/generated_src/vhdlcode.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -19856,7 +19856,7 @@ static int yyread(char *buf,int max_size)
 
 
 
-#line 19860 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/vhdlcode.cpp"
+#line 19860 "/home/agustin/git/serverapp/doxygen/generated_src/vhdlcode.cpp"
 
 #define INITIAL 0
 #define Bases 1
@@ -20086,7 +20086,7 @@ YY_DECL
 #line 809 "vhdlcode.l"
 
 
-#line 20090 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/vhdlcode.cpp"
+#line 20090 "/home/agustin/git/serverapp/doxygen/generated_src/vhdlcode.cpp"
 
 	while ( 1 )		/* loops until end-of-file is reached */
 		{
@@ -21001,7 +21001,7 @@ YY_RULE_SETUP
 #line 1495 "vhdlcode.l"
 ECHO;
 	YY_BREAK
-#line 21005 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/vhdlcode.cpp"
+#line 21005 "/home/agustin/git/serverapp/doxygen/generated_src/vhdlcode.cpp"
 case YY_STATE_EOF(INITIAL):
 case YY_STATE_EOF(Bases):
 case YY_STATE_EOF(ParseType):

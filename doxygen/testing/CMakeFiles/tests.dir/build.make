@@ -43,10 +43,10 @@ RM = /usr/local/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pablo/Escritorio/workspace/taller/serverapp/doxygen
+CMAKE_SOURCE_DIR = /home/agustin/git/serverapp/doxygen
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pablo/Escritorio/workspace/taller/serverapp/doxygen
+CMAKE_BINARY_DIR = /home/agustin/git/serverapp/doxygen
 
 # Utility rule file for tests.
 
@@ -54,8 +54,8 @@ CMAKE_BINARY_DIR = /home/pablo/Escritorio/workspace/taller/serverapp/doxygen
 include testing/CMakeFiles/tests.dir/progress.make
 
 testing/CMakeFiles/tests: bin/doxygen
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Running doxygen tests..."
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/testing && /usr/bin/python /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/testing/runtests.py --all --doxygen /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/bin/doxygen --inputdir /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/testing --outputdir /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/testing
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/agustin/git/serverapp/doxygen/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Running doxygen tests..."
+	cd /home/agustin/git/serverapp/doxygen/testing && /usr/bin/python /home/agustin/git/serverapp/doxygen/testing/runtests.py --all --doxygen /home/agustin/git/serverapp/doxygen/bin/doxygen --inputdir /home/agustin/git/serverapp/doxygen/testing --outputdir /home/agustin/git/serverapp/doxygen/testing
 
 tests: testing/CMakeFiles/tests
 tests: testing/CMakeFiles/tests.dir/build.make
@@ -68,10 +68,10 @@ testing/CMakeFiles/tests.dir/build: tests
 .PHONY : testing/CMakeFiles/tests.dir/build
 
 testing/CMakeFiles/tests.dir/clean:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/testing && $(CMAKE_COMMAND) -P CMakeFiles/tests.dir/cmake_clean.cmake
+	cd /home/agustin/git/serverapp/doxygen/testing && $(CMAKE_COMMAND) -P CMakeFiles/tests.dir/cmake_clean.cmake
 .PHONY : testing/CMakeFiles/tests.dir/clean
 
 testing/CMakeFiles/tests.dir/depend:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/pablo/Escritorio/workspace/taller/serverapp/doxygen /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/testing /home/pablo/Escritorio/workspace/taller/serverapp/doxygen /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/testing /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/testing/CMakeFiles/tests.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/agustin/git/serverapp/doxygen && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/agustin/git/serverapp/doxygen /home/agustin/git/serverapp/doxygen/testing /home/agustin/git/serverapp/doxygen /home/agustin/git/serverapp/doxygen/testing /home/agustin/git/serverapp/doxygen/testing/CMakeFiles/tests.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : testing/CMakeFiles/tests.dir/depend
 

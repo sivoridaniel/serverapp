@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/. 
+CXX_INCLUDES = -I/home/agustin/git/serverapp/doxygen/qtools/. 
 

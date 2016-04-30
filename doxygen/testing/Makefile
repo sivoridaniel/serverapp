@@ -48,10 +48,10 @@ RM = /usr/local/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pablo/Escritorio/workspace/taller/serverapp/doxygen
+CMAKE_SOURCE_DIR = /home/agustin/git/serverapp/doxygen
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pablo/Escritorio/workspace/taller/serverapp/doxygen
+CMAKE_BINARY_DIR = /home/agustin/git/serverapp/doxygen
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -70,7 +70,7 @@ test/fast: test
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && /usr/local/bin/cpack --config ./CPackConfig.cmake
+	cd /home/agustin/git/serverapp/doxygen && /usr/local/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -81,7 +81,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && /usr/local/bin/cpack --config ./CPackSourceConfig.cmake /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CPackSourceConfig.cmake
+	cd /home/agustin/git/serverapp/doxygen && /usr/local/bin/cpack --config ./CPackSourceConfig.cmake /home/agustin/git/serverapp/doxygen/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -102,8 +102,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/local/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/local/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -122,27 +122,6 @@ install/local/fast: install/local
 
 .PHONY : install/local/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -155,16 +134,26 @@ install/fast: preinstall/fast
 	/usr/local/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # The main all target
 all: cmake_check_build_system
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(CMAKE_COMMAND) -E cmake_progress_start /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/testing/CMakeFiles/progress.marks
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 testing/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles 0
+	cd /home/agustin/git/serverapp/doxygen && $(CMAKE_COMMAND) -E cmake_progress_start /home/agustin/git/serverapp/doxygen/CMakeFiles /home/agustin/git/serverapp/doxygen/testing/CMakeFiles/progress.marks
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 testing/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/agustin/git/serverapp/doxygen/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 testing/clean
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 testing/clean
 .PHONY : clean
 
 # The main clean target
@@ -174,22 +163,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 testing/preinstall
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 testing/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 testing/preinstall
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 testing/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/agustin/git/serverapp/doxygen && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 testing/CMakeFiles/tests.dir/rule:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 testing/CMakeFiles/tests.dir/rule
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 testing/CMakeFiles/tests.dir/rule
 .PHONY : testing/CMakeFiles/tests.dir/rule
 
 # Convenience name for target.
@@ -199,7 +188,7 @@ tests: testing/CMakeFiles/tests.dir/rule
 
 # fast build rule for target.
 tests/fast:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f testing/CMakeFiles/tests.dir/build.make testing/CMakeFiles/tests.dir/build
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f testing/CMakeFiles/tests.dir/build.make testing/CMakeFiles/tests.dir/build
 .PHONY : tests/fast
 
 # Help Target
@@ -215,9 +204,8 @@ help:
 	@echo "... edit_cache"
 	@echo "... tests"
 	@echo "... install/local"
-	@echo "... install/strip"
-	@echo "... list_install_components"
 	@echo "... install"
+	@echo "... list_install_components"
 .PHONY : help
 
 
@@ -229,6 +217,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/agustin/git/serverapp/doxygen && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

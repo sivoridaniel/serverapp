@@ -1,4 +1,4 @@
-# Install script for directory: /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/examples
+# Install script for directory: /home/agustin/git/serverapp/doxygen/examples
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

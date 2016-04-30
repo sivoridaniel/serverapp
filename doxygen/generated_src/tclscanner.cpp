@@ -1,6 +1,6 @@
-#line 2 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/tclscanner.cpp"
+#line 2 "/home/agustin/git/serverapp/doxygen/generated_src/tclscanner.cpp"
 
-#line 4 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/tclscanner.cpp"
+#line 4 "/home/agustin/git/serverapp/doxygen/generated_src/tclscanner.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -1502,7 +1502,7 @@ static tcl_scan *tcl_codify_token(tcl_scan *myScan, const QCString type, const Q
 
 
 
-#line 1506 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/tclscanner.cpp"
+#line 1506 "/home/agustin/git/serverapp/doxygen/generated_src/tclscanner.cpp"
 
 #define INITIAL 0
 #define ERROR 1
@@ -1738,7 +1738,7 @@ YY_DECL
 	{
 #line 797 "tclscanner.l"
 
-#line 1742 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/tclscanner.cpp"
+#line 1742 "/home/agustin/git/serverapp/doxygen/generated_src/tclscanner.cpp"
 
 	while ( 1 )		/* loops until end-of-file is reached */
 		{
@@ -2384,7 +2384,7 @@ YY_RULE_SETUP
 #line 1125 "tclscanner.l"
 ECHO;
 	YY_BREAK
-#line 2388 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/tclscanner.cpp"
+#line 2388 "/home/agustin/git/serverapp/doxygen/generated_src/tclscanner.cpp"
 
 	case YY_END_OF_BUFFER:
 		{

@@ -1,6 +1,6 @@
-#line 2 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/configimpl.cpp"
+#line 2 "/home/agustin/git/serverapp/doxygen/generated_src/configimpl.cpp"
 
-#line 4 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/configimpl.cpp"
+#line 4 "/home/agustin/git/serverapp/doxygen/generated_src/configimpl.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -1217,7 +1217,7 @@ static void readIncludeFile(const char *incName)
 
 
 
-#line 1221 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/configimpl.cpp"
+#line 1221 "/home/agustin/git/serverapp/doxygen/generated_src/configimpl.cpp"
 
 #define INITIAL 0
 #define PreStart 1
@@ -1444,7 +1444,7 @@ YY_DECL
 #line 606 "configimpl.l"
 
 
-#line 1448 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/configimpl.cpp"
+#line 1448 "/home/agustin/git/serverapp/doxygen/generated_src/configimpl.cpp"
 
 	while ( 1 )		/* loops until end-of-file is reached */
 		{
@@ -1859,7 +1859,7 @@ YY_RULE_SETUP
 #line 841 "configimpl.l"
 ECHO;
 	YY_BREAK
-#line 1863 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/configimpl.cpp"
+#line 1863 "/home/agustin/git/serverapp/doxygen/generated_src/configimpl.cpp"
 
 	case YY_END_OF_BUFFER:
 		{

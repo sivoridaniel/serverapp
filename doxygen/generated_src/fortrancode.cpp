@@ -1,6 +1,6 @@
-#line 2 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/fortrancode.cpp"
+#line 2 "/home/agustin/git/serverapp/doxygen/generated_src/fortrancode.cpp"
 
-#line 4 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/fortrancode.cpp"
+#line 4 "/home/agustin/git/serverapp/doxygen/generated_src/fortrancode.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -27708,7 +27708,7 @@ static int yyread(char *buf,int max_size)
 
 
 
-#line 27712 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/fortrancode.cpp"
+#line 27712 "/home/agustin/git/serverapp/doxygen/generated_src/fortrancode.cpp"
 
 #define INITIAL 0
 #define Start 1
@@ -27963,7 +27963,7 @@ YY_DECL
 
  /*-------- ignore ------------------------------------------------------------*/
 
-#line 27967 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/fortrancode.cpp"
+#line 27967 "/home/agustin/git/serverapp/doxygen/generated_src/fortrancode.cpp"
 
 	while ( 1 )		/* loops until end-of-file is reached */
 		{
@@ -28822,7 +28822,7 @@ YY_RULE_SETUP
 #line 1218 "fortrancode.l"
 ECHO;
 	YY_BREAK
-#line 28826 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/fortrancode.cpp"
+#line 28826 "/home/agustin/git/serverapp/doxygen/generated_src/fortrancode.cpp"
 
 	case YY_END_OF_BUFFER:
 		{

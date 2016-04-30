@@ -1,6 +1,6 @@
-#line 2 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pyscanner.cpp"
+#line 2 "/home/agustin/git/serverapp/doxygen/generated_src/pyscanner.cpp"
 
-#line 4 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pyscanner.cpp"
+#line 4 "/home/agustin/git/serverapp/doxygen/generated_src/pyscanner.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -1904,7 +1904,7 @@ static int yyread(char *buf,int max_size)
 
 
 
-#line 1908 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pyscanner.cpp"
+#line 1908 "/home/agustin/git/serverapp/doxygen/generated_src/pyscanner.cpp"
 
 #define INITIAL 0
 #define Search 1
@@ -2154,7 +2154,7 @@ YY_DECL
 
   /* ------------ Function recognition rules -------------- */
 
-#line 2158 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pyscanner.cpp"
+#line 2158 "/home/agustin/git/serverapp/doxygen/generated_src/pyscanner.cpp"
 
 	while ( 1 )		/* loops until end-of-file is reached */
 		{
@@ -3913,7 +3913,7 @@ YY_RULE_SETUP
 #line 1567 "pyscanner.l"
 ECHO;
 	YY_BREAK
-#line 3917 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pyscanner.cpp"
+#line 3917 "/home/agustin/git/serverapp/doxygen/generated_src/pyscanner.cpp"
 			case YY_STATE_EOF(INITIAL):
 			case YY_STATE_EOF(Search):
 			case YY_STATE_EOF(SearchMemVars):

@@ -5,7 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/portable_c.c" "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/CMakeFiles/doxycfg.dir/portable_c.c.o"
+  "/home/agustin/git/serverapp/doxygen/src/portable_c.c" "/home/agustin/git/serverapp/doxygen/src/CMakeFiles/doxycfg.dir/portable_c.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
@@ -24,10 +24,10 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "generated_src"
   )
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/configimpl.cpp" "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/CMakeFiles/doxycfg.dir/__/generated_src/configimpl.cpp.o"
-  "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/configoptions.cpp" "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/CMakeFiles/doxycfg.dir/__/generated_src/configoptions.cpp.o"
-  "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/configvalues.cpp" "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/CMakeFiles/doxycfg.dir/__/generated_src/configvalues.cpp.o"
-  "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/portable.cpp" "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/CMakeFiles/doxycfg.dir/portable.cpp.o"
+  "/home/agustin/git/serverapp/doxygen/generated_src/configimpl.cpp" "/home/agustin/git/serverapp/doxygen/src/CMakeFiles/doxycfg.dir/__/generated_src/configimpl.cpp.o"
+  "/home/agustin/git/serverapp/doxygen/generated_src/configoptions.cpp" "/home/agustin/git/serverapp/doxygen/src/CMakeFiles/doxycfg.dir/__/generated_src/configoptions.cpp.o"
+  "/home/agustin/git/serverapp/doxygen/generated_src/configvalues.cpp" "/home/agustin/git/serverapp/doxygen/src/CMakeFiles/doxycfg.dir/__/generated_src/configvalues.cpp.o"
+  "/home/agustin/git/serverapp/doxygen/src/portable.cpp" "/home/agustin/git/serverapp/doxygen/src/CMakeFiles/doxycfg.dir/portable.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

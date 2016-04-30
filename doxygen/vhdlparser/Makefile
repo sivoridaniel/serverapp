@@ -48,10 +48,10 @@ RM = /usr/local/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pablo/Escritorio/workspace/taller/serverapp/doxygen
+CMAKE_SOURCE_DIR = /home/agustin/git/serverapp/doxygen
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pablo/Escritorio/workspace/taller/serverapp/doxygen
+CMAKE_BINARY_DIR = /home/agustin/git/serverapp/doxygen
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -70,7 +70,7 @@ test/fast: test
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && /usr/local/bin/cpack --config ./CPackConfig.cmake
+	cd /home/agustin/git/serverapp/doxygen && /usr/local/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -80,8 +80,8 @@ package/fast: package
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/local/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/local/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -92,7 +92,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && /usr/local/bin/cpack --config ./CPackSourceConfig.cmake /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CPackSourceConfig.cmake
+	cd /home/agustin/git/serverapp/doxygen && /usr/local/bin/cpack --config ./CPackSourceConfig.cmake /home/agustin/git/serverapp/doxygen/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -122,27 +122,6 @@ install/local/fast: install/local
 
 .PHONY : install/local/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
 # Special rule for the target install
 install: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
@@ -155,16 +134,26 @@ install/fast: preinstall/fast
 	/usr/local/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
+
 # The main all target
 all: cmake_check_build_system
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(CMAKE_COMMAND) -E cmake_progress_start /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/vhdlparser/CMakeFiles/progress.marks
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 vhdlparser/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles 0
+	cd /home/agustin/git/serverapp/doxygen && $(CMAKE_COMMAND) -E cmake_progress_start /home/agustin/git/serverapp/doxygen/CMakeFiles /home/agustin/git/serverapp/doxygen/vhdlparser/CMakeFiles/progress.marks
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 vhdlparser/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/agustin/git/serverapp/doxygen/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 vhdlparser/clean
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 vhdlparser/clean
 .PHONY : clean
 
 # The main clean target
@@ -174,22 +163,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 vhdlparser/preinstall
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 vhdlparser/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 vhdlparser/preinstall
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 vhdlparser/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/agustin/git/serverapp/doxygen && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 vhdlparser/CMakeFiles/vhdlparser.dir/rule:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 vhdlparser/CMakeFiles/vhdlparser.dir/rule
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 vhdlparser/CMakeFiles/vhdlparser.dir/rule
 .PHONY : vhdlparser/CMakeFiles/vhdlparser.dir/rule
 
 # Convenience name for target.
@@ -199,7 +188,7 @@ vhdlparser: vhdlparser/CMakeFiles/vhdlparser.dir/rule
 
 # fast build rule for target.
 vhdlparser/fast:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/build
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/build
 .PHONY : vhdlparser/fast
 
 CharStream.o: CharStream.cc.o
@@ -208,7 +197,7 @@ CharStream.o: CharStream.cc.o
 
 # target to build an object file
 CharStream.cc.o:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/CharStream.cc.o
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/CharStream.cc.o
 .PHONY : CharStream.cc.o
 
 CharStream.i: CharStream.cc.i
@@ -217,7 +206,7 @@ CharStream.i: CharStream.cc.i
 
 # target to preprocess a source file
 CharStream.cc.i:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/CharStream.cc.i
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/CharStream.cc.i
 .PHONY : CharStream.cc.i
 
 CharStream.s: CharStream.cc.s
@@ -226,7 +215,7 @@ CharStream.s: CharStream.cc.s
 
 # target to generate assembly for a file
 CharStream.cc.s:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/CharStream.cc.s
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/CharStream.cc.s
 .PHONY : CharStream.cc.s
 
 ParseException.o: ParseException.cc.o
@@ -235,7 +224,7 @@ ParseException.o: ParseException.cc.o
 
 # target to build an object file
 ParseException.cc.o:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/ParseException.cc.o
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/ParseException.cc.o
 .PHONY : ParseException.cc.o
 
 ParseException.i: ParseException.cc.i
@@ -244,7 +233,7 @@ ParseException.i: ParseException.cc.i
 
 # target to preprocess a source file
 ParseException.cc.i:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/ParseException.cc.i
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/ParseException.cc.i
 .PHONY : ParseException.cc.i
 
 ParseException.s: ParseException.cc.s
@@ -253,7 +242,7 @@ ParseException.s: ParseException.cc.s
 
 # target to generate assembly for a file
 ParseException.cc.s:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/ParseException.cc.s
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/ParseException.cc.s
 .PHONY : ParseException.cc.s
 
 Token.o: Token.cc.o
@@ -262,7 +251,7 @@ Token.o: Token.cc.o
 
 # target to build an object file
 Token.cc.o:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/Token.cc.o
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/Token.cc.o
 .PHONY : Token.cc.o
 
 Token.i: Token.cc.i
@@ -271,7 +260,7 @@ Token.i: Token.cc.i
 
 # target to preprocess a source file
 Token.cc.i:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/Token.cc.i
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/Token.cc.i
 .PHONY : Token.cc.i
 
 Token.s: Token.cc.s
@@ -280,7 +269,7 @@ Token.s: Token.cc.s
 
 # target to generate assembly for a file
 Token.cc.s:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/Token.cc.s
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/Token.cc.s
 .PHONY : Token.cc.s
 
 TokenMgrError.o: TokenMgrError.cc.o
@@ -289,7 +278,7 @@ TokenMgrError.o: TokenMgrError.cc.o
 
 # target to build an object file
 TokenMgrError.cc.o:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/TokenMgrError.cc.o
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/TokenMgrError.cc.o
 .PHONY : TokenMgrError.cc.o
 
 TokenMgrError.i: TokenMgrError.cc.i
@@ -298,7 +287,7 @@ TokenMgrError.i: TokenMgrError.cc.i
 
 # target to preprocess a source file
 TokenMgrError.cc.i:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/TokenMgrError.cc.i
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/TokenMgrError.cc.i
 .PHONY : TokenMgrError.cc.i
 
 TokenMgrError.s: TokenMgrError.cc.s
@@ -307,7 +296,7 @@ TokenMgrError.s: TokenMgrError.cc.s
 
 # target to generate assembly for a file
 TokenMgrError.cc.s:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/TokenMgrError.cc.s
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/TokenMgrError.cc.s
 .PHONY : TokenMgrError.cc.s
 
 VhdlParser.o: VhdlParser.cc.o
@@ -316,7 +305,7 @@ VhdlParser.o: VhdlParser.cc.o
 
 # target to build an object file
 VhdlParser.cc.o:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/VhdlParser.cc.o
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/VhdlParser.cc.o
 .PHONY : VhdlParser.cc.o
 
 VhdlParser.i: VhdlParser.cc.i
@@ -325,7 +314,7 @@ VhdlParser.i: VhdlParser.cc.i
 
 # target to preprocess a source file
 VhdlParser.cc.i:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/VhdlParser.cc.i
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/VhdlParser.cc.i
 .PHONY : VhdlParser.cc.i
 
 VhdlParser.s: VhdlParser.cc.s
@@ -334,7 +323,7 @@ VhdlParser.s: VhdlParser.cc.s
 
 # target to generate assembly for a file
 VhdlParser.cc.s:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/VhdlParser.cc.s
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/VhdlParser.cc.s
 .PHONY : VhdlParser.cc.s
 
 VhdlParserIF.o: VhdlParserIF.cpp.o
@@ -343,7 +332,7 @@ VhdlParserIF.o: VhdlParserIF.cpp.o
 
 # target to build an object file
 VhdlParserIF.cpp.o:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/VhdlParserIF.cpp.o
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/VhdlParserIF.cpp.o
 .PHONY : VhdlParserIF.cpp.o
 
 VhdlParserIF.i: VhdlParserIF.cpp.i
@@ -352,7 +341,7 @@ VhdlParserIF.i: VhdlParserIF.cpp.i
 
 # target to preprocess a source file
 VhdlParserIF.cpp.i:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/VhdlParserIF.cpp.i
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/VhdlParserIF.cpp.i
 .PHONY : VhdlParserIF.cpp.i
 
 VhdlParserIF.s: VhdlParserIF.cpp.s
@@ -361,7 +350,7 @@ VhdlParserIF.s: VhdlParserIF.cpp.s
 
 # target to generate assembly for a file
 VhdlParserIF.cpp.s:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/VhdlParserIF.cpp.s
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/VhdlParserIF.cpp.s
 .PHONY : VhdlParserIF.cpp.s
 
 VhdlParserTokenManager.o: VhdlParserTokenManager.cc.o
@@ -370,7 +359,7 @@ VhdlParserTokenManager.o: VhdlParserTokenManager.cc.o
 
 # target to build an object file
 VhdlParserTokenManager.cc.o:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/VhdlParserTokenManager.cc.o
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/VhdlParserTokenManager.cc.o
 .PHONY : VhdlParserTokenManager.cc.o
 
 VhdlParserTokenManager.i: VhdlParserTokenManager.cc.i
@@ -379,7 +368,7 @@ VhdlParserTokenManager.i: VhdlParserTokenManager.cc.i
 
 # target to preprocess a source file
 VhdlParserTokenManager.cc.i:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/VhdlParserTokenManager.cc.i
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/VhdlParserTokenManager.cc.i
 .PHONY : VhdlParserTokenManager.cc.i
 
 VhdlParserTokenManager.s: VhdlParserTokenManager.cc.s
@@ -388,7 +377,7 @@ VhdlParserTokenManager.s: VhdlParserTokenManager.cc.s
 
 # target to generate assembly for a file
 VhdlParserTokenManager.cc.s:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/VhdlParserTokenManager.cc.s
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f vhdlparser/CMakeFiles/vhdlparser.dir/build.make vhdlparser/CMakeFiles/vhdlparser.dir/VhdlParserTokenManager.cc.s
 .PHONY : VhdlParserTokenManager.cc.s
 
 # Help Target
@@ -404,9 +393,8 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... vhdlparser"
 	@echo "... install/local"
-	@echo "... install/strip"
-	@echo "... list_install_components"
 	@echo "... install"
+	@echo "... list_install_components"
 	@echo "... CharStream.o"
 	@echo "... CharStream.i"
 	@echo "... CharStream.s"
@@ -439,6 +427,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/agustin/git/serverapp/doxygen && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

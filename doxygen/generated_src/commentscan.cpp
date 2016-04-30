@@ -1,6 +1,6 @@
-#line 2 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/commentscan.cpp"
+#line 2 "/home/agustin/git/serverapp/doxygen/generated_src/commentscan.cpp"
 
-#line 4 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/commentscan.cpp"
+#line 4 "/home/agustin/git/serverapp/doxygen/generated_src/commentscan.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -4066,7 +4066,7 @@ static int yyread(char *buf,int max_size)
 
 
 
-#line 4070 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/commentscan.cpp"
+#line 4070 "/home/agustin/git/serverapp/doxygen/generated_src/commentscan.cpp"
 
 #define INITIAL 0
 #define Comment 1
@@ -4350,7 +4350,7 @@ YY_DECL
    *   XML commands, <summary></summary><remarks></remarks>
    */
 
-#line 4354 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/commentscan.cpp"
+#line 4354 "/home/agustin/git/serverapp/doxygen/generated_src/commentscan.cpp"
 
 	while ( 1 )		/* loops until end-of-file is reached */
 		{
@@ -6517,7 +6517,7 @@ YY_RULE_SETUP
 #line 2236 "commentscan.l"
 ECHO;
 	YY_BREAK
-#line 6521 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/commentscan.cpp"
+#line 6521 "/home/agustin/git/serverapp/doxygen/generated_src/commentscan.cpp"
 			case YY_STATE_EOF(INITIAL):
 			case YY_STATE_EOF(Comment):
 			case YY_STATE_EOF(PageDocArg1):

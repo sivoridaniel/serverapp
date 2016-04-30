@@ -1,6 +1,6 @@
-#line 2 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/declinfo.cpp"
+#line 2 "/home/agustin/git/serverapp/doxygen/generated_src/declinfo.cpp"
 
-#line 4 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/declinfo.cpp"
+#line 4 "/home/agustin/git/serverapp/doxygen/generated_src/declinfo.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -741,7 +741,7 @@ static int yyread(char *buf,int max_size)
 
 
 
-#line 745 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/declinfo.cpp"
+#line 745 "/home/agustin/git/serverapp/doxygen/generated_src/declinfo.cpp"
 
 #define INITIAL 0
 #define Start 1
@@ -971,7 +971,7 @@ YY_DECL
 #line 117 "declinfo.l"
 
 
-#line 975 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/declinfo.cpp"
+#line 975 "/home/agustin/git/serverapp/doxygen/generated_src/declinfo.cpp"
 
 	while ( 1 )		/* loops until end-of-file is reached */
 		{
@@ -1280,7 +1280,7 @@ YY_RULE_SETUP
 #line 226 "declinfo.l"
 ECHO;
 	YY_BREAK
-#line 1284 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/declinfo.cpp"
+#line 1284 "/home/agustin/git/serverapp/doxygen/generated_src/declinfo.cpp"
 			case YY_STATE_EOF(INITIAL):
 			case YY_STATE_EOF(Start):
 			case YY_STATE_EOF(Template):

@@ -6,39 +6,39 @@
 
 #IncludeRegexTransform: 
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qarray.h
+/home/agustin/git/serverapp/doxygen/qtools/qarray.h
 qgarray.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qgarray.h
+/home/agustin/git/serverapp/doxygen/qtools/qgarray.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qasciidict.h
+/home/agustin/git/serverapp/doxygen/qtools/qasciidict.h
 qgdict.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qgdict.h
+/home/agustin/git/serverapp/doxygen/qtools/qgdict.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qbuffer.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qbuffer.cpp
 qbuffer.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qbuffer.h
+/home/agustin/git/serverapp/doxygen/qtools/qbuffer.h
 stdlib.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qbuffer.h
+/home/agustin/git/serverapp/doxygen/qtools/qbuffer.h
 qiodevice.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qiodevice.h
+/home/agustin/git/serverapp/doxygen/qtools/qiodevice.h
 qstring.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qstring.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qcollection.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qcollection.cpp
 qcollection.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qcollection.h
+/home/agustin/git/serverapp/doxygen/qtools/qcollection.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qcollection.h
+/home/agustin/git/serverapp/doxygen/qtools/qcollection.h
 qglobal.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglobal.h
+/home/agustin/git/serverapp/doxygen/qtools/qglobal.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qcstring.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qcstring.cpp
 qcstring.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qcstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qcstring.h
 qgstring.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qgstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qgstring.h
 qstring.h
 -
 stdlib.h
@@ -54,9 +54,9 @@ qregexp.h
 qdatastream.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qcstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qcstring.h
 qarray.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qarray.h
+/home/agustin/git/serverapp/doxygen/qtools/qarray.h
 stdio.h
 -
 stdlib.h
@@ -70,11 +70,11 @@ strings.h
 assert.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdatastream.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qdatastream.cpp
 qdatastream.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdatastream.h
+/home/agustin/git/serverapp/doxygen/qtools/qdatastream.h
 qbuffer.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qbuffer.h
+/home/agustin/git/serverapp/doxygen/qtools/qbuffer.h
 stdio.h
 -
 ctype.h
@@ -82,17 +82,17 @@ ctype.h
 stdlib.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdatastream.h
+/home/agustin/git/serverapp/doxygen/qtools/qdatastream.h
 qiodevice.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qiodevice.h
+/home/agustin/git/serverapp/doxygen/qtools/qiodevice.h
 qstring.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qstring.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdatetime.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qdatetime.cpp
 qdatetime.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdatetime.h
+/home/agustin/git/serverapp/doxygen/qtools/qdatetime.h
 qdatastream.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdatastream.h
+/home/agustin/git/serverapp/doxygen/qtools/qdatastream.h
 stdio.h
 -
 time.h
@@ -110,29 +110,29 @@ sys/time.h
 unistd.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdatetime.h
+/home/agustin/git/serverapp/doxygen/qtools/qdatetime.h
 qstring.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qstring.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdict.h
+/home/agustin/git/serverapp/doxygen/qtools/qdict.h
 qgdict.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qgdict.h
+/home/agustin/git/serverapp/doxygen/qtools/qgdict.h
 qasciidict.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qasciidict.h
+/home/agustin/git/serverapp/doxygen/qtools/qasciidict.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdir.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qdir.cpp
 qglobal.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglobal.h
+/home/agustin/git/serverapp/doxygen/qtools/qglobal.h
 qdir.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdir.h
+/home/agustin/git/serverapp/doxygen/qtools/qdir.h
 qfileinfo.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qfileinfo.h
+/home/agustin/git/serverapp/doxygen/qtools/qfileinfo.h
 qfiledefs_p.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qfiledefs_p.h
+/home/agustin/git/serverapp/doxygen/qtools/qfiledefs_p.h
 qregexp.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qregexp.h
+/home/agustin/git/serverapp/doxygen/qtools/qregexp.h
 qstringlist.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstringlist.h
+/home/agustin/git/serverapp/doxygen/qtools/qstringlist.h
 stdlib.h
 -
 ctype.h
@@ -142,57 +142,57 @@ stdio.h
 qdir.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdir.h
+/home/agustin/git/serverapp/doxygen/qtools/qdir.h
 qstrlist.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstrlist.h
+/home/agustin/git/serverapp/doxygen/qtools/qstrlist.h
 qfileinfo.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qfileinfo.h
+/home/agustin/git/serverapp/doxygen/qtools/qfileinfo.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdir_unix.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qdir_unix.cpp
 qglobal.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglobal.h
+/home/agustin/git/serverapp/doxygen/qtools/qglobal.h
 qdir.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdir.h
+/home/agustin/git/serverapp/doxygen/qtools/qdir.h
 qfileinfo.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qfileinfo.h
+/home/agustin/git/serverapp/doxygen/qtools/qfileinfo.h
 qfiledefs_p.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qfiledefs_p.h
+/home/agustin/git/serverapp/doxygen/qtools/qfiledefs_p.h
 qregexp.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qregexp.h
+/home/agustin/git/serverapp/doxygen/qtools/qregexp.h
 qstringlist.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstringlist.h
+/home/agustin/git/serverapp/doxygen/qtools/qstringlist.h
 stdlib.h
 -
 ctype.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qfile.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qfile.cpp
 qglobal.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglobal.h
+/home/agustin/git/serverapp/doxygen/qtools/qglobal.h
 qfile.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qfile.h
+/home/agustin/git/serverapp/doxygen/qtools/qfile.h
 qfiledefs_p.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qfiledefs_p.h
+/home/agustin/git/serverapp/doxygen/qtools/qfiledefs_p.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qfile.h
+/home/agustin/git/serverapp/doxygen/qtools/qfile.h
 qiodevice.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qiodevice.h
+/home/agustin/git/serverapp/doxygen/qtools/qiodevice.h
 qstring.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qstring.h
 stdio.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qfile_unix.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qfile_unix.cpp
 qglobal.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglobal.h
+/home/agustin/git/serverapp/doxygen/qtools/qglobal.h
 qfile.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qfile.h
+/home/agustin/git/serverapp/doxygen/qtools/qfile.h
 qfiledefs_p.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qfiledefs_p.h
+/home/agustin/git/serverapp/doxygen/qtools/qfiledefs_p.h
 stdio.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qfiledefs_p.h
+/home/agustin/git/serverapp/doxygen/qtools/qfiledefs_p.h
 stdlib.h
 -
 stat.h
@@ -226,111 +226,111 @@ direct.h
 limits.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qfileinfo.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qfileinfo.cpp
 qglobal.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglobal.h
+/home/agustin/git/serverapp/doxygen/qtools/qglobal.h
 qfileinfo.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qfileinfo.h
+/home/agustin/git/serverapp/doxygen/qtools/qfileinfo.h
 qfiledefs_p.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qfiledefs_p.h
+/home/agustin/git/serverapp/doxygen/qtools/qfiledefs_p.h
 qdatetime.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdatetime.h
+/home/agustin/git/serverapp/doxygen/qtools/qdatetime.h
 qdir.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdir.h
+/home/agustin/git/serverapp/doxygen/qtools/qdir.h
 qfileinfo.h
 -
 qdir.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qfileinfo.h
+/home/agustin/git/serverapp/doxygen/qtools/qfileinfo.h
 qfile.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qfile.h
+/home/agustin/git/serverapp/doxygen/qtools/qfile.h
 qdatetime.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdatetime.h
+/home/agustin/git/serverapp/doxygen/qtools/qdatetime.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qfileinfo_unix.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qfileinfo_unix.cpp
 qglobal.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglobal.h
+/home/agustin/git/serverapp/doxygen/qtools/qglobal.h
 pwd.h
 -
 grp.h
 -
 qfileinfo.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qfileinfo.h
+/home/agustin/git/serverapp/doxygen/qtools/qfileinfo.h
 qfiledefs_p.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qfiledefs_p.h
+/home/agustin/git/serverapp/doxygen/qtools/qfiledefs_p.h
 qdatetime.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdatetime.h
+/home/agustin/git/serverapp/doxygen/qtools/qdatetime.h
 qdir.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdir.h
+/home/agustin/git/serverapp/doxygen/qtools/qdir.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qgarray.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qgarray.cpp
 qgarray.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qgarray.h
+/home/agustin/git/serverapp/doxygen/qtools/qgarray.h
 qstring.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qstring.h
 stdlib.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qgarray.h
+/home/agustin/git/serverapp/doxygen/qtools/qgarray.h
 qshared.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qshared.h
+/home/agustin/git/serverapp/doxygen/qtools/qshared.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qgcache.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qgcache.cpp
 qgcache.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qgcache.h
+/home/agustin/git/serverapp/doxygen/qtools/qgcache.h
 qinternallist.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qinternallist.h
+/home/agustin/git/serverapp/doxygen/qtools/qinternallist.h
 qdict.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdict.h
+/home/agustin/git/serverapp/doxygen/qtools/qdict.h
 qstring.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qstring.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qgcache.h
+/home/agustin/git/serverapp/doxygen/qtools/qgcache.h
 qcollection.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qcollection.h
+/home/agustin/git/serverapp/doxygen/qtools/qcollection.h
 qglist.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglist.h
+/home/agustin/git/serverapp/doxygen/qtools/qglist.h
 qgdict.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qgdict.h
+/home/agustin/git/serverapp/doxygen/qtools/qgdict.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qgdict.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qgdict.cpp
 qgdict.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qgdict.h
+/home/agustin/git/serverapp/doxygen/qtools/qgdict.h
 qinternallist.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qinternallist.h
+/home/agustin/git/serverapp/doxygen/qtools/qinternallist.h
 qstring.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qstring.h
 qdatastream.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdatastream.h
+/home/agustin/git/serverapp/doxygen/qtools/qdatastream.h
 ctype.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qgdict.h
+/home/agustin/git/serverapp/doxygen/qtools/qgdict.h
 qcollection.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qcollection.h
+/home/agustin/git/serverapp/doxygen/qtools/qcollection.h
 qstring.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qstring.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglist.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qglist.cpp
 qglist.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglist.h
+/home/agustin/git/serverapp/doxygen/qtools/qglist.h
 qgvector.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qgvector.h
+/home/agustin/git/serverapp/doxygen/qtools/qgvector.h
 qdatastream.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdatastream.h
+/home/agustin/git/serverapp/doxygen/qtools/qdatastream.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglist.h
+/home/agustin/git/serverapp/doxygen/qtools/qglist.h
 qcollection.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qcollection.h
+/home/agustin/git/serverapp/doxygen/qtools/qcollection.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglobal.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qglobal.cpp
 qglobal.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglobal.h
+/home/agustin/git/serverapp/doxygen/qtools/qglobal.h
 qasciidict.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qasciidict.h
+/home/agustin/git/serverapp/doxygen/qtools/qasciidict.h
 qstring.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qstring.h
 stdio.h
 -
 stdarg.h
@@ -346,19 +346,19 @@ stdio.h
 stdlib.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglobal.h
+/home/agustin/git/serverapp/doxygen/qtools/qglobal.h
 qfeatures.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qgstring.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qgstring.cpp
 stdio.h
 -
 qgstring.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qgstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qgstring.h
 assert.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qgstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qgstring.h
 stdlib.h
 -
 string.h
@@ -366,113 +366,113 @@ string.h
 strings.h
 -
 qcstring.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qcstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qcstring.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qgvector.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qgvector.cpp
 qgvector.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qgvector.h
+/home/agustin/git/serverapp/doxygen/qtools/qgvector.h
 qglist.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglist.h
+/home/agustin/git/serverapp/doxygen/qtools/qglist.h
 qstring.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qstring.h
 qdatastream.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdatastream.h
+/home/agustin/git/serverapp/doxygen/qtools/qdatastream.h
 stdlib.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qgvector.h
+/home/agustin/git/serverapp/doxygen/qtools/qgvector.h
 qcollection.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qcollection.h
+/home/agustin/git/serverapp/doxygen/qtools/qcollection.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qinternallist.h
+/home/agustin/git/serverapp/doxygen/qtools/qinternallist.h
 qglist.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglist.h
+/home/agustin/git/serverapp/doxygen/qtools/qglist.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qiodevice.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qiodevice.cpp
 qiodevice.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qiodevice.h
+/home/agustin/git/serverapp/doxygen/qtools/qiodevice.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qiodevice.h
+/home/agustin/git/serverapp/doxygen/qtools/qiodevice.h
 qglobal.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglobal.h
+/home/agustin/git/serverapp/doxygen/qtools/qglobal.h
 qcstring.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qcstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qcstring.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qmap.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qmap.cpp
 qmap.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qmap.h
+/home/agustin/git/serverapp/doxygen/qtools/qmap.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qmap.h
+/home/agustin/git/serverapp/doxygen/qtools/qmap.h
 qshared.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qshared.h
+/home/agustin/git/serverapp/doxygen/qtools/qshared.h
 qdatastream.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdatastream.h
+/home/agustin/git/serverapp/doxygen/qtools/qdatastream.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qmutex.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qmutex.cpp
 stdio.h
 -
 qglobal.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglobal.h
+/home/agustin/git/serverapp/doxygen/qtools/qglobal.h
 qmutex.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qmutex.h
+/home/agustin/git/serverapp/doxygen/qtools/qmutex.h
 qmutex_p.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qmutex_p.h
+/home/agustin/git/serverapp/doxygen/qtools/qmutex_p.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qmutex.h
+/home/agustin/git/serverapp/doxygen/qtools/qmutex.h
 qglobal.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglobal.h
+/home/agustin/git/serverapp/doxygen/qtools/qglobal.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qmutex_p.h
+/home/agustin/git/serverapp/doxygen/qtools/qmutex_p.h
 qglobal.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglobal.h
+/home/agustin/git/serverapp/doxygen/qtools/qglobal.h
 pthread.h
 -
 windows.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qmutex_unix.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qmutex_unix.cpp
 errno.h
 -
 pthread.h
 -
 qglobal.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglobal.h
+/home/agustin/git/serverapp/doxygen/qtools/qglobal.h
 qmutex.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qmutex.h
+/home/agustin/git/serverapp/doxygen/qtools/qmutex.h
 qmutex_p.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qmutex_p.h
+/home/agustin/git/serverapp/doxygen/qtools/qmutex_p.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qregexp.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qregexp.cpp
 qregexp.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qregexp.h
+/home/agustin/git/serverapp/doxygen/qtools/qregexp.h
 ctype.h
 -
 stdlib.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qregexp.h
+/home/agustin/git/serverapp/doxygen/qtools/qregexp.h
 qcstring.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qcstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qcstring.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qshared.h
+/home/agustin/git/serverapp/doxygen/qtools/qshared.h
 qglobal.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglobal.h
+/home/agustin/git/serverapp/doxygen/qtools/qglobal.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstack.h
+/home/agustin/git/serverapp/doxygen/qtools/qstack.h
 qglist.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglist.h
+/home/agustin/git/serverapp/doxygen/qtools/qglist.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstring.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qstring.cpp
 qstring.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qstring.h
 qregexp.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qregexp.h
+/home/agustin/git/serverapp/doxygen/qtools/qregexp.h
 qdatastream.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdatastream.h
+/home/agustin/git/serverapp/doxygen/qtools/qdatastream.h
 qtextcodec.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qtextcodec.h
+/home/agustin/git/serverapp/doxygen/qtools/qtextcodec.h
 qstack.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstack.h
+/home/agustin/git/serverapp/doxygen/qtools/qstack.h
 stdio.h
 -
 stdlib.h
@@ -486,49 +486,49 @@ limits.h
 windows.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qstring.h
 qcstring.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qcstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qcstring.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstringlist.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qstringlist.cpp
 qstringlist.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstringlist.h
+/home/agustin/git/serverapp/doxygen/qtools/qstringlist.h
 qstrlist.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstrlist.h
+/home/agustin/git/serverapp/doxygen/qtools/qstrlist.h
 qdatastream.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdatastream.h
+/home/agustin/git/serverapp/doxygen/qtools/qdatastream.h
 qtl.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qtl.h
+/home/agustin/git/serverapp/doxygen/qtools/qtl.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstringlist.h
+/home/agustin/git/serverapp/doxygen/qtools/qstringlist.h
 qvaluelist.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qvaluelist.h
+/home/agustin/git/serverapp/doxygen/qtools/qvaluelist.h
 qstring.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qstring.h
 qregexp.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qregexp.h
+/home/agustin/git/serverapp/doxygen/qtools/qregexp.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstrlist.h
+/home/agustin/git/serverapp/doxygen/qtools/qstrlist.h
 qstring.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qstring.h
 qinternallist.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qinternallist.h
+/home/agustin/git/serverapp/doxygen/qtools/qinternallist.h
 qdatastream.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdatastream.h
+/home/agustin/git/serverapp/doxygen/qtools/qdatastream.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qtextcodec.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qtextcodec.cpp
 qtextcodec.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qtextcodec.h
+/home/agustin/git/serverapp/doxygen/qtools/qtextcodec.h
 qinternallist.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qinternallist.h
+/home/agustin/git/serverapp/doxygen/qtools/qinternallist.h
 qutfcodec.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qutfcodec.h
+/home/agustin/git/serverapp/doxygen/qtools/qutfcodec.h
 qfile.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qfile.h
+/home/agustin/git/serverapp/doxygen/qtools/qfile.h
 qstrlist.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstrlist.h
+/home/agustin/git/serverapp/doxygen/qtools/qstrlist.h
 qstring.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qstring.h
 stdlib.h
 -
 ctype.h
@@ -536,21 +536,21 @@ ctype.h
 locale.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qtextcodec.h
+/home/agustin/git/serverapp/doxygen/qtools/qtextcodec.h
 qstring.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qstring.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qtextstream.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qtextstream.cpp
 qtextstream.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qtextstream.h
+/home/agustin/git/serverapp/doxygen/qtools/qtextstream.h
 qtextcodec.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qtextcodec.h
+/home/agustin/git/serverapp/doxygen/qtools/qtextcodec.h
 qregexp.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qregexp.h
+/home/agustin/git/serverapp/doxygen/qtools/qregexp.h
 qbuffer.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qbuffer.h
+/home/agustin/git/serverapp/doxygen/qtools/qbuffer.h
 qfile.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qfile.h
+/home/agustin/git/serverapp/doxygen/qtools/qfile.h
 stdio.h
 -
 ctype.h
@@ -560,39 +560,39 @@ stdlib.h
 windows.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qtextstream.h
+/home/agustin/git/serverapp/doxygen/qtools/qtextstream.h
 qiodevice.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qiodevice.h
+/home/agustin/git/serverapp/doxygen/qtools/qiodevice.h
 qstring.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qstring.h
 stdio.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qthread.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qthread.cpp
 qthread.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qthread.h
+/home/agustin/git/serverapp/doxygen/qtools/qthread.h
 qthread_p.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qthread_p.h
+/home/agustin/git/serverapp/doxygen/qtools/qthread_p.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qthread.h
+/home/agustin/git/serverapp/doxygen/qtools/qthread.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qthread_p.h
+/home/agustin/git/serverapp/doxygen/qtools/qthread_p.h
 qglobal.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglobal.h
+/home/agustin/git/serverapp/doxygen/qtools/qglobal.h
 pthread.h
 -
 windows.h
 -
 qthread.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qthread.h
+/home/agustin/git/serverapp/doxygen/qtools/qthread.h
 qmutex.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qmutex.h
+/home/agustin/git/serverapp/doxygen/qtools/qmutex.h
 qwaitcondition.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qwaitcondition.h
+/home/agustin/git/serverapp/doxygen/qtools/qwaitcondition.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qthread_unix.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qthread_unix.cpp
 qglobal.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglobal.h
+/home/agustin/git/serverapp/doxygen/qtools/qglobal.h
 sys/pstat.h
 -
 CoreServices/CoreServices.h
@@ -612,51 +612,51 @@ unistd.h
 stdio.h
 -
 qthread.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qthread.h
+/home/agustin/git/serverapp/doxygen/qtools/qthread.h
 qthread_p.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qthread_p.h
+/home/agustin/git/serverapp/doxygen/qtools/qthread_p.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qtl.h
+/home/agustin/git/serverapp/doxygen/qtools/qtl.h
 qtextstream.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qtextstream.h
+/home/agustin/git/serverapp/doxygen/qtools/qtextstream.h
 qstring.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qstring.h
+/home/agustin/git/serverapp/doxygen/qtools/qstring.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qutfcodec.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qutfcodec.cpp
 qutfcodec.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qutfcodec.h
+/home/agustin/git/serverapp/doxygen/qtools/qutfcodec.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qutfcodec.h
+/home/agustin/git/serverapp/doxygen/qtools/qutfcodec.h
 qtextcodec.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qtextcodec.h
+/home/agustin/git/serverapp/doxygen/qtools/qtextcodec.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qvaluelist.h
+/home/agustin/git/serverapp/doxygen/qtools/qvaluelist.h
 qshared.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qshared.h
+/home/agustin/git/serverapp/doxygen/qtools/qshared.h
 qdatastream.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qdatastream.h
+/home/agustin/git/serverapp/doxygen/qtools/qdatastream.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qwaitcondition.h
+/home/agustin/git/serverapp/doxygen/qtools/qwaitcondition.h
 qglobal.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qglobal.h
+/home/agustin/git/serverapp/doxygen/qtools/qglobal.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qwaitcondition_unix.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qwaitcondition_unix.cpp
 qwaitcondition.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qwaitcondition.h
+/home/agustin/git/serverapp/doxygen/qtools/qwaitcondition.h
 qmutex.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qmutex.h
+/home/agustin/git/serverapp/doxygen/qtools/qmutex.h
 pthread.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qxml.cpp
+/home/agustin/git/serverapp/doxygen/qtools/qxml.cpp
 qxml.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qxml.h
+/home/agustin/git/serverapp/doxygen/qtools/qxml.h
 qtextcodec.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qtextcodec.h
+/home/agustin/git/serverapp/doxygen/qtools/qtextcodec.h
 qbuffer.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qbuffer.h
+/home/agustin/git/serverapp/doxygen/qtools/qbuffer.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/qxml.h
+/home/agustin/git/serverapp/doxygen/qtools/qxml.h
 qmodules.h
 -
 qtextstream.h

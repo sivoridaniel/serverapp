@@ -1,4 +1,4 @@
-# Install script for directory: /home/pablo/Escritorio/workspace/taller/serverapp/doxygen
+# Install script for directory: /home/agustin/git/serverapp/doxygen
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,17 +34,17 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/libmd5/cmake_install.cmake")
-  include("/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/qtools/cmake_install.cmake")
-  include("/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/vhdlparser/cmake_install.cmake")
-  include("/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/cmake_install.cmake")
-  include("/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/examples/cmake_install.cmake")
-  include("/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/doc/cmake_install.cmake")
-  include("/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/addon/doxmlparser/cmake_install.cmake")
-  include("/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/addon/doxyapp/cmake_install.cmake")
-  include("/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/addon/doxysearch/cmake_install.cmake")
-  include("/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/addon/doxywizard/cmake_install.cmake")
-  include("/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/testing/cmake_install.cmake")
+  include("/home/agustin/git/serverapp/doxygen/libmd5/cmake_install.cmake")
+  include("/home/agustin/git/serverapp/doxygen/qtools/cmake_install.cmake")
+  include("/home/agustin/git/serverapp/doxygen/vhdlparser/cmake_install.cmake")
+  include("/home/agustin/git/serverapp/doxygen/src/cmake_install.cmake")
+  include("/home/agustin/git/serverapp/doxygen/examples/cmake_install.cmake")
+  include("/home/agustin/git/serverapp/doxygen/doc/cmake_install.cmake")
+  include("/home/agustin/git/serverapp/doxygen/addon/doxmlparser/cmake_install.cmake")
+  include("/home/agustin/git/serverapp/doxygen/addon/doxyapp/cmake_install.cmake")
+  include("/home/agustin/git/serverapp/doxygen/addon/doxysearch/cmake_install.cmake")
+  include("/home/agustin/git/serverapp/doxygen/addon/doxywizard/cmake_install.cmake")
+  include("/home/agustin/git/serverapp/doxygen/testing/cmake_install.cmake")
 
 endif()
 
@@ -56,5 +56,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/agustin/git/serverapp/doxygen/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -1,6 +1,6 @@
-#line 2 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pycode.cpp"
+#line 2 "/home/agustin/git/serverapp/doxygen/generated_src/pycode.cpp"
 
-#line 4 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pycode.cpp"
+#line 4 "/home/agustin/git/serverapp/doxygen/generated_src/pycode.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -2046,7 +2046,7 @@ static int yyread(char *buf,int max_size)
 
 
 
-#line 2050 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pycode.cpp"
+#line 2050 "/home/agustin/git/serverapp/doxygen/generated_src/pycode.cpp"
 
 #define INITIAL 0
 #define Body 1
@@ -2294,7 +2294,7 @@ YY_DECL
 #line 989 "pycode.l"
 
 
-#line 2298 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pycode.cpp"
+#line 2298 "/home/agustin/git/serverapp/doxygen/generated_src/pycode.cpp"
 
 	while ( 1 )		/* loops until end-of-file is reached */
 		{
@@ -3118,7 +3118,7 @@ YY_RULE_SETUP
 #line 1469 "pycode.l"
 ECHO;
 	YY_BREAK
-#line 3122 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pycode.cpp"
+#line 3122 "/home/agustin/git/serverapp/doxygen/generated_src/pycode.cpp"
 
 	case YY_END_OF_BUFFER:
 		{

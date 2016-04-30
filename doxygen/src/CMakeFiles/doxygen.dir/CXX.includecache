@@ -6,23 +6,23 @@
 
 #IncludeRegexTransform: 
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/definition.h
+/home/agustin/git/serverapp/doxygen/src/definition.h
 qlist.h
 -
 qdict.h
 -
 types.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/types.h
+/home/agustin/git/serverapp/doxygen/src/types.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/dirdef.h
+/home/agustin/git/serverapp/doxygen/src/dirdef.h
 sortdict.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/sortdict.h
+/home/agustin/git/serverapp/doxygen/src/sortdict.h
 definition.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/definition.h
+/home/agustin/git/serverapp/doxygen/src/definition.h
 qlist.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/doxygen.h
+/home/agustin/git/serverapp/doxygen/src/doxygen.h
 qdatetime.h
 -
 qcache.h
@@ -34,17 +34,17 @@ qdict.h
 qintdict.h
 -
 ftextstream.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/ftextstream.h
+/home/agustin/git/serverapp/doxygen/src/ftextstream.h
 sortdict.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/sortdict.h
+/home/agustin/git/serverapp/doxygen/src/sortdict.h
 membergroup.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/membergroup.h
+/home/agustin/git/serverapp/doxygen/src/membergroup.h
 dirdef.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/dirdef.h
+/home/agustin/git/serverapp/doxygen/src/dirdef.h
 memberlist.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/memberlist.h
+/home/agustin/git/serverapp/doxygen/src/memberlist.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/ftextstream.h
+/home/agustin/git/serverapp/doxygen/src/ftextstream.h
 stdio.h
 -
 qiodevice.h
@@ -54,39 +54,39 @@ qstring.h
 qgstring.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/main.cpp
+/home/agustin/git/serverapp/doxygen/src/main.cpp
 doxygen.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/doxygen.h
+/home/agustin/git/serverapp/doxygen/src/doxygen.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/memberdef.h
+/home/agustin/git/serverapp/doxygen/src/memberdef.h
 qlist.h
 -
 sys/types.h
 -
 types.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/types.h
+/home/agustin/git/serverapp/doxygen/src/types.h
 definition.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/definition.h
+/home/agustin/git/serverapp/doxygen/src/definition.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/membergroup.h
+/home/agustin/git/serverapp/doxygen/src/membergroup.h
 qlist.h
 -
 sortdict.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/sortdict.h
+/home/agustin/git/serverapp/doxygen/src/sortdict.h
 types.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/types.h
+/home/agustin/git/serverapp/doxygen/src/types.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/memberlist.h
+/home/agustin/git/serverapp/doxygen/src/memberlist.h
 qlist.h
 -
 memberdef.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/memberdef.h
+/home/agustin/git/serverapp/doxygen/src/memberdef.h
 sortdict.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/sortdict.h
+/home/agustin/git/serverapp/doxygen/src/sortdict.h
 types.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/types.h
+/home/agustin/git/serverapp/doxygen/src/types.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/sortdict.h
+/home/agustin/git/serverapp/doxygen/src/sortdict.h
 qlist.h
 -
 qdict.h
@@ -94,7 +94,7 @@ qdict.h
 qintdict.h
 -
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/types.h
+/home/agustin/git/serverapp/doxygen/src/types.h
 qcstring.h
 -
 

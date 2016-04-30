@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/configimpl.cpp
+/home/agustin/git/serverapp/doxygen/generated_src/configimpl.cpp
 stdio.h
 -
 string.h
@@ -42,41 +42,41 @@ qstack.h
 qglobal.h
 -
 configimpl.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/configimpl.h
+/home/agustin/git/serverapp/doxygen/generated_src/configimpl.h
 version.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/version.h
+/home/agustin/git/serverapp/doxygen/generated_src/version.h
 portable.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/portable.h
+/home/agustin/git/serverapp/doxygen/generated_src/portable.h
 util.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/util.h
+/home/agustin/git/serverapp/doxygen/generated_src/util.h
 message.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/message.h
+/home/agustin/git/serverapp/doxygen/generated_src/message.h
 lang_cfg.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/lang_cfg.h
+/home/agustin/git/serverapp/doxygen/generated_src/lang_cfg.h
 configoptions.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/configoptions.h
+/home/agustin/git/serverapp/doxygen/generated_src/configoptions.h
 unistd.h
 -
 config.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/config.h
+/home/agustin/git/serverapp/doxygen/generated_src/config.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/configoptions.cpp
+/home/agustin/git/serverapp/doxygen/generated_src/configoptions.cpp
 configoptions.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/configoptions.h
+/home/agustin/git/serverapp/doxygen/generated_src/configoptions.h
 configimpl.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/configimpl.h
+/home/agustin/git/serverapp/doxygen/generated_src/configimpl.h
 portable.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/portable.h
+/home/agustin/git/serverapp/doxygen/generated_src/portable.h
 settings.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/settings.h
+/home/agustin/git/serverapp/doxygen/generated_src/settings.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/configvalues.cpp
+/home/agustin/git/serverapp/doxygen/generated_src/configvalues.cpp
 configvalues.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/configvalues.h
+/home/agustin/git/serverapp/doxygen/generated_src/configvalues.h
 configimpl.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/configimpl.h
+/home/agustin/git/serverapp/doxygen/generated_src/configimpl.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/configvalues.h
+/home/agustin/git/serverapp/doxygen/generated_src/configvalues.h
 qdict.h
 -
 qstrlist.h
@@ -84,15 +84,15 @@ qstrlist.h
 qcstring.h
 -
 settings.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/settings.h
+/home/agustin/git/serverapp/doxygen/generated_src/settings.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/lang_cfg.h
+/home/agustin/git/serverapp/doxygen/generated_src/lang_cfg.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/settings.h
+/home/agustin/git/serverapp/doxygen/generated_src/settings.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/debug.h
+/home/agustin/git/serverapp/doxygen/src/debug.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/portable.cpp
+/home/agustin/git/serverapp/doxygen/src/portable.cpp
 stdlib.h
 -
 ctype.h
@@ -114,11 +114,11 @@ qglobal.h
 qdatetime.h
 -
 portable.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/portable.h
+/home/agustin/git/serverapp/doxygen/src/portable.h
 debug.h
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/debug.h
+/home/agustin/git/serverapp/doxygen/src/debug.h
 
-/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/src/portable.h
+/home/agustin/git/serverapp/doxygen/src/portable.h
 sys/types.h
 -
 stdio.h

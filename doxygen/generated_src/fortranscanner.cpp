@@ -1,6 +1,6 @@
-#line 2 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/fortranscanner.cpp"
+#line 2 "/home/agustin/git/serverapp/doxygen/generated_src/fortranscanner.cpp"
 
-#line 4 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/fortranscanner.cpp"
+#line 4 "/home/agustin/git/serverapp/doxygen/generated_src/fortranscanner.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -56718,7 +56718,7 @@ static void newLine();
 
 
 
-#line 56722 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/fortranscanner.cpp"
+#line 56722 "/home/agustin/git/serverapp/doxygen/generated_src/fortranscanner.cpp"
 
 #define INITIAL 0
 #define Subprog 1
@@ -56988,7 +56988,7 @@ YY_DECL
 
  /*-----------------------------------------------------------------------------------*/
 
-#line 56992 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/fortranscanner.cpp"
+#line 56992 "/home/agustin/git/serverapp/doxygen/generated_src/fortranscanner.cpp"
 
 	while ( 1 )		/* loops until end-of-file is reached */
 		{
@@ -58462,7 +58462,7 @@ YY_RULE_SETUP
 #line 1206 "fortranscanner.l"
 ECHO;
 	YY_BREAK
-#line 58466 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/fortranscanner.cpp"
+#line 58466 "/home/agustin/git/serverapp/doxygen/generated_src/fortranscanner.cpp"
 
 	case YY_END_OF_BUFFER:
 		{

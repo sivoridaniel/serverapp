@@ -1,6 +1,6 @@
-#line 2 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/commentcnv.cpp"
+#line 2 "/home/agustin/git/serverapp/doxygen/generated_src/commentcnv.cpp"
 
-#line 4 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/commentcnv.cpp"
+#line 4 "/home/agustin/git/serverapp/doxygen/generated_src/commentcnv.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -1336,7 +1336,7 @@ void replaceComment(int offset);
 
 
 
-#line 1340 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/commentcnv.cpp"
+#line 1340 "/home/agustin/git/serverapp/doxygen/generated_src/commentcnv.cpp"
 
 #define INITIAL 0
 #define Scan 1
@@ -1572,7 +1572,7 @@ YY_DECL
 #line 249 "commentcnv.l"
 
 
-#line 1576 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/commentcnv.cpp"
+#line 1576 "/home/agustin/git/serverapp/doxygen/generated_src/commentcnv.cpp"
 
 	while ( 1 )		/* loops until end-of-file is reached */
 		{
@@ -2746,7 +2746,7 @@ YY_RULE_SETUP
 #line 914 "commentcnv.l"
 ECHO;
 	YY_BREAK
-#line 2750 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/commentcnv.cpp"
+#line 2750 "/home/agustin/git/serverapp/doxygen/generated_src/commentcnv.cpp"
 			case YY_STATE_EOF(INITIAL):
 			case YY_STATE_EOF(Scan):
 			case YY_STATE_EOF(SkipString):

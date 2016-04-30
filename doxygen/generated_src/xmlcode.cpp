@@ -1,6 +1,6 @@
-#line 2 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/xmlcode.cpp"
+#line 2 "/home/agustin/git/serverapp/doxygen/generated_src/xmlcode.cpp"
 
-#line 4 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/xmlcode.cpp"
+#line 4 "/home/agustin/git/serverapp/doxygen/generated_src/xmlcode.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -743,7 +743,7 @@ static int yyread(char *buf,int max_size)
   return c;
 }
 
-#line 747 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/xmlcode.cpp"
+#line 747 "/home/agustin/git/serverapp/doxygen/generated_src/xmlcode.cpp"
 
 #define INITIAL 0
 
@@ -958,7 +958,7 @@ YY_DECL
 #line 246 "xmlcode.l"
 
 
-#line 962 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/xmlcode.cpp"
+#line 962 "/home/agustin/git/serverapp/doxygen/generated_src/xmlcode.cpp"
 
 	while ( 1 )		/* loops until end-of-file is reached */
 		{
@@ -1132,7 +1132,7 @@ YY_RULE_SETUP
 #line 320 "xmlcode.l"
 ECHO;
 	YY_BREAK
-#line 1136 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/xmlcode.cpp"
+#line 1136 "/home/agustin/git/serverapp/doxygen/generated_src/xmlcode.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 

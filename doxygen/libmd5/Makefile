@@ -48,10 +48,10 @@ RM = /usr/local/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pablo/Escritorio/workspace/taller/serverapp/doxygen
+CMAKE_SOURCE_DIR = /home/agustin/git/serverapp/doxygen
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pablo/Escritorio/workspace/taller/serverapp/doxygen
+CMAKE_BINARY_DIR = /home/agustin/git/serverapp/doxygen
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -70,7 +70,7 @@ test/fast: test
 # Special rule for the target package
 package: preinstall
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool..."
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && /usr/local/bin/cpack --config ./CPackConfig.cmake
+	cd /home/agustin/git/serverapp/doxygen && /usr/local/bin/cpack --config ./CPackConfig.cmake
 .PHONY : package
 
 # Special rule for the target package
@@ -81,7 +81,7 @@ package/fast: package
 # Special rule for the target package_source
 package_source:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Run CPack packaging tool for source..."
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && /usr/local/bin/cpack --config ./CPackSourceConfig.cmake /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CPackSourceConfig.cmake
+	cd /home/agustin/git/serverapp/doxygen && /usr/local/bin/cpack --config ./CPackSourceConfig.cmake /home/agustin/git/serverapp/doxygen/CPackSourceConfig.cmake
 .PHONY : package_source
 
 # Special rule for the target package_source
@@ -102,8 +102,8 @@ rebuild_cache/fast: rebuild_cache
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/local/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/local/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -111,15 +111,16 @@ edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
 
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
+# Special rule for the target install/local
+install/local/fast: install/local
 
-.PHONY : list_install_components/fast
+.PHONY : install/local/fast
 
 # Special rule for the target install
 install: preinstall
@@ -133,38 +134,26 @@ install/fast: preinstall/fast
 	/usr/local/bin/cmake -P cmake_install.cmake
 .PHONY : install/fast
 
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
 
-# Special rule for the target install/strip
-install/strip/fast: install/strip
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
 
-.PHONY : install/strip/fast
-
-# Special rule for the target install/local
-install/local: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
-	/usr/local/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
-.PHONY : install/local
-
-# Special rule for the target install/local
-install/local/fast: install/local
-
-.PHONY : install/local/fast
+.PHONY : list_install_components/fast
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(CMAKE_COMMAND) -E cmake_progress_start /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/libmd5/CMakeFiles/progress.marks
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 libmd5/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pablo/Escritorio/workspace/taller/serverapp/doxygen/CMakeFiles 0
+	cd /home/agustin/git/serverapp/doxygen && $(CMAKE_COMMAND) -E cmake_progress_start /home/agustin/git/serverapp/doxygen/CMakeFiles /home/agustin/git/serverapp/doxygen/libmd5/CMakeFiles/progress.marks
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 libmd5/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/agustin/git/serverapp/doxygen/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 libmd5/clean
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 libmd5/clean
 .PHONY : clean
 
 # The main clean target
@@ -174,22 +163,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 libmd5/preinstall
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 libmd5/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 libmd5/preinstall
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 libmd5/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/agustin/git/serverapp/doxygen && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 libmd5/CMakeFiles/md5.dir/rule:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 libmd5/CMakeFiles/md5.dir/rule
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f CMakeFiles/Makefile2 libmd5/CMakeFiles/md5.dir/rule
 .PHONY : libmd5/CMakeFiles/md5.dir/rule
 
 # Convenience name for target.
@@ -199,7 +188,7 @@ md5: libmd5/CMakeFiles/md5.dir/rule
 
 # fast build rule for target.
 md5/fast:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f libmd5/CMakeFiles/md5.dir/build.make libmd5/CMakeFiles/md5.dir/build
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f libmd5/CMakeFiles/md5.dir/build.make libmd5/CMakeFiles/md5.dir/build
 .PHONY : md5/fast
 
 md5.o: md5.c.o
@@ -208,7 +197,7 @@ md5.o: md5.c.o
 
 # target to build an object file
 md5.c.o:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f libmd5/CMakeFiles/md5.dir/build.make libmd5/CMakeFiles/md5.dir/md5.c.o
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f libmd5/CMakeFiles/md5.dir/build.make libmd5/CMakeFiles/md5.dir/md5.c.o
 .PHONY : md5.c.o
 
 md5.i: md5.c.i
@@ -217,7 +206,7 @@ md5.i: md5.c.i
 
 # target to preprocess a source file
 md5.c.i:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f libmd5/CMakeFiles/md5.dir/build.make libmd5/CMakeFiles/md5.dir/md5.c.i
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f libmd5/CMakeFiles/md5.dir/build.make libmd5/CMakeFiles/md5.dir/md5.c.i
 .PHONY : md5.c.i
 
 md5.s: md5.c.s
@@ -226,7 +215,7 @@ md5.s: md5.c.s
 
 # target to generate assembly for a file
 md5.c.s:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(MAKE) -f libmd5/CMakeFiles/md5.dir/build.make libmd5/CMakeFiles/md5.dir/md5.c.s
+	cd /home/agustin/git/serverapp/doxygen && $(MAKE) -f libmd5/CMakeFiles/md5.dir/build.make libmd5/CMakeFiles/md5.dir/md5.c.s
 .PHONY : md5.c.s
 
 # Help Target
@@ -241,10 +230,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... md5"
-	@echo "... list_install_components"
-	@echo "... install"
-	@echo "... install/strip"
 	@echo "... install/local"
+	@echo "... install"
+	@echo "... list_install_components"
 	@echo "... md5.o"
 	@echo "... md5.i"
 	@echo "... md5.s"
@@ -259,6 +247,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/pablo/Escritorio/workspace/taller/serverapp/doxygen && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/agustin/git/serverapp/doxygen && $(CMAKE_COMMAND) -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

@@ -631,3 +631,82 @@ Source file was:
             char *p = 0;
             iconv(iconv_t(-1), &p, 0, 0, 0);
          }
+Determining if the include file pthread.h exists passed with the following output:
+Change Dir: /home/agustin/git/serverapp/doxygen/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_93db4/fast"
+/usr/bin/make -f CMakeFiles/cmTC_93db4.dir/build.make CMakeFiles/cmTC_93db4.dir/build
+make[1]: Entering directory '/home/agustin/git/serverapp/doxygen/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_93db4.dir/CheckIncludeFile.c.o
+/usr/bin/cc     -o CMakeFiles/cmTC_93db4.dir/CheckIncludeFile.c.o   -c /home/agustin/git/serverapp/doxygen/CMakeFiles/CMakeTmp/CheckIncludeFile.c
+Linking C executable cmTC_93db4
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_93db4.dir/link.txt --verbose=1
+/usr/bin/cc       CMakeFiles/cmTC_93db4.dir/CheckIncludeFile.c.o  -o cmTC_93db4 -rdynamic 
+make[1]: Leaving directory '/home/agustin/git/serverapp/doxygen/CMakeFiles/CMakeTmp'
+
+
+Determining if the function pthread_create exists in the pthread passed with the following output:
+Change Dir: /home/agustin/git/serverapp/doxygen/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_1a825/fast"
+/usr/bin/make -f CMakeFiles/cmTC_1a825.dir/build.make CMakeFiles/cmTC_1a825.dir/build
+make[1]: Entering directory '/home/agustin/git/serverapp/doxygen/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_1a825.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_1a825.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_1a825
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_1a825.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_1a825.dir/CheckFunctionExists.c.o  -o cmTC_1a825 -rdynamic -lpthread 
+make[1]: Leaving directory '/home/agustin/git/serverapp/doxygen/CMakeFiles/CMakeTmp'
+
+
+Determining if the function iconv_open exists passed with the following output:
+Change Dir: /home/agustin/git/serverapp/doxygen/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_428e0/fast"
+/usr/bin/make -f CMakeFiles/cmTC_428e0.dir/build.make CMakeFiles/cmTC_428e0.dir/build
+make[1]: Entering directory '/home/agustin/git/serverapp/doxygen/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_428e0.dir/CheckFunctionExists.c.o
+/usr/bin/cc    -DCHECK_FUNCTION_EXISTS=iconv_open   -o CMakeFiles/cmTC_428e0.dir/CheckFunctionExists.c.o   -c /usr/local/share/cmake-3.5/Modules/CheckFunctionExists.c
+Linking C executable cmTC_428e0
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_428e0.dir/link.txt --verbose=1
+/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=iconv_open    CMakeFiles/cmTC_428e0.dir/CheckFunctionExists.c.o  -o cmTC_428e0 -rdynamic 
+make[1]: Leaving directory '/home/agustin/git/serverapp/doxygen/CMakeFiles/CMakeTmp'
+
+
+Performing C++ SOURCE FILE Test ICONV_COMPILES succeeded with the following output:
+Change Dir: /home/agustin/git/serverapp/doxygen/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_0c2bc/fast"
+/usr/bin/make -f CMakeFiles/cmTC_0c2bc.dir/build.make CMakeFiles/cmTC_0c2bc.dir/build
+make[1]: Entering directory '/home/agustin/git/serverapp/doxygen/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_0c2bc.dir/src.cxx.o
+/usr/bin/c++     -DICONV_COMPILES   -o CMakeFiles/cmTC_0c2bc.dir/src.cxx.o -c /home/agustin/git/serverapp/doxygen/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_0c2bc
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0c2bc.dir/link.txt --verbose=1
+/usr/bin/c++    -DICONV_COMPILES    CMakeFiles/cmTC_0c2bc.dir/src.cxx.o  -o cmTC_0c2bc -rdynamic 
+make[1]: Leaving directory '/home/agustin/git/serverapp/doxygen/CMakeFiles/CMakeTmp'
+
+Source file was:
+#include <iconv.h>
+     int main() {
+        iconv(iconv_t(-1), 0, 0, 0, 0);
+     }
+Performing C++ SOURCE FILE Test ICONV_ACCEPTS_NONCONST_INPUT succeeded with the following output:
+Change Dir: /home/agustin/git/serverapp/doxygen/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_517e7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_517e7.dir/build.make CMakeFiles/cmTC_517e7.dir/build
+make[1]: Entering directory '/home/agustin/git/serverapp/doxygen/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_517e7.dir/src.cxx.o
+/usr/bin/c++     -DICONV_ACCEPTS_NONCONST_INPUT   -o CMakeFiles/cmTC_517e7.dir/src.cxx.o -c /home/agustin/git/serverapp/doxygen/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_517e7
+/usr/local/bin/cmake -E cmake_link_script CMakeFiles/cmTC_517e7.dir/link.txt --verbose=1
+/usr/bin/c++    -DICONV_ACCEPTS_NONCONST_INPUT    CMakeFiles/cmTC_517e7.dir/src.cxx.o  -o cmTC_517e7 -rdynamic 
+make[1]: Leaving directory '/home/agustin/git/serverapp/doxygen/CMakeFiles/CMakeTmp'
+
+Source file was:
+#include <iconv.h>
+         int main() {
+            char *p = 0;
+            iconv(iconv_t(-1), &p, 0, 0, 0);
+         }

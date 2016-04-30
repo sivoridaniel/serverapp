@@ -1,6 +1,6 @@
-#line 2 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pre.cpp"
+#line 2 "/home/agustin/git/serverapp/doxygen/generated_src/pre.cpp"
 
-#line 4 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pre.cpp"
+#line 4 "/home/agustin/git/serverapp/doxygen/generated_src/pre.cpp"
 
 #define  YY_INT_ALIGNED short int
 
@@ -4274,7 +4274,7 @@ static int yyread(char *buf,int max_size)
 
 
 
-#line 4278 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pre.cpp"
+#line 4278 "/home/agustin/git/serverapp/doxygen/generated_src/pre.cpp"
 
 #define INITIAL 0
 #define Start 1
@@ -4535,7 +4535,7 @@ YY_DECL
 #line 1769 "pre.l"
 
 
-#line 4539 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pre.cpp"
+#line 4539 "/home/agustin/git/serverapp/doxygen/generated_src/pre.cpp"
 
 	while ( 1 )		/* loops until end-of-file is reached */
 		{
@@ -6663,7 +6663,7 @@ YY_RULE_SETUP
 #line 2901 "pre.l"
 ECHO;
 	YY_BREAK
-#line 6667 "/home/pablo/Escritorio/workspace/taller/serverapp/doxygen/generated_src/pre.cpp"
+#line 6667 "/home/agustin/git/serverapp/doxygen/generated_src/pre.cpp"
 
 	case YY_END_OF_BUFFER:
 		{
