@@ -48,13 +48,23 @@ RM = /usr/local/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/pablo/Escritorio/workspace/taller/serverapp/AppServer/test
+CMAKE_SOURCE_DIR = /home/agustin/git/serverapp/AppServer/test
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/pablo/Escritorio/workspace/taller/serverapp/AppServer/test
+CMAKE_BINARY_DIR = /home/agustin/git/serverapp/AppServer/test
 
 #=============================================================================
 # Targets provided globally by CMake.
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # Special rule for the target install
 install: preinstall
@@ -79,6 +89,17 @@ rebuild_cache/fast: rebuild_cache
 
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target edit_cache
+edit_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/local/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : edit_cache
+
+# Special rule for the target edit_cache
+edit_cache/fast: edit_cache
+
+.PHONY : edit_cache/fast
+
 # Special rule for the target test
 test:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
@@ -89,38 +110,6 @@ test:
 test/fast: test
 
 .PHONY : test/fast
-
-# Special rule for the target edit_cache
-edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/usr/local/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
-.PHONY : edit_cache
-
-# Special rule for the target edit_cache
-edit_cache/fast: edit_cache
-
-.PHONY : edit_cache/fast
-
-# Special rule for the target list_install_components
-list_install_components:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
-.PHONY : list_install_components
-
-# Special rule for the target list_install_components
-list_install_components/fast: list_install_components
-
-.PHONY : list_install_components/fast
-
-# Special rule for the target install/strip
-install/strip: preinstall
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
-	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
-.PHONY : install/strip
-
-# Special rule for the target install/strip
-install/strip/fast: install/strip
-
-.PHONY : install/strip/fast
 
 # Special rule for the target install/local
 install/local: preinstall
@@ -133,11 +122,22 @@ install/local/fast: install/local
 
 .PHONY : install/local/fast
 
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/local/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: install/strip
+
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pablo/Escritorio/workspace/taller/serverapp/AppServer/test/CMakeFiles /home/pablo/Escritorio/workspace/taller/serverapp/AppServer/test/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/agustin/git/serverapp/AppServer/test/CMakeFiles /home/agustin/git/serverapp/AppServer/test/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/pablo/Escritorio/workspace/taller/serverapp/AppServer/test/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/agustin/git/serverapp/AppServer/test/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -166,108 +166,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named dao
+# Target rules for targets named mockMatchServiceTest
 
 # Build rule for target.
-dao: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 dao
-.PHONY : dao
+mockMatchServiceTest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 mockMatchServiceTest
+.PHONY : mockMatchServiceTest
 
 # fast build rule for target.
-dao/fast:
-	$(MAKE) -f CMakeFiles/dao.dir/build.make CMakeFiles/dao.dir/build
-.PHONY : dao/fast
-
-#=============================================================================
-# Target rules for targets named controller
-
-# Build rule for target.
-controller: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 controller
-.PHONY : controller
-
-# fast build rule for target.
-controller/fast:
-	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/build
-.PHONY : controller/fast
-
-#=============================================================================
-# Target rules for targets named utils
-
-# Build rule for target.
-utils: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 utils
-.PHONY : utils
-
-# fast build rule for target.
-utils/fast:
-	$(MAKE) -f CMakeFiles/utils.dir/build.make CMakeFiles/utils.dir/build
-.PHONY : utils/fast
-
-#=============================================================================
-# Target rules for targets named webserver
-
-# Build rule for target.
-webserver: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 webserver
-.PHONY : webserver
-
-# fast build rule for target.
-webserver/fast:
-	$(MAKE) -f CMakeFiles/webserver.dir/build.make CMakeFiles/webserver.dir/build
-.PHONY : webserver/fast
-
-#=============================================================================
-# Target rules for targets named json
-
-# Build rule for target.
-json: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 json
-.PHONY : json
-
-# fast build rule for target.
-json/fast:
-	$(MAKE) -f CMakeFiles/json.dir/build.make CMakeFiles/json.dir/build
-.PHONY : json/fast
-
-#=============================================================================
-# Target rules for targets named model
-
-# Build rule for target.
-model: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 model
-.PHONY : model
-
-# fast build rule for target.
-model/fast:
-	$(MAKE) -f CMakeFiles/model.dir/build.make CMakeFiles/model.dir/build
-.PHONY : model/fast
-
-#=============================================================================
-# Target rules for targets named service
-
-# Build rule for target.
-service: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 service
-.PHONY : service
-
-# fast build rule for target.
-service/fast:
-	$(MAKE) -f CMakeFiles/service.dir/build.make CMakeFiles/service.dir/build
-.PHONY : service/fast
-
-#=============================================================================
-# Target rules for targets named AppServer
-
-# Build rule for target.
-AppServer: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 AppServer
-.PHONY : AppServer
-
-# fast build rule for target.
-AppServer/fast:
-	$(MAKE) -f CMakeFiles/AppServer.dir/build.make CMakeFiles/AppServer.dir/build
-.PHONY : AppServer/fast
+mockMatchServiceTest/fast:
+	$(MAKE) -f CMakeFiles/mockMatchServiceTest.dir/build.make CMakeFiles/mockMatchServiceTest.dir/build
+.PHONY : mockMatchServiceTest/fast
 
 #=============================================================================
 # Target rules for targets named mockAuthenticationCtrlTest
@@ -374,629 +283,32 @@ MockAuthenticationController.cc.s:
 	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/MockAuthenticationController.cc.s
 .PHONY : MockAuthenticationController.cc.s
 
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AbmUserController.o: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AbmUserController.cpp.o
+MockMatchService.o: MockMatchService.cc.o
 
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AbmUserController.o
-
-# target to build an object file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AbmUserController.cpp.o:
-	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AbmUserController.cpp.o
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AbmUserController.cpp.o
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AbmUserController.cpp.o
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AbmUserController.i: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AbmUserController.cpp.i
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AbmUserController.i
-
-# target to preprocess a source file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AbmUserController.cpp.i:
-	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AbmUserController.cpp.i
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AbmUserController.cpp.i
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AbmUserController.cpp.i
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AbmUserController.s: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AbmUserController.cpp.s
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AbmUserController.s
-
-# target to generate assembly for a file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AbmUserController.cpp.s:
-	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AbmUserController.cpp.s
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AbmUserController.cpp.s
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AbmUserController.cpp.s
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.o: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.cpp.o
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.o
+.PHONY : MockMatchService.o
 
 # target to build an object file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.cpp.o:
-	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.cpp.o
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.cpp.o
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.cpp.o
+MockMatchService.cc.o:
+	$(MAKE) -f CMakeFiles/mockMatchServiceTest.dir/build.make CMakeFiles/mockMatchServiceTest.dir/MockMatchService.cc.o
+.PHONY : MockMatchService.cc.o
 
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.i: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.cpp.i
+MockMatchService.i: MockMatchService.cc.i
 
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.i
-
-# target to preprocess a source file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.cpp.i:
-	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.cpp.i
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.cpp.i
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.cpp.i
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.s: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.cpp.s
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.s
-
-# target to generate assembly for a file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.cpp.s:
-	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.cpp.s
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.cpp.s
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.cpp.s
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/FactoryController.o: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/FactoryController.cpp.o
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/FactoryController.o
-
-# target to build an object file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/FactoryController.cpp.o:
-	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/FactoryController.cpp.o
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/FactoryController.cpp.o
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/FactoryController.cpp.o
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/FactoryController.i: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/FactoryController.cpp.i
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/FactoryController.i
+.PHONY : MockMatchService.i
 
 # target to preprocess a source file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/FactoryController.cpp.i:
-	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/FactoryController.cpp.i
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/FactoryController.cpp.i
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/FactoryController.cpp.i
+MockMatchService.cc.i:
+	$(MAKE) -f CMakeFiles/mockMatchServiceTest.dir/build.make CMakeFiles/mockMatchServiceTest.dir/MockMatchService.cc.i
+.PHONY : MockMatchService.cc.i
 
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/FactoryController.s: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/FactoryController.cpp.s
+MockMatchService.s: MockMatchService.cc.s
 
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/FactoryController.s
-
-# target to generate assembly for a file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/FactoryController.cpp.s:
-	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/FactoryController.cpp.s
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/FactoryController.cpp.s
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/FactoryController.cpp.s
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/MatchController.o: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/MatchController.cpp.o
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/MatchController.o
-
-# target to build an object file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/MatchController.cpp.o:
-	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/MatchController.cpp.o
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/MatchController.cpp.o
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/MatchController.cpp.o
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/MatchController.i: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/MatchController.cpp.i
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/MatchController.i
-
-# target to preprocess a source file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/MatchController.cpp.i:
-	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/MatchController.cpp.i
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/MatchController.cpp.i
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/MatchController.cpp.i
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/MatchController.s: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/MatchController.cpp.s
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/MatchController.s
+.PHONY : MockMatchService.s
 
 # target to generate assembly for a file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/MatchController.cpp.s:
-	$(MAKE) -f CMakeFiles/controller.dir/build.make CMakeFiles/controller.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/MatchController.cpp.s
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/MatchController.cpp.s
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/MatchController.cpp.s
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/ChatDao.o: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/ChatDao.cpp.o
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/ChatDao.o
-
-# target to build an object file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/ChatDao.cpp.o:
-	$(MAKE) -f CMakeFiles/dao.dir/build.make CMakeFiles/dao.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/ChatDao.cpp.o
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/ChatDao.cpp.o
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/ChatDao.cpp.o
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/ChatDao.i: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/ChatDao.cpp.i
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/ChatDao.i
-
-# target to preprocess a source file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/ChatDao.cpp.i:
-	$(MAKE) -f CMakeFiles/dao.dir/build.make CMakeFiles/dao.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/ChatDao.cpp.i
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/ChatDao.cpp.i
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/ChatDao.cpp.i
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/ChatDao.s: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/ChatDao.cpp.s
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/ChatDao.s
-
-# target to generate assembly for a file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/ChatDao.cpp.s:
-	$(MAKE) -f CMakeFiles/dao.dir/build.make CMakeFiles/dao.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/ChatDao.cpp.s
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/ChatDao.cpp.s
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/ChatDao.cpp.s
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/MatchDao.o: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/MatchDao.cpp.o
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/MatchDao.o
-
-# target to build an object file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/MatchDao.cpp.o:
-	$(MAKE) -f CMakeFiles/dao.dir/build.make CMakeFiles/dao.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/MatchDao.cpp.o
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/MatchDao.cpp.o
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/MatchDao.cpp.o
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/MatchDao.i: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/MatchDao.cpp.i
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/MatchDao.i
-
-# target to preprocess a source file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/MatchDao.cpp.i:
-	$(MAKE) -f CMakeFiles/dao.dir/build.make CMakeFiles/dao.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/MatchDao.cpp.i
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/MatchDao.cpp.i
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/MatchDao.cpp.i
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/MatchDao.s: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/MatchDao.cpp.s
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/MatchDao.s
-
-# target to generate assembly for a file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/MatchDao.cpp.s:
-	$(MAKE) -f CMakeFiles/dao.dir/build.make CMakeFiles/dao.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/MatchDao.cpp.s
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/MatchDao.cpp.s
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/MatchDao.cpp.s
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/UserDao.o: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/UserDao.cpp.o
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/UserDao.o
-
-# target to build an object file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/UserDao.cpp.o:
-	$(MAKE) -f CMakeFiles/dao.dir/build.make CMakeFiles/dao.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/UserDao.cpp.o
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/UserDao.cpp.o
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/UserDao.cpp.o
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/UserDao.i: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/UserDao.cpp.i
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/UserDao.i
-
-# target to preprocess a source file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/UserDao.cpp.i:
-	$(MAKE) -f CMakeFiles/dao.dir/build.make CMakeFiles/dao.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/UserDao.cpp.i
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/UserDao.cpp.i
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/UserDao.cpp.i
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/UserDao.s: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/UserDao.cpp.s
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/UserDao.s
-
-# target to generate assembly for a file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/UserDao.cpp.s:
-	$(MAKE) -f CMakeFiles/dao.dir/build.make CMakeFiles/dao.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/UserDao.cpp.s
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/UserDao.cpp.s
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/UserDao.cpp.s
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/jsoncpp.o: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/jsoncpp.cpp.o
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/jsoncpp.o
-
-# target to build an object file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/jsoncpp.cpp.o:
-	$(MAKE) -f CMakeFiles/json.dir/build.make CMakeFiles/json.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/jsoncpp.cpp.o
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/jsoncpp.cpp.o
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/jsoncpp.i: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/jsoncpp.cpp.i
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/jsoncpp.i
-
-# target to preprocess a source file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/jsoncpp.cpp.i:
-	$(MAKE) -f CMakeFiles/json.dir/build.make CMakeFiles/json.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/jsoncpp.cpp.i
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/jsoncpp.cpp.i
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/jsoncpp.s: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/jsoncpp.cpp.s
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/jsoncpp.s
-
-# target to generate assembly for a file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/jsoncpp.cpp.s:
-	$(MAKE) -f CMakeFiles/json.dir/build.make CMakeFiles/json.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/jsoncpp.cpp.s
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/jsoncpp.cpp.s
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Chat.o: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Chat.cpp.o
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Chat.o
-
-# target to build an object file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Chat.cpp.o:
-	$(MAKE) -f CMakeFiles/model.dir/build.make CMakeFiles/model.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Chat.cpp.o
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Chat.cpp.o
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Chat.cpp.o
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Chat.i: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Chat.cpp.i
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Chat.i
-
-# target to preprocess a source file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Chat.cpp.i:
-	$(MAKE) -f CMakeFiles/model.dir/build.make CMakeFiles/model.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Chat.cpp.i
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Chat.cpp.i
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Chat.cpp.i
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Chat.s: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Chat.cpp.s
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Chat.s
-
-# target to generate assembly for a file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Chat.cpp.s:
-	$(MAKE) -f CMakeFiles/model.dir/build.make CMakeFiles/model.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Chat.cpp.s
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Chat.cpp.s
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Chat.cpp.s
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Interest.o: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Interest.cpp.o
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Interest.o
-
-# target to build an object file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Interest.cpp.o:
-	$(MAKE) -f CMakeFiles/model.dir/build.make CMakeFiles/model.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Interest.cpp.o
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Interest.cpp.o
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Interest.cpp.o
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Interest.i: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Interest.cpp.i
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Interest.i
-
-# target to preprocess a source file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Interest.cpp.i:
-	$(MAKE) -f CMakeFiles/model.dir/build.make CMakeFiles/model.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Interest.cpp.i
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Interest.cpp.i
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Interest.cpp.i
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Interest.s: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Interest.cpp.s
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Interest.s
-
-# target to generate assembly for a file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Interest.cpp.s:
-	$(MAKE) -f CMakeFiles/model.dir/build.make CMakeFiles/model.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Interest.cpp.s
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Interest.cpp.s
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Interest.cpp.s
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Location.o: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Location.cpp.o
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Location.o
-
-# target to build an object file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Location.cpp.o:
-	$(MAKE) -f CMakeFiles/model.dir/build.make CMakeFiles/model.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Location.cpp.o
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Location.cpp.o
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Location.cpp.o
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Location.i: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Location.cpp.i
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Location.i
-
-# target to preprocess a source file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Location.cpp.i:
-	$(MAKE) -f CMakeFiles/model.dir/build.make CMakeFiles/model.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Location.cpp.i
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Location.cpp.i
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Location.cpp.i
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Location.s: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Location.cpp.s
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Location.s
-
-# target to generate assembly for a file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Location.cpp.s:
-	$(MAKE) -f CMakeFiles/model.dir/build.make CMakeFiles/model.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Location.cpp.s
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Location.cpp.s
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Location.cpp.s
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Match.o: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Match.cpp.o
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Match.o
-
-# target to build an object file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Match.cpp.o:
-	$(MAKE) -f CMakeFiles/model.dir/build.make CMakeFiles/model.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Match.cpp.o
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Match.cpp.o
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Match.cpp.o
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Match.i: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Match.cpp.i
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Match.i
-
-# target to preprocess a source file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Match.cpp.i:
-	$(MAKE) -f CMakeFiles/model.dir/build.make CMakeFiles/model.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Match.cpp.i
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Match.cpp.i
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Match.cpp.i
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Match.s: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Match.cpp.s
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Match.s
-
-# target to generate assembly for a file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Match.cpp.s:
-	$(MAKE) -f CMakeFiles/model.dir/build.make CMakeFiles/model.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Match.cpp.s
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Match.cpp.s
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Match.cpp.s
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/NewMatchesResponse.o: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/NewMatchesResponse.cpp.o
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/NewMatchesResponse.o
-
-# target to build an object file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/NewMatchesResponse.cpp.o:
-	$(MAKE) -f CMakeFiles/model.dir/build.make CMakeFiles/model.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/NewMatchesResponse.cpp.o
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/NewMatchesResponse.cpp.o
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/NewMatchesResponse.cpp.o
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/NewMatchesResponse.i: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/NewMatchesResponse.cpp.i
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/NewMatchesResponse.i
-
-# target to preprocess a source file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/NewMatchesResponse.cpp.i:
-	$(MAKE) -f CMakeFiles/model.dir/build.make CMakeFiles/model.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/NewMatchesResponse.cpp.i
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/NewMatchesResponse.cpp.i
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/NewMatchesResponse.cpp.i
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/NewMatchesResponse.s: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/NewMatchesResponse.cpp.s
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/NewMatchesResponse.s
-
-# target to generate assembly for a file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/NewMatchesResponse.cpp.s:
-	$(MAKE) -f CMakeFiles/model.dir/build.make CMakeFiles/model.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/NewMatchesResponse.cpp.s
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/NewMatchesResponse.cpp.s
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/NewMatchesResponse.cpp.s
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/UserProfile.o: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/UserProfile.cpp.o
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/UserProfile.o
-
-# target to build an object file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/UserProfile.cpp.o:
-	$(MAKE) -f CMakeFiles/model.dir/build.make CMakeFiles/model.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/UserProfile.cpp.o
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/UserProfile.cpp.o
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/UserProfile.cpp.o
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/UserProfile.i: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/UserProfile.cpp.i
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/UserProfile.i
-
-# target to preprocess a source file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/UserProfile.cpp.i:
-	$(MAKE) -f CMakeFiles/model.dir/build.make CMakeFiles/model.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/UserProfile.cpp.i
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/UserProfile.cpp.i
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/UserProfile.cpp.i
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/UserProfile.s: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/UserProfile.cpp.s
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/UserProfile.s
-
-# target to generate assembly for a file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/UserProfile.cpp.s:
-	$(MAKE) -f CMakeFiles/model.dir/build.make CMakeFiles/model.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/UserProfile.cpp.s
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/UserProfile.cpp.s
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/UserProfile.cpp.s
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/restful_server.o: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/restful_server.cpp.o
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/restful_server.o
-
-# target to build an object file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/restful_server.cpp.o:
-	$(MAKE) -f CMakeFiles/AppServer.dir/build.make CMakeFiles/AppServer.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/restful_server.cpp.o
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/restful_server.cpp.o
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/restful_server.i: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/restful_server.cpp.i
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/restful_server.i
-
-# target to preprocess a source file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/restful_server.cpp.i:
-	$(MAKE) -f CMakeFiles/AppServer.dir/build.make CMakeFiles/AppServer.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/restful_server.cpp.i
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/restful_server.cpp.i
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/restful_server.s: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/restful_server.cpp.s
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/restful_server.s
-
-# target to generate assembly for a file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/restful_server.cpp.s:
-	$(MAKE) -f CMakeFiles/AppServer.dir/build.make CMakeFiles/AppServer.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/restful_server.cpp.s
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/restful_server.cpp.s
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AbmUserService.o: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AbmUserService.cpp.o
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AbmUserService.o
-
-# target to build an object file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AbmUserService.cpp.o:
-	$(MAKE) -f CMakeFiles/service.dir/build.make CMakeFiles/service.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AbmUserService.cpp.o
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AbmUserService.cpp.o
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AbmUserService.cpp.o
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AbmUserService.i: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AbmUserService.cpp.i
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AbmUserService.i
-
-# target to preprocess a source file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AbmUserService.cpp.i:
-	$(MAKE) -f CMakeFiles/service.dir/build.make CMakeFiles/service.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AbmUserService.cpp.i
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AbmUserService.cpp.i
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AbmUserService.cpp.i
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AbmUserService.s: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AbmUserService.cpp.s
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AbmUserService.s
-
-# target to generate assembly for a file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AbmUserService.cpp.s:
-	$(MAKE) -f CMakeFiles/service.dir/build.make CMakeFiles/service.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AbmUserService.cpp.s
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AbmUserService.cpp.s
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AbmUserService.cpp.s
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AuthenticationService.o: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AuthenticationService.cpp.o
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AuthenticationService.o
-
-# target to build an object file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AuthenticationService.cpp.o:
-	$(MAKE) -f CMakeFiles/service.dir/build.make CMakeFiles/service.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AuthenticationService.cpp.o
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AuthenticationService.cpp.o
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AuthenticationService.cpp.o
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AuthenticationService.i: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AuthenticationService.cpp.i
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AuthenticationService.i
-
-# target to preprocess a source file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AuthenticationService.cpp.i:
-	$(MAKE) -f CMakeFiles/service.dir/build.make CMakeFiles/service.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AuthenticationService.cpp.i
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AuthenticationService.cpp.i
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AuthenticationService.cpp.i
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AuthenticationService.s: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AuthenticationService.cpp.s
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AuthenticationService.s
-
-# target to generate assembly for a file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AuthenticationService.cpp.s:
-	$(MAKE) -f CMakeFiles/service.dir/build.make CMakeFiles/service.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AuthenticationService.cpp.s
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AuthenticationService.cpp.s
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AuthenticationService.cpp.s
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/MatchService.o: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/MatchService.cpp.o
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/MatchService.o
-
-# target to build an object file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/MatchService.cpp.o:
-	$(MAKE) -f CMakeFiles/service.dir/build.make CMakeFiles/service.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/MatchService.cpp.o
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/MatchService.cpp.o
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/MatchService.cpp.o
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/MatchService.i: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/MatchService.cpp.i
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/MatchService.i
-
-# target to preprocess a source file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/MatchService.cpp.i:
-	$(MAKE) -f CMakeFiles/service.dir/build.make CMakeFiles/service.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/MatchService.cpp.i
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/MatchService.cpp.i
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/MatchService.cpp.i
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/MatchService.s: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/MatchService.cpp.s
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/MatchService.s
-
-# target to generate assembly for a file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/MatchService.cpp.s:
-	$(MAKE) -f CMakeFiles/service.dir/build.make CMakeFiles/service.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/MatchService.cpp.s
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/MatchService.cpp.s
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/MatchService.cpp.s
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/DbHelper.o: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/DbHelper.cpp.o
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/DbHelper.o
-
-# target to build an object file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/DbHelper.cpp.o:
-	$(MAKE) -f CMakeFiles/utils.dir/build.make CMakeFiles/utils.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/DbHelper.cpp.o
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/DbHelper.cpp.o
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/DbHelper.cpp.o
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/DbHelper.i: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/DbHelper.cpp.i
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/DbHelper.i
-
-# target to preprocess a source file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/DbHelper.cpp.i:
-	$(MAKE) -f CMakeFiles/utils.dir/build.make CMakeFiles/utils.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/DbHelper.cpp.i
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/DbHelper.cpp.i
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/DbHelper.cpp.i
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/DbHelper.s: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/DbHelper.cpp.s
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/DbHelper.s
-
-# target to generate assembly for a file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/DbHelper.cpp.s:
-	$(MAKE) -f CMakeFiles/utils.dir/build.make CMakeFiles/utils.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/DbHelper.cpp.s
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/DbHelper.cpp.s
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/DbHelper.cpp.s
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/JwToken.o: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/JwToken.cpp.o
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/JwToken.o
-
-# target to build an object file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/JwToken.cpp.o:
-	$(MAKE) -f CMakeFiles/utils.dir/build.make CMakeFiles/utils.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/JwToken.cpp.o
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/JwToken.cpp.o
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/JwToken.cpp.o
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/JwToken.i: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/JwToken.cpp.i
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/JwToken.i
-
-# target to preprocess a source file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/JwToken.cpp.i:
-	$(MAKE) -f CMakeFiles/utils.dir/build.make CMakeFiles/utils.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/JwToken.cpp.i
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/JwToken.cpp.i
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/JwToken.cpp.i
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/JwToken.s: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/JwToken.cpp.s
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/JwToken.s
-
-# target to generate assembly for a file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/JwToken.cpp.s:
-	$(MAKE) -f CMakeFiles/utils.dir/build.make CMakeFiles/utils.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/JwToken.cpp.s
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/JwToken.cpp.s
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/JwToken.cpp.s
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/webserver/mongoose.o: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/webserver/mongoose.c.o
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/webserver/mongoose.o
-
-# target to build an object file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/webserver/mongoose.c.o:
-	$(MAKE) -f CMakeFiles/webserver.dir/build.make CMakeFiles/webserver.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/webserver/mongoose.c.o
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/webserver/mongoose.c.o
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/webserver/mongoose.c.o
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/webserver/mongoose.i: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/webserver/mongoose.c.i
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/webserver/mongoose.i
-
-# target to preprocess a source file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/webserver/mongoose.c.i:
-	$(MAKE) -f CMakeFiles/webserver.dir/build.make CMakeFiles/webserver.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/webserver/mongoose.c.i
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/webserver/mongoose.c.i
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/webserver/mongoose.c.i
-
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/webserver/mongoose.s: home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/webserver/mongoose.c.s
-
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/webserver/mongoose.s
-
-# target to generate assembly for a file
-home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/webserver/mongoose.c.s:
-	$(MAKE) -f CMakeFiles/webserver.dir/build.make CMakeFiles/webserver.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/webserver/mongoose.c.s
-	$(MAKE) -f CMakeFiles/mockAuthenticationCtrlTest.dir/build.make CMakeFiles/mockAuthenticationCtrlTest.dir/home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/webserver/mongoose.c.s
-.PHONY : home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/webserver/mongoose.c.s
+MockMatchService.cc.s:
+	$(MAKE) -f CMakeFiles/mockMatchServiceTest.dir/build.make CMakeFiles/mockMatchServiceTest.dir/MockMatchService.cc.s
+.PHONY : MockMatchService.cc.s
 
 # Help Target
 help:
@@ -1004,21 +316,14 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... list_install_components"
 	@echo "... install"
 	@echo "... rebuild_cache"
-	@echo "... test"
-	@echo "... dao"
-	@echo "... controller"
-	@echo "... utils"
-	@echo "... webserver"
-	@echo "... json"
 	@echo "... edit_cache"
-	@echo "... model"
-	@echo "... list_install_components"
-	@echo "... install/strip"
-	@echo "... service"
+	@echo "... test"
 	@echo "... install/local"
-	@echo "... AppServer"
+	@echo "... install/strip"
+	@echo "... mockMatchServiceTest"
 	@echo "... mockAuthenticationCtrlTest"
 	@echo "... cov"
 	@echo "... gmock"
@@ -1028,69 +333,9 @@ help:
 	@echo "... MockAuthenticationController.o"
 	@echo "... MockAuthenticationController.i"
 	@echo "... MockAuthenticationController.s"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AbmUserController.o"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AbmUserController.i"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AbmUserController.s"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.o"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.i"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/AuthenticationController.s"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/FactoryController.o"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/FactoryController.i"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/FactoryController.s"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/MatchController.o"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/MatchController.i"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/controller/MatchController.s"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/ChatDao.o"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/ChatDao.i"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/ChatDao.s"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/MatchDao.o"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/MatchDao.i"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/MatchDao.s"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/UserDao.o"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/UserDao.i"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/dao/UserDao.s"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/jsoncpp.o"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/jsoncpp.i"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/jsoncpp.s"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Chat.o"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Chat.i"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Chat.s"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Interest.o"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Interest.i"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Interest.s"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Location.o"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Location.i"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Location.s"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Match.o"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Match.i"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/Match.s"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/NewMatchesResponse.o"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/NewMatchesResponse.i"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/NewMatchesResponse.s"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/UserProfile.o"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/UserProfile.i"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/model/UserProfile.s"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/restful_server.o"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/restful_server.i"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/restful_server.s"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AbmUserService.o"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AbmUserService.i"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AbmUserService.s"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AuthenticationService.o"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AuthenticationService.i"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/AuthenticationService.s"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/MatchService.o"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/MatchService.i"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/service/MatchService.s"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/DbHelper.o"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/DbHelper.i"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/DbHelper.s"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/JwToken.o"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/JwToken.i"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/utils/JwToken.s"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/webserver/mongoose.o"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/webserver/mongoose.i"
-	@echo "... home/pablo/Escritorio/workspace/taller/serverapp/AppServer/src/webserver/mongoose.s"
+	@echo "... MockMatchService.o"
+	@echo "... MockMatchService.i"
+	@echo "... MockMatchService.s"
 .PHONY : help
 
 

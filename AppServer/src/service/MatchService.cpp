@@ -29,6 +29,12 @@ MatchService::MatchService() {
 	delete match4;
 }
 
+MatchService::MatchService(MatchDao* matchDao, ChatDao* chatDao){
+	this->matchDao = matchDao;
+	this->chatDao = chatDao;
+}
+
+
 MatchService::~MatchService() {
 	delete matchDao;
 	delete chatDao;

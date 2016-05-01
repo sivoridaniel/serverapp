@@ -24,13 +24,21 @@ set(UNITTEST_SRC ../test/MockAuthenticationController.cc)
 
 set(SRC_FILES ${WEBSERVER_SRC} ${CONTROLLER_SRC} ${UTILS_SRC} ${DAO_SRC} ${JSON_SRC} ${MODEL_SRC} ${SERVICE_SRC} ${UNITTEST_SRC})
 
-add_executable(mockAuthenticationCtrlTest ${SRC_FILES}) 
+set(UNITTEST_MATCH_SRC ../test/MockMatchService.cc)
+set(SRC_FILES_MATCH ${WEBSERVER_SRC} ${CONTROLLER_SRC} ${UTILS_SRC} ${DAO_SRC} ${JSON_SRC} ${MODEL_SRC} ${SERVICE_SRC} ${UNITTEST_MATCH_SRC})
+
+add_executable(mockMatchServiceTest ${SRC_FILES_MATCH}) 
+
+add_executable(mockAuthenticationCtrlTest ${SRC_FILES})
 target_link_libraries(mockAuthenticationCtrlTest utils dao model service controller gmock gmock_main rocksdb log4cplus jansson jwt json webserver ${LibXML2_LIBRARIES} ${CPPUNIT_LIBRARY} ${LINUX_LIBRARIES} ${GCOV_LINK_FLAGS})
+target_link_libraries(mockMatchServiceTest utils dao model service controller gmock gmock_main rocksdb log4cplus jansson jwt json webserver ${LibXML2_LIBRARIES} ${CPPUNIT_LIBRARY} ${LINUX_LIBRARIES} ${GCOV_LINK_FLAGS})
 
 add_test(NAME mockAuthenticationCtrlTest COMMAND mockAuthenticationCtrlTest)
+add_test(NAME mockMatchServiceTest COMMAND mockMatchServiceTest)
 
 add_custom_target(cov COMMAND ${LCOV_PATH} --directory . --zerocounters
 COMMAND mockAuthenticationCtrlTest
+COMMAND mockMatchServiceTest
 # Capture lcov counters
 COMMAND ${LCOV_PATH} --directory ${DIR_APP} --capture --output-file ${OUTPUT_NAME}.info
  # Remove googletest coverage results

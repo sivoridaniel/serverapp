@@ -27,6 +27,18 @@ private:
 	ChatDao* chatDao;
 public:
 	MatchService();
+
+	/**
+	 * Constructor que se utiliza para poder ser utilizado con gmock.
+	 * De esta manera podemos mockear el DAO para no realizar el llamado a
+	 * la base de datos y poder realizar los test unit de los métodos de la
+	 * clase.
+	 *
+	 * @param MatchDao
+	 * @param ChatDao
+	 */
+	MatchService(MatchDao* matchDao, ChatDao* chatDao);
+
 	virtual ~MatchService();
 	/**
 	 * Agrega a la lista de likes el usuario por el cual se tiene interes.
