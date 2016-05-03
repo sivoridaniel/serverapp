@@ -8,7 +8,6 @@
 #ifndef SRC_SERVICE_ABMUSERSERVICE_H_
 #define SRC_SERVICE_ABMUSERSERVICE_H_
 
-#include "../dao/IUserDao.h"
 #include "../dao/UserDao.h"
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
@@ -23,7 +22,7 @@ using namespace log4cplus;
  */
 class AbmUserService {
 private:
-	IUserDao* userDao;
+	UserDao* userDao;
 public:
 	AbmUserService();
 	/**

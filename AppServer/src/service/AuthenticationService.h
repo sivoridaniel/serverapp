@@ -27,7 +27,7 @@ using namespace log4cplus;
  */
 class AuthenticationService {
 private:
-	IUserDao* userDao;
+	UserDao* userDao;
 
 public:
 	/**
@@ -42,7 +42,7 @@ public:
 	 *
 	 * @param IUserDao
 	 */
-	AuthenticationService(IUserDao * userDao);
+	AuthenticationService(UserDao * userDao);
 	/**
 	 * En caso de poder loguearse, devuelve el perfil del usuario.
 	 * En caso de que se pase por parametro password en vacio (""), devolverá

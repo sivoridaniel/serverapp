@@ -8,7 +8,7 @@
 #include "gmock/gmock.h"
 #include "../src/utils/JwToken.h"
 #include "../src/service/AuthenticationService.h"
-#include "../src/dao/IUserDao.h"
+#include "../src/dao/UserDao.h"
 #include <string>
 #include <ctime>
 #include <log4cplus/logger.h>
@@ -19,7 +19,7 @@ using namespace std;
 using ::testing::AtLeast;
 using ::testing::Return;
 
-class MockUserDao : public IUserDao{
+class MockUserDao : public UserDao{
 public:
 
 	MOCK_CONST_METHOD1(MockFunctionGet, Entity*(string id) );
@@ -66,10 +66,10 @@ TEST(AuthorizationTokenTest, isValidToken){
 }
 
 TEST(AuthenticationServiceTest,login){
-	MockUserDao mockUserDao;
+	MockUserDao* mockUserDao = new MockUserDao();
 	UserProfile* userProfile = new UserProfile("psivori","password");
-	EXPECT_CALL(mockUserDao, MockFunctionGet("psivori")).Times(AtLeast(1)).WillOnce(Return(userProfile));
-	AuthenticationService* authenticationService = new AuthenticationService(&mockUserDao);
+	EXPECT_CALL(*mockUserDao, MockFunctionGet("psivori")).Times(AtLeast(1)).WillOnce(Return(userProfile));
+	AuthenticationService* authenticationService = new AuthenticationService(mockUserDao);
 	EXPECT_NO_THROW({authenticationService->getUserLogin("psivori","password");});
 
 	delete userProfile;

@@ -11,7 +11,7 @@ AuthenticationService::AuthenticationService() {
 	this->userDao = new UserDao();
 }
 
-AuthenticationService::AuthenticationService(IUserDao* userDao){
+AuthenticationService::AuthenticationService(UserDao* userDao){
 	this->userDao = userDao;
 }
 
@@ -40,7 +40,6 @@ UserProfile* AuthenticationService::getUserLogin(string username, string passwor
 }
 
 AuthenticationService::~AuthenticationService() {
-	if(dynamic_cast<UserDao*>(userDao)) //Por si estoy haciendo el Mock del Dao no debo liberar
-		delete userDao;
+	delete userDao;
 }
 

@@ -5,13 +5,14 @@
  *      Author: pablo
  */
 
-#include "IUserDao.h"
+#include "GenericDao.h"
+#include "../model/UserProfile.h"
 #include <string>
 
 #ifndef USERDAO_H_
 #define USERDAO_H_
 
-class UserDao: public IUserDao{
+class UserDao: public GenericDao{
 
 public:
 	UserDao(){};
