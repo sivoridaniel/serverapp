@@ -4,4 +4,9 @@ AppServer/build/app_server
 AppServer/.cproject
 AppServer/.project
 AppServer/.settings
-
+Makefile
+googletest/*
+doxygen/*
+json-web-token/*
+log4cplus-1.2.0/*
+rocksdb-4.4/*
