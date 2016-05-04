@@ -46,7 +46,7 @@ string AbmUserController::event_handler_new_user(struct mg_connection *nc, struc
 	string result = abmService->createNewUser(sname,spassword,"", semail);
 
 	/* Send result back as a JSON object */
-	mg_printf_http_chunk(nc, "{ \"result\": \"%s\" }", result.c_str());
+	mg_printf_http_chunk(nc, "{ \"result\": \"%s\" }","status ok");
 	mg_send_http_chunk(nc, "", 0);  /* Send empty chunk, the end of response */
 
 	return result;

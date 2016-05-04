@@ -10,23 +10,6 @@
 MatchService::MatchService() {
 	this->matchDao = new MatchDao();
 	this->chatDao = new ChatDao();
-	//TODO eliminar lo siguiente
-	Match* match1 = new Match();
-	match1->setIdUser("agustin");
-	matchDao->put(match1);
-	Match* match2 = new Match();
-	match2->setIdUser("pablo");
-	matchDao->put(match2);
-	Match* match3 = new Match();
-	match3->setIdUser("juan");
-	matchDao->put(match3);
-	Match* match4 = new Match();
-	match4->setIdUser("juanma");
-	matchDao->put(match4);
-	delete match1;
-	delete match2;
-	delete match3;
-	delete match4;
 }
 
 MatchService::MatchService(MatchDao* matchDao, ChatDao* chatDao){
