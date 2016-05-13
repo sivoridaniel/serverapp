@@ -1,0 +1,68 @@
+notifications:
+  email:
+    recipients:
+      - sivori.daniel@gmail.com
+      - agustinlinari@gmail.com
+      - jlopezpecora@gmail.com
+      - juanmanuelromeraferrio@gmail.com
+    on_success: always
+    on_failure: always
+language:
+- cpp
+dist: trusty
+compiler:
+- g++
+before_install:
+- sudo apt-get update
+- sudo apt-get install -y libgflags-dev
+- sudo apt-get install -y libsnappy-dev
+- sudo apt-get install -y zlib1g-dev
+- sudo apt-get install -y libbz2-dev
+- sudo apt-get install -y -qq check libssl-dev
+- sudo apt-get install -y lcov
+- sudo apt-get install -y flex
+- sudo apt-get install -y bison
+before_script:
+- sudo chmod -R 777 rocksdb-4.4
+- sudo chmod -R 777 log4cplus-1.2.0
+- sudo chmod -R 777 json-web-token
+- sudo chmod -R 777 googletest
+- sudo chmod -R 777 doxygen
+- cd log4cplus-1.2.0
+- sudo ./configure
+- sudo make
+- sudo make check
+- sudo make install
+- sudo ldconfig
+- cd ../rocksdb-4.4
+- sudo make static_lib
+- sudo make install
+- cd ../json-web-token/jansson/
+- autoreconf -i
+- sudo ./configure
+- sudo make
+- sudo make install
+- sudo make check
+- cd ../libjwt
+- sudo autoreconf -i
+- sudo ./configure
+- sudo make
+- sudo make install
+- cd ../../googletest/googlemock
+- autoreconf -i
+- sudo ./configure
+- cd ../googletest
+- autoreconf -i
+- sudo ./configure
+- cd ..
+- sudo cmake .
+- sudo make install
+- cd ../doxygen
+- sudo cmake .
+- sudo make
+- sudo make install
+
+script:
+- cd ../AppServer/cmake
+- sudo cmake .
+- sudo make

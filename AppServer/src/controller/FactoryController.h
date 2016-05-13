@@ -15,6 +15,7 @@
 #include "AbmUserController.h"
 #include "MatchController.h"
 #include "AuthenticationController.h"
+#include "SearchCandidatesController.h"
 #include <string>
 
 
@@ -33,6 +34,7 @@ private:
 	static AbmUserController* abmUserController;
 	static MatchController* matchController;
 	static AuthenticationController* authenticationController;
+	static SearchCandidatesController* searchController;
 
 	//Método que crea los controllers
 	static void createControllers();

@@ -53,6 +53,9 @@ set_target_properties(jansson PROPERTIES IMPORTED_LOCATION /usr/local/lib/libjan
 add_library(jwt SHARED IMPORTED)
 set_target_properties(jwt PROPERTIES IMPORTED_LOCATION /usr/local/lib/libjwt.so)
 
+add_library(restclient-cpp SHARED IMPORTED)
+set_target_properties(restclient-cpp PROPERTIES IMPORTED_LOCATION /usr/local/lib/librestclient-cpp.so)
+
 add_library(webserver ${WEBSERVER_SRC})
 add_library(controller ${CONTROLLER_SRC})
 add_library(dao ${DAO_SRC})
@@ -62,6 +65,7 @@ add_library(model ${MODEL_SRC})
 add_library(service ${SERVICE_SRC})
 target_link_libraries(dao rocksdb)
 target_link_libraries(service dao)
+target_link_libraries(service restclient-cpp)
 target_link_libraries(model json)
 target_link_libraries(utils jwt)
 target_link_libraries(controller utils)
@@ -71,6 +75,6 @@ include(${CMAKE_TEST}/CMakeLists.txt)
 # add the executable
 add_executable(AppServer ../src/restful_server.cpp)
 target_compile_features(AppServer PRIVATE cxx_range_for)
-target_link_libraries(AppServer ${CMAKE_THREAD_LIBS_INIT} rt zlib snappy bzip2 rocksdb log4cplus jansson jwt webserver utils controller dao service json model)
+target_link_libraries(AppServer ${CMAKE_THREAD_LIBS_INIT} rt zlib snappy bzip2 rocksdb log4cplus jansson jwt restclient-cpp webserver utils controller dao service json model)
 
 add_custom_command(OUTPUT AppServer POST_BUILD COMMAND lcov –c –d reportCoverage.info COMMAND genhtml reportCoverage.info --output-directory reportsCoverage)

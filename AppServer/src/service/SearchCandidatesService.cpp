@@ -23,3 +23,16 @@ SearchCandidatesService::~SearchCandidatesService() {
 	delete chatDao;
 }
 
+list<UserProfile*> SearchCandidatesService::getCandidates(string idUser){
+	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("SearchCandidatesService"));
+
+	RestClient::response r = RestClient::get("http://shared-server-match.herokuapp.com/interests");
+	LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Response code "<<r.code));
+	LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Response body "<<r.body));
+
+
+    list<UserProfile*> listaUsuarios;
+    return listaUsuarios;
+}
+
+

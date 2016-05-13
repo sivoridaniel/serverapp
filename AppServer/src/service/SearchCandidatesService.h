@@ -11,9 +11,13 @@
 #include "../dao/MatchDao.h"
 #include "../dao/ChatDao.h"
 #include "../exception/IllegalStateException.h"
+#include "../model/UserProfile.h"
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
 #include <string>
+#include <restclient-cpp/restclient.h>
+#include <restclient-cpp/meta.h>
+
 
 using namespace std;
 using namespace log4cplus;
@@ -36,7 +40,18 @@ public:
 	 */
 	SearchCandidatesService(MatchDao* matchDao, ChatDao* chatDao);
 
+	/**
+	 * Obtiene una lista de candidatos para el usuario dado que tengan intereses
+	 * comunes
+	 *
+	 * @param idUser
+	 */
+	list<UserProfile*> getCandidates(string idUser);
+
 	virtual ~SearchCandidatesService();
+
+
+
 };
 
 #endif /* SEARCHCANDIDATESSERVICE_H_ */

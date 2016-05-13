@@ -44,6 +44,7 @@ int main(int argc, char *argv[]) {
   const char *ssl_cert = NULL;
 #endif
 
+  std::cout<<"Welcome"<<std::endl; 	
   initialize();
   BasicConfigurator config;
   config.configure();

@@ -9,10 +9,10 @@ EXEC_LDFLAGS=
 PROG = app_server
 SOURCE_DIR= src
 BUILD_DIR= build/$(PROG)
-HEADERS = $(SOURCE_DIR)/controller/I*.h
+HEADERS = $(SOURCE_DIR)/controller/*.h
 SOURCES = $(SOURCE_DIR)/*.cpp $(SOURCE_DIR)/webserver/*.c $(SOURCE_DIR)/model/*.cpp $(SOURCE_DIR)/dao/*.cpp $(SOURCE_DIR)/service/*.cpp $(SOURCE_DIR)/controller/*.cpp $(SOURCE_DIR)/utils/*.cpp
 CFLAGS = -W -Wall  $(CFLAGS_EXTRA)
-LIBS = -lrocksdb -llog4cplus -ljansson -ljwt
+LIBS = -lrocksdb -llog4cplus -ljansson -ljwt -lrestclient-cpp
 CXXFLAGS += -g -Wall -Wextra -pthread
 
 ifeq ($(SSL), openssl)
@@ -22,7 +22,7 @@ endif
 
 all: $(BUILD_DIR)
 
-$(BUILD_DIR): $(SOURCES) $(HEADERS)
+$(BUILD_DIR): $(SOURCES)
 	$(CXX) $(SOURCES) $(CXXFLAGS) -DDEBUG -g -o $@ $(CFLAGS) $(LIBS) $(PLATFORM_LDFLAGS) $(PLATFORM_CXXFLAGS) $(EXEC_LDFLAGS)
 
 clean:
