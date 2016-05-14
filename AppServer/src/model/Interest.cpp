@@ -20,8 +20,8 @@ Interest::~Interest() {
 std::string Interest::toJson(){
 	Json::Value root;
 	Json::FastWriter writer;
-	root["category"] = this->category;
-	root["value"] = this->value;
+	root["interest"]["category"] = this->category;
+	root["interest"]["value"] = this->value;
 	std::string json = writer.write(root);
 	return json;
 }

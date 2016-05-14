@@ -11,29 +11,31 @@
 #include <string>
 #include "Entity.h"
 
+using namespace std;
+
 class Location : public Entity{
 private:
-	double longitude;
-	double latitude;
+	string longitude;
+	string latitude;
 public:
-	Location(double longitude, double latitude);
+	Location(string longitude, string latitude);
 	virtual ~Location();
 
 	std::string toJson();
 
-	double getLatitude() const {
+	string getLatitude() const {
 		return latitude;
 	}
 
-	void setLatitude(double latitude) {
+	void setLatitude(string latitude) {
 		this->latitude = latitude;
 	}
 
-	double getLongitude() const {
+	string getLongitude() const {
 		return longitude;
 	}
 
-	void setLongitude(double longitude) {
+	void setLongitude(string longitude) {
 		this->longitude = longitude;
 	}
 };

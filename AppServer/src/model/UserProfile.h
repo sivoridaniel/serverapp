@@ -16,80 +16,84 @@
 #include "../exception/JsonParseException.h"
 #include "../json/json.h"
 
+using namespace std;
 
 class UserProfile : public Entity{
 private:
-	std::string id;
-	std::string name;
-	std::string alias;
-	std::string password;
-	std::string token;
-	std::string email;
-	std::string photoProfile;
-	std::list<Interest*> interests;
+	string id;
+	string name;
+	string alias;
+	string password;
+	string token;
+	string email;
+	string photoProfile;
+	list<Interest*> interests;
 	Location* location;
 public:
 
-	UserProfile(std::string json);
+	UserProfile(string json);
 
-	UserProfile(std::string name, std::string password);
+	UserProfile(string name, string password);
 	virtual ~UserProfile();
 
-	std::string toJson();
+	string toJson();
 
-	const std::string& getName() const {
+	string toSharedJson();
+
+
+	const string& getName() const {
 		return name;
 	}
 
-	void setName(const std::string& name) {
+	void setName(const string& name) {
 		this->name = name;
 	}
 
-	const std::string& getPassword() const {
+	const string& getPassword() const {
 		return password;
 	}
 
-	void setPassword(const std::string& password) {
+	void setPassword(const string& password) {
 		this->password = password;
 	}
 
-	const std::string& getToken() const{
+	const string& getToken() const{
 		return token;
 	}
 
-	void setToken(const std::string& token){
+	void setToken(const string& token){
 		this->token = token;
 	}
 
-	const std::string& getEmail() const {
+	const string& getEmail() const {
 		return email;
 	}
 
-	void setEmail(const std::string& email) {
+	void setEmail(const string& email) {
 		this->email = email;
 	}
 
-	const std::string& getAlias() const {
+	const string& getAlias() const {
 		return alias;
 	}
 
-	void setAlias(const std::string& alias) {
+	void setAlias(const string& alias) {
 		this->alias = alias;
 	}
 
-	const std::string& getId() const {
+	const string& getId() const {
 		return id;
 	}
 
-	void setId(const std::string& id) {
+	void setId(const string& id) {
 		this->id = id;
 	}
 
-	const std::list<Interest*>& getInterests() const {
+	const list<Interest*>& getInterests() const {
 		return interests;
 	}
 
-	void setInterests(const std::list<Interest*>& interests) {
+	void setInterests(const list<Interest*>& interests) {
 		this->interests = interests;
 	}
 
@@ -105,7 +109,7 @@ public:
 		return photoProfile;
 	}
 
-	void setPhotoProfile(const std::string& photoProfile) {
+	void setPhotoProfile(const string& photoProfile) {
 		this->photoProfile = photoProfile;
 	}
 

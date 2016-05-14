@@ -10,28 +10,41 @@
 SearchCandidatesService::SearchCandidatesService() {
 	this->matchDao = new MatchDao();
 	this->chatDao = new ChatDao();
+	this->sharedService = new RemoteSharedService("http://shared-server-match.herokuapp.com");
 }
 
 SearchCandidatesService::SearchCandidatesService(MatchDao* matchDao, ChatDao* chatDao){
 	this->matchDao = matchDao;
 	this->chatDao = chatDao;
+	this->sharedService = new RemoteSharedService("http://shared-server-match.herokuapp.com");
+
 }
 
 
 SearchCandidatesService::~SearchCandidatesService() {
 	delete matchDao;
 	delete chatDao;
+	delete sharedService;
 }
 
 list<UserProfile*> SearchCandidatesService::getCandidates(string idUser){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("SearchCandidatesService"));
 
-	RestClient::response r = RestClient::get("http://shared-server-match.herokuapp.com/interests");
-	LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Response code "<<r.code));
-	LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Response body "<<r.body));
+	Interest* interest = new Interest("cars", "Ford");
+	try{
+		this->sharedService->createInterest(interest);
+	}catch(exception& e)
+	{
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+	}
 
-
+	list<Interest*> listInters = this->sharedService->getInterests();
     list<UserProfile*> listaUsuarios;
+
+    UserProfile* user = this->sharedService->getUser("3");
+
+    user->addInterest(interest);
+    this->sharedService->updateUser(user);
     return listaUsuarios;
 }
 

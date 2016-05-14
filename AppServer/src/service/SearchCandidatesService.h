@@ -12,6 +12,7 @@
 #include "../dao/ChatDao.h"
 #include "../exception/IllegalStateException.h"
 #include "../model/UserProfile.h"
+#include "RemoteSharedService.h"
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
 #include <string>
@@ -26,6 +27,7 @@ class SearchCandidatesService {
 private:
 	MatchDao* matchDao;
 	ChatDao* chatDao;
+	RemoteSharedService* sharedService;
 public:
 	SearchCandidatesService();
 

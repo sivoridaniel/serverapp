@@ -7,7 +7,7 @@
 
 #include "Location.h"
 
-Location::Location(double longitude, double latitude) {
+Location::Location(string longitude, string latitude) {
 	this->longitude = longitude;
 	this->latitude = latitude;
 
@@ -20,12 +20,9 @@ Location::~Location() {
 std::string Location::toJson(){
 	Json::Value root;
 	Json::FastWriter writer;
-	std::ostringstream sLatitude;
-	std::ostringstream sLongitude;
-	sLatitude << this->latitude;
-	sLongitude << this->longitude;
-	root["latitude"] = sLatitude.str();
-	root["longitude"] = sLongitude.str();
+
+	root["latitude"] = latitude;
+	root["longitude"] = longitude;
 	std::string json = writer.write(root);
 	return json;
 }
