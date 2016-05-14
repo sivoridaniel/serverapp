@@ -183,6 +183,22 @@ list<Interest*> RemoteSharedService::parseInterests(string json) {
 }
 
 list<UserProfile*> RemoteSharedService::parseUsers(string json) {
+	Json::Value root;
+	Json::Reader reader;
+	Json::FastWriter writer;
+	bool ok = reader.parse(json.c_str(), root);
+	if (!ok) {
+		throw JsonParseException();
+	}
+
+	const Json::Value users = root["users"];
 	list<UserProfile*> listUsers;
+	for (unsigned int i = 0; i < users.size(); ++i) {
+		Json::Value jsonUserValue = users[i];
+		string jsonUser =  writer.write(jsonUserValue);
+		UserProfile* user = new UserProfile(jsonUser);
+		listUsers.push_back(user);
+	}
+
 	return listUsers;
 }

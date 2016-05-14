@@ -39,12 +39,13 @@ list<UserProfile*> SearchCandidatesService::getCandidates(string idUser){
 	}
 
 	list<Interest*> listInters = this->sharedService->getInterests();
-    list<UserProfile*> listaUsuarios;
 
     UserProfile* user = this->sharedService->getUser("3");
 
     user->addInterest(interest);
     this->sharedService->updateUser(user);
+
+    list<UserProfile*> listaUsuarios = this->sharedService->getUsers();
     return listaUsuarios;
 }
 
