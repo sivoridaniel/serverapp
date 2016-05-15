@@ -280,8 +280,8 @@ vector<string> MatchController::parseMatchRequest(string json) {
 	if (idFrom.empty() || idTo.empty()) {
 		throw JsonParseException();
 	}
-	params[0] = idFrom;
-	params[1] = idTo;
+	params.push_back(idFrom);
+	params.push_back(idTo);
 	return params;
 }
 
