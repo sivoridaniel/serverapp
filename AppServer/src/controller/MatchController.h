@@ -12,9 +12,11 @@
 #include "AbstractController.h"
 #include "../model/NewMatchesResponse.h"
 #include "../webserver/mongoose.h"
+#include "../utils/UriParser.h"
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
 #include <string>
+#include <vector>
 
 using namespace std;
 using namespace log4cplus;
@@ -44,6 +46,7 @@ private:
 	string event_handler_submit_no(struct mg_connection *nc, struct http_message *hm);
 	string event_handler_new_matches(struct mg_connection *nc, struct http_message *hm);
 	string event_handler_confirm_match(struct mg_connection *nc, struct http_message *hm);
+	vector<string> parseMatchRequest(string json);
 
 };
 

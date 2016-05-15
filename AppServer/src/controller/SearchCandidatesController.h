@@ -11,6 +11,7 @@
 #include "../service/SearchCandidatesService.h"
 #include "AbstractController.h"
 #include "../webserver/mongoose.h"
+#include "../utils/UriParser.h"
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
 #include <string>

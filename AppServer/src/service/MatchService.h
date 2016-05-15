@@ -11,6 +11,7 @@
 #include "../dao/MatchDao.h"
 #include "../dao/ChatDao.h"
 #include "../exception/IllegalStateException.h"
+#include "../exception/EntityExistsException.h"
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
 #include <string>
@@ -52,7 +53,7 @@ public:
 	 * @throw IllegalStateException, EntityNotFoundException
 	 * @return bool Si se pudo agregar el usuario a la lista de likes
 	 */
-	bool addToYesList(string idUser, string idUserAccepted) throw(IllegalStateException, EntityNotFoundException);
+	bool addToYesList(string idUser, string idUserAccepted) throw(EntityExistsException, EntityNotFoundException);
 	/**
 	 * En caso de que el usuario rechace a alguno de la lista, se lo agregará
 	 * a la lista de rechazados.
@@ -64,7 +65,7 @@ public:
 	 * @param string idUserRejected
 	 * @throw IllegalStateException, EntityNotFoundException
 	 */
-	void addToNoList(string idUser, string idUserRejected) throw(IllegalStateException, EntityNotFoundException);
+	void addToNoList(string idUser, string idUserRejected) throw(EntityExistsException, EntityNotFoundException);
 	/**
 	 * Devuelve la lista de likes de un usuario.
 	 * En caso de no poder realizar la operación disparará la excepción EntityNotFoundException.
@@ -75,7 +76,7 @@ public:
 	 *
 	 */
 	list<string> getNewMatches(string idUser) throw (EntityNotFoundException);
-	void confirmUser(string idUser, string idUserConfirmed) throw(IllegalStateException, EntityNotFoundException);
+	void confirmUser(string idUser, string idUserConfirmed) throw(EntityExistsException, EntityNotFoundException);
 };
 
 #endif /* MATCHSERVICE_H_ */
