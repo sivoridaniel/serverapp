@@ -46,8 +46,7 @@ int main(int argc, char *argv[]) {
 
   std::cout<<"Welcome"<<std::endl; 	
   initialize();
-  BasicConfigurator config;
-  config.configure();
+  PropertyConfigurator::doConfigure("log4cpp.properties");
 
   Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("main"));
 
