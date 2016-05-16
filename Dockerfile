@@ -1,4 +1,4 @@
-FROM agulinari/appserver
+FROM agulinari/appserver:v2
 COPY AppServer /AppServer
 RUN ls
 RUN cd /AppServer/cmake && cmake . && make
