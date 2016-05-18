@@ -1413,14 +1413,8 @@ int mg_resolve(const char *domain_name, char *ip_addr_buf, size_t buf_len);
  */
 int mg_check_ip_acl(const char *acl, uint32_t remote_ip);
 
-/*
- * Enable multi-threaded handling for the given listening connection `nc`.
- * For each accepted connection, Mongoose will create a separate thread
- * and run event handler in that thread. Thus, if an event hanler is doing
- * a blocking call or some long computation, that will not slow down
- * other connections.
- */
-void mg_enable_multithreading(struct mg_connection *nc);
+
+
 
 #ifdef MG_ENABLE_JAVASCRIPT
 /*
@@ -1986,6 +1980,16 @@ struct mg_http_multipart_part {
  *   MG_EV_HTTP_PART_END constants
  */
 void mg_set_protocol_http_websocket(struct mg_connection *nc);
+
+
+/*
+ * Enable multi-threaded handling for the given listening connection `nc`.
+ * For each accepted connection, Mongoose will create a separate thread
+ * and run event handler in that thread. Thus, if an event hanler is doing
+ * a blocking call or some long computation, that will not slow down
+ * other connections.
+ */
+void mg_enable_multithreading(struct mg_connection *nc);
 
 /*
  * Send websocket handshake to the server.
