@@ -10,16 +10,29 @@
 MatchService::MatchService() {
 	this->matchDao = new MatchDao();
 	this->chatDao = new ChatDao();
+	this->sharedService = new RemoteSharedService("http://shared-server-match.herokuapp.com");
+	try{
+		matchDao->get("3");
+	}catch(EntityNotFoundException& e){
+		matchDao->put("3", new Match());
+	}
+	try{
+		matchDao->get("4");
+	}catch(EntityNotFoundException& e){
+		matchDao->put("4", new Match());
+	}
 }
 
-MatchService::MatchService(MatchDao* matchDao, ChatDao* chatDao) {
+MatchService::MatchService(MatchDao* matchDao, ChatDao* chatDao, RemoteSharedService* sharedService) {
 	this->matchDao = matchDao;
 	this->chatDao = chatDao;
+	this->sharedService = sharedService;
 }
 
 MatchService::~MatchService() {
 	delete matchDao;
 	delete chatDao;
+	delete sharedService;
 }
 
 bool MatchService::addToYesList(string idUser, string idUserAccepted)
@@ -54,8 +67,8 @@ bool MatchService::addToYesList(string idUser, string idUserAccepted)
 			matchUser->addNewMatch(idUserAccepted);
 			matchUserAccepted->removeFromYesList(idUser);
 			matchUserAccepted->addNewMatch(idUser);
-			matchDao->put(matchUser);
-			matchDao->put(matchUserAccepted);
+			matchDao->put(idUser, matchUser);
+			matchDao->put(idUserAccepted,matchUserAccepted);
 			// Como hubo match devolvemos true
 			return true;
 		} else if (!matchUser->isAccepted(idUserAccepted)) {
@@ -63,7 +76,7 @@ bool MatchService::addToYesList(string idUser, string idUserAccepted)
 			LOG4CPLUS_INFO(logger,
 					LOG4CPLUS_TEXT("Agregando el usuario "<<idUserAccepted<< " a la lista de aceptados de "<<idUser ));
 			matchUser->acceptUser(idUserAccepted);
-			matchDao->put(matchUser);
+			matchDao->put(idUser, matchUser);
 		}
 
 		//No hubo match aun, pero se agrego el usuario a la lista de si
@@ -72,6 +85,9 @@ bool MatchService::addToYesList(string idUser, string idUserAccepted)
 	} catch (EntityNotFoundException& e) {
 		LOG4CPLUS_ERROR(logger,
 				LOG4CPLUS_TEXT("No se encontro el usuario en la base"));
+		throw e;
+	} catch (EntityExistsException& e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 		throw e;
 	} catch (exception& e) {
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
@@ -109,32 +125,48 @@ void MatchService::addToNoList(string idUser, string idUserRejected)
 		LOG4CPLUS_INFO(logger,
 				LOG4CPLUS_TEXT("Agregando el usuario "<<idUserRejected<< " a la lista de rechazados de "<<idUser ));
 		matchUser->rejectUser(idUserRejected);
-		matchDao->put(matchUser);
+		matchDao->put(idUser, matchUser);
 
-	} catch (EntityNotFoundException& e) {
+	} catch (EntityExistsException& e) {
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+		throw e;
+	}
+	catch (EntityNotFoundException& e) {
 		LOG4CPLUS_ERROR(logger,
 				LOG4CPLUS_TEXT("No se encontro el usuario en la base"));
 		throw e;
-	} catch (exception& e) {
+	}
+	catch (exception& e) {
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 		throw e;
 	}
 }
 
-list<string> MatchService::getNewMatches(string idUser)
+list<UserProfile*> MatchService::getNewMatches(string idUser)
 		throw (EntityNotFoundException) {
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("MatchService"));
 
 	LOG4CPLUS_INFO(logger,
 			LOG4CPLUS_TEXT("Obteniendo la lista de nuevos matches del usuario "<<idUser ));
 
+	list<UserProfile*> matches;
+
 	try {
 
 		Match* matchUser = (Match*) matchDao->get(idUser);
 
 		list<string> newMatches = matchUser->getNewMatches();
+		for (std::list< string >::iterator it=newMatches.begin(); it!=newMatches.end(); ++it){
+			string idUserMatched = *it;
+			try{
+				UserProfile* user = sharedService->getUser(idUserMatched);
+				matches.push_back(user);
+			}catch(exception& e){
+				LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+			}
+		}
 
-		return newMatches;
+		return matches;
 
 	} catch (EntityNotFoundException& e) {
 		LOG4CPLUS_ERROR(logger,

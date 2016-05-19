@@ -38,6 +38,8 @@ public:
 private:
 
 	string event_handler_search_candidates(struct mg_connection *nc, struct http_message *hm);
+	string createSearchResponse(list<UserProfile*> candidates);
+
 
 };
 

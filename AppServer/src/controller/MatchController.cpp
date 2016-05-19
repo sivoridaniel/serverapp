@@ -237,16 +237,13 @@ string MatchController::event_handler_new_matches(struct mg_connection *nc,
 				LOG4CPLUS_TEXT("Se obtienen los nuevos matches del usuario " << id));
 
 		try {
-			list<string> matches = matchService->getNewMatches(id);
-			NewMatchesResponse* response = new NewMatchesResponse(matches);
-			string resp = response->toJson();
-			json = resp;
-			delete response;
+			list<UserProfile*> matches = matchService->getNewMatches(id);
+			code = "200";
+			json = createNewMatchesResponse(matches);
 		} catch (EntityNotFoundException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = "404";
-			json =
-					"{ \"success\": \"false\", \"data\": \"Uno de los usuarios no existe en la base\"}";
+			json = "{ \"success\": \"false\", \"data\": \"Uno de los usuarios no existe en la base\"}";
 		} catch (exception& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = "400";
@@ -285,3 +282,35 @@ vector<string> MatchController::parseMatchRequest(string json) {
 	return params;
 }
 
+string MatchController::createNewMatchesResponse(list<UserProfile*> newMatches){
+
+	Json::Value root;
+	Json::Value vecInterests(Json::arrayValue);
+	Json::FastWriter writer;
+
+	int i = 0;
+	for (list< UserProfile* >::iterator it=newMatches.begin(); it!=newMatches.end(); ++it){
+		UserProfile* user = *it;
+		Location* location = user->getLocation();
+		list<Interest*> interests = user->getInterests();
+
+		root["users"][i]["user"]["name"] = user->getName();
+		root["users"][i]["user"]["alias"] = user->getAlias();
+		root["users"][i]["user"]["photo"] = user->getPhotoProfile();
+		root["users"][i]["user"]["location"]["latitude"] = location->getLatitude();
+		root["users"][i]["user"]["location"]["longitude"] = location->getLongitude();
+		int j=0;
+		for (list< Interest* >::iterator itI=interests.begin(); itI!=interests.end(); ++itI){
+			Interest* interest = *itI;
+			root["users"][i]["user"]["interests"][j]["category"] = interest->getCategory();;
+			root["users"][i]["user"]["interests"][j]["value"] = interest->getValue();
+			j++;
+		}
+		root["users"][i]["user"]["email"] = user->getEmail();
+		i++;
+		delete user;
+	}
+
+	string json = writer.write(root);
+	return json;
+}

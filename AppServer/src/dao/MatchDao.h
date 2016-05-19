@@ -11,6 +11,8 @@
 #include "../model/Match.h"
 #include "GenericDao.h"
 
+using namespace std;
+
 /**
  * Clase para realizar las operaciones en la base con respecto a la entity
  * Match.
@@ -19,8 +21,8 @@ class MatchDao : public GenericDao{
 public:
 	MatchDao(){};
 	virtual ~MatchDao(){};
-	Entity* get(std::string id) const throw(EntityNotFoundException);
-	void put(Entity* entity) const throw(InvalidEntityException);
+	Entity* get(string id) const throw(EntityNotFoundException);
+	void put(string id,Entity* entity) const throw(InvalidEntityException);
 };
 
 #endif /* MATCHDAO_H_ */

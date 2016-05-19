@@ -10,6 +10,7 @@
 
 #include "../dao/MatchDao.h"
 #include "../dao/ChatDao.h"
+#include "RemoteSharedService.h"
 #include "../exception/IllegalStateException.h"
 #include "../exception/EntityExistsException.h"
 #include <log4cplus/logger.h>
@@ -26,6 +27,7 @@ class MatchService {
 private:
 	MatchDao* matchDao;
 	ChatDao* chatDao;
+	RemoteSharedService* sharedService;
 public:
 	MatchService();
 
@@ -37,8 +39,9 @@ public:
 	 *
 	 * @param MatchDao
 	 * @param ChatDao
+	 * @param sharedService
 	 */
-	MatchService(MatchDao* matchDao, ChatDao* chatDao);
+	MatchService(MatchDao* matchDao, ChatDao* chatDao, RemoteSharedService* sharedService);
 
 	virtual ~MatchService();
 	/**
@@ -67,15 +70,15 @@ public:
 	 */
 	void addToNoList(string idUser, string idUserRejected) throw(EntityExistsException, EntityNotFoundException);
 	/**
-	 * Devuelve la lista de likes de un usuario.
+	 * Devuelve la lista de nuevos matches de un usuario.
 	 * En caso de no poder realizar la operación disparará la excepción EntityNotFoundException.
 	 *
 	 * @param idUser
 	 * @throw EntityNotFoundException
-	 * @return list<string>
+	 * @return list<UserProfile*> lista de nuevos matches
 	 *
 	 */
-	list<string> getNewMatches(string idUser) throw (EntityNotFoundException);
+	list<UserProfile*> getNewMatches(string idUser) throw (EntityNotFoundException);
 	void confirmUser(string idUser, string idUserConfirmed) throw(EntityExistsException, EntityNotFoundException);
 };
 

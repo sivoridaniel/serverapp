@@ -8,6 +8,8 @@
 #include "../utils/DbHelper.h"
 #include "../utils/ColumnFamilies.h"
 
+using namespace std;
+
 /**
  * Clase abstracta padre que implementan todos los DAOS para poder realizar las operaciones
  * en las entities correspondientes.
@@ -26,14 +28,14 @@ public:
 	 * @return Entity
 	 *
 	 */
-	virtual Entity* get(std::string id) const throw(EntityNotFoundException)=0;
+	virtual Entity* get(string id) const throw(EntityNotFoundException)=0;
 	/**
 	 * Persiste la entidad cuya estructura es (clave-valor).
 	 *
 	 * @param Entity
 	 * @throw InvalidEntityException
 	 */
-	virtual void put(Entity* entity) const throw(InvalidEntityException)=0;
+	virtual void put(string id, Entity* entity) const throw(InvalidEntityException)=0;
 
 };
 

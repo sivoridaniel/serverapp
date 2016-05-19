@@ -83,12 +83,6 @@ string UserProfile::toSharedJson(){
 	Json::Value vecInterests(Json::arrayValue);
 	Json::FastWriter writer;
 
-	for (list< Interest* >::iterator it=interests.begin(); it!=interests.end(); ++it){
-		Interest* interest = *it;
-		string jsonInterest = interest->toJson();
-		vecInterests.append(jsonInterest);
-	}
-
 	root["user"]["name"] = this->name;
 	root["user"]["alias"] = this->alias;
 	root["user"]["photo"] = this->photoProfile;

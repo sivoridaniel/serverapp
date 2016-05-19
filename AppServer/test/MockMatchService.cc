@@ -7,6 +7,7 @@
 
 #include "gmock/gmock.h"
 #include "../src/service/MatchService.h"
+#include "../src/service/RemoteSharedService.h"
 #include "../src/dao/MatchDao.h"
 #include "../src/dao/ChatDao.h"
 #include <string>
@@ -49,14 +50,25 @@ public:
 	}
 };
 
+class MockSharedService : public RemoteSharedService{
+public:
+
+	MOCK_CONST_METHOD1(MockFunctionGetUser, UserProfile*(string id) );
+	UserProfile* getUser(string id){
+		return MockFunctionGetUser(id);
+	}
+
+};
+
 TEST(MatchServiceTest,confirmingUser){
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockChatDao* mockChatDao = new MockChatDao();
+	MockSharedService* mockSharedService = new MockSharedService();
 	Match* match = new Match();
 	match->addNewMatch("alinari");
 	Chat* chat = new Chat();
 	EXPECT_CALL(*mockMatchDao, MockFunctionGet("psivori")).Times(AtLeast(1)).WillOnce(Return(match));
-	MatchService* matchService = new MatchService(mockMatchDao, mockChatDao);
+	MatchService* matchService = new MatchService(mockMatchDao, mockChatDao, mockSharedService);
 	EXPECT_NO_THROW({matchService->confirmUser("psivori","alinari");});
 
 	delete match;

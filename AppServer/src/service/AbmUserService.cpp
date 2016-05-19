@@ -24,9 +24,8 @@ string AbmUserService::createNewUser(string name,string password,string token,st
 	user->setPassword(password);
 	user->setEmail(email);
 	user->setToken(token);
-	match->setIdUser(name);
-	this->userDao->put(user);
-	this->matchDao->put(match);
+	this->userDao->put(name,user);
+	this->matchDao->put(name,match);
     delete user;
     delete match;
     /* Read user from database */
@@ -39,7 +38,7 @@ string AbmUserService::createNewUser(string name,string password,string token,st
 void AbmUserService::modifyUser(UserProfile* userProfile)throw (InvalidEntityException){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserService"));
 	try{
-		this->userDao->put(userProfile);
+		this->userDao->put(userProfile->getId(), userProfile);
 	}catch(InvalidEntityException& m){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario "<<userProfile->getName()<<" con id "
 				        <<userProfile->getId()<<" no se pudo actualizar."));

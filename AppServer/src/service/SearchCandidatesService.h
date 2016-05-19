@@ -48,14 +48,13 @@ public:
 	 *
 	 * @param idUser
 	 */
-	string getCandidates(string idUser);
+	list<UserProfile*> getCandidates(string idUser);
 
 	virtual ~SearchCandidatesService();
 
 private:
 	list<UserProfile*> runSearchAlgorithm(string idUser, double maxDistance);
 	double calculateDistance(Location* location1, Location* location2);
-	string createResponseJson(list<UserProfile*> candidates);
 
 };
 

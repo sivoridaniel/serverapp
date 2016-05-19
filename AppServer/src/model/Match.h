@@ -15,7 +15,6 @@
 
 class Match : public Entity{
 private:
-	std::string idUser;
 	std::list<std::string> yesList;
 	std::list<std::string> noList;
 	std::list<std::string> newMatches;
@@ -32,14 +31,6 @@ public:
 	void rejectUser(std::string idUser);
 
 	void addNewMatch(std::string idUser);
-
-	const std::string& getIdUser() const {
-		return idUser;
-	}
-
-	void setIdUser(const std::string& idUser) {
-		this->idUser = idUser;
-	}
 
 	bool isAccepted(std::string idUser);
 

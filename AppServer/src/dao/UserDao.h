@@ -12,12 +12,14 @@
 #ifndef USERDAO_H_
 #define USERDAO_H_
 
+using namespace std;
+
 class UserDao: public GenericDao{
 
 public:
 	UserDao(){};
-	Entity* get(std::string id) const throw(EntityNotFoundException);
-	void put(Entity* entity) const throw(InvalidEntityException);
+	Entity* get(string id) const throw(EntityNotFoundException);
+	void put(string id, Entity* entity) const throw(InvalidEntityException);
 	virtual ~UserDao(){};
 };
 
