@@ -48,12 +48,12 @@ public:
 	 * Agrega a la lista de likes el usuario por el cual se tiene interes.
 	 *
 	 * En caso de no poder actualizarse la lista de likes se disparará la excepcion
-	 * IllegalStateException o EntityNotFoundException.
+	 * EntityExistsException o EntityNotFoundException.
 	 *
 	 *
 	 * @param string idUser
 	 * @param string idUserAccepted
-	 * @throw IllegalStateException, EntityNotFoundException
+	 * @throw EntityExistsException, EntityNotFoundException
 	 * @return bool Si se pudo agregar el usuario a la lista de likes
 	 */
 	bool addToYesList(string idUser, string idUserAccepted) throw(EntityExistsException, EntityNotFoundException);
@@ -62,11 +62,11 @@ public:
 	 * a la lista de rechazados.
 	 *
 	 * En caso de no poder actualizarse la lista de rechazados se disparará la excepcion
-	 * IllegalStateException o EntityNotFoundException.
+	 * EntityExistsException o EntityNotFoundException.
 	 *
 	 * @param string idUser
 	 * @param string idUserRejected
-	 * @throw IllegalStateException, EntityNotFoundException
+	 * @throw EntityExistsException, EntityNotFoundException
 	 */
 	void addToNoList(string idUser, string idUserRejected) throw(EntityExistsException, EntityNotFoundException);
 	/**

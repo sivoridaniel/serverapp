@@ -19,8 +19,8 @@ using namespace std;
  */
 class ChatDao : public GenericDao{
 public:
-	ChatDao();
-	virtual ~ChatDao();
+	ChatDao(){};
+	virtual ~ChatDao(){};
 
 	Entity* get(string id) const throw(EntityNotFoundException);
 

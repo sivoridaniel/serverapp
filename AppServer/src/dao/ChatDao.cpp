@@ -7,20 +7,23 @@
 
 #include "ChatDao.h"
 
-ChatDao::ChatDao() {
-	// TODO Auto-generated constructor stub
-
-}
-
-ChatDao::~ChatDao() {
-	// TODO Auto-generated destructor stub
-}
 
 Entity* ChatDao::get(string id) const throw(EntityNotFoundException){
-	//TODO A implementar
-	return NULL;
+	string json;
 
+	json = DbHelper::get(id, CHAT);
+
+	Chat* chat = new Chat(json);
+
+	return chat;
 }
-void ChatDao::put(string id, Entity* entity) const throw(InvalidEntityException){
-	//TODO A implementar
+void ChatDao::put(string id, Entity* e) const throw(InvalidEntityException){
+	Chat* chat = dynamic_cast<Chat*>(e);
+	if (chat==0){
+		throw InvalidEntityException();
+	}
+
+	string json = chat->toJson();
+
+	DbHelper::put(id,json,CHAT);
 }

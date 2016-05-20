@@ -39,7 +39,12 @@ bool MatchService::addToYesList(string idUser, string idUserAccepted)
 		throw (EntityExistsException, EntityNotFoundException) {
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("MatchService"));
 
+	if (idUser.compare(idUserAccepted)==0){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Es el mismo usuario"));
+		throw exception();
+	}
 	try {
+
 		Match* matchUser = (Match*) matchDao->get(idUser);
 		Match* matchUserAccepted = (Match*) matchDao->get(idUserAccepted);
 
@@ -100,6 +105,10 @@ void MatchService::addToNoList(string idUser, string idUserRejected)
 		throw (EntityExistsException, EntityNotFoundException) {
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("MatchService"));
 
+	if (idUser.compare(idUserRejected)==0){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Es el mismo usuario"));
+		throw exception();
+	}
 	try {
 		Match* matchUser = (Match*) matchDao->get(idUser);
 
@@ -181,6 +190,11 @@ list<UserProfile*> MatchService::getNewMatches(string idUser)
 void MatchService::confirmUser(string idUser, string idUserConfirmed)
 		throw (EntityExistsException, EntityNotFoundException) {
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("MatchService"));
+
+	if (idUser.compare(idUserConfirmed)==0){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Es el mismo usuario"));
+		throw exception();
+	}
 
 	Match* matchUser = (Match*) matchDao->get(idUser);
 

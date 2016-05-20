@@ -224,9 +224,15 @@ string MatchController::event_handler_new_matches(struct mg_connection *nc,
 
 	string json = "";
 	string code = "";
-
+	string id = "";
 	string query = string((&hm->query_string)->p, (&hm->query_string)->len);
-	string id = UriParser::getId(query);
+	vector<string> params = UriParser::getParams(query);
+
+	if (params.size()!=1){
+		code = "400";
+		json = "{ \"success\": \"false\", \"data\": \"Bad Request\"}";
+		id = params[0];
+	}
 
 	if (id.compare("") == 0) {
 		code = "400";
