@@ -25,9 +25,8 @@ using namespace std;
 using namespace log4cplus;
 
 class JwToken{
-
 public:
-	JwToken();
+	//JwToken();
 	/**
 	 * Se utilizará para la generación del token el algoritmo JWT_ALG_HS256 utilizando una clave interna de 32 bytes. El header quedará
 	 * conformado por el type: jwt (metodo de generación del token) y alg: HS256 que es el algoritmo utilizado.
@@ -44,7 +43,7 @@ public:
 	 * @throw TokenException
 	 * @return string token
 	 */
-	string generarToken(string username) throw (TokenException);
+	static string generarToken(string username) throw (TokenException);
 	/**
 	 * Se verifica que el token no haya expirado. Para ello se decodifica el token y se evalua el timestamp que no haya superado los
 	 * 60 segundos.
@@ -53,7 +52,7 @@ public:
 	 * @throw TokenException
 	 * @return bool isTokenValid
 	 */
-	bool isTokenValid(string token) throw (TokenException);
+	static bool isTokenValid(string token) throw (TokenException);
 
 	/**
 	 * Para obtener el nombre de usuario del token, dado que el usuario enviará el token con su nombre
@@ -64,9 +63,9 @@ public:
 	 * @result string username
 	 *
 	 */
-	string getUserName(string token)throw (TokenException);
+	static string getUserName(string token)throw (TokenException);
 
-	virtual ~JwToken();
+	//virtual ~JwToken();
 
 private:
 
@@ -84,7 +83,7 @@ private:
 	 *	@throw TokenException
 	 *
 	 */
-	void evaluateOperation(int intcod,  char *pcharcod, string msgError,Logger logger)throw (TokenException);
+	static void evaluateOperation(int intcod,  char *pcharcod, string msgError,Logger logger)throw (TokenException);
 
 	/** MSG_ERRORS **/
 	static const string MSG_ERROR_NEW_JWT(){

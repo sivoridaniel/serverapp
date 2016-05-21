@@ -36,7 +36,7 @@ public:
 	 * @param string token
 	 * @param string email
 	 */
-	string createNewUser(string name,string password,string token,string email);
+	string createNewUser(UserProfile* userProfile);
 	/**
 	 * Modificación del usuario. Puede modificar su password, mail y cualquier otro
 	 * tipo de contenido relacionado con su perfil.

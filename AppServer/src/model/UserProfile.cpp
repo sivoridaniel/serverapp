@@ -10,12 +10,13 @@
 UserProfile::UserProfile(string name, string password){
 	this->name = name;
 	this->password = password;
-	this->location = new Location(0,0);
+	this->location = new Location("0","0");
 }
 
 UserProfile::UserProfile(string json) {
 	Json::Value root;
 	Json::Reader reader;
+
 	bool ok = reader.parse(json.c_str(), root);
 	if (!ok) {
 	    throw JsonParseException();
@@ -71,8 +72,17 @@ string UserProfile::toJson(){
 	root["user"]["token"] = this->token;
 	root["user"]["email"] = this->email;
 	root["user"]["photo"] = this->photoProfile;
-	root["user"]["interests"] = vecInterests;
-	root["user"]["location"] = jsonLocation;
+
+	int i=0;
+		for (list< Interest* >::iterator it=interests.begin(); it!=interests.end(); ++it){
+			Interest* interest = *it;
+			root["user"]["interests"][i]["category"] = interest->getCategory();;
+			root["user"]["interests"][i]["value"] = interest->getValue();
+			i++;
+		}
+
+	root["user"]["location"]["latitude"] = this->location->getLatitude();
+	root["user"]["location"]["longitude"] = this->location->getLongitude();
 	root["user"]["password"] = this->password;
 	string json = writer.write(root);
 	return json;

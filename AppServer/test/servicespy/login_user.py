@@ -28,7 +28,7 @@ try:
     assert( r.status_code == 200 ),"ERROR LLAMANDO AL LOGIN"
     data = json.loads(r.text)
     result = data['result']
-    assert( result == 'status ok'),"AUTENTICACION NO VALIDA: %s"%result
+    assert( result == '200'),"AUTENTICACION NO VALIDA: %s"%result
     print result
 except AssertionError, e:
     print 'NOK: %s'%e

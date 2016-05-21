@@ -7,10 +7,6 @@
 
 #include "JwToken.h"
 
-JwToken::JwToken(){
-
-}
-
 void JwToken::evaluateOperation(int intcod,char* pcharcod,string msgError,Logger logger)throw (TokenException){
 
 	if(intcod!=0 || pcharcod==NULL){
@@ -90,8 +86,3 @@ string JwToken::getUserName(string token)throw (TokenException){
 
 	return username;
 }
-
-JwToken::~JwToken(){
-
-}
-

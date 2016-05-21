@@ -17,20 +17,14 @@ AbmUserService::~AbmUserService() {
 	delete matchDao;
 }
 
-string AbmUserService::createNewUser(string name,string password,string token,string email){
-	UserProfile* user = new UserProfile(name,password);
+string AbmUserService::createNewUser(UserProfile* userProfile){
 	Match* match = new Match();
-	user->setName(name);
-	user->setPassword(password);
-	user->setEmail(email);
-	user->setToken(token);
-	match->setIdUser(name);
-	this->userDao->put(user);
+	match->setIdUser(userProfile->getName());
+	this->userDao->put(userProfile);
 	this->matchDao->put(match);
-    delete user;
     delete match;
     /* Read user from database */
-    UserProfile* us = (UserProfile*)userDao->get(name);
+    UserProfile* us = (UserProfile*)userDao->get(userProfile->getName());
     string result = us->getName();
     delete us;
     return result;
