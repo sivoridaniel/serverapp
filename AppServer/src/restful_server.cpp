@@ -17,6 +17,7 @@ using namespace log4cplus;
 static const char *s_http_port = "3000";
 static struct mg_serve_http_opts s_http_server_opts;
 
+static bool quit = false;
 
 
 // Define an event handler function
@@ -28,14 +29,15 @@ static void ev_handler(struct mg_connection *nc, int ev, void *ev_data) {
 
       struct http_message *hm = (struct http_message *) ev_data;
       fController->connect(nc,hm, s_http_server_opts);
-
+      if (mg_vcmp(&hm->uri, "/quit") == 0) {
+    	  quit = true;
+      }
   }
 }
 
 int main(int argc, char *argv[]) {
   struct mg_mgr mgr;
   struct mg_connection *nc;
-
   initialize();
   PropertyConfigurator::doConfigure("log4cpp.properties");
 
@@ -66,9 +68,13 @@ int main(int argc, char *argv[]) {
   LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Inicializando RESTful server en puerto " << s_http_port));
   for (;;) {
     mg_mgr_poll(&mgr, 1000);
+    if (quit){
+    	break;
+    }
   }
   mg_mgr_free(&mgr);
-
+  FactoryController* fController = FactoryController::getInstance();
+  delete fController;
   DbHelper::closeDatabase();
   return 0;
 }

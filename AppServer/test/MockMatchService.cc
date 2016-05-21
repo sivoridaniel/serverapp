@@ -10,6 +10,7 @@
 #include "../src/service/RemoteSharedService.h"
 #include "../src/dao/MatchDao.h"
 #include "../src/dao/ChatDao.h"
+#include "../src/service/ChatService.h"
 #include <string>
 #include <ctime>
 #include <log4cplus/logger.h>
@@ -28,10 +29,10 @@ public:
 	{
 	    return MockFunctionGet(id);
 	}
-	MOCK_CONST_METHOD1( MockFunctionPut, void(Entity* e) );
-	virtual void put(Entity * e) const throw(InvalidEntityException)
+	MOCK_CONST_METHOD2( MockFunctionPut, void(string id, Entity* e) );
+	virtual void put(string id, Entity * e) const throw(InvalidEntityException)
 	{
-			MockFunctionPut(e);
+			MockFunctionPut(id,e);
 	}
 };
 
@@ -41,13 +42,28 @@ public:
 	MOCK_CONST_METHOD1(MockFunctionGet, Entity*(string id) );
 	virtual Entity* get(string id) const throw(EntityNotFoundException)
 	{
+		if (id.compare("alinari-psivori")==0){
+			throw EntityNotFoundException();
+		}
 	    return MockFunctionGet(id);
 	}
-	MOCK_CONST_METHOD1( MockFunctionPut, void(Entity* e) );
-	virtual void put(Entity * e) const throw(InvalidEntityException)
+	MOCK_CONST_METHOD2( MockFunctionPut, void(string id, Entity* e) );
+	virtual void put(string id, Entity * e) const throw(InvalidEntityException)
 	{
-			MockFunctionPut(e);
+			MockFunctionPut(id,e);
 	}
+};
+
+class MockChatService : public ChatService{
+public:
+	MockChatService(ChatDao* chatDao):ChatService(chatDao){}
+
+	MOCK_CONST_METHOD2(MockFunctionCreateChat, void(string idUser1,  string idUser2) );
+	virtual void createChat(string idUser1, string idUser2) const
+	{
+	    MockFunctionCreateChat(idUser1, idUser2);
+	}
+
 };
 
 class MockSharedService : public RemoteSharedService{
@@ -63,16 +79,14 @@ public:
 TEST(MatchServiceTest,confirmingUser){
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockChatDao* mockChatDao = new MockChatDao();
+	MockChatService* mockChatService = new MockChatService(mockChatDao);
 	MockSharedService* mockSharedService = new MockSharedService();
 	Match* match = new Match();
 	match->addNewMatch("alinari");
-	Chat* chat = new Chat();
 	EXPECT_CALL(*mockMatchDao, MockFunctionGet("psivori")).Times(AtLeast(1)).WillOnce(Return(match));
-	MatchService* matchService = new MatchService(mockMatchDao, mockChatDao, mockSharedService);
+	MatchService* matchService = new MatchService(mockMatchDao, mockChatService, mockSharedService);
 	EXPECT_NO_THROW({matchService->confirmUser("psivori","alinari");});
 
-	delete match;
-	delete chat;
 	delete matchService;
 }
 

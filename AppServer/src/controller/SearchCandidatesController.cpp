@@ -31,7 +31,7 @@ string SearchCandidatesController::connect(struct mg_connection *nc,
 
 string SearchCandidatesController::event_handler_search_candidates(struct mg_connection *nc,
 		struct http_message *hm) {
-	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("MatchController"));
+	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("SearchCandidatesController"));
 
 	string json = "";
 	string code = "";
@@ -42,6 +42,7 @@ string SearchCandidatesController::event_handler_search_candidates(struct mg_con
 	if (params.size()!=1){
 		code = "400";
 		json = "{ \"success\": \"false\", \"data\": \"Bad Request\"}";
+	}else{
 		id = params[0];
 	}
 	if (id.compare("") == 0){
@@ -82,9 +83,14 @@ string SearchCandidatesController::event_handler_search_candidates(struct mg_con
 }
 
 string SearchCandidatesController::createSearchResponse(list<UserProfile*> candidates){
+
 	Json::Value root;
 		Json::Value vecInterests(Json::arrayValue);
 		Json::FastWriter writer;
+
+		if (candidates.size()==0){
+			return "{ \"users\": []}";
+		}
 
 		int i = 0;
 		for (list< UserProfile* >::iterator it=candidates.begin(); it!=candidates.end(); ++it){

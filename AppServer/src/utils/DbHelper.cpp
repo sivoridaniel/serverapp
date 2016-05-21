@@ -27,6 +27,14 @@ void DbHelper::initDatabase(string dbpath) {
 	column_families.push_back(
 			rocksdb::ColumnFamilyDescriptor("matches",
 					rocksdb::ColumnFamilyOptions()));
+	// open the chat column family
+		column_families.push_back(
+					rocksdb::ColumnFamilyDescriptor("candidates",
+							rocksdb::ColumnFamilyOptions()));
+	// open the chat column family
+	column_families.push_back(
+				rocksdb::ColumnFamilyDescriptor("chats",
+						rocksdb::ColumnFamilyOptions()));
 	rocksdb::Status status = rocksdb::DB::Open(options, dbpath, column_families,
 			&handles, &db);
 	assert(status.ok());

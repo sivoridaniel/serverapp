@@ -1,10 +1,10 @@
-Start testing: May 01 20:01 ART
+Start testing: May 21 02:14 ART
 ----------------------------------------------------------
 1/2 Testing: mockAuthenticationCtrlTest
 1/2 Test: mockAuthenticationCtrlTest
 Command: "/home/agustin/git/serverapp/AppServer/cmake/mockAuthenticationCtrlTest"
 Directory: /home/agustin/git/serverapp/AppServer/cmake
-"mockAuthenticationCtrlTest" start time: May 01 20:01 ART
+"mockAuthenticationCtrlTest" start time: May 21 02:14 ART
 Output:
 ----------------------------------------------------------
 INFO - Iniciando Tests
@@ -13,7 +13,7 @@ INFO - Iniciando Tests
 [----------] 1 test from JwTokenTest
 [ RUN      ] JwTokenTest.generatingToken
 *****************************************************************
-TOKEN GENERADO: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHBpcmUiOiI2MCIsInRpbWVzdGFtcCI6IjE0NjIxNDM2OTYiLCJ1c2VybmFtZSI6InBzaXZvcmkifQ.-NAYdgPr7r-qqbrpbdeP1jBT8I_VwhdwyubiOKoP0Ts
+TOKEN GENERADO: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHBpcmUiOiI2MCIsInRpbWVzdGFtcCI6IjE0NjM4MDc2NzMiLCJ1c2VybmFtZSI6InBzaXZvcmkifQ.2fq4RMcLchsvJwsYkusMaISwHoBlM2RWeUA_eMAU9NA
 *****************************************************************
 [       OK ] JwTokenTest.generatingToken (1 ms)
 [----------] 1 test from JwTokenTest (1 ms total)
@@ -25,21 +25,23 @@ TOKEN GENERADO: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHBpcmUiOiI2MCIsInRpbWV
 
 [----------] 1 test from AuthenticationServiceTest
 [ RUN      ] AuthenticationServiceTest.login
-DEBUG - JSON: {"alias":"","email":"","id":"","interests":[],"location":"{\"latitude\":\"0\",\"longitude\":\"0\"}\n","name":"psivori","password":"password","photo_profile":"","token":""}
-
-DEBUG - Password base password
-DEBUG - Password ingresado password
-[       OK ] AuthenticationServiceTest.login (0 ms)
-[----------] 1 test from AuthenticationServiceTest (8 ms total)
+unknown file: Failure
+C++ exception with description "basic_string::_M_construct null not valid" thrown in the test body.
+[  FAILED  ] AuthenticationServiceTest.login (0 ms)
+[----------] 1 test from AuthenticationServiceTest (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 3 tests from 3 test cases ran. (13 ms total)
-[  PASSED  ] 3 tests.
+[==========] 3 tests from 3 test cases ran. (3 ms total)
+[  PASSED  ] 2 tests.
+[  FAILED  ] 1 test, listed below:
+[  FAILED  ] AuthenticationServiceTest.login
+
+ 1 FAILED TEST
 <end of output>
-Test time =   0.04 sec
+Test time =   0.06 sec
 ----------------------------------------------------------
-Test Passed.
-"mockAuthenticationCtrlTest" end time: May 01 20:01 ART
+Test Failed.
+"mockAuthenticationCtrlTest" end time: May 21 02:14 ART
 "mockAuthenticationCtrlTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -47,7 +49,7 @@ Test Passed.
 2/2 Test: mockMatchServiceTest
 Command: "/home/agustin/git/serverapp/AppServer/cmake/mockMatchServiceTest"
 Directory: /home/agustin/git/serverapp/AppServer/cmake
-"mockMatchServiceTest" start time: May 01 20:01 ART
+"mockMatchServiceTest" start time: May 21 02:14 ART
 Output:
 ----------------------------------------------------------
 INFO - Iniciando Tests
@@ -56,6 +58,16 @@ INFO - Iniciando Tests
 [----------] 1 test from MatchServiceTest
 [ RUN      ] MatchServiceTest.confirmingUser
 INFO - Confirmando match con usuario alinari para usuario psivori
+
+GMOCK WARNING:
+Uninteresting mock function call - returning directly.
+    Function call: MockFunctionPut("alinari-psivori", 0x1a952c0)
+NOTE: You can safely ignore the above warning unless this call should not happen.  Do not suppress it by blindly adding an EXPECT_CALL() if you don't mean to enforce the call.  See https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#knowing-when-to-expect for details.
+
+GMOCK WARNING:
+Uninteresting mock function call - returning directly.
+    Function call: MockFunctionPut("psivori", 0x1a92a30)
+NOTE: You can safely ignore the above warning unless this call should not happen.  Do not suppress it by blindly adding an EXPECT_CALL() if you don't mean to enforce the call.  See https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#knowing-when-to-expect for details.
 [       OK ] MatchServiceTest.confirmingUser (0 ms)
 [----------] 1 test from MatchServiceTest (0 ms total)
 
@@ -63,11 +75,11 @@ INFO - Confirmando match con usuario alinari para usuario psivori
 [==========] 1 test from 1 test case ran. (5 ms total)
 [  PASSED  ] 1 test.
 <end of output>
-Test time =   0.02 sec
+Test time =   0.15 sec
 ----------------------------------------------------------
 Test Passed.
-"mockMatchServiceTest" end time: May 01 20:01 ART
+"mockMatchServiceTest" end time: May 21 02:14 ART
 "mockMatchServiceTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: May 01 20:01 ART
+End testing: May 21 02:14 ART

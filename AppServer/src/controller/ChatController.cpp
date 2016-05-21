@@ -307,6 +307,10 @@ string ChatController::createMessagesResponse(vector<Message*> messages){
 	Json::Value vecInterests(Json::arrayValue);
 	Json::FastWriter writer;
 
+	if (messages.size()==0){
+		return "{ \"chat\": []}";
+	}
+
 	int i = 0;
 	for (vector< Message* >::iterator it=messages.begin(); it!=messages.end(); ++it){
 		Message* message = *it;

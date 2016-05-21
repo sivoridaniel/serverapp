@@ -9,7 +9,7 @@
 #define MATCHSERVICE_H_
 
 #include "../dao/MatchDao.h"
-#include "../dao/ChatDao.h"
+#include "ChatService.h"
 #include "RemoteSharedService.h"
 #include "../exception/IllegalStateException.h"
 #include "../exception/EntityExistsException.h"
@@ -26,7 +26,7 @@ using namespace log4cplus;
 class MatchService {
 private:
 	MatchDao* matchDao;
-	ChatDao* chatDao;
+	ChatService* chatService;
 	RemoteSharedService* sharedService;
 public:
 	MatchService();
@@ -38,10 +38,10 @@ public:
 	 * clase.
 	 *
 	 * @param MatchDao
-	 * @param ChatDao
+	 * @param chatService
 	 * @param sharedService
 	 */
-	MatchService(MatchDao* matchDao, ChatDao* chatDao, RemoteSharedService* sharedService);
+	MatchService(MatchDao* matchDao, ChatService* chatService, RemoteSharedService* sharedService);
 
 	virtual ~MatchService();
 	/**
@@ -56,7 +56,7 @@ public:
 	 * @throw EntityExistsException, EntityNotFoundException
 	 * @return bool Si se pudo agregar el usuario a la lista de likes
 	 */
-	bool addToYesList(string idUser, string idUserAccepted) throw(EntityExistsException, EntityNotFoundException);
+	bool addToYesList(string idUser, string idUserAccepted);
 	/**
 	 * En caso de que el usuario rechace a alguno de la lista, se lo agregará
 	 * a la lista de rechazados.
@@ -68,7 +68,7 @@ public:
 	 * @param string idUserRejected
 	 * @throw EntityExistsException, EntityNotFoundException
 	 */
-	void addToNoList(string idUser, string idUserRejected) throw(EntityExistsException, EntityNotFoundException);
+	void addToNoList(string idUser, string idUserRejected);
 	/**
 	 * Devuelve la lista de nuevos matches de un usuario.
 	 * En caso de no poder realizar la operación disparará la excepción EntityNotFoundException.
@@ -78,8 +78,16 @@ public:
 	 * @return list<UserProfile*> lista de nuevos matches
 	 *
 	 */
-	list<UserProfile*> getNewMatches(string idUser) throw (EntityNotFoundException);
-	void confirmUser(string idUser, string idUserConfirmed) throw(EntityExistsException, EntityNotFoundException);
+	list<UserProfile*> getNewMatches(string idUser);
+	void confirmUser(string idUser, string idUserConfirmed);
+
+	/**
+	 * Devuelve false si esta el usuario esta en la lista de si propia, en la de no propia o ajena,
+	 * en la de confirmados propia o si ya se creo el chat
+	 */
+	bool isACandidate(string idUser, string idOtherUser);
+
+
 };
 
 #endif /* MATCHSERVICE_H_ */

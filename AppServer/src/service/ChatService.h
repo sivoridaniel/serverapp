@@ -36,7 +36,7 @@ public:
 	 * @param string idUser2 el otro de los usuarios de la conversacion
 	 * @throw EntityNotFoundException si no existe la conversacion o no existe alguno de los usuarios
 	 */
-	vector<Message*> getAllMessages(string idUser1, string idUser2) throw(EntityNotFoundException);
+	vector<Message*> getAllMessages(string idUser1, string idUser2);
 
 	/**
 	 * 	Devuelve los mensajes no leidos de un usuario con otro
@@ -46,7 +46,7 @@ public:
 	 * @throw EntityNotFoundException si no existe la conversacion o no existe alguno de los usuarios
 	 * @return vector<Message*> lista de los nuevos mensajes para el usuario idUser1 con el usuario idUser2
 	 */
-	vector<Message*> getNewMessages(string idUser1, string idUser2) throw(EntityNotFoundException);
+	vector<Message*> getNewMessages(string idUser1, string idUser2);
 
 	/**
 	 * Postea el mensaje del usuario idUser1 en la conversacion con el usuario idUser2
@@ -55,7 +55,7 @@ public:
 	 * @param string idUser2 receptor del mensaje
 	 * @throw EntityNotFoundException si no existe la conversacion o no existe alguno de los usuarios
 	 */
-	void addNewMessage(string idUser1, string idUser2, string message) throw(EntityNotFoundException);
+	void addNewMessage(string idUser1, string idUser2, string message);
 
 	/**
 	 * Actualiza el ultimo mensaje visto del idUser1 de los mensajes enviados por idUser2
@@ -64,7 +64,7 @@ public:
 	 * @param string idUser2 usuario con el cual tiene la conversacion el idUser1
 	 * @throw EntityNotFoundException si no existe la conversacion o no existe alguno de los usuarios
 	 */
-	void updateLastMessageSeen(string idUser1, string idUser2, int messageIndex) throw(EntityNotFoundException);
+	void updateLastMessageSeen(string idUser1, string idUser2, int messageIndex);
 
 	/**
 	 * Da de alta una nueva conversacion
@@ -73,7 +73,9 @@ public:
 	 * @throw EntityNotFoundException si no existe alguno de los usuarios
 	 * @throw EntityExistsException si ya existe la conversacion
 	 */
-	void createChat(string idUser1, string idUser2) throw(EntityNotFoundException, EntityExistsException);
+	void createChat(string idUser1, string idUser2);
+
+	Chat* getChat(string idUser1, string idUser2);
 
 private:
 	string generateChatId(string idUser1, string idUser2);
