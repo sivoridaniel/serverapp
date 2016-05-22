@@ -90,6 +90,7 @@ bool MatchService::addToYesList(string idUser, string idUserAccepted) {
 			matchDao->put(idUser, matchUser);
 			delete matchUser;
 			delete matchUserAccepted;
+			return false;
 		}
 		delete matchUser;
 		delete matchUserAccepted;
@@ -214,7 +215,7 @@ void MatchService::confirmUser(string idUser, string idUserConfirmed){
 
 	if (idUser.compare(idUserConfirmed)==0){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Es el mismo usuario"));
-		throw exception();
+		throw IllegalStateException();
 	}
 
 	Match* matchUser = (Match*) matchDao->get(idUser);
