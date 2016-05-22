@@ -25,7 +25,7 @@ string SearchCandidatesController::connect(struct mg_connection *nc,
 		}
 
 	}
-	return ""; //Por default devuelve un JSON vacío.
+	return "404"; //Por default devuelve un JSON vacío.
 
 }
 

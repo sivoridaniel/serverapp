@@ -38,7 +38,7 @@ string ChatController::connect(struct mg_connection *nc,
 			return updateLastMessageSeen(nc, hm);
 		}
 	}
-	return ""; //Por default devuelve un JSON vacío.
+	return "404"; //Por default devuelve un JSON vacío.
 
 }
 

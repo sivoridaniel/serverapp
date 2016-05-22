@@ -35,7 +35,7 @@ string MatchController::connect(struct mg_connection *nc,
 			return event_handler_confirm_match(nc, hm);
 		}
 	}
-	return ""; //Por default devuelve un JSON vacío.
+	return "404"; //Por default devuelve un JSON vacío.
 
 }
 

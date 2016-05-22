@@ -61,7 +61,7 @@ int main(int argc, char *argv[]) {
 
   mg_set_protocol_http_websocket(nc);
 
-  mg_enable_multithreading(nc);
+ // mg_enable_multithreading(nc);
 
   LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Inicializando RESTful server en puerto " << s_http_port));
   for (;;) {
