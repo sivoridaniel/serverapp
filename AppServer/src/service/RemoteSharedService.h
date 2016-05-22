@@ -27,6 +27,9 @@ private:
 	string url;
 
 public:
+	RemoteSharedService(){
+		url = "http://shared-server-match.herokuapp.com";
+	}
 	RemoteSharedService(string url);
 	virtual ~RemoteSharedService();
 

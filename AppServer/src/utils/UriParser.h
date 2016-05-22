@@ -17,7 +17,7 @@ using namespace std;
 class UriParser {
 public:
 
-	static string getId(string queryString);
+	static vector<string> getParams(string queryString);
 
 private:
 	static std::vector<std::string> &split(const std::string &s, char delim, std::vector<std::string> &elems);

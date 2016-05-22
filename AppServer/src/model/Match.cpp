@@ -19,7 +19,6 @@ Match::Match(std::string json) {
 	if (!ok) {
 	    throw JsonParseException();
 	}
-	this->idUser = root.get("idUser", "").asString();
 	const Json::Value acceptedUsers = root["acceptedUsers"];
 	for (unsigned int i = 0; i < acceptedUsers.size(); ++i){
 		std::string acceptedUser = acceptedUsers[i].asString();
@@ -101,7 +100,6 @@ std::string Match::toJson(){
 		std::string idUser = *it;
 		vecMatches.append(idUser);
 	}
-	root["idUser"] = this->idUser;
 	root["acceptedUsers"] = vecYes;
 	root["rejectedUsers"] = vecNo;
 	root["matchedUsers"] = vecMatches;

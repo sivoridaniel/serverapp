@@ -10,7 +10,6 @@
 
 #include "../service/MatchService.h"
 #include "AbstractController.h"
-#include "../model/NewMatchesResponse.h"
 #include "../webserver/mongoose.h"
 #include "../utils/UriParser.h"
 #include <log4cplus/logger.h>
@@ -47,6 +46,7 @@ private:
 	string event_handler_new_matches(struct mg_connection *nc, struct http_message *hm);
 	string event_handler_confirm_match(struct mg_connection *nc, struct http_message *hm);
 	vector<string> parseMatchRequest(string json);
+	string createNewMatchesResponse(list<UserProfile*> newMatches);
 
 };
 

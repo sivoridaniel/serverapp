@@ -32,13 +32,18 @@ string SearchCandidatesController::connect(struct mg_connection *nc,
 string SearchCandidatesController::event_handler_search_candidates(struct mg_connection *nc,
 		struct http_message *hm) {
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("MatchController"));
-	char idUser[100], idUserAccepted[100];
 
 	string json = "";
 	string code = "";
+	string id = "";
 	string query = string((&hm->query_string)->p, (&hm->query_string)->len);
-	string id = UriParser::getId(query);
+	vector<string> params = UriParser::getParams(query);
 
+	if (params.size()!=1){
+		code = "400";
+		json = "{ \"success\": \"false\", \"data\": \"Bad Request\"}";
+		id = params[0];
+	}
 	if (id.compare("") == 0){
 		string code = "400";
 		string json = "{ \"success\": \"false\", \"data\": \"Bad Request\"}";
@@ -47,7 +52,8 @@ string SearchCandidatesController::event_handler_search_candidates(struct mg_con
 		/* Call match service */
 		LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Se buscan candidatos para el usuario " << id));
 		try{
-			json = searchService->getCandidates(id);
+			list<UserProfile*> candidates = searchService->getCandidates(id);
+			json = createSearchResponse(candidates);
 			code = "200";
 		}
 		catch(EntityNotFoundException& e){
@@ -74,5 +80,38 @@ string SearchCandidatesController::event_handler_search_candidates(struct mg_con
 	return json;
 
 }
+
+string SearchCandidatesController::createSearchResponse(list<UserProfile*> candidates){
+	Json::Value root;
+		Json::Value vecInterests(Json::arrayValue);
+		Json::FastWriter writer;
+
+		int i = 0;
+		for (list< UserProfile* >::iterator it=candidates.begin(); it!=candidates.end(); ++it){
+			UserProfile* user = *it;
+			Location* location = user->getLocation();
+			list<Interest*> interests = user->getInterests();
+
+			root["users"][i]["user"]["name"] = user->getName();
+			root["users"][i]["user"]["alias"] = user->getAlias();
+			root["users"][i]["user"]["photo"] = user->getPhotoProfile();
+			root["users"][i]["user"]["location"]["latitude"] = location->getLatitude();
+			root["users"][i]["user"]["location"]["longitude"] = location->getLongitude();
+			int j=0;
+			for (list< Interest* >::iterator itI=interests.begin(); itI!=interests.end(); ++itI){
+				Interest* interest = *itI;
+				root["users"][i]["user"]["interests"][j]["category"] = interest->getCategory();;
+				root["users"][i]["user"]["interests"][j]["value"] = interest->getValue();
+				j++;
+			}
+			root["users"][i]["user"]["email"] = user->getEmail();
+			i++;
+			delete user;
+		}
+
+		string json = writer.write(root);
+		return json;
+}
+
 
 

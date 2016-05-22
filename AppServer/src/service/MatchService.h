@@ -10,6 +10,7 @@
 
 #include "../dao/MatchDao.h"
 #include "../dao/ChatDao.h"
+#include "RemoteSharedService.h"
 #include "../exception/IllegalStateException.h"
 #include "../exception/EntityExistsException.h"
 #include <log4cplus/logger.h>
@@ -26,6 +27,7 @@ class MatchService {
 private:
 	MatchDao* matchDao;
 	ChatDao* chatDao;
+	RemoteSharedService* sharedService;
 public:
 	MatchService();
 
@@ -37,20 +39,21 @@ public:
 	 *
 	 * @param MatchDao
 	 * @param ChatDao
+	 * @param sharedService
 	 */
-	MatchService(MatchDao* matchDao, ChatDao* chatDao);
+	MatchService(MatchDao* matchDao, ChatDao* chatDao, RemoteSharedService* sharedService);
 
 	virtual ~MatchService();
 	/**
 	 * Agrega a la lista de likes el usuario por el cual se tiene interes.
 	 *
 	 * En caso de no poder actualizarse la lista de likes se disparará la excepcion
-	 * IllegalStateException o EntityNotFoundException.
+	 * EntityExistsException o EntityNotFoundException.
 	 *
 	 *
 	 * @param string idUser
 	 * @param string idUserAccepted
-	 * @throw IllegalStateException, EntityNotFoundException
+	 * @throw EntityExistsException, EntityNotFoundException
 	 * @return bool Si se pudo agregar el usuario a la lista de likes
 	 */
 	bool addToYesList(string idUser, string idUserAccepted) throw(EntityExistsException, EntityNotFoundException);
@@ -59,23 +62,23 @@ public:
 	 * a la lista de rechazados.
 	 *
 	 * En caso de no poder actualizarse la lista de rechazados se disparará la excepcion
-	 * IllegalStateException o EntityNotFoundException.
+	 * EntityExistsException o EntityNotFoundException.
 	 *
 	 * @param string idUser
 	 * @param string idUserRejected
-	 * @throw IllegalStateException, EntityNotFoundException
+	 * @throw EntityExistsException, EntityNotFoundException
 	 */
 	void addToNoList(string idUser, string idUserRejected) throw(EntityExistsException, EntityNotFoundException);
 	/**
-	 * Devuelve la lista de likes de un usuario.
+	 * Devuelve la lista de nuevos matches de un usuario.
 	 * En caso de no poder realizar la operación disparará la excepción EntityNotFoundException.
 	 *
 	 * @param idUser
 	 * @throw EntityNotFoundException
-	 * @return list<string>
+	 * @return list<UserProfile*> lista de nuevos matches
 	 *
 	 */
-	list<string> getNewMatches(string idUser) throw (EntityNotFoundException);
+	list<UserProfile*> getNewMatches(string idUser) throw (EntityNotFoundException);
 	void confirmUser(string idUser, string idUserConfirmed) throw(EntityExistsException, EntityNotFoundException);
 };
 

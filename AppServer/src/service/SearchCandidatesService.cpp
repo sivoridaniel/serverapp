@@ -27,18 +27,12 @@ SearchCandidatesService::~SearchCandidatesService() {
 	delete sharedService;
 }
 
-string SearchCandidatesService::getCandidates(string idUser){
+list<UserProfile*> SearchCandidatesService::getCandidates(string idUser){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("SearchCandidatesService"));
 
 	list<UserProfile*> candidates = this->runSearchAlgorithm(idUser, 3000);
-	string json = createResponseJson(candidates);
 
-	//libero recursos;
-	for (list<UserProfile*>::iterator it=candidates.begin(); it!=candidates.end(); ++it){
-		UserProfile* candidate = *it;
-		delete candidate;
-	}
-    return json;
+    return candidates;
 }
 
 list<UserProfile*> SearchCandidatesService::runSearchAlgorithm(string idUser, double maxDistance){
@@ -85,6 +79,9 @@ list<UserProfile*> SearchCandidatesService::runSearchAlgorithm(string idUser, do
 			}
 		}
 
+		//Guardo la lista
+
+
 		//libero recursos
 		for (list<UserProfile*>::iterator it=users.begin(); it!=users.end(); ++it){
 			UserProfile* user = *it;
@@ -102,7 +99,6 @@ list<UserProfile*> SearchCandidatesService::runSearchAlgorithm(string idUser, do
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 		throw e;
 	}
-
 	return candidates;
 }
 
@@ -124,11 +120,4 @@ double SearchCandidatesService::calculateDistance(Location* location1, Location*
 	return distance;
 }
 
-string SearchCandidatesService::createResponseJson(list<UserProfile*> candidates){
 
-
-	for (list<UserProfile*>::iterator it=candidates.begin(); it!=candidates.end(); ++it){
-
-	}
-	return "";
-}

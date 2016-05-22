@@ -13,6 +13,7 @@ void FactoryController::createControllers(){
 	matchController = new MatchController();
 	authenticationController = new AuthenticationController();
 	searchController = new SearchCandidatesController();
+	chatController = new ChatController();
 }
 
 void FactoryController::connect(struct mg_connection *nc, struct http_message *hm, struct mg_serve_http_opts s_http_server_opts){
@@ -28,6 +29,9 @@ void FactoryController::connect(struct mg_connection *nc, struct http_message *h
 		res = searchController->connect(nc,hm);
 	}
 	if (res.empty()){
+		res = chatController->connect(nc,hm);
+	}
+	if (res.empty()){
         mg_serve_http(nc, hm, s_http_server_opts);  /* Serve static content */
 	}
 }
@@ -37,6 +41,7 @@ FactoryController::~FactoryController() {
 	delete matchController;
 	delete authenticationController;
 	delete searchController;
+	delete chatController;
 }
 
 FactoryController* FactoryController::singletonFactoryCtrl;
@@ -44,4 +49,5 @@ AbmUserController* FactoryController::abmUserController;
 MatchController* FactoryController::matchController;
 AuthenticationController* FactoryController::authenticationController;
 SearchCandidatesController* FactoryController::searchController;
+ChatController* FactoryController::chatController;
 

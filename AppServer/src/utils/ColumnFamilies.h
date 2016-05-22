@@ -3,5 +3,7 @@
 
 #define USER 1
 #define MATCH 2
+#define CANDIDATE 3
+#define CHAT 4
 
 #endif
