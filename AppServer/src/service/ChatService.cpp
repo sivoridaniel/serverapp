@@ -31,7 +31,7 @@ string ChatService::generateChatId(string idUser1, string idUser2){
 }
 
 
-vector<Message*> ChatService::getAllMessages(string idUser1, string idUser2) throw(EntityNotFoundException){
+vector<Message*> ChatService::getAllMessages(string idUser1, string idUser2) {
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("ChatService"));
 	string id = generateChatId(idUser1,idUser2);
 	vector<Message*> messages;
@@ -47,7 +47,7 @@ vector<Message*> ChatService::getAllMessages(string idUser1, string idUser2) thr
 }
 
 
-vector<Message*> ChatService::getNewMessages(string idUser1, string idUser2) throw(EntityNotFoundException){
+vector<Message*> ChatService::getNewMessages(string idUser1, string idUser2) {
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("ChatService"));
 	string id = generateChatId(idUser1,idUser2);
 	vector<Message*> messages;
@@ -63,7 +63,7 @@ vector<Message*> ChatService::getNewMessages(string idUser1, string idUser2) thr
 }
 
 
-void ChatService::addNewMessage(string idUser1, string idUser2, string message) throw(EntityNotFoundException){
+void ChatService::addNewMessage(string idUser1, string idUser2, string message) {
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("ChatService"));
 	string id = generateChatId(idUser1,idUser2);
 	vector<Message*> messages;
@@ -78,7 +78,7 @@ void ChatService::addNewMessage(string idUser1, string idUser2, string message) 
 }
 
 
-void ChatService::updateLastMessageSeen(string idUser1, string idUser2, int messageIndex) throw(EntityNotFoundException){
+void ChatService::updateLastMessageSeen(string idUser1, string idUser2, int messageIndex){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("ChatService"));
 	string id = generateChatId(idUser1,idUser2);
 	vector<Message*> messages;
@@ -93,7 +93,7 @@ void ChatService::updateLastMessageSeen(string idUser1, string idUser2, int mess
 }
 
 
-void ChatService::createChat(string idUser1, string idUser2) throw(EntityNotFoundException, EntityExistsException){
+void ChatService::createChat(string idUser1, string idUser2) {
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("ChatService"));
 	Chat* chat = new Chat(idUser1, idUser2);
 	string id = generateChatId(idUser1, idUser2);
@@ -114,3 +114,16 @@ void ChatService::createChat(string idUser1, string idUser2) throw(EntityNotFoun
 	}
 
 }
+
+Chat* ChatService::getChat(string idUser1, string idUser2) {
+
+	string id = generateChatId(idUser1, idUser2);
+	try{
+		Chat* chat = (Chat*)chatDao->get(id);
+		return chat;
+
+	}catch(EntityNotFoundException& e){
+		throw e;
+	}
+}
+

@@ -9,39 +9,29 @@
 
 MatchService::MatchService() {
 	this->matchDao = new MatchDao();
-	this->chatDao = new ChatDao();
+	this->chatService = new ChatService();
 	this->sharedService = new RemoteSharedService("http://shared-server-match.herokuapp.com");
-	try{
-		matchDao->get("3");
-	}catch(EntityNotFoundException& e){
-		matchDao->put("3", new Match());
-	}
-	try{
-		matchDao->get("4");
-	}catch(EntityNotFoundException& e){
-		matchDao->put("4", new Match());
-	}
+
 }
 
-MatchService::MatchService(MatchDao* matchDao, ChatDao* chatDao, RemoteSharedService* sharedService) {
+MatchService::MatchService(MatchDao* matchDao, ChatService* chatService, RemoteSharedService* sharedService) {
 	this->matchDao = matchDao;
-	this->chatDao = chatDao;
+	this->chatService = chatService;
 	this->sharedService = sharedService;
 }
 
 MatchService::~MatchService() {
 	delete matchDao;
-	delete chatDao;
+	delete chatService;
 	delete sharedService;
 }
 
-bool MatchService::addToYesList(string idUser, string idUserAccepted)
-		throw (EntityExistsException, EntityNotFoundException) {
+bool MatchService::addToYesList(string idUser, string idUserAccepted) {
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("MatchService"));
 
 	if (idUser.compare(idUserAccepted)==0){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Es el mismo usuario"));
-		throw exception();
+		throw IllegalStateException();
 	}
 	try {
 
@@ -49,18 +39,33 @@ bool MatchService::addToYesList(string idUser, string idUserAccepted)
 		Match* matchUserAccepted = (Match*) matchDao->get(idUserAccepted);
 
 		if (matchUser->isRejected(idUserAccepted)) {
+			delete matchUser;
+			delete matchUserAccepted;
 			LOG4CPLUS_ERROR(logger,
 					LOG4CPLUS_TEXT("El usuario "<<idUserAccepted<<" ya se encuentra en la lista de rechazados"));
 			throw EntityExistsException();
 		}
 
 		if (matchUser->isMatched(idUserAccepted)) {
+			delete matchUser;
+			delete matchUserAccepted;
 			LOG4CPLUS_ERROR(logger,
 					LOG4CPLUS_TEXT("El usuario "<<idUserAccepted<<" ya se encuentra en la lista de matcheados"));
 			throw EntityExistsException();
 		}
 
-		//TODO: Verificar tambien que no exista en la lista de chats
+		//Verifica tambien que no exista en la lista de chats
+		try{
+			Chat* chat = chatService->getChat(idUser, idUserAccepted);
+			delete chat;
+			delete matchUser;
+			delete matchUserAccepted;
+			LOG4CPLUS_ERROR(logger,
+								LOG4CPLUS_TEXT("Los usuarios ya estan matcheados"));
+			throw EntityExistsException();
+		}catch(EntityNotFoundException& e){
+			//OK
+		}
 
 		// Si el otro usuario ya lo habia aceptado
 		// se quitan de sus listas de aceptados y se agregan a la lista de nuevos matchs
@@ -74,7 +79,8 @@ bool MatchService::addToYesList(string idUser, string idUserAccepted)
 			matchUserAccepted->addNewMatch(idUser);
 			matchDao->put(idUser, matchUser);
 			matchDao->put(idUserAccepted,matchUserAccepted);
-			// Como hubo match devolvemos true
+			delete matchUser;
+			delete matchUserAccepted;
 			return true;
 		} else if (!matchUser->isAccepted(idUserAccepted)) {
 			//Si el otro usuario no lo acepto aun, simplemente lo agregamos a la lista de aceptados
@@ -82,8 +88,12 @@ bool MatchService::addToYesList(string idUser, string idUserAccepted)
 					LOG4CPLUS_TEXT("Agregando el usuario "<<idUserAccepted<< " a la lista de aceptados de "<<idUser ));
 			matchUser->acceptUser(idUserAccepted);
 			matchDao->put(idUser, matchUser);
+			delete matchUser;
+			delete matchUserAccepted;
+			return false;
 		}
-
+		delete matchUser;
+		delete matchUserAccepted;
 		//No hubo match aun, pero se agrego el usuario a la lista de si
 		return false;
 
@@ -101,40 +111,54 @@ bool MatchService::addToYesList(string idUser, string idUserAccepted)
 
 }
 
-void MatchService::addToNoList(string idUser, string idUserRejected)
-		throw (EntityExistsException, EntityNotFoundException) {
+void MatchService::addToNoList(string idUser, string idUserRejected){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("MatchService"));
 
 	if (idUser.compare(idUserRejected)==0){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Es el mismo usuario"));
-		throw exception();
+		throw IllegalStateException();
 	}
 	try {
 		Match* matchUser = (Match*) matchDao->get(idUser);
 
 		if (matchUser->isAccepted(idUserRejected)) {
+			delete matchUser;
 			LOG4CPLUS_ERROR(logger,
 					LOG4CPLUS_TEXT("El usuario "<<idUserRejected<<" ya se encuentra en la lista de aceptados"));
 			throw EntityExistsException();
 		}
 
 		if (matchUser->isMatched(idUserRejected)) {
+			delete matchUser;
 			LOG4CPLUS_ERROR(logger,
 					LOG4CPLUS_TEXT("El usuario "<<idUserRejected<<" ya se encuentra en la lista de matcheados"));
 			throw EntityExistsException();
 		}
 
 		if (matchUser->isRejected(idUserRejected)) {
+			delete matchUser;
 			LOG4CPLUS_ERROR(logger,
 					LOG4CPLUS_TEXT("El usuario "<<idUserRejected<<" ya se encuentra en la lista de rechazados"));
 			return;
 		}
 
-		//TODO: Verificar tambien que no exista en la lista de chats
+		//Verifica tambien que no exista en la lista de chats
+		try{
+			Chat* chat = chatService->getChat(idUser, idUserRejected);
+			delete chat;
+			delete matchUser;
+			LOG4CPLUS_ERROR(logger,
+								LOG4CPLUS_TEXT("Los usuarios ya estan matcheados"));
+			throw EntityExistsException();
+		}catch(EntityNotFoundException& e){
+			//OK
+		}
+
 		LOG4CPLUS_INFO(logger,
 				LOG4CPLUS_TEXT("Agregando el usuario "<<idUserRejected<< " a la lista de rechazados de "<<idUser ));
 		matchUser->rejectUser(idUserRejected);
 		matchDao->put(idUser, matchUser);
+		delete matchUser;
 
 	} catch (EntityExistsException& e) {
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
@@ -151,8 +175,7 @@ void MatchService::addToNoList(string idUser, string idUserRejected)
 	}
 }
 
-list<UserProfile*> MatchService::getNewMatches(string idUser)
-		throw (EntityNotFoundException) {
+list<UserProfile*> MatchService::getNewMatches(string idUser){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("MatchService"));
 
 	LOG4CPLUS_INFO(logger,
@@ -174,7 +197,7 @@ list<UserProfile*> MatchService::getNewMatches(string idUser)
 				LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			}
 		}
-
+		delete matchUser;
 		return matches;
 
 	} catch (EntityNotFoundException& e) {
@@ -187,24 +210,25 @@ list<UserProfile*> MatchService::getNewMatches(string idUser)
 	}
 }
 
-void MatchService::confirmUser(string idUser, string idUserConfirmed)
-		throw (EntityExistsException, EntityNotFoundException) {
+void MatchService::confirmUser(string idUser, string idUserConfirmed){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("MatchService"));
 
 	if (idUser.compare(idUserConfirmed)==0){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Es el mismo usuario"));
-		throw exception();
+		throw IllegalStateException();
 	}
 
 	Match* matchUser = (Match*) matchDao->get(idUser);
 
 	if (matchUser->isAccepted(idUserConfirmed)) {
+		delete matchUser;
 		LOG4CPLUS_ERROR(logger,
 				LOG4CPLUS_TEXT("El usuario "<<idUserConfirmed<<" ya se encuentra en la lista de aceptados"));
 		throw EntityExistsException();
 	}
 
 	if (matchUser->isRejected(idUserConfirmed)) {
+		delete matchUser;
 		LOG4CPLUS_ERROR(logger,
 				LOG4CPLUS_TEXT("El usuario "<<idUserConfirmed<<" ya se encuentra en la lista de rechazados"));
 		throw EntityExistsException();
@@ -214,9 +238,56 @@ void MatchService::confirmUser(string idUser, string idUserConfirmed)
 		LOG4CPLUS_INFO(logger,
 				LOG4CPLUS_TEXT("Confirmando match con usuario " << idUserConfirmed << " para usuario " <<idUser));
 		matchUser->removeFromNewMatches(idUser);
+		chatService->createChat(idUser,idUserConfirmed);
+		matchDao->put(idUser,matchUser);
+		delete matchUser;
 	} else {
+		delete matchUser;
 		throw IllegalStateException();
 	}
 
+}
+
+bool MatchService::isACandidate(string idUser, string idOtherUser){
+	Match* matchUser;
+	Match* matchOtherUser;
+	try{
+	 matchUser = (Match*) matchDao->get(idUser);
+	 matchOtherUser = (Match*)matchDao->get(idOtherUser);
+	}catch(exception& e){
+		return false;
+	}
+	if (matchUser->isAccepted(idOtherUser)){
+		delete matchUser;
+		delete matchOtherUser;
+		return false;
+	}
+	if (matchUser->isRejected(idOtherUser)){
+		delete matchUser;
+		delete matchOtherUser;
+		return false;
+	}
+	if (matchUser->isMatched(idOtherUser)){
+		delete matchUser;
+		delete matchOtherUser;
+		return false;
+	}
+	if (matchOtherUser->isRejected(idUser)){
+		delete matchUser;
+		delete matchOtherUser;
+		return false;
+	}
+	try{
+		Chat* chat = chatService->getChat(idUser, idOtherUser);
+		delete chat;
+		delete matchUser;
+		delete matchOtherUser;
+		return false;
+	}catch(EntityNotFoundException& e){
+		delete matchUser;
+		delete matchOtherUser;
+		return true;
+	}
+	return true;
 }
 

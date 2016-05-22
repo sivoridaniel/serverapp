@@ -5,4 +5,6 @@ CTestTestfile.cmake
 cmake_install.cmake
 *.a
 Makefile
+mockAuthenticationCtrlTest
+mockMatchServiceTest
 Testing

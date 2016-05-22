@@ -8,22 +8,19 @@
 #include "SearchCandidatesService.h"
 
 SearchCandidatesService::SearchCandidatesService() {
-	this->matchDao = new MatchDao();
-	this->chatDao = new ChatDao();
+	this->matchService = new MatchService();
 	this->sharedService = new RemoteSharedService("http://shared-server-match.herokuapp.com");
 }
 
-SearchCandidatesService::SearchCandidatesService(MatchDao* matchDao, ChatDao* chatDao){
-	this->matchDao = matchDao;
-	this->chatDao = chatDao;
+SearchCandidatesService::SearchCandidatesService(MatchService* matchService){
+	this->matchService = matchService;
 	this->sharedService = new RemoteSharedService("http://shared-server-match.herokuapp.com");
 
 }
 
 
 SearchCandidatesService::~SearchCandidatesService() {
-	delete matchDao;
-	delete chatDao;
+	delete matchService;
 	delete sharedService;
 }
 
@@ -37,6 +34,7 @@ list<UserProfile*> SearchCandidatesService::getCandidates(string idUser){
 
 list<UserProfile*> SearchCandidatesService::runSearchAlgorithm(string idUser, double maxDistance){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("SearchCandidatesService"));
+	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Ejecutando algoritmo de busqueda de candidatos"));
 
 	list<UserProfile*> users;
 	list<UserProfile*> candidates;
@@ -49,11 +47,26 @@ list<UserProfile*> SearchCandidatesService::runSearchAlgorithm(string idUser, do
 
 			UserProfile* user = *it;
 			list<Interest*> userInterests = user->getInterests();
+			string idCandidate = user->getId();
+
+			//filtro mismo usuario
+			if (idUser.compare(idCandidate)==0){
+				LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("El candidato "<<idCandidate<<" es filtrado por ser el mismo usuario"));
+				continue;
+			}
+
+			//filtro de match
+			bool eval = matchService->isACandidate(idUser, idCandidate);
+			if (!eval){
+				LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("El candidato "<<idCandidate<<" es filtrado por ya estar evaluado por los usuarios"));
+				continue;
+			}
 
 			//filtro de distancia
 			double distance = calculateDistance(user->getLocation(), userProfile->getLocation());
 
 			if (distance > maxDistance){
+				LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("El candidato "<<idCandidate<<" es filtrado por la distancia"));
 				continue;
 			}
 
@@ -74,8 +87,11 @@ list<UserProfile*> SearchCandidatesService::runSearchAlgorithm(string idUser, do
 			}
 
 			if (hasInterest){
+				LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("El candidato "<<idCandidate<<" se agrega a los resultados de la busqueda"));
 				candidates.push_back(user);
 				it = users.erase(it);
+			}else{
+				LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("El candidato "<<idCandidate<<" es filtrado por no tener interes en comun"));
 			}
 		}
 

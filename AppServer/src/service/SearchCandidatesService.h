@@ -8,8 +8,7 @@
 #ifndef SEARCHCANDIDATESSERVICE_H_
 #define SEARCHCANDIDATESSERVICE_H_
 
-#include "../dao/MatchDao.h"
-#include "../dao/ChatDao.h"
+#include "MatchService.h"
 #include "../exception/IllegalStateException.h"
 #include "../model/UserProfile.h"
 #include "RemoteSharedService.h"
@@ -25,8 +24,7 @@ using namespace log4cplus;
 
 class SearchCandidatesService {
 private:
-	MatchDao* matchDao;
-	ChatDao* chatDao;
+	MatchService* matchService;
 	RemoteSharedService* sharedService;
 public:
 	SearchCandidatesService();
@@ -37,10 +35,9 @@ public:
 	 * la base de datos y poder realizar los test unit de los métodos de la
 	 * clase.
 	 *
-	 * @param MatchDao
-	 * @param ChatDao
+	 * @param MatchService
 	 */
-	SearchCandidatesService(MatchDao* matchDao, ChatDao* chatDao);
+	SearchCandidatesService( MatchService* matchService);
 
 	/**
 	 * Obtiene una lista de candidatos para el usuario dado que tengan intereses

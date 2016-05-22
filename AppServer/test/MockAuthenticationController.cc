@@ -27,10 +27,10 @@ public:
 	{
 	    return MockFunctionGet(id);
 	}
-	MOCK_CONST_METHOD1( MockFunctionPut, void(Entity* e) );
-	virtual void put(Entity * e) const throw(InvalidEntityException)
+	MOCK_CONST_METHOD2( MockFunctionPut, void(string id, Entity* e) );
+	virtual void put(string id, Entity * e) const throw(InvalidEntityException)
 	{
-			MockFunctionPut(e);
+			MockFunctionPut(id,e);
 	}
 };
 

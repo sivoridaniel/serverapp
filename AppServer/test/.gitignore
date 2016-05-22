@@ -1,7 +1,13 @@
 coverageReport
 Makefile
+AppServer
 CMakeFiles
-cmake_install.cmake
-CTestTestfile.cmake
 CMakeCache.txt
+CTestTestfile.cmake
+cmake_install.cmake
 *.a
+Makefile
+Testing
+mockAuthenticationCtrlTest
+mockMatchServiceTest
+*.log
