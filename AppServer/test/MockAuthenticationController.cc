@@ -34,6 +34,16 @@ public:
 	}
 };
 
+class MockSharedService : public RemoteSharedService{
+public:
+
+	MOCK_CONST_METHOD1(MockFunctionGetUser, UserProfile*(string id) );
+	UserProfile* getUser(string id){
+		return MockFunctionGetUser(id);
+	}
+
+};
+
 TEST(JwTokenTest, generatingToken){
 
 	  JwToken* jwToken=new JwToken();
@@ -67,9 +77,10 @@ TEST(AuthorizationTokenTest, isValidToken){
 
 TEST(AuthenticationServiceTest,login){
 	MockUserDao* mockUserDao = new MockUserDao();
+	MockSharedService* mockShared = new MockSharedService();
 	UserProfile* userProfile = new UserProfile("psivori","password");
 	EXPECT_CALL(*mockUserDao, MockFunctionGet("psivori")).Times(AtLeast(1)).WillOnce(Return(userProfile));
-	AuthenticationService* authenticationService = new AuthenticationService(mockUserDao);
+	AuthenticationService* authenticationService = new AuthenticationService(mockUserDao,mockShared);
 	EXPECT_NO_THROW({authenticationService->getUserLogin("psivori","password");});
 
 	delete userProfile;
