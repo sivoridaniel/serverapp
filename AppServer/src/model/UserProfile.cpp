@@ -55,34 +55,21 @@ UserProfile::~UserProfile() {
 
 string UserProfile::toJson(){
 	Json::Value root;
-	Json::Value vecInterests(Json::arrayValue);
+	//Json::Value vecInterests(Json::arrayValue);
 	Json::FastWriter writer;
 
-	for (list< Interest* >::iterator it=interests.begin(); it!=interests.end(); ++it){
-		Interest* interest = *it;
-		string jsonInterest = interest->toJson();
-		vecInterests.append(jsonInterest);
-	}
+//	for (list< Interest* >::iterator it=interests.begin(); it!=interests.end(); ++it){
+//		Interest* interest = *it;
+//		string jsonInterest = interest->toJson();
+//		vecInterests.append(jsonInterest);
+//	}
 
 	string jsonLocation = this->location->toJson();
 
 	root["user"]["id"] = this->id;
 	root["user"]["name"] = this->name;
-	root["user"]["alias"] = this->alias;
 	root["user"]["token"] = this->token;
 	root["user"]["email"] = this->email;
-	root["user"]["photo"] = this->photoProfile;
-
-	int i=0;
-		for (list< Interest* >::iterator it=interests.begin(); it!=interests.end(); ++it){
-			Interest* interest = *it;
-			root["user"]["interests"][i]["category"] = interest->getCategory();;
-			root["user"]["interests"][i]["value"] = interest->getValue();
-			i++;
-		}
-
-	root["user"]["location"]["latitude"] = this->location->getLatitude();
-	root["user"]["location"]["longitude"] = this->location->getLongitude();
 	root["user"]["password"] = this->password;
 	string json = writer.write(root);
 	return json;
@@ -93,6 +80,7 @@ string UserProfile::toSharedJson(){
 	Json::Value vecInterests(Json::arrayValue);
 	Json::FastWriter writer;
 
+	root["user"]["id"] = this->id;
 	root["user"]["name"] = this->name;
 	root["user"]["alias"] = this->alias;
 	root["user"]["photo"] = this->photoProfile;

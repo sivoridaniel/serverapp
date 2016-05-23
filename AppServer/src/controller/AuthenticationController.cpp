@@ -11,130 +11,111 @@
 AuthenticationController::AuthenticationController() {
 	this->authenticationService = new AuthenticationService();
 	this->abmUserService = new AbmUserService();
-	this->jwToken = new JwToken();
+
 }
 
 string AuthenticationController::connect(struct mg_connection *nc,
 		struct http_message *hm) {
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AuthenticationController"));
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("CONNECT AUTHENTICATION CONTROLLER"));
-	if (mg_vcmp(&hm->uri, "/login_user") == 0) {
 
+	if (mg_vcmp(&hm->uri, "/login_user") == 0) {
 		return event_handler_login_user(nc, hm);
 	}else if(mg_vcmp(&hm->uri, "/valid_session") == 0){
 		return event_handler_valid_session(nc, hm);
 	}
-	return ""; //Por default devuelve un JSON vacío.
+	return STATUS_NOT_FOUND; //Por default devuelve un JSON vacío.
 
 }
 
 string AuthenticationController::event_handler_login_user(struct mg_connection *nc, struct http_message *hm){
 	string msg_response = "";
-	string token="";
-	UserProfile* userProfile = NULL;
+	string token = "";
+	string ret_json = "";
+	UserProfile* userProfileBuscado = NULL;
+	UserProfile* userProfileConsultado = NULL;
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AuthenticationController"));
 
-	char vecIdUser[20], vecPassword[20];
-
 	try{
+		/* Get Form variables */
+		string json = string(hm->body.p,hm->body.len);
+		LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("JSon Ingresado: " << json));
+		userProfileBuscado = new UserProfile(json);
 
-	/* Get Form variables */
-
-	mg_get_http_var(&hm->body, "name", vecIdUser, sizeof(vecIdUser));
-	mg_get_http_var(&hm->body, "password", vecPassword, sizeof(vecPassword));
-
-	/* Send headers */
-	mg_printf(nc, "%s","HTTP/1.1 200 OK\r\nTransfer-Encoding: chunked\r\n\r\n");
-
-
-	/* Call authentication service */
-	string username(vecIdUser);
-	string password(vecPassword);
-
-
+		/* Call authentication service */
 		LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("INTENTO LOGUEO"));
-		userProfile = this->authenticationService->getUserLogin(username,password);
+		userProfileConsultado=this->authenticationService
+		                          ->getUserLogin(userProfileBuscado->getName(),userProfileBuscado->getPassword());
 
-
-		if(userProfile != NULL){ //Si se pudo loguear, genera el token y modifica el usuario para guardarlo
-			LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("USUARIO LOGUEADO: "+userProfile->getName()));
-			token = jwToken->generarToken(username);
+		if(userProfileConsultado != NULL){ //Si se pudo loguear, genera el token y modifica el usuario para guardarlo
+			LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("USUARIO LOGUEADO: "+userProfileConsultado->getName()));
+			token = JwToken::generarToken(userProfileConsultado->getName());
 			LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("TOKEN: "+token));
-			userProfile->setToken(token);
-			abmUserService->modifyUser(userProfile);
-			msg_response = "status ok";
+			userProfileConsultado->setToken(token);
+			abmUserService->modifyUser(userProfileConsultado);
+			ret_json = userProfileConsultado->toSharedJson();
+			msg_response = STATUS_OK;
 
 		}else{
-			msg_response = "status nok";
+			msg_response = STATUS_NOK;
+			ret_json = "{ \"success\": \"false\", \"data\": \"Bad Request: No se encontro el usuario\"}";
 		}
 
-
+		delete userProfileBuscado;
+		delete userProfileConsultado;
 
 	}catch(exception & e){
 		if(&e!=NULL){
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+			ret_json = string("{ \"success\": \"false\", \"data\": \"Bad Request: \"")+e.what()+string("\"}");
 		}else{
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("ERROR INESPERADO"));
+			ret_json = "{ \"success\": \"false\", \"data\": \"Bad Request: ERROR}";
 		}
-		msg_response = "status failed";
+		msg_response = STATUS_NOK;
+
 	}
 
-	mg_printf_http_chunk(nc, "{ \"result\": \"%s\" , \"token\": \"%s\"}", msg_response.c_str(),token.c_str());
+	int code = atoi(msg_response.c_str());
+	string error = (code == atoi(STATUS_NOK.c_str()))?"Bad Request":"OK";
+
+	/* Send headers */
+	mg_printf(nc,"HTTP/1.1 %d %s\r\nTransfer-Encoding: chunked\r\n"
+			     "Content-Type: application/json; charset=UTF-8\r\n"
+			     "Token: %s \r\n\r\n",code,error.c_str(),token.c_str());
+	mg_printf_http_chunk(nc,"%s",ret_json.c_str());
 	mg_send_http_chunk(nc, "", 0);  /* Send empty chunk, the end of response */
+
 
 	return msg_response;
 }
 
 string AuthenticationController::event_handler_valid_session(struct mg_connection *nc, struct http_message *hm){
-	string msg_response="";
-	string token="";
-	UserProfile* userProfile = NULL;
+
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AuthenticationController"));
-
-	char vecToken[260];
-
-	try{
-	/* Get Form variables */
-	mg_get_http_var(&hm->body, "token", vecToken, sizeof(vecToken));
+	string result = valid_session(hm);
+	string status = (result.compare(STATUS_NOK)!=0)?STATUS_OK:STATUS_NOK;
+	int code = atoi(status.c_str());
+	string error = (code == atoi(STATUS_NOK.c_str()))?"Bad Request":"OK";
+    string token = (result.compare(STATUS_NOK)!=0)?result.c_str():""; //Si el resultado es distinto de NOK es porque devolvió el token
 
 	/* Send headers */
-	mg_printf(nc, "%s","HTTP/1.1 200 OK\r\nTransfer-Encoding: chunked\r\n\r\n");
+	mg_printf(nc,"HTTP/1.1 %d %s\r\nTransfer-Encoding: chunked\r\n"
+			     "Content-Type: application/json; charset=UTF-8\r\n"
+			     "Token: %s \r\n\r\n",code,error.c_str(),token.c_str());
 
-	/* Call authentication service */
-	string token(vecToken);
+	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Si es valida la sesion devuelve el token. Resultado: "+token));
 
-		LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("TOKEN RECIBIDO: "+token));
+	mg_printf_http_chunk(nc, "{\"status\": \"%s\"}", status.c_str());
+	//mg_send_head(nc,atoi(status.c_str()),result.length(),result.c_str());
 
-		bool isTokenValid = jwToken->isTokenValid(token);
-
-
-		if(isTokenValid){
-			LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("TOKEN VALIDO"));
-			string username = jwToken->getUserName(token);
-			token = jwToken->generarToken(username); //se genera el nuevo token, con el nuevo timestamp, renovando la sesion
-			userProfile=authenticationService->getUserLogin(username,""); //se pasa el password en vacío
-			userProfile->setToken(token);
-			abmUserService->modifyUser(userProfile); //se modifica el usuario para asignarle el nuevo token
-			msg_response = "status ok";
-		}else{
-			msg_response = "status nok";
-		}
-
-
-
-	}catch(exception & e){
-		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-		msg_response = "failed";
-	}
-
-	mg_printf_http_chunk(nc, "{ \"result\": \"%s\" , \"token\": \"%s\"}", msg_response.c_str(),token.c_str());
 	mg_send_http_chunk(nc, "", 0);  /* Send empty chunk, the end of response */
 
-	return msg_response;
+	return status;
 }
 
 AuthenticationController::~AuthenticationController() {
 	delete this->authenticationService;
 	delete this->abmUserService;
-	delete this->jwToken;
+
 }

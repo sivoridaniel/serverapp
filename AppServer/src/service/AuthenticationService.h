@@ -12,6 +12,7 @@
 #include "../exception/IncorrectPasswordException.h"
 #include <log4cplus/logger.h>
 #include "../model/UserProfile.h"
+#include "RemoteSharedService.h"
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
 #include <string>
@@ -28,6 +29,7 @@ using namespace log4cplus;
 class AuthenticationService {
 private:
 	UserDao* userDao;
+	RemoteSharedService* remoteSharedService;
 
 public:
 	/**
@@ -37,12 +39,14 @@ public:
 	/**
 	 * Constructor que se utiliza para poder ser utilizado con gmock.
 	 * De esta manera podemos mockear el DAO para no realizar el llamado a
-	 * la base de datos y poder realizar los test unit de los métodos de la
+	 * la base de datos, y el service remote para evitar consultar el servicio externo.
+	 * De esta manera podemos realizar los test unit de los métodos de la
 	 * clase.
 	 *
-	 * @param IUserDao
+	 * @param UserDao
+	 * @param RemoteSharedService
 	 */
-	AuthenticationService(UserDao * userDao);
+	AuthenticationService(UserDao* userDao,RemoteSharedService* remoteSharedService);
 	/**
 	 * En caso de poder loguearse, devuelve el perfil del usuario.
 	 * En caso de que se pase por parametro password en vacio (""), devolverá

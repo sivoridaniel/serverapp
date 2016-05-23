@@ -9,10 +9,12 @@
 
 AuthenticationService::AuthenticationService() {
 	this->userDao = new UserDao();
+	this->remoteSharedService = new RemoteSharedService();
 }
 
-AuthenticationService::AuthenticationService(UserDao* userDao){
+AuthenticationService::AuthenticationService(UserDao* userDao,RemoteSharedService* remoteSharedService){
 	this->userDao = userDao;
+	this->remoteSharedService = new RemoteSharedService();
 }
 
 UserProfile* AuthenticationService::getUserLogin(string username, string password)throw(IncorrectPasswordException, EntityNotFoundException){
@@ -32,6 +34,10 @@ UserProfile* AuthenticationService::getUserLogin(string username, string passwor
 			throw IncorrectPasswordException();
 		}
 
+		delete userProfile; //Se verifico que sea un usuario registrado, se procede a consultarlo del shared.
+
+		userProfile = remoteSharedService->getUser(username); //se consulta al servicio del shared.
+
 	}catch(EntityNotFoundException& e){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario "<<username<<" no se encuentra registrado."));
 		throw e;
@@ -41,5 +47,6 @@ UserProfile* AuthenticationService::getUserLogin(string username, string passwor
 
 AuthenticationService::~AuthenticationService() {
 	delete userDao;
+	delete remoteSharedService;
 }
 

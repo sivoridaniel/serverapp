@@ -19,21 +19,23 @@ void FactoryController::createControllers(){
 void FactoryController::connect(struct mg_connection *nc, struct http_message *hm, struct mg_serve_http_opts s_http_server_opts){
 
 	string res = abmUserController->connect(nc,hm);
-	if (res.empty()){
+	string not_found = abmUserController->STATUS_NOT_FOUND;
+
+	if (res==not_found){
 		res = matchController->connect(nc,hm);
 	}
-	if(res.empty()){
+	if(res==not_found){
 		res = authenticationController->connect(nc,hm);
 	}
-	if (res.empty()){
+	if (res==not_found){
 		res = searchController->connect(nc,hm);
 	}
-	if (res.empty()){
+	if (res==not_found){
 		res = chatController->connect(nc,hm);
 	}
-	if (res.empty()){
+
         mg_serve_http(nc, hm, s_http_server_opts);  /* Serve static content */
-	}
+
 }
 
 FactoryController::~FactoryController() {

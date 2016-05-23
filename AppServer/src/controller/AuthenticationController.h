@@ -24,7 +24,7 @@ using namespace log4cplus;
 /**
  * Maneja la api rest de authenticacion.
  */
-class AuthenticationController {
+class AuthenticationController:public AbstractController {
 
 public:
 	AuthenticationController();
@@ -42,7 +42,6 @@ public:
 private:
 	AuthenticationService* authenticationService;
 	AbmUserService* abmUserService;
-	JwToken* jwToken;
 	string event_handler_login_user(struct mg_connection *nc, struct http_message *hm);
 	string event_handler_valid_session(struct mg_connection *nc, struct http_message *hm);
 };

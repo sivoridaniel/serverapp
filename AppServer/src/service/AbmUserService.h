@@ -12,6 +12,7 @@
 #include "../dao/MatchDao.h"
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
+#include "RemoteSharedService.h"
 #include <string>
 
 using namespace std;
@@ -25,6 +26,7 @@ class AbmUserService {
 private:
 	UserDao* userDao;
 	MatchDao* matchDao;
+	RemoteSharedService* remoteSharedService;
 public:
 	AbmUserService();
 	/**

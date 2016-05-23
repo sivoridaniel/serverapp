@@ -10,21 +10,26 @@
 AbmUserService::AbmUserService() {
 	this->userDao = new UserDao();
 	this->matchDao = new MatchDao();
+	this->remoteSharedService = new RemoteSharedService();
 }
 
 AbmUserService::~AbmUserService() {
 	delete userDao;
 	delete matchDao;
+	delete remoteSharedService;
 }
 
 string AbmUserService::createNewUser(UserProfile* userProfile){
+	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserService"));
 	Match* match = new Match();
+	bool existeUsuario = true;
 
-	this->userDao->put(userProfile->getName(),userProfile);
-	this->matchDao->put(userProfile->getName(),match);
+	this->userDao->put(userProfile->getId(),userProfile);
+	this->matchDao->put(userProfile->getId(),match);
 	delete match;
     /* Read user from database */
-    UserProfile* us = (UserProfile*)userDao->get(userProfile->getName());
+
+    UserProfile* us = (UserProfile*)remoteSharedService->createUser(userProfile);
     string result = us->getName();
     delete us;
     return result;
