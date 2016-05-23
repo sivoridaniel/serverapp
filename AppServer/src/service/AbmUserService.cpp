@@ -22,23 +22,50 @@ AbmUserService::~AbmUserService() {
 string AbmUserService::createNewUser(UserProfile* userProfile){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserService"));
 	Match* match = new Match();
-	bool existeUsuario = true;
+	string id="";
 
-	this->userDao->put(userProfile->getId(),userProfile);
-	this->matchDao->put(userProfile->getId(),match);
-	delete match;
-    /* Read user from database */
+	try{
+		this->userDao->put(userProfile->getId(),userProfile);
+		this->matchDao->put(userProfile->getId(),match);
+		delete match;
+		/* Read user from database */
 
-    UserProfile* us = (UserProfile*)remoteSharedService->createUser(userProfile);
-    string result = us->getName();
-    delete us;
-    return result;
+		remoteSharedService->createUser(userProfile);
+		id = userProfile->getId();
+
+	}catch(InvalidEntityException& e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario "<<userProfile->getName()<<" con id "
+						        <<userProfile->getId()<<" no se pudo crear."));
+		throw e;
+	}catch(EntityExistsException& e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario "<<userProfile->getName()<<" con id "
+								        <<userProfile->getId()<<" no se puede crear porque ya existe."));
+		throw e;
+	}catch(RemoteException& e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario "<<userProfile->getName()<<" con id "
+					   <<userProfile->getId()<<" no se puede crear porque falló el post."));
+		throw e;
+	}
+
+    return id; //Devuelve el id del usuario generado por el servicio externo (shared server)
+}
+
+void AbmUserService::updateToken(UserProfile* userProfile)throw (InvalidEntityException){
+	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserService"));
+	try{
+		this->userDao->put(userProfile->getId(), userProfile);
+	}catch(InvalidEntityException& m){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario "<<userProfile->getName()<<" con id "
+				        <<userProfile->getId()<<" no pudo actualizar su token."));
+		throw m;
+	}
 }
 
 void AbmUserService::modifyUser(UserProfile* userProfile)throw (InvalidEntityException){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserService"));
 	try{
-		this->userDao->put(userProfile->getId(), userProfile);
+		this->userDao->put(userProfile->getId(), userProfile); //Si cambia el email, nombre de usuario, etc
+		this->remoteSharedService->updateUser(userProfile);
 	}catch(InvalidEntityException& m){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario "<<userProfile->getName()<<" con id "
 				        <<userProfile->getId()<<" no se pudo actualizar."));

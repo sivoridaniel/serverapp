@@ -104,7 +104,7 @@ string MatchController::event_handler_submit_yes(struct mg_connection *nc,
 	/* Send empty chunk, the end of response */
 	mg_send_http_chunk(nc, "", 0);
 
-	return json;
+	return code;
 
 }
 
@@ -166,7 +166,7 @@ string MatchController::event_handler_submit_no(struct mg_connection *nc,
 	/* Send empty chunk, the end of response */
 	mg_send_http_chunk(nc, "", 0);
 
-	return json;
+	return code;
 }
 
 string MatchController::event_handler_confirm_match(struct mg_connection *nc,
@@ -228,7 +228,7 @@ string MatchController::event_handler_confirm_match(struct mg_connection *nc,
 	/* Send empty chunk, the end of response */
 	mg_send_http_chunk(nc, "", 0);
 
-	return json;
+	return code;
 }
 
 string MatchController::event_handler_new_matches(struct mg_connection *nc,
@@ -281,7 +281,7 @@ string MatchController::event_handler_new_matches(struct mg_connection *nc,
 	/* Send empty chunk, the end of response */
 	mg_send_http_chunk(nc, "", 0);
 
-	return json;
+	return code;
 }
 
 vector<string> MatchController::parseMatchRequest(string json) {

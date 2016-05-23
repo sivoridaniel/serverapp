@@ -37,7 +37,7 @@ public:
 private:
 	AbmUserService* abmService;
 	string event_handler_new_user(struct mg_connection *nc, struct http_message *hm);
-	string event_handler_get_user(struct mg_connection *nc, struct http_message *hm);
+	string event_handler_update_user(struct mg_connection *nc, struct http_message *hm);
 };
 
 #endif /* SRC_CONTROLLER_ABMUSERCONTROLLER_H_ */

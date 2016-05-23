@@ -50,6 +50,14 @@ public:
 	 * @throw MergeDbException,JsonParseException
 	 */
 	void modifyUser(UserProfile* userProfile)throw (InvalidEntityException);
+
+	/**
+	 * Actualización del token.
+	 *
+	 * @param userProfile
+	 */
+	void updateToken(UserProfile* userProfile)throw (InvalidEntityException);
+
 	virtual ~AbmUserService();
 };
 

@@ -78,7 +78,7 @@ string SearchCandidatesController::event_handler_search_candidates(struct mg_con
 	/* Send empty chunk, the end of response */
 	mg_send_http_chunk(nc, "", 0);
 
-	return json;
+	return code;
 
 }
 

@@ -28,13 +28,14 @@ public:
 	string STATUS_OK = "200";
 	string STATUS_NOT_FOUND = "404";
 
-	virtual string valid_session(struct http_message *hm){
+	virtual string valid_session(struct mg_connection *nc, struct http_message *hm){
 
 		UserProfile* userProfile = NULL;
 		AuthenticationService * authenticationService = new AuthenticationService();
 		AbmUserService * abmUserService = new AbmUserService();
 		Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbstractController"));
-
+		string ret_json = "{\"success\": \"true\", \"data\":\"logged\"}";
+		string code ="";
 		try{
 
 		mg_str* mg_token = mg_get_http_header(hm,"token");
@@ -60,24 +61,26 @@ public:
 				token = JwToken::generarToken(username); //se genera el nuevo token, con el nuevo timestamp, renovando la sesion
 				userProfile=authenticationService->getUserLogin(username,""); //se pasa el password en vacío
 				userProfile->setToken(token);
-				abmUserService->modifyUser(userProfile); //se modifica el usuario para asignarle el nuevo token
+				abmUserService->updateToken(userProfile); //se modifica el usuario para asignarle el nuevo token
 				delete userProfile;
-				return token;
+				code=token;
 			}else{
-				return "400";
+				code="400";
+				ret_json = "{\"success\": \"false\", \"data\":\"Bad request\"}";
 			}
-
-
 
 		}catch(exception & e){
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			return "400";
+			ret_json = (string("{\"success\": \"false\", \"data\":\"")+e.what()+string("\"}"));
+			code="400";
 		}
+
+		mg_printf_http_chunk(nc, "%s", ret_json.c_str());
 
 		delete abmUserService;
 		delete authenticationService;
 
-		return "400";
+		return code;
 	}
 
 	virtual ~AbstractController(){};

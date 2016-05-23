@@ -52,13 +52,13 @@ string AuthenticationController::event_handler_login_user(struct mg_connection *
 			token = JwToken::generarToken(userProfileConsultado->getName());
 			LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("TOKEN: "+token));
 			userProfileConsultado->setToken(token);
-			abmUserService->modifyUser(userProfileConsultado);
+			abmUserService->updateToken(userProfileConsultado);
 			ret_json = userProfileConsultado->toSharedJson();
 			msg_response = STATUS_OK;
 
 		}else{
 			msg_response = STATUS_NOK;
-			ret_json = "{ \"success\": \"false\", \"data\": \"Bad Request: No se encontro el usuario\"}";
+			ret_json = "{ \"success\": \"false\", \"data\": \"Bad Request: No se encontró el usuario\"}";
 		}
 
 		delete userProfileBuscado;
@@ -67,10 +67,10 @@ string AuthenticationController::event_handler_login_user(struct mg_connection *
 	}catch(exception & e){
 		if(&e!=NULL){
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			ret_json = string("{ \"success\": \"false\", \"data\": \"Bad Request: \"")+e.what()+string("\"}");
+			ret_json = string("{ \"success\": \"false\", \"data\": \"")+e.what()+string("\"}");
 		}else{
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("ERROR INESPERADO"));
-			ret_json = "{ \"success\": \"false\", \"data\": \"Bad Request: ERROR}";
+			ret_json = "{ \"success\": \"false\", \"data\": \"Error inesperado\"}";
 		}
 		msg_response = STATUS_NOK;
 
@@ -93,7 +93,7 @@ string AuthenticationController::event_handler_login_user(struct mg_connection *
 string AuthenticationController::event_handler_valid_session(struct mg_connection *nc, struct http_message *hm){
 
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AuthenticationController"));
-	string result = valid_session(hm);
+	string result = valid_session(nc,hm);
 	string status = (result.compare(STATUS_NOK)!=0)?STATUS_OK:STATUS_NOK;
 	int code = atoi(status.c_str());
 	string error = (code == atoi(STATUS_NOK.c_str()))?"Bad Request":"OK";
@@ -105,9 +105,6 @@ string AuthenticationController::event_handler_valid_session(struct mg_connectio
 			     "Token: %s \r\n\r\n",code,error.c_str(),token.c_str());
 
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Si es valida la sesion devuelve el token. Resultado: "+token));
-
-	mg_printf_http_chunk(nc, "{\"status\": \"%s\"}", status.c_str());
-	//mg_send_head(nc,atoi(status.c_str()),result.length(),result.c_str());
 
 	mg_send_http_chunk(nc, "", 0);  /* Send empty chunk, the end of response */
 

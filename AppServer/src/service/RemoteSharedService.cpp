@@ -105,6 +105,8 @@ void RemoteSharedService::createUser(UserProfile* userProfile) {
 	string id = userProfile->getId();
 	string json = userProfile->toSharedJson();
 
+
+
 	RestClient::response r = RestClient::post(url + "/users/" + id,
 			"application/json", json);
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response code "<<r.code));
@@ -120,6 +122,11 @@ void RemoteSharedService::createUser(UserProfile* userProfile) {
 				LOG4CPLUS_TEXT("El shared server retorno error"));
 		throw RemoteException();
 	}
+
+	//Devolvio 200, seteo el id
+	UserProfile* userAux = new UserProfile(r.body);
+	userProfile->setId(userAux->getId());
+	delete userAux;
 }
 
 void RemoteSharedService::updateUser(UserProfile* userProfile) {
