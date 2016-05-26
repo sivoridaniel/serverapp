@@ -9,13 +9,12 @@
 
 SearchCandidatesService::SearchCandidatesService() {
 	this->matchService = new MatchService();
-	this->sharedService = new RemoteSharedService("http://shared-server-match.herokuapp.com");
+	this->sharedService = new RemoteSharedService();
 }
 
-SearchCandidatesService::SearchCandidatesService(MatchService* matchService){
+SearchCandidatesService::SearchCandidatesService(MatchService* matchService, IRemote* sharedService){
 	this->matchService = matchService;
-	this->sharedService = new RemoteSharedService("http://shared-server-match.herokuapp.com");
-
+	this->sharedService = sharedService;
 }
 
 

@@ -14,7 +14,7 @@ MatchService::MatchService() {
 
 }
 
-MatchService::MatchService(MatchDao* matchDao, ChatService* chatService, RemoteSharedService* sharedService) {
+MatchService::MatchService(MatchDao* matchDao, ChatService* chatService, IRemote* sharedService) {
 	this->matchDao = matchDao;
 	this->chatService = chatService;
 	this->sharedService = sharedService;

@@ -25,7 +25,8 @@ using namespace log4cplus;
 class SearchCandidatesService {
 private:
 	MatchService* matchService;
-	RemoteSharedService* sharedService;
+	IRemote* sharedService;
+
 public:
 	SearchCandidatesService();
 
@@ -36,8 +37,9 @@ public:
 	 * clase.
 	 *
 	 * @param MatchService
+	 * @param SharedService
 	 */
-	SearchCandidatesService( MatchService* matchService);
+	SearchCandidatesService( MatchService* matchService, IRemote* sharedService);
 
 	/**
 	 * Obtiene una lista de candidatos para el usuario dado que tengan intereses

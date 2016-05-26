@@ -67,12 +67,45 @@ public:
 
 };
 
-class MockSharedService : public RemoteSharedService{
+class MockSharedService : public IRemote{
 public:
 
 	MOCK_CONST_METHOD1(MockFunctionGetUser, UserProfile*(string id) );
-	UserProfile* getUser(string id){
-		return MockFunctionGetUser(id);
+	virtual UserProfile* getUser(string id){
+		if (id.compare("alinari")==0){
+			UserProfile* user = new UserProfile("alinari", "1");
+			return user;
+		}
+		else{
+			UserProfile* user = new UserProfile("jferrio", "0");
+			return user;
+		}
+	}
+
+	MOCK_CONST_METHOD1(createInterest, void (Interest* interest));
+	void createInterest(Interest* interest){
+		createInterest(interest);
+	}
+	MOCK_CONST_METHOD0(getInterests, list<Interest*>(void));
+	list<Interest*> getInterests(){
+		return getInterests();
+	}
+	MOCK_CONST_METHOD0(getUsers, list<UserProfile*>(void));
+	list<UserProfile*> getUsers(){
+		return getUsers();
+	}
+
+	MOCK_CONST_METHOD1(createUser, void (UserProfile* userProfile));
+	void createUser(UserProfile* userProfile){
+		createUser(userProfile);
+	}
+	MOCK_CONST_METHOD1(deleteUser, void (string id));
+	void deleteUser(string id){
+		deleteUser(id);
+	}
+	MOCK_CONST_METHOD1(updateUser, void (UserProfile* userProfile));
+	void updateUser(UserProfile* userProfile){
+		updateUser(userProfile);
 	}
 
 };
@@ -464,7 +497,22 @@ TEST(MatchServiceRejectChatExistsTest,rejectingUserChatExists){
 }
 
 TEST(MatchServiceTest, getNewMatches){
-
+	MockMatchDao* mockMatchDao = new MockMatchDao();
+	MockChatDao* mockChatDao = new MockChatDao();
+	MockChatService* mockChatService = new MockChatService(mockChatDao);
+	MockSharedService* mockSharedService = new MockSharedService();
+	Match* matchPsivori = new Match();
+	matchPsivori->addNewMatch("alinari");
+	matchPsivori->addNewMatch("jferrio");
+	EXPECT_CALL(*mockMatchDao, MockFunctionGet("psivori")).WillOnce(Return(matchPsivori));
+	MatchService* matchService = new MatchService(mockMatchDao, mockChatService, mockSharedService);
+	list<UserProfile*> users = matchService->getNewMatches("psivori");
+	ASSERT_TRUE(users.size()==2);
+	for (list<UserProfile*>::iterator it=users.begin(); it!=users.end(); ++it){
+		UserProfile* user = *it;
+		delete user;
+	}
+	delete matchService;
 }
 
 /*

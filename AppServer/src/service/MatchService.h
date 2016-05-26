@@ -27,7 +27,8 @@ class MatchService {
 private:
 	MatchDao* matchDao;
 	ChatService* chatService;
-	RemoteSharedService* sharedService;
+	IRemote* sharedService;
+
 public:
 	MatchService();
 
@@ -41,7 +42,8 @@ public:
 	 * @param chatService
 	 * @param sharedService
 	 */
-	MatchService(MatchDao* matchDao, ChatService* chatService, RemoteSharedService* sharedService);
+	MatchService(MatchDao* matchDao, ChatService* chatService, IRemote* sharedService);
+
 
 	virtual ~MatchService();
 	/**

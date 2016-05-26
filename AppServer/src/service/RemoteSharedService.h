@@ -13,6 +13,8 @@
 #include "../exception/EntityExistsException.h"
 #include "../exception/EntityNotFoundException.h"
 #include "../exception/RemoteException.h"
+#include "IRemote.h"
+
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
 #include <restclient-cpp/restclient.h>
@@ -22,7 +24,8 @@ using namespace std;
 using namespace log4cplus;
 
 
-class RemoteSharedService {
+class RemoteSharedService : public IRemote{
+
 private:
 	string url;
 

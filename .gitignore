@@ -4,6 +4,7 @@ AppServer/build/app_server
 AppServer/.cproject
 AppServer/.project
 AppServer/.settings
+AppServer/core
 Makefile
 googletest/*
 doxygen/*

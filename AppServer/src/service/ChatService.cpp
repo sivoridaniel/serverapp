@@ -104,12 +104,15 @@ void ChatService::createChat(string idUser1, string idUser2) {
 			throw EntityExistsException();
 		}catch(EntityNotFoundException& e){
 			chatDao->put(id, chat);
+			delete chat;
 		}
 	}catch(EntityExistsException& e){
 		LOG4CPLUS_WARN(logger, LOG4CPLUS_TEXT("La conversacion "<<id<<" ya existe"));
+		delete chat;
 		throw e;
 	}catch(exception& e){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Error persisitiendo en la base"));
+		delete chat;
 		throw e;
 	}
 
