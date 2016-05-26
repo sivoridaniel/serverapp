@@ -8,7 +8,7 @@
 #ifndef SRC_CONTROLLER_ABMUSERCONTROLLER_H_
 #define SRC_CONTROLLER_ABMUSERCONTROLLER_H_
 
-#include "../service/AbmUserService.h"
+#include "../service/impl/AbmUserService.h"
 #include "AbstractController.h"
 #include "../webserver/mongoose.h"
 #include <log4cplus/logger.h>

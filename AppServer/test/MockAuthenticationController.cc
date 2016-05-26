@@ -7,7 +7,7 @@
 
 #include "gmock/gmock.h"
 #include "../src/utils/JwToken.h"
-#include "../src/service/AuthenticationService.h"
+#include "../src/service/impl/AuthenticationService.h"
 #include "../src/dao/UserDao.h"
 #include <string>
 #include <ctime>

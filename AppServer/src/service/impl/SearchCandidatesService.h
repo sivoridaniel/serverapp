@@ -9,9 +9,10 @@
 #define SEARCHCANDIDATESSERVICE_H_
 
 #include "MatchService.h"
-#include "../exception/IllegalStateException.h"
-#include "../model/UserProfile.h"
+#include "../../exception/IllegalStateException.h"
+#include "../../model/UserProfile.h"
 #include "RemoteSharedService.h"
+#include "../api/ISearchCandidatesService.h"
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
 #include <string>
@@ -22,7 +23,7 @@
 using namespace std;
 using namespace log4cplus;
 
-class SearchCandidatesService {
+class SearchCandidatesService : public ISearchCandidatesService{
 private:
 	MatchService* matchService;
 	IRemote* sharedService;

@@ -6,11 +6,11 @@
  */
 
 #include "gmock/gmock.h"
-#include "../src/service/MatchService.h"
-#include "../src/service/RemoteSharedService.h"
+#include "../src/service/impl/MatchService.h"
+#include "../src/service/impl/RemoteSharedService.h"
 #include "../src/dao/MatchDao.h"
 #include "../src/dao/ChatDao.h"
-#include "../src/service/ChatService.h"
+#include "../src/service/impl/ChatService.h"
 #include <string>
 #include <ctime>
 #include <log4cplus/logger.h>

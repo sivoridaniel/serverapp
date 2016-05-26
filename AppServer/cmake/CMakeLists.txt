@@ -21,7 +21,7 @@ file(GLOB UTILS_SRC ../src/utils/*.cpp ../src/utils/*.h)
 file(GLOB JSON_SRC ../src/json/*.cpp)
 file(GLOB DAO_SRC ../src/dao/*.cpp ../src/dao/*.h)
 file(GLOB MODEL_SRC ../src/model/*.cpp)
-file(GLOB SERVICE_SRC ../src/service/*.cpp ../src/service/*.h)
+file(GLOB SERVICE_SRC ../src/service/impl/*.cpp ../src/service/*.h)
 file(GLOB EXCEPTION_SRC ../src/exception/*.cpp ../src/exception/*.h)
 
 find_package(Threads REQUIRED)

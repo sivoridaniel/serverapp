@@ -8,11 +8,12 @@
 #ifndef MATCHSERVICE_H_
 #define MATCHSERVICE_H_
 
-#include "../dao/MatchDao.h"
+#include "../../dao/MatchDao.h"
 #include "ChatService.h"
 #include "RemoteSharedService.h"
-#include "../exception/IllegalStateException.h"
-#include "../exception/EntityExistsException.h"
+#include "../../exception/IllegalStateException.h"
+#include "../../exception/EntityExistsException.h"
+#include "../api/IMatchService.h"
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
 #include <string>
@@ -23,7 +24,7 @@ using namespace log4cplus;
 /**
  * Matcheo de usuario por intereses.
  */
-class MatchService {
+class MatchService : public IMatchService{
 private:
 	MatchDao* matchDao;
 	ChatService* chatService;

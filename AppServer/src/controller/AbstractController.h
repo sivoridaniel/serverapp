@@ -11,8 +11,8 @@
 #include <string>
 #include "../webserver/mongoose.h"
 #include "../utils/JwToken.h"
-#include "../service/AuthenticationService.h"
-#include "../service/AbmUserService.h"
+#include "../service/impl/AuthenticationService.h"
+#include "../service/impl/AbmUserService.h"
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
 

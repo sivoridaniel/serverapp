@@ -8,11 +8,12 @@
 #ifndef SRC_SERVICE_ABMUSERSERVICE_H_
 #define SRC_SERVICE_ABMUSERSERVICE_H_
 
-#include "../dao/UserDao.h"
-#include "../dao/MatchDao.h"
+#include "../../dao/UserDao.h"
+#include "../../dao/MatchDao.h"
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
 #include "RemoteSharedService.h"
+#include "../api/IAbmUserService.h"
 #include <string>
 
 using namespace std;
@@ -22,7 +23,7 @@ using namespace log4cplus;
  * Clase que se utiliza para el ABM de usuarios en el server. Basicamente es
  * para poder almacenar los tokens para poder controlar la sesion del usuario.
  */
-class AbmUserService {
+class AbmUserService : public IAbmUserService{
 private:
 	UserDao* userDao;
 	MatchDao* matchDao;

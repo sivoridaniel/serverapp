@@ -8,7 +8,7 @@
 #ifndef CHATCONTROLLER_H_
 #define CHATCONTROLLER_H_
 
-#include "../service/ChatService.h"
+#include "../service/impl/ChatService.h"
 #include "AbstractController.h"
 #include "../webserver/mongoose.h"
 #include "../utils/UriParser.h"

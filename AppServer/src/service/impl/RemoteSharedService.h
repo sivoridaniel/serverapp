@@ -8,12 +8,12 @@
 #ifndef REMOTESHAREDSERVICE_H_
 #define REMOTESHAREDSERVICE_H_
 
-#include "../model/UserProfile.h"
-#include "../model/Interest.h"
-#include "../exception/EntityExistsException.h"
-#include "../exception/EntityNotFoundException.h"
-#include "../exception/RemoteException.h"
-#include "IRemote.h"
+#include "../../model/UserProfile.h"
+#include "../../model/Interest.h"
+#include "../../exception/EntityExistsException.h"
+#include "../../exception/EntityNotFoundException.h"
+#include "../../exception/RemoteException.h"
+#include "../api/IRemote.h"
 
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>

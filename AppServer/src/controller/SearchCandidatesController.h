@@ -8,7 +8,7 @@
 #ifndef SEARCHCANDIDATESCONTROLLER_H_
 #define SEARCHCANDIDATESCONTROLLER_H_
 
-#include "../service/SearchCandidatesService.h"
+#include "../service/impl/SearchCandidatesService.h"
 #include "AbstractController.h"
 #include "../webserver/mongoose.h"
 #include "../utils/UriParser.h"
