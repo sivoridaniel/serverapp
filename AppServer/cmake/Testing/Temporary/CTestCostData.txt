@@ -1,4 +1,5 @@
 mockAuthenticationCtrlTest 8 0
-mockMatchServiceTest 8 0.00596949
+mockMatchServiceTest 8 0
 ---
 mockAuthenticationCtrlTest
+mockMatchServiceTest

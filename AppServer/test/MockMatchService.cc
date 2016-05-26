@@ -55,14 +55,49 @@ public:
 	}
 };
 
-class MockChatService : public ChatService{
+class MockChatService : public IChatService{
+private:
+	MockChatDao* chatDao;
 public:
-	MockChatService(ChatDao* chatDao):ChatService(chatDao){}
+	MockChatService(MockChatDao* chatDao){
+		this->chatDao = chatDao;
+	}
 
-	MOCK_CONST_METHOD2(MockFunctionCreateChat, void(string idUser1,  string idUser2) );
-	virtual void createChat(string idUser1, string idUser2) const
-	{
-	    MockFunctionCreateChat(idUser1, idUser2);
+	~MockChatService(){
+		delete chatDao;
+	}
+
+	MOCK_METHOD2(createChat, void(string idUser1,  string idUser2) );
+
+
+	MOCK_METHOD2(getAllMessages, vector<Message*>(string idUser1,  string idUser2) );
+	/*virtual vector<Message*> getAllMessages(string idUser1, string idUser2){
+		return getAllMessages(idUser1, idUser2);
+	}*/
+
+	MOCK_METHOD2(getNewMessages, vector<Message*>(string idUser1,  string idUser2) );
+	/*virtual  vector<Message*> getNewMessages(string idUser1, string idUser2){
+		return getNewMessages(idUser1, idUser2);
+	}*/
+
+	MOCK_METHOD3(addNewMessage, void(string idUser1,  string idUser2,  string message) );
+	/*virtual  void addNewMessage(string idUser1, string idUser2, string message){
+		addNewMessage(idUser1, idUser2, message);
+	}*/
+
+	MOCK_METHOD3(updateLastMessageSeen, void(string idUser1,  string idUser2, int messageIndex) );
+	/*virtual  void updateLastMessageSeen(string idUser1, string idUser2, int messageIndex){
+		updateLastMessageSeen(idUser1, idUser2, messageIndex);
+	}*/
+
+	MOCK_CONST_METHOD2(getChat, Chat*(string idUser1,  string idUser2) );
+	virtual  Chat* getChat(string idUser1, string idUser2){
+		if ((idUser1.compare("psivori")==0) && (idUser2.compare("alinari")==0)){
+			throw EntityNotFoundException();
+		}else{
+			Chat* chat = new Chat();
+			return chat;
+		}
 	}
 
 };
@@ -121,7 +156,7 @@ TEST(MatchServiceConfirmTest,confirmingUser){
 	Match* match = new Match();
 	match->addNewMatch("alinari");
 	EXPECT_CALL(*mockMatchDao, MockFunctionGet("psivori")).Times(AtLeast(1)).WillOnce(Return(match));
-	EXPECT_CALL(*mockChatDao, MockFunctionPut("alinari-psivori",_));
+	EXPECT_CALL(*mockChatService, createChat("psivori", "alinari"));
 	MatchService* matchService = new MatchService(mockMatchDao, mockChatService, mockSharedService);
 	EXPECT_NO_THROW({matchService->confirmUser("psivori","alinari");});
 
@@ -323,10 +358,8 @@ TEST(MatchServiceAcceptUserIsMatchedTest,confirmingUserIsMatched){
 	MockSharedService* mockSharedService = new MockSharedService();
 	Match* matchPsivori = new Match();
 	Match* matchJFerrio = new Match();
-	Chat* chat = new Chat();
 	EXPECT_CALL(*mockMatchDao, MockFunctionGet("psivori")).WillOnce(Return(matchPsivori));
 	EXPECT_CALL(*mockMatchDao, MockFunctionGet("jferrio")).WillOnce(Return(matchJFerrio));
-	EXPECT_CALL(*mockChatDao, MockFunctionGet("jferrio-psivori")).WillOnce(Return(chat));
 	MatchService* matchService = new MatchService(mockMatchDao, mockChatService, mockSharedService);
 	try{
 		matchService->addToYesList("psivori","jferrio");
@@ -454,9 +487,7 @@ TEST(MatchServiceRejectUserIsMatchedTest,rejectingUserIsMatched){
 	MockChatService* mockChatService = new MockChatService(mockChatDao);
 	MockSharedService* mockSharedService = new MockSharedService();
 	Match* matchPsivori = new Match();
-	Chat* chat = new Chat();
 	EXPECT_CALL(*mockMatchDao, MockFunctionGet("psivori")).WillOnce(Return(matchPsivori));
-	EXPECT_CALL(*mockChatDao, MockFunctionGet("jferrio-psivori")).WillOnce(Return(chat));
 	MatchService* matchService = new MatchService(mockMatchDao, mockChatService, mockSharedService);
 	try{
 		matchService->addToNoList("psivori","jferrio");

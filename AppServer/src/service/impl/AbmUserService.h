@@ -27,7 +27,7 @@ class AbmUserService : public IAbmUserService{
 private:
 	UserDao* userDao;
 	MatchDao* matchDao;
-	RemoteSharedService* remoteSharedService;
+	IRemote* remoteSharedService;
 public:
 	AbmUserService();
 	/**

@@ -30,7 +30,7 @@ using namespace log4cplus;
 class AuthenticationService : public IAuthenticationService{
 private:
 	UserDao* userDao;
-	RemoteSharedService* remoteSharedService;
+	IRemote* remoteSharedService;
 
 public:
 	/**
@@ -47,7 +47,7 @@ public:
 	 * @param UserDao
 	 * @param RemoteSharedService
 	 */
-	AuthenticationService(UserDao* userDao,RemoteSharedService* remoteSharedService);
+	AuthenticationService(UserDao* userDao,IRemote* remoteSharedService);
 	/**
 	 * En caso de poder loguearse, devuelve el perfil del usuario.
 	 * En caso de que se pase por parametro password en vacio (""), devolverá

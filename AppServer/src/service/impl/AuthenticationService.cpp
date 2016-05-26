@@ -12,7 +12,7 @@ AuthenticationService::AuthenticationService() {
 	this->remoteSharedService = new RemoteSharedService();
 }
 
-AuthenticationService::AuthenticationService(UserDao* userDao,RemoteSharedService* remoteSharedService){
+AuthenticationService::AuthenticationService(UserDao* userDao,IRemote* remoteSharedService){
 	this->userDao = userDao;
 	this->remoteSharedService = new RemoteSharedService();
 }

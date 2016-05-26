@@ -27,7 +27,7 @@ using namespace log4cplus;
 class MatchService : public IMatchService{
 private:
 	MatchDao* matchDao;
-	ChatService* chatService;
+	IChatService* chatService;
 	IRemote* sharedService;
 
 public:
@@ -43,7 +43,7 @@ public:
 	 * @param chatService
 	 * @param sharedService
 	 */
-	MatchService(MatchDao* matchDao, ChatService* chatService, IRemote* sharedService);
+	MatchService(MatchDao* matchDao, IChatService* chatService, IRemote* sharedService);
 
 
 	virtual ~MatchService();

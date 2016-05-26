@@ -12,7 +12,7 @@ SearchCandidatesService::SearchCandidatesService() {
 	this->sharedService = new RemoteSharedService();
 }
 
-SearchCandidatesService::SearchCandidatesService(MatchService* matchService, IRemote* sharedService){
+SearchCandidatesService::SearchCandidatesService(IMatchService* matchService, IRemote* sharedService){
 	this->matchService = matchService;
 	this->sharedService = sharedService;
 }
