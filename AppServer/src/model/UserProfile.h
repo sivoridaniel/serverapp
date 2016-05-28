@@ -27,6 +27,7 @@ private:
 	string token;
 	string email;
 	string photoProfile;
+	bool registracionUser = false;
 	list<Interest*> interests;
 	Location* location;
 public:
@@ -35,6 +36,10 @@ public:
 
 	UserProfile(string name, string password);
 	virtual ~UserProfile();
+
+	void setRegistracionUser(bool isRegistracionUser);
+
+	bool getRegistracionUser();
 
 	string toJson();
 

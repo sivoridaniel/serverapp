@@ -17,17 +17,24 @@ def get_args():
         return token
 
 token = get_args()
+headers = {"Content-Type":"application/json","Accept":"text/plain","token":token}
+data=''
 
 try:
-	r = requests.get("http://localhost:3000/valid_session", data = {"token":token})
+	r = requests.get("http://localhost:3000/valid_session", data=data, headers=headers)
         
+	header = r.headers.get('Token')
+	
+	print 'Header: %s'%header
+    
 	data = json.loads(r.text) 
         
-	result = data['result']
+	status = data['status']
         
-	assert(result == 'status ok'),"SESION NO VALIDA. Return %s"%result
+	assert(status == '200'),"SESION NO VALIDA. Return: %s"%status
 	
-	print result
+	print 'Resultado: %s'%result
+	print 'Status: %s'%status
 
 except AssertionError, e:
     	print 'NOK: %s'%e

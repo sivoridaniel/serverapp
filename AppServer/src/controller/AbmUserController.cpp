@@ -18,7 +18,7 @@ string AbmUserController::connect(struct mg_connection *nc, struct http_message 
 	}else if(mg_vcmp(&hm->uri, "/user/updateuser") == 0){
 		return event_handler_update_user(nc,hm);
 	}
-	return "404"; //Por default devuelve NOT_FOUND.
+	return STATUS_NOT_FOUND; //Por default devuelve NOT_FOUND.
 }
 
 string AbmUserController::event_handler_new_user(struct mg_connection *nc, struct http_message *hm){
@@ -27,27 +27,28 @@ string AbmUserController::event_handler_new_user(struct mg_connection *nc, struc
 
 	string json = string(hm->body.p,hm->body.len);
 	string return_value = "";
-	string strcode = "200";
+	string strcode = STATUS_OK;
 
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("JSon Ingresado: " << json));
 
 	UserProfile* userProfile = new UserProfile(json);
+	userProfile->setRegistracionUser(true);
 
 	try{
 		LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Guardando en db usuario " << userProfile->getName()));
 
 		abmService->createNewUser(userProfile);
 
-		return_value = (string("{\"success\":\"false\", \"data\":\"")+userProfile->getId()+string("\"}"));
+		return_value = (string("{\"success\":\"true\", \"data\":\"")+userProfile->getId()+string("\"}"));
 
 	}catch(InvalidEntityException& e){
-		strcode = "400";
+		strcode = STATUS_NOK;
 		return_value = "{ \"success\": \"false\", \"data\": \"El usuario no se pudo crear\"}";
 	}catch(EntityExistsException& e){
-		strcode = "400";
+		strcode = STATUS_NOK;
 		return_value = "{ \"success\": \"false\", \"data\": \"El usuario ya existe\"}";
 	}catch(RemoteException& e){
-		strcode = "404";
+		strcode = STATUS_NOK;
 		return_value = "{ \"success\": \"false\", \"data\": \"Error desconocido\"}";
 	}
 
@@ -71,7 +72,7 @@ string AbmUserController::event_handler_update_user(struct mg_connection *nc, st
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("UserLoginController"));
 	string json = string(hm->body.p,hm->body.len);
 	string return_value = "";
-	string strcode = "200";
+	string strcode = STATUS_OK;
 
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("JSon Ingresado: " << json));
 
@@ -80,15 +81,15 @@ string AbmUserController::event_handler_update_user(struct mg_connection *nc, st
 	try{
 		LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Actualizando usuario con id " << userProfile->getId()));
 		abmService->modifyUser(userProfile);
-		return_value = string("{\"success\":\"false\", \"data\":\"profile update\"}");
+		return_value = "{\"success\":\"true\", \"data\":\"profile update\"}";
 	}catch(InvalidEntityException& e){
-		strcode = "400";
+		strcode = STATUS_NOK;
 		return_value = (string("{ \"success\": \"false\", \"data\": \"")+e.what()+string("\"}"));
 	}catch(EntityNotFoundException& e){
-		strcode = "400";
+		strcode = STATUS_NOT_FOUND;
 		return_value = (string("{ \"success\": \"false\", \"data\": \"")+e.what()+string("\"}"));
 	}catch(RemoteException& e){
-		strcode = "404";
+		strcode = STATUS_NOK;
 		return_value = (string("{ \"success\": \"false\", \"data\": \"")+e.what()+string("\"}"));
 	}
 

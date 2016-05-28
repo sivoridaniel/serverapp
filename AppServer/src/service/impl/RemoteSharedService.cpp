@@ -105,7 +105,7 @@ void RemoteSharedService::createUser(UserProfile* userProfile) {
 	string id = userProfile->getId();
 	string json = userProfile->toSharedJson();
 
-
+	LOG4CPLUS_INFO(logger,LOG4CPLUS_TEXT("JSON CREATE USER: "<<json));
 
 	RestClient::response r = RestClient::post(url + "/users/" + id,
 			"application/json", json);
@@ -126,7 +126,7 @@ void RemoteSharedService::createUser(UserProfile* userProfile) {
 	//Devolvio 200, seteo el id
 	UserProfile* userAux = new UserProfile(r.body);
 	userProfile->setId(userAux->getId());
-	delete userAux;
+
 }
 
 void RemoteSharedService::updateUser(UserProfile* userProfile) {

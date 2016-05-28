@@ -35,7 +35,7 @@ string MatchController::connect(struct mg_connection *nc,
 			return event_handler_confirm_match(nc, hm);
 		}
 	}
-	return "404"; //Por default devuelve un JSON vacío.
+	return STATUS_NOT_FOUND; //Por default devuelve un JSON vacío.
 
 }
 
@@ -69,27 +69,27 @@ string MatchController::event_handler_submit_yes(struct mg_connection *nc,
 			}
 		} catch (EntityExistsException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = "400";
+			code = STATUS_NOK;
 			json =
 					"{ \"success\": \"false\", \"data\": \"El usuario ya fue aceptado o rechazado\"}";
 		} catch (EntityNotFoundException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = "404";
+			code = STATUS_NOT_FOUND;
 			json =
 					"{ \"success\": \"false\", \"data\": \"Uno de los usuarios no existe en la base\"}";
 		} catch (IllegalStateException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = "400";
+			code = STATUS_NOK;
 			json = "{ \"success\": \"false\", \"data\": \"Usuario invalido\"}";
 		}
 		catch (exception& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = "400";
+			code = STATUS_NOK;
 			json = "{ \"success\": \"false\", \"data\": \"Error desconocido\"}";
 		}
 
 	} catch (JsonParseException& e) {
-		code = "400";
+		code = STATUS_NOK;
 		json =
 				"{ \"success\": \"false\", \"data\": \"Bad Request: formato incorrecto de json\"}";
 	}
@@ -132,26 +132,26 @@ string MatchController::event_handler_submit_no(struct mg_connection *nc,
 			json = "{ \"success\": \"true\" \"data\": \"rejected\"}";
 		} catch (EntityExistsException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = "400";
+			code = STATUS_NOK;
 			json =
 					"{ \"success\": \"false\", \"data\": \"El usuario ya fue aceptado o rechazado\"}";
 		} catch (EntityNotFoundException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = "404";
+			code = STATUS_NOT_FOUND;
 			json =
 					"{ \"success\": \"false\", \"data\": \"Uno de los usuarios no existe en la base\"}";
 		} catch (IllegalStateException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = "400";
+			code = STATUS_NOK;
 			json = "{ \"success\": \"false\", \"data\": \"Usuario invalido\"}";
 		} catch (exception& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = "400";
+			code = STATUS_NOK;
 			json = "{ \"success\": \"false\", \"data\": \"Error desconocido\"}";
 		}
 
 	} catch (JsonParseException& e) {
-		code = "400";
+		code = STATUS_NOK;
 		json =
 				"{ \"success\": \"false\", \"data\": \"Bad Request: formato incorrecto de json\"}";
 	}
@@ -194,26 +194,26 @@ string MatchController::event_handler_confirm_match(struct mg_connection *nc,
 			json = "{ \"success\": \"true\" \"data\": \"confirmed\"}";
 		} catch (EntityExistsException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = "400";
+			code = STATUS_NOK;
 			json =
 					"{ \"success\": \"false\", \"data\": \"El usuario ya existe en la lista de confirmados, fue matcheado o ya fue rechazado\"}";
 		} catch (EntityNotFoundException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = "404";
+			code = STATUS_NOT_FOUND;
 			json =
 					"{ \"success\": \"false\", \"data\": \"Uno de los usuarios no existe en la base\"}";
 		} catch (IllegalStateException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = "400";
+			code = STATUS_NOK;
 			json = "{ \"success\": \"false\", \"data\": \"Usuario invalido\"}";
 		}  catch (exception& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = "400";
+			code = STATUS_NOK;
 			json = "{ \"success\": \"false\", \"data\": \"Error desconocido\"}";
 		}
 
 	} catch (JsonParseException& e) {
-		code = "400";
+		code = STATUS_NOK;
 		json =
 				"{ \"success\": \"false\", \"data\": \"Bad Request: formato incorrecto de json\"}";
 	}
@@ -242,14 +242,14 @@ string MatchController::event_handler_new_matches(struct mg_connection *nc,
 	vector<string> params = UriParser::getParams(query);
 
 	if (params.size()!=1){
-		code = "400";
+		code = STATUS_NOK;
 		json = "{ \"success\": \"false\", \"data\": \"Bad Request\"}";
 	}else{
 		id = params[0];
 	}
 
 	if (id.compare("") == 0) {
-		code = "400";
+		code = STATUS_NOK;
 		json = "{ \"success\": \"false\", \"data\": \"Bad Request\"}";
 	} else {
 
@@ -258,15 +258,15 @@ string MatchController::event_handler_new_matches(struct mg_connection *nc,
 
 		try {
 			list<UserProfile*> matches = matchService->getNewMatches(id);
-			code = "200";
+			code = STATUS_OK;
 			json = createNewMatchesResponse(matches);
 		} catch (EntityNotFoundException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = "404";
+			code = STATUS_NOT_FOUND;
 			json = "{ \"success\": \"false\", \"data\": \"Uno de los usuarios no existe en la base\"}";
 		} catch (exception& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = "400";
+			code = STATUS_NOK;
 			json = "{ \"success\": \"false\", \"data\": \"Error desconocido\"}";
 		}
 	}

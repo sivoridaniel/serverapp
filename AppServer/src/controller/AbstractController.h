@@ -22,12 +22,42 @@ using namespace std;
 class AbstractController {
 
 public:
-	virtual string connect(struct mg_connection *nc, struct http_message *hm)=0;
 
 	string STATUS_NOK = "400";
 	string STATUS_OK = "200";
 	string STATUS_NOT_FOUND = "404";
 
+	/**
+	 * Método que se encarga de redireccionar al método según la uri.
+	 * Devolverá el código de estado.
+	 *
+	 * 200: OK
+	 * 400: ERROR ESPECIFICO
+	 * 404: ERROR DESCONOCIDO / NO ENCUENTRA EL SERVICIO.
+	 *
+	 * @param struct mg_connection *nc
+	 * @param struct http_message *hm
+	 * @return string
+	 */
+	virtual string connect(struct mg_connection *nc, struct http_message *hm)=0;
+
+	/**
+	 * Método que verifica el token recibido cuando se consulta un servicio, en el cual
+	 * se requiere estar logueado y no superar el tiempo máximo de request (60 segundos / 1 minuto).
+	 * Pone en el cuerpo del mensaje (body) {"success": "true", "data":"logged"}
+	 * Caso contrario pondrá en el body {"success": "false", "data":"mensaje de error"}
+	 *
+	 * Devuelve el código de estado.
+	 * En caso de ser ok, renueva el token por 1 minuto más.
+	 *
+	 * 200: OK
+	 * 400: TOKEN INVALIDO / BAD REQUEST
+	 * 404: ENTITY NOT FOUND
+	 *
+	 * @param struct mg_connection *nc
+	 * @param struct http_message *hm
+	 * @return string
+	 */
 	virtual string valid_session(struct mg_connection *nc, struct http_message *hm){
 
 		UserProfile* userProfile = NULL;
@@ -35,7 +65,7 @@ public:
 		AbmUserService * abmUserService = new AbmUserService();
 		Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbstractController"));
 		string ret_json = "{\"success\": \"true\", \"data\":\"logged\"}";
-		string code ="";
+		string code =STATUS_OK;
 		try{
 
 		mg_str* mg_token = mg_get_http_header(hm,"token");
@@ -65,14 +95,17 @@ public:
 				delete userProfile;
 				code=token;
 			}else{
-				code="400";
+				code=STATUS_NOK;
 				ret_json = "{\"success\": \"false\", \"data\":\"Bad request\"}";
 			}
 
+		}catch(EntityNotFoundException & e){
+			ret_json = (string("{\"success\": \"false\", \"data\":\"")+e.what()+string("\"}"));
+			code=STATUS_NOT_FOUND;
 		}catch(exception & e){
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			ret_json = (string("{\"success\": \"false\", \"data\":\"")+e.what()+string("\"}"));
-			code="400";
+			code=STATUS_NOK;
 		}
 
 		mg_printf_http_chunk(nc, "%s", ret_json.c_str());

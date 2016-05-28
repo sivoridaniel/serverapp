@@ -25,7 +25,7 @@ string SearchCandidatesController::connect(struct mg_connection *nc,
 		}
 
 	}
-	return "404"; //Por default devuelve un JSON vacío.
+	return STATUS_NOT_FOUND; //Por default devuelve un JSON vacío.
 
 }
 
@@ -40,13 +40,13 @@ string SearchCandidatesController::event_handler_search_candidates(struct mg_con
 	vector<string> params = UriParser::getParams(query);
 
 	if (params.size()!=1){
-		code = "400";
+		code = STATUS_NOK;
 		json = "{ \"success\": \"false\", \"data\": \"Bad Request\"}";
 	}else{
 		id = params[0];
 	}
 	if (id.compare("") == 0){
-		string code = "400";
+		string code = STATUS_NOK;
 		string json = "{ \"success\": \"false\", \"data\": \"Bad Request\"}";
 	}
 	else{
@@ -55,16 +55,16 @@ string SearchCandidatesController::event_handler_search_candidates(struct mg_con
 		try{
 			list<UserProfile*> candidates = searchService->getCandidates(id);
 			json = createSearchResponse(candidates);
-			code = "200";
+			code = STATUS_OK;
 		}
 		catch(EntityNotFoundException& e){
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			json = "{ \"success\": \"false\", \"data\": \"No existe el usuario con id "+id+"\"}";
-			code = "404";
+			code = STATUS_NOT_FOUND;
 		}
 		catch(exception& e){
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = "400";
+			code = STATUS_NOK;
 			json = "{ \"success\": \"false\", \"data\": \"Bad Request\"}";
 		}
 	}

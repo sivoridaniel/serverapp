@@ -53,6 +53,14 @@ UserProfile::~UserProfile() {
 	delete location;
 }
 
+void UserProfile::setRegistracionUser(bool registracionUser) {
+	this->registracionUser = registracionUser;
+}
+
+bool UserProfile::getRegistracionUser(){
+	return registracionUser;
+}
+
 string UserProfile::toJson(){
 	Json::Value root;
 	//Json::Value vecInterests(Json::arrayValue);
@@ -79,21 +87,29 @@ string UserProfile::toSharedJson(){
 	Json::Value root;
 	Json::Value vecInterests(Json::arrayValue);
 	Json::FastWriter writer;
+	int i=0;
 
-	root["user"]["id"] = this->id;
 	root["user"]["name"] = this->name;
 	root["user"]["alias"] = this->alias;
 	root["user"]["photo"] = this->photoProfile;
 	root["user"]["location"]["latitude"] = this->location->getLatitude();
 	root["user"]["location"]["longitude"] = this->location->getLongitude();
-	int i=0;
+	if(interests.empty()){
+		root["user"]["interests"] = Json::Value(Json::arrayValue);
+	}
+
 	for (list< Interest* >::iterator it=interests.begin(); it!=interests.end(); ++it){
 		Interest* interest = *it;
 		root["user"]["interests"][i]["category"] = interest->getCategory();;
 		root["user"]["interests"][i]["value"] = interest->getValue();
 		i++;
 	}
+
 	root["user"]["email"] = this->email;
+
+	if(!getRegistracionUser()){
+		root["user"]["id"] = this->id;
+	}
 
 	string json = writer.write(root);
 	return json;

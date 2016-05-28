@@ -64,16 +64,18 @@ string AuthenticationController::event_handler_login_user(struct mg_connection *
 		delete userProfileBuscado;
 		delete userProfileConsultado;
 
+	}catch(EntityNotFoundException& e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+		ret_json = string("{ \"success\": \"false\", \"data\": \"")+e.what()+string("\"}");
+		msg_response = STATUS_NOT_FOUND;
 	}catch(exception & e){
 		if(&e!=NULL){
-			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			ret_json = string("{ \"success\": \"false\", \"data\": \"")+e.what()+string("\"}");
 		}else{
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("ERROR INESPERADO"));
 			ret_json = "{ \"success\": \"false\", \"data\": \"Error inesperado\"}";
 		}
 		msg_response = STATUS_NOK;
-
 	}
 
 	int code = atoi(msg_response.c_str());

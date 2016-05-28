@@ -6,30 +6,42 @@ import requests
 import json
 import sys
 
+class User:
+         def __init__(self, name, password):
+                self.name = name
+                self.password = password
+
+         def reprJSON(self):
+                return dict(name=self.name,password = self.password)
+
 def get_args():
 
         parser = argparse.ArgumentParser('Llamada al servicio login http://localhost:3000/login_user')
-        parser.add_argument('-u','--user',type=str,help='Nombre de usuario', required = True)
+        parser.add_argument('-n','--name',type=str,help='Nombre de usuario', required = True)
         parser.add_argument('-p','--password',type=str,help='Password', required = True)
         
         args = parser.parse_args()
-        user = args.user
+        name = args.name
         password = args.password
         
-	return user, password
+	return name,password
 
-user, password = get_args()
+name, password = get_args()
+
+user = User(name, password)
+
+data = '{\"user\":'+json.dumps(user.reprJSON())+'}'
+
+headers = {"content-type": "application/json"}
 
 
-
-r = requests.get("http://localhost:3000/login_user", data = {"name":user,"password":password})
+r = requests.get("http://localhost:3000/login_user", data = data, headers = headers)
 
 try:
-    assert( r.status_code == 200 ),"ERROR LLAMANDO AL LOGIN"
-    data = json.loads(r.text)
-    result = data['result']
-    assert( result == '200'),"AUTENTICACION NO VALIDA: %s"%result
-    print result
+    token = r.headers.get('Token')
+    data = r.text
+    print 'Token: %s'%token
+    print 'Return: %s'%data
 except AssertionError, e:
     print 'NOK: %s'%e
 
