@@ -87,9 +87,9 @@ public:
 
 			if(isTokenValid){
 				LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("TOKEN VALIDO"));
-				string username = JwToken::getUserName(token);
-				token = JwToken::generarToken(username); //se genera el nuevo token, con el nuevo timestamp, renovando la sesion
-				userProfile=authenticationService->getUserLogin(username,""); //se pasa el password en vacío
+				string id = JwToken::getId(token);
+				token = JwToken::generarToken(id); //se genera el nuevo token, con el nuevo timestamp, renovando la sesion
+				userProfile=authenticationService->getUserLogin(id,""); //se pasa el password en vacío
 				userProfile->setToken(token);
 				abmUserService->updateToken(userProfile); //se modifica el usuario para asignarle el nuevo token
 				delete userProfile;

@@ -30,7 +30,7 @@ public:
 	/**
 	 * Se utilizará para la generación del token el algoritmo JWT_ALG_HS256 utilizando una clave interna de 32 bytes. El header quedará
 	 * conformado por el type: jwt (metodo de generación del token) y alg: HS256 que es el algoritmo utilizado.
-	 * Para el payload se utiliza el nombre de usuario y el timestamp generado al momento de llamada a este metodo (que se da cuando
+	 * Para el payload se utiliza el id de usuario y el timestamp generado al momento de llamada a este metodo (que se da cuando
 	 * el usuario se loguea al sistema). También agregamos en el payload el expire token dado en segundos (seteado en 60 segundos -> 1 min
 	 * para mantener la sesión de usuario).
 	 * El tercer y ultimo campo es la firma del token. En este campo se utiliza la clave interna de 32 bytes.
@@ -39,11 +39,11 @@ public:
 	 * En caso de no poder generar alguna de las secciones (HEADER, PAYLOAD o SIGNATURE) se logueara el mensaje de error correspondiente y
 	 * luego disparará la excepción TokenException para tratarla más arriba.
 	 *
-	 * @param string username
+	 * @param string id
 	 * @throw TokenException
 	 * @return string token
 	 */
-	static string generarToken(string username) throw (TokenException);
+	static string generarToken(string id) throw (TokenException);
 	/**
 	 * Se verifica que el token no haya expirado. Para ello se decodifica el token y se evalua el timestamp que no haya superado los
 	 * 60 segundos.
@@ -55,15 +55,15 @@ public:
 	static bool isTokenValid(string token) throw (TokenException);
 
 	/**
-	 * Para obtener el nombre de usuario del token, dado que el usuario enviará el token con su nombre
+	 * Para obtener el id de usuario del token, dado que el usuario enviará el token con su id
 	 * en la sección payload cifrada en HS256.
 	 *
 	 * @param string token
-	 * @throw TokenException en caso de no poder obtener el nombre de usuario
-	 * @result string username
+	 * @throw TokenException en caso de no poder obtener el id de usuario
+	 * @result string id
 	 *
 	 */
-	static string getUserName(string token)throw (TokenException);
+	static string getId(string token)throw (TokenException);
 
 	//virtual ~JwToken();
 
@@ -101,8 +101,8 @@ private:
 	static const string MSG_ERROR_DECODE_TOKEN(){
 			return "Error decodificando el token";
 	}
-	static const string MSG_ERROR_DECODE_USERNAME(){
-			return "Error decodificando el username";
+	static const string MSG_ERROR_DECODE_ID(){
+			return "Error decodificando el id";
 	}
 };
 

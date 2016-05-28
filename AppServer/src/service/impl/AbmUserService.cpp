@@ -25,13 +25,13 @@ string AbmUserService::createNewUser(UserProfile* userProfile){
 	string id="";
 
 	try{
-		this->userDao->put(userProfile->getId(),userProfile);
-		this->matchDao->put(userProfile->getId(),match);
-		delete match;
-		/* Read user from database */
 
 		remoteSharedService->createUser(userProfile);
 		id = userProfile->getId();
+
+		this->userDao->put(userProfile->getId(),userProfile);
+		this->matchDao->put(userProfile->getId(),match);
+		delete match;
 
 	}catch(InvalidEntityException& e){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario "<<userProfile->getName()<<" con id "

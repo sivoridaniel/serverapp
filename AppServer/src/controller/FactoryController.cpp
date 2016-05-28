@@ -34,7 +34,7 @@ void FactoryController::connect(struct mg_connection *nc, struct http_message *h
 		res = chatController->connect(nc,hm);
 	}
 
-        mg_serve_http(nc, hm, s_http_server_opts);  /* Serve static content */
+    mg_serve_http(nc, hm, s_http_server_opts);  /* Serve static content */
 
 }
 
