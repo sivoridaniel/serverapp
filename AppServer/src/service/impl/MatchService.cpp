@@ -12,7 +12,52 @@ MatchService::MatchService() {
 	this->chatService = new ChatService();
 	this->sharedService = new RemoteSharedService("http://shared-server-match.herokuapp.com");
 
+	try{
+		matchDao->get("3");
+	}catch(EntityNotFoundException& e){
+		Match* match = new Match();
+		matchDao->put("3", match);
+	}
+	try{
+		matchDao->get("4");
+	}catch(EntityNotFoundException& e){
+		Match* match = new Match();
+		matchDao->put("4", match);
+	}
+	try{
+		matchDao->get("5");
+	}catch(EntityNotFoundException& e){
+		Match* match = new Match();
+		matchDao->put("5", match);
+	}
+	try{
+		matchDao->get("6");
+	}catch(EntityNotFoundException& e){
+		Match* match = new Match();
+		matchDao->put("6", match);
+	}
+	try{
+		matchDao->get("7");
+	}catch(EntityNotFoundException& e){
+		Match* match = new Match();
+		matchDao->put("7", match);
+	}
+	try{
+		matchDao->get("8");
+	}catch(EntityNotFoundException& e){
+		Match* match = new Match();
+		matchDao->put("8", match);
+	}
+	try{
+		matchDao->get("9");
+	}catch(EntityNotFoundException& e){
+		Match* match = new Match();
+		matchDao->put("9", match);
+	}
+
+
 }
+
 
 MatchService::MatchService(MatchDao* matchDao, IChatService* chatService, IRemote* sharedService) {
 	this->matchDao = matchDao;
@@ -237,9 +282,16 @@ void MatchService::confirmUser(string idUser, string idUserConfirmed){
 	if (matchUser->isMatched(idUserConfirmed)) {
 		LOG4CPLUS_INFO(logger,
 				LOG4CPLUS_TEXT("Confirmando match con usuario " << idUserConfirmed << " para usuario " <<idUser));
-		matchUser->removeFromNewMatches(idUser);
-		chatService->createChat(idUser,idUserConfirmed);
+		matchUser->removeFromNewMatches(idUserConfirmed);
 		matchDao->put(idUser,matchUser);
+		try{
+			chatService->createChat(idUser,idUserConfirmed);
+			LOG4CPLUS_INFO(logger,
+					LOG4CPLUS_TEXT("Se crea el chat entre el usuario " << idUserConfirmed << " y el usuario " <<idUser));
+		}catch(EntityExistsException& e){
+			LOG4CPLUS_WARN(logger,
+					LOG4CPLUS_TEXT("Ya existe el chat entre el usuario " << idUserConfirmed << " y el usuario " <<idUser));
+		}
 		delete matchUser;
 	} else {
 		delete matchUser;
