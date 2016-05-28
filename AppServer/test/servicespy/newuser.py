@@ -37,12 +37,17 @@ data = '{\"user\":'+json.dumps(data.reprJSON())+'}'
 
 headers = {"content-type": "application/json"}
 
-r = requests.post("http://localhost:3000/user/newuser", data = data, headers = headers)
+r = requests.post("http://localhost:3000/user/newuser", data = data, headers = headers, stream=True)
 
 try:
-    assert( r.status_code == 200 ),"ERROR LLAMADA CREANDO NUEVO USUARIO"
-    data = json.loads(r.text)
-    print data
+   assert( r.status_code == 200 ),"ERROR LLAMADA CREANDO NUEVO USUARIO"
+   # for raw_rsvp in r.iter_lines():
+    #	if raw_rsvp:
+     #   	rsvp = json.loads(raw_rsvp)
+   #  for chunk in r.iter_content(0):
+	#	print chunk
+   data = json.loads(r.text)
+   print data
 
 except AssertionError, e:
     print 'NOK: %s'%e

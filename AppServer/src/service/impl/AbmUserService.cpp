@@ -25,25 +25,32 @@ string AbmUserService::createNewUser(UserProfile* userProfile){
 	string id="";
 
 	try{
+		remoteSharedService->createUser(userProfile);
+		id = userProfile->getId();
+
 		this->userDao->put(userProfile->getId(),userProfile);
 		this->matchDao->put(userProfile->getId(),match);
 		delete match;
-		/* Read user from database */
-
-		remoteSharedService->createUser(userProfile);
-		id = userProfile->getId();
 
 	}catch(InvalidEntityException& e){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario "<<userProfile->getName()<<" con id "
 						        <<userProfile->getId()<<" no se pudo crear."));
+		delete match;
 		throw e;
 	}catch(EntityExistsException& e){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario "<<userProfile->getName()<<" con id "
 								        <<userProfile->getId()<<" no se puede crear porque ya existe."));
+		delete match;
 		throw e;
 	}catch(RemoteException& e){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario "<<userProfile->getName()<<" con id "
 					   <<userProfile->getId()<<" no se puede crear porque falló el post."));
+		delete match;
+		throw e;
+	}catch(exception& e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario "<<userProfile->getName()<<" con id "
+							   <<userProfile->getId()<<" no se puede crear porque fallo la escritura a la db."));
+		delete match;
 		throw e;
 	}
 

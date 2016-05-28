@@ -62,10 +62,14 @@ list<UserProfile*> SearchCandidatesService::runSearchAlgorithm(string idUser, do
 			}
 
 			//filtro de distancia
-			double distance = calculateDistance(user->getLocation(), userProfile->getLocation());
+			try{
+				double distance = calculateDistance(user->getLocation(), userProfile->getLocation());
 
-			if (distance > maxDistance){
-				LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("El candidato "<<idCandidate<<" es filtrado por la distancia"));
+				if (distance > maxDistance){
+					LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("El candidato "<<idCandidate<<" es filtrado por la distancia"));
+					continue;
+				}
+			}catch(exception& e){
 				continue;
 			}
 
