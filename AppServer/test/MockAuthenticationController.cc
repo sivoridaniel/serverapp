@@ -49,7 +49,7 @@ TEST(JwTokenTest, generatingToken){
 	  JwToken* jwToken=new JwToken();
 	  string token = "";
 
-	  EXPECT_NO_THROW({token=jwToken->generarToken("psivori");});
+	  EXPECT_NO_THROW({token=jwToken->generarToken("17");});
 
 	  cout<<"*****************************************************************"<<endl;
 	  cout<<"TOKEN GENERADO: "<<token<<endl;
@@ -64,7 +64,7 @@ TEST(AuthorizationTokenTest, isValidToken){
 	string token="";
 	bool isValidToken = false;
 
-	EXPECT_NO_THROW({token = jwToken->generarToken("psivori");});
+	EXPECT_NO_THROW({token = jwToken->generarToken("17");});
 
 	if(token.size()!=0)
 	   isValidToken=jwToken->isTokenValid(token);
@@ -78,10 +78,10 @@ TEST(AuthorizationTokenTest, isValidToken){
 TEST(AuthenticationServiceTest,login){
 	MockUserDao* mockUserDao = new MockUserDao();
 	MockSharedService* mockShared = new MockSharedService();
-	UserProfile* userProfile = new UserProfile("psivori","password");
-	EXPECT_CALL(*mockUserDao, MockFunctionGet("psivori")).Times(AtLeast(1)).WillOnce(Return(userProfile));
+	UserProfile* userProfile = new UserProfile("17","password");
+	EXPECT_CALL(*mockUserDao, MockFunctionGet("17")).Times(AtLeast(1)).WillOnce(Return(userProfile));
 	AuthenticationService* authenticationService = new AuthenticationService(mockUserDao,mockShared);
-	EXPECT_NO_THROW({authenticationService->getUserLogin("psivori","password");});
+	EXPECT_NO_THROW({authenticationService->getUserLogin("17","password");});
 
 	delete userProfile;
 	delete authenticationService;

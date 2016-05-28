@@ -45,11 +45,11 @@ string AuthenticationController::event_handler_login_user(struct mg_connection *
 		/* Call authentication service */
 		LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("INTENTO LOGUEO"));
 		userProfileConsultado=this->authenticationService
-		                          ->getUserLogin(userProfileBuscado->getName(),userProfileBuscado->getPassword());
+		                          ->getUserLogin(userProfileBuscado->getId(),userProfileBuscado->getPassword());
 
 		if(userProfileConsultado != NULL){ //Si se pudo loguear, genera el token y modifica el usuario para guardarlo
-			LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("USUARIO LOGUEADO: "+userProfileConsultado->getName()));
-			token = JwToken::generarToken(userProfileConsultado->getName());
+			LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("USUARIO LOGUEADO DE ID: "+userProfileConsultado->getId()));
+			token = JwToken::generarToken(userProfileConsultado->getId());
 			LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("TOKEN: "+token));
 			userProfileConsultado->setToken(token);
 			abmUserService->updateToken(userProfileConsultado);

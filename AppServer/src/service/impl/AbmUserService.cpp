@@ -28,6 +28,7 @@ string AbmUserService::createNewUser(UserProfile* userProfile){
 		remoteSharedService->createUser(userProfile);
 		id = userProfile->getId();
 
+
 		this->userDao->put(userProfile->getId(),userProfile);
 		this->matchDao->put(userProfile->getId(),match);
 		delete match;

@@ -104,8 +104,14 @@ string AbmUserController::event_handler_update_user(struct mg_connection *nc, st
 		return_value = (string("{ \"success\": \"false\", \"data\": \"")+e.what()+string("\"}"));
 	}
 
+	delete userProfile;
+
 	int code = atoi(strcode.c_str());
 	string error = (code == atoi(STATUS_NOK.c_str()))?"Bad Request":"OK";
+
+	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Code response int: " << code));
+	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Code response string: " << error));
+	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Return Value response: " << return_value));
 
 	/* Send headers */
 	mg_printf(nc,"HTTP/1.1 %d %s\r\nTransfer-Encoding: chunked\r\n"
@@ -114,7 +120,7 @@ string AbmUserController::event_handler_update_user(struct mg_connection *nc, st
 	mg_printf_http_chunk(nc, "%s", return_value.c_str());
 	mg_send_http_chunk(nc, "", 0);  /* Send empty chunk, the end of response */
 
-	delete userProfile;
+
 	return strcode;
 }
 

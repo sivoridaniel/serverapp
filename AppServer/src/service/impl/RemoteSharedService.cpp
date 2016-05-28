@@ -127,7 +127,6 @@ void RemoteSharedService::createUser(UserProfile* userProfile) {
 	UserProfile* userAux = new UserProfile(r.body);
 	userProfile->setId(userAux->getId());
 	delete userAux;
-
 }
 
 void RemoteSharedService::updateUser(UserProfile* userProfile) {
