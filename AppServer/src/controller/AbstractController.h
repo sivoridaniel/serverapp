@@ -23,9 +23,9 @@ class AbstractController {
 
 public:
 
-	string STATUS_NOK = "400";
-	string STATUS_OK = "200";
-	string STATUS_NOT_FOUND = "404";
+	string STATUS_NOK = "400 Bad Request";
+	string STATUS_OK = "200 OK";
+	string STATUS_NOT_FOUND = "404 Not Found";
 
 	/**
 	 * Método que se encarga de redireccionar al método según la uri.
@@ -114,6 +114,26 @@ public:
 		delete authenticationService;
 
 		return code;
+	}
+
+	virtual void sendResponse(struct mg_connection *nc, string code, string json, string token){
+
+		string transferEncoding = "chunked";
+		string contentType = "application/json; charset=UTF-8";
+		string headers = "HTTP/1.1 "+code+"\r\nTransfer-Encoding: "+transferEncoding+"\r\nContent-Type: "+contentType+"\r\nToken: "+token+"\r\n\r\n";
+
+		/* Send headers */
+		mg_printf(nc, "%s", headers.c_str());
+		/* Send result back as a JSON object */
+		mg_printf_http_chunk(nc, "%s", json.c_str());
+		/* Send empty chunk, the end of response */
+		mg_send_http_chunk(nc, "", 0);
+	}
+
+	virtual string getGenericJson(string success, string data){
+		string json = "";
+		json = "{ \"success\": \""+success+"\", \"data\": \""+data+"\"}";
+		return json;
 	}
 
 	virtual ~AbstractController(){};

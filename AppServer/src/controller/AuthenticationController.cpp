@@ -29,9 +29,10 @@ string AuthenticationController::connect(struct mg_connection *nc,
 }
 
 string AuthenticationController::event_handler_login_user(struct mg_connection *nc, struct http_message *hm){
-	string msg_response = "";
+	string code = "";
 	string token = "";
 	string ret_json = "";
+	string messageCode = "";
 	UserProfile* userProfileBuscado = NULL;
 	UserProfile* userProfileConsultado = NULL;
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AuthenticationController"));
@@ -54,11 +55,10 @@ string AuthenticationController::event_handler_login_user(struct mg_connection *
 			userProfileConsultado->setToken(token);
 			abmUserService->updateToken(userProfileConsultado);
 			ret_json = userProfileConsultado->toSharedJson();
-			msg_response = STATUS_OK;
-
+			code = STATUS_OK;
 		}else{
-			msg_response = STATUS_NOK;
-			ret_json = "{ \"success\": \"false\", \"data\": \"Bad Request: No se encontró el usuario\"}";
+			code = STATUS_NOK;
+			ret_json = this->getGenericJson("false", "No se encontró el usuario");
 		}
 
 		delete userProfileBuscado;
@@ -66,51 +66,34 @@ string AuthenticationController::event_handler_login_user(struct mg_connection *
 
 	}catch(EntityNotFoundException& e){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-		ret_json = string("{ \"success\": \"false\", \"data\": \"")+e.what()+string("\"}");
-		msg_response = STATUS_NOT_FOUND;
+		ret_json = this->getGenericJson("false",e.what());
+		code = STATUS_NOT_FOUND;
 	}catch(exception & e){
 		if(&e!=NULL){
-			ret_json = string("{ \"success\": \"false\", \"data\": \"")+e.what()+string("\"}");
+			ret_json = this->getGenericJson("false",e.what());
 		}else{
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("ERROR INESPERADO"));
-			ret_json = "{ \"success\": \"false\", \"data\": \"Error inesperado\"}";
+			ret_json = this->getGenericJson("false","Error inesperado");
 		}
-		msg_response = STATUS_NOK;
+		code = STATUS_NOK;
 	}
 
-	int code = atoi(msg_response.c_str());
-	string error = (code == atoi(STATUS_NOK.c_str()))?"Bad Request":"OK";
+	this->sendResponse(nc, code, ret_json, token);
 
-	/* Send headers */
-	mg_printf(nc,"HTTP/1.1 %d %s\r\nTransfer-Encoding: chunked\r\n"
-			     "Content-Type: application/json; charset=UTF-8\r\n"
-			     "Token: %s \r\n\r\n",code,error.c_str(),token.c_str());
-	mg_printf_http_chunk(nc,"%s",ret_json.c_str());
-	mg_send_http_chunk(nc, "", 0);  /* Send empty chunk, the end of response */
-
-
-	return msg_response;
+	return code;
 }
 
 string AuthenticationController::event_handler_valid_session(struct mg_connection *nc, struct http_message *hm){
 
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AuthenticationController"));
-	string result = valid_session(nc,hm);
-	string status = (result.compare(STATUS_NOK)!=0)?STATUS_OK:STATUS_NOK;
-	int code = atoi(status.c_str());
-	string error = (code == atoi(STATUS_NOK.c_str()))?"Bad Request":"OK";
-    string token = (result.compare(STATUS_NOK)!=0)?result.c_str():""; //Si el resultado es distinto de NOK es porque devolvió el token
-
-	/* Send headers */
-	mg_printf(nc,"HTTP/1.1 %d %s\r\nTransfer-Encoding: chunked\r\n"
-			     "Content-Type: application/json; charset=UTF-8\r\n"
-			     "Token: %s \r\n\r\n",code,error.c_str(),token.c_str());
+	string code = valid_session(nc,hm);
+    string token = (code.compare(STATUS_NOK)!=0)?code.c_str():""; //Si el resultado es distinto de NOK es porque devolvió el token
 
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Si es valida la sesion devuelve el token. Resultado: "+token));
 
-	mg_send_http_chunk(nc, "", 0);  /* Send empty chunk, the end of response */
+	this->sendResponse(nc, code,"", token);
 
-	return status;
+	return code;
 }
 
 AuthenticationController::~AuthenticationController() {

@@ -29,99 +29,89 @@ string AbmUserController::event_handler_new_user(struct mg_connection *nc, struc
 
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("UserLoginController"));
 
-	string json = string(hm->body.p,hm->body.len);
-	string return_value = "";
-	string strcode = STATUS_OK;
+	string data = string(hm->body.p,hm->body.len);
+	string json = "";
+	string code = STATUS_OK;
+	string messageCode = "";
 
-	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("JSon Ingresado: " << json));
-
-	UserProfile* userProfile = new UserProfile(json);
-	userProfile->setRegistracionUser(true);
+	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("JSon Ingresado: " << data));
 
 	try{
-		LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Guardando en db usuario " << userProfile->getName()));
+		UserProfile* userProfile = new UserProfile(data);
+		userProfile->setRegistracionUser(true);
 
-		abmService->createNewUser(userProfile);
+		try{
+			LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Guardando en db usuario " << userProfile->getName()));
 
-		return_value = (string("{\"success\":\"true\", \"data\":\"")+userProfile->getId()+string("\"}"));
+			abmService->createNewUser(userProfile);
+			json = this->getGenericJson("true", userProfile->getId());
+			code = STATUS_OK;
 
-	}catch(InvalidEntityException& e){
-		strcode = STATUS_NOK;
-		return_value = "{ \"success\": \"false\", \"data\": \"El usuario no se pudo crear\"}";
-	}catch(EntityExistsException& e){
-		strcode = STATUS_NOK;
-		return_value = "{ \"success\": \"false\", \"data\": \"El usuario ya existe\"}";
-	}catch(RemoteException& e){
-		strcode = STATUS_NOK;
-		return_value = "{ \"success\": \"false\", \"data\": \"Error en conexion con shared\"}";
+		}catch(InvalidEntityException& e){
+			code = STATUS_NOK;
+			json = this->getGenericJson("true", e.what());
+		}catch(EntityExistsException& e){
+			code = STATUS_NOK;
+			json = this->getGenericJson("false", e.what());
+		}catch(RemoteException& e){
+			code = STATUS_NOK;
+			json = this->getGenericJson("false", e.what());
+		}
+		catch(exception& e){
+			code = STATUS_NOK;
+			json = this->getGenericJson("false", e.what());
+		}
+		delete userProfile;
+	}catch(JsonParseException& e){
+		code = STATUS_NOK;
+		json = this->getGenericJson("false", e.what());
 	}
-	catch(exception& e){
-		strcode = STATUS_NOK;
-		return_value = "{ \"success\": \"false\", \"data\": \"Error desconocido\"}";
-	}
 
-	int code = atoi(strcode.c_str());
-	string error = (code == atoi(STATUS_NOK.c_str()))?"Bad Request":"OK";
-	string headers = "HTTP/1.1 "+strcode+" "+error+"\r\nTransfer-Encoding: chunked\r\nContent-Type: application/json; charset=UTF-8\r\n\r\n";
-	string contentType = "Content-Type: application/json; charset=UTF-8\r\n";
-	/* Send headers */
-	mg_printf(nc,"%s",headers.c_str());
-	/* Send result back as a JSON object */
-	mg_printf_http_chunk(nc, "%s", return_value.c_str());
-	mg_send_http_chunk(nc, "", 0);  /* Send empty chunk, the end of response */
+	this->sendResponse(nc,code,json,"");
 
-	delete userProfile;
-
-	return strcode;
+	return code;
 }
 
 string AbmUserController::event_handler_update_user(struct mg_connection *nc, struct http_message *hm){
 
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("UserLoginController"));
-	string json = string(hm->body.p,hm->body.len);
-	string return_value = "";
-	string strcode = STATUS_OK;
+	string data = string(hm->body.p,hm->body.len);
+	string json = "";
+	string code = STATUS_OK;
 
-	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("JSon Ingresado: " << json));
-
-	UserProfile* userProfile = new UserProfile(json);
+	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("JSon Ingresado: " << data));
 
 	try{
-		LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Actualizando usuario con id " << userProfile->getId()));
-		abmService->modifyUser(userProfile);
-		return_value = "{\"success\":\"true\", \"data\":\"profile update\"}";
-	}catch(InvalidEntityException& e){
-		strcode = STATUS_NOK;
-		return_value = (string("{ \"success\": \"false\", \"data\": \"")+e.what()+string("\"}"));
-	}catch(EntityNotFoundException& e){
-		strcode = STATUS_NOT_FOUND;
-		return_value = (string("{ \"success\": \"false\", \"data\": \"")+e.what()+string("\"}"));
-	}catch(RemoteException& e){
-		strcode = STATUS_NOK;
-		return_value = (string("{ \"success\": \"false\", \"data\": \"")+e.what()+string("\"}"));
-	}catch(exception& e){
-		strcode = STATUS_NOK;
-		return_value = (string("{ \"success\": \"false\", \"data\": \"")+e.what()+string("\"}"));
+		UserProfile* userProfile = new UserProfile(data);
+
+		try{
+			LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Actualizando usuario con id " << userProfile->getId()));
+			abmService->modifyUser(userProfile);
+			json = this->getGenericJson("true", "profile updated");
+			code = STATUS_OK;
+		}catch(InvalidEntityException& e){
+			code = STATUS_NOK;
+			json = this->getGenericJson("false", e.what());
+		}catch(EntityNotFoundException& e){
+			code = STATUS_NOT_FOUND;
+			json = this->getGenericJson("false", e.what());
+		}catch(RemoteException& e){
+			code = STATUS_NOK;
+			json = this->getGenericJson("false", e.what());
+		}catch(exception& e){
+			code = STATUS_NOK;
+			json = this->getGenericJson("false", e.what());
+		}
+		delete userProfile;
+
+	}catch(JsonParseException& e){
+		code = STATUS_NOK;
+		json = this->getGenericJson("false", e.what());
 	}
 
-	delete userProfile;
+	this->sendResponse(nc,code,json, "");
 
-	int code = atoi(strcode.c_str());
-	string error = (code == atoi(STATUS_NOK.c_str()))?"Bad Request":"OK";
-
-	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Code response int: " << code));
-	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Code response string: " << error));
-	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Return Value response: " << return_value));
-
-	/* Send headers */
-	mg_printf(nc,"HTTP/1.1 %d %s\r\nTransfer-Encoding: chunked\r\n"
-			"Content-Type: application/json; charset=UTF-8\r\n",code,error.c_str());
-	/* Send result back as a JSON object */
-	mg_printf_http_chunk(nc, "%s", return_value.c_str());
-	mg_send_http_chunk(nc, "", 0);  /* Send empty chunk, the end of response */
-
-
-	return strcode;
+	return code;
 }
 
 AbmUserController::~AbmUserController() {

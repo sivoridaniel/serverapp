@@ -55,7 +55,7 @@ string ChatController::getMessages(struct mg_connection *nc, struct http_message
 	vector<string> params = UriParser::getParams(query);
 	if (params.size()!=2){
 		code = STATUS_NOK;
-		json = "{ \"success\": \"false\", \"data\": \"Bad Request\"}";
+		json = this->getGenericJson("false","invalid params");
 	}
 	else{
 		idUser1 = params[0];
@@ -64,7 +64,7 @@ string ChatController::getMessages(struct mg_connection *nc, struct http_message
 
 	if (idUser1.compare("") == 0 || idUser2.compare("") == 0) {
 		code = STATUS_NOK;
-		json = "{ \"success\": \"false\", \"data\": \"Bad Request\"}";
+		json = this->getGenericJson("false","invalid user in params");
 	} else {
 		try {
 			vector<Message*> messages = chatService->getAllMessages(idUser1,idUser2);
@@ -75,27 +75,20 @@ string ChatController::getMessages(struct mg_connection *nc, struct http_message
 				Message* message = *it;
 				delete message;
 			}
+			code = STATUS_OK;
 		} catch (EntityNotFoundException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOT_FOUND;
-			json = "{ \"success\": \"false\", \"data\": \"La conversacion no existe en la base\"}";
+			json = this->getGenericJson("false",e.what());
 		} catch (exception& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
-			json = "{ \"success\": \"false\", \"data\": \"Error desconocido\"}";
+			json = this->getGenericJson("false",e.what());
 		}
 
 	}
 
-	string headers = "HTTP/1.1 " + code
-			+ " OK\r\nTransfer-Encoding: chunked\r\n\r\n";
-
-	/* Send headers */
-	mg_printf(nc, "%s", headers.c_str());
-	/* Send result back as a JSON object */
-	mg_printf_http_chunk(nc, "%s", json.c_str());
-	/* Send empty chunk, the end of response */
-	mg_send_http_chunk(nc, "", 0);
+	this->sendResponse(nc, code, json, "");
 
 	return code;
 }
@@ -113,7 +106,7 @@ string ChatController::getNewMessages(struct mg_connection *nc, struct http_mess
 	vector<string> params = UriParser::getParams(query);
 	if (params.size()!=2){
 		code = STATUS_NOK;
-		json = "{ \"success\": \"false\", \"data\": \"Bad Request\"}";
+		json = this->getGenericJson("false","invalid params");
 	}
 	else{
 		idUser1 = params[0];
@@ -122,7 +115,7 @@ string ChatController::getNewMessages(struct mg_connection *nc, struct http_mess
 
 	if (idUser1.compare("") == 0 || idUser2.compare("") == 0) {
 		code = STATUS_NOK;
-		json = "{ \"success\": \"false\", \"data\": \"Bad Request\"}";
+		json = this->getGenericJson("false","invalid user in params");
 	} else {
 		try {
 			vector<Message*> messages = chatService->getNewMessages(idUser1,idUser2);
@@ -133,27 +126,21 @@ string ChatController::getNewMessages(struct mg_connection *nc, struct http_mess
 				Message* message = *it;
 				delete message;
 			}
+			code = STATUS_OK;
 		} catch (EntityNotFoundException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOT_FOUND;
-			json = "{ \"success\": \"false\", \"data\": \"La conversacion no existe en la base\"}";
+			json = this->getGenericJson("false",e.what());
 		} catch (exception& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
-			json = "{ \"success\": \"false\", \"data\": \"Error desconocido\"}";
+			json = this->getGenericJson("false",e.what());
 		}
 
 	}
 
-	string headers = "HTTP/1.1 " + code
-			+ " OK\r\nTransfer-Encoding: chunked\r\n\r\n";
+	this->sendResponse(nc, code, json, "");
 
-	/* Send headers */
-	mg_printf(nc, "%s", headers.c_str());
-	/* Send result back as a JSON object */
-	mg_printf_http_chunk(nc, "%s", json.c_str());
-	/* Send empty chunk, the end of response */
-	mg_send_http_chunk(nc, "", 0);
 
 	return code;
 }
@@ -179,33 +166,21 @@ string ChatController::postMessage(struct mg_connection *nc, struct http_message
 			chatService->addNewMessage(idFrom, idTo, message);
 
 			LOG4CPLUS_INFO(logger, "se agrega el mensaje de "<<idTo<<" a la conversacion con "<<idFrom);
-			json = "{ \"success\": \"true\" \"data\": \"ok\"}";
-
+			json = this->getGenericJson("true","message posted");
 		} catch (EntityNotFoundException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOT_FOUND;
-			json = "{ \"success\": \"false\", \"data\": \"No existe el chat entre los usuarios\"}";
-		} catch (exception& e) {
+			json = this->getGenericJson("false",e.what());		} catch (exception& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
-			json = "{ \"success\": \"false\", \"data\": \"Error desconocido\"}";
-		}
+			json = this->getGenericJson("false",e.what());		}
 
 	} catch (JsonParseException& e) {
 		code = STATUS_NOK;
-		json =
-				"{ \"success\": \"false\", \"data\": \"Bad Request: formato incorrecto de json\"}";
+		json = this->getGenericJson("false",e.what());
 	}
 
-	string headers = "HTTP/1.1 " + code
-			+ " OK\r\nTransfer-Encoding: chunked\r\n\r\n";
-
-	/* Send headers */
-	mg_printf(nc, "%s", headers.c_str());
-	/* Send result back as a JSON object */
-	mg_printf_http_chunk(nc, "%s", json.c_str());
-	/* Send empty chunk, the end of response */
-	mg_send_http_chunk(nc, "", 0);
+	this->sendResponse(nc, code, json, "");
 
 	return code;
 }
@@ -230,33 +205,26 @@ string ChatController::updateLastMessageSeen(struct mg_connection *nc, struct ht
 			chatService->updateLastMessageSeen(idFrom, idTo, idMessage);
 
 			LOG4CPLUS_INFO(logger, "se actualiza el ultimo mensaje visto por "<<idFrom<<" de"<<idTo);
-			json = "{ \"success\": \"true\" \"data\": \"ok\"}";
+			json = this->getGenericJson("true","last message seen updated");
+			code = STATUS_OK;
 
 		} catch (EntityNotFoundException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOT_FOUND;
-			json = "{ \"success\": \"false\", \"data\": \"No existe el chat entre los usuarios\"}";
+			json = this->getGenericJson("false",e.what());
 		} catch (exception& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
-			json = "{ \"success\": \"false\", \"data\": \"Error desconocido\"}";
+			json = this->getGenericJson("false",e.what());
 		}
 
 	} catch (JsonParseException& e) {
 		code = STATUS_NOK;
-		json =
-				"{ \"success\": \"false\", \"data\": \"Bad Request: formato incorrecto de json\"}";
+		json = this->getGenericJson("false",e.what());
 	}
 
-	string headers = "HTTP/1.1 " + code
-			+ " OK\r\nTransfer-Encoding: chunked\r\n\r\n";
+	this->sendResponse(nc, code, json, "");
 
-	/* Send headers */
-	mg_printf(nc, "%s", headers.c_str());
-	/* Send result back as a JSON object */
-	mg_printf_http_chunk(nc, "%s", json.c_str());
-	/* Send empty chunk, the end of response */
-	mg_send_http_chunk(nc, "", 0);
 
 	return code;
 }

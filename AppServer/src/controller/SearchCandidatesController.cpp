@@ -41,13 +41,13 @@ string SearchCandidatesController::event_handler_search_candidates(struct mg_con
 
 	if (params.size()!=1){
 		code = STATUS_NOK;
-		json = "{ \"success\": \"false\", \"data\": \"Bad Request\"}";
+		json = this->getGenericJson("false","invalid params");
 	}else{
 		id = params[0];
 	}
 	if (id.compare("") == 0){
 		string code = STATUS_NOK;
-		string json = "{ \"success\": \"false\", \"data\": \"Bad Request\"}";
+		json = this->getGenericJson("false","invalid user in params");
 	}
 	else{
 		/* Call match service */
@@ -59,24 +59,17 @@ string SearchCandidatesController::event_handler_search_candidates(struct mg_con
 		}
 		catch(EntityNotFoundException& e){
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			json = "{ \"success\": \"false\", \"data\": \"No existe el usuario con id "+id+"\"}";
+			json = this->getGenericJson("false",e.what());
 			code = STATUS_NOT_FOUND;
 		}
 		catch(exception& e){
-			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+			json = this->getGenericJson("false",e.what());
 			code = STATUS_NOK;
 			json = "{ \"success\": \"false\", \"data\": \"Bad Request\"}";
 		}
 	}
 
-	string headers = "HTTP/1.1 "+code+" OK\r\nTransfer-Encoding: chunked\r\n\r\n";
-
-	/* Send headers */
-	mg_printf(nc, "%s", headers.c_str());
-	/* Send result back as a JSON object */
-	mg_printf_http_chunk(nc, "%s", json.c_str());
-	/* Send empty chunk, the end of response */
-	mg_send_http_chunk(nc, "", 0);
+	this->sendResponse(nc, code, json, "");
 
 	return code;
 

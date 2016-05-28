@@ -61,48 +61,40 @@ string MatchController::event_handler_submit_yes(struct mg_connection *nc,
 			if (matched) {
 				LOG4CPLUS_INFO(logger,
 						"se produzco un match entre "<<idFrom<<" y "<<idTo);
-				json = "{ \"success\": \"true\", \"data\": \"matched\"}";
+				json = this->getGenericJson("true","matched");
 			} else {
 				LOG4CPLUS_INFO(logger,
 						"se agrega el usuario "<<idTo<<" a la lista de aceptados de "<<idFrom);
-				json = "{ \"success\": \"true\" \"data\": \"unmatched\"}";
+				json = this->getGenericJson("true","unmatched");
 			}
+			code = STATUS_OK;
 		} catch (EntityExistsException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
-			json =
-					"{ \"success\": \"false\", \"data\": \"El usuario ya fue aceptado o rechazado\"}";
+			json = this->getGenericJson("false",e.what());
+
 		} catch (EntityNotFoundException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOT_FOUND;
-			json =
-					"{ \"success\": \"false\", \"data\": \"Uno de los usuarios no existe en la base\"}";
+			json = this->getGenericJson("false",e.what());
 		} catch (IllegalStateException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
-			json = "{ \"success\": \"false\", \"data\": \"Usuario invalido\"}";
+			json = this->getGenericJson("false",e.what());
 		}
 		catch (exception& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
-			json = "{ \"success\": \"false\", \"data\": \"Error desconocido\"}";
+			json = this->getGenericJson("false",e.what());
 		}
 
 	} catch (JsonParseException& e) {
 		code = STATUS_NOK;
-		json =
-				"{ \"success\": \"false\", \"data\": \"Bad Request: formato incorrecto de json\"}";
+		json = this->getGenericJson("false",e.what());
+
 	}
 
-	string headers = "HTTP/1.1 " + code
-			+ " OK\r\nTransfer-Encoding: chunked\r\n\r\n";
-
-	/* Send headers */
-	mg_printf(nc, "%s", headers.c_str());
-	/* Send result back as a JSON object */
-	mg_printf_http_chunk(nc, "%s", json.c_str());
-	/* Send empty chunk, the end of response */
-	mg_send_http_chunk(nc, "", 0);
+	this->sendResponse(nc, code, json, "");
 
 	return code;
 
@@ -129,42 +121,32 @@ string MatchController::event_handler_submit_no(struct mg_connection *nc,
 			matchService->addToNoList(idFrom, idTo);
 			LOG4CPLUS_INFO(logger,
 					"se agrega el usuario "<<idTo<<" a la lista de rechazados de "<<idFrom);
-			json = "{ \"success\": \"true\" \"data\": \"rejected\"}";
+			json = this->getGenericJson("true","rejected");
+			code = STATUS_OK;
 		} catch (EntityExistsException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = STATUS_NOK;
-			json =
-					"{ \"success\": \"false\", \"data\": \"El usuario ya fue aceptado o rechazado\"}";
+			code = STATUS_NOK;			json = this->getGenericJson("false",e.what());
+
 		} catch (EntityNotFoundException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOT_FOUND;
-			json =
-					"{ \"success\": \"false\", \"data\": \"Uno de los usuarios no existe en la base\"}";
+			json = this->getGenericJson("false",e.what());
 		} catch (IllegalStateException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
-			json = "{ \"success\": \"false\", \"data\": \"Usuario invalido\"}";
+			json = this->getGenericJson("false",e.what());
 		} catch (exception& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
-			json = "{ \"success\": \"false\", \"data\": \"Error desconocido\"}";
+			json = this->getGenericJson("false",e.what());
 		}
 
 	} catch (JsonParseException& e) {
 		code = STATUS_NOK;
-		json =
-				"{ \"success\": \"false\", \"data\": \"Bad Request: formato incorrecto de json\"}";
+		json = this->getGenericJson("false",e.what());
 	}
 
-	string headers = "HTTP/1.1 " + code
-			+ " OK\r\nTransfer-Encoding: chunked\r\n\r\n";
-
-	/* Send headers */
-	mg_printf(nc, "%s", headers.c_str());
-	/* Send result back as a JSON object */
-	mg_printf_http_chunk(nc, "%s", json.c_str());
-	/* Send empty chunk, the end of response */
-	mg_send_http_chunk(nc, "", 0);
+	this->sendResponse(nc, code, json, "");
 
 	return code;
 }
@@ -191,42 +173,33 @@ string MatchController::event_handler_confirm_match(struct mg_connection *nc,
 			matchService->confirmUser(idFrom, idTo);
 			LOG4CPLUS_INFO(logger,
 					"se agrega el usuario "<<idTo<<" a la lista de confirmados de "<<idFrom);
-			json = "{ \"success\": \"true\" \"data\": \"confirmed\"}";
+			json = this->getGenericJson("true","confirmed");
+			code = STATUS_OK;
 		} catch (EntityExistsException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
-			json =
-					"{ \"success\": \"false\", \"data\": \"El usuario ya existe en la lista de confirmados, fue matcheado o ya fue rechazado\"}";
+			json = this->getGenericJson("false",e.what());
 		} catch (EntityNotFoundException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOT_FOUND;
-			json =
-					"{ \"success\": \"false\", \"data\": \"Uno de los usuarios no existe en la base\"}";
+			json = this->getGenericJson("false",e.what());
 		} catch (IllegalStateException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
-			json = "{ \"success\": \"false\", \"data\": \"Usuario invalido\"}";
+			json = this->getGenericJson("false",e.what());
 		}  catch (exception& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
-			json = "{ \"success\": \"false\", \"data\": \"Error desconocido\"}";
+			json = this->getGenericJson("false",e.what());
 		}
 
 	} catch (JsonParseException& e) {
 		code = STATUS_NOK;
-		json =
-				"{ \"success\": \"false\", \"data\": \"Bad Request: formato incorrecto de json\"}";
+		json = this->getGenericJson("false",e.what());
 	}
 
-	string headers = "HTTP/1.1 " + code
-			+ " OK\r\nTransfer-Encoding: chunked\r\n\r\n";
+	this->sendResponse(nc, code, json, "");
 
-	/* Send headers */
-	mg_printf(nc, "%s", headers.c_str());
-	/* Send result back as a JSON object */
-	mg_printf_http_chunk(nc, "%s", json.c_str());
-	/* Send empty chunk, the end of response */
-	mg_send_http_chunk(nc, "", 0);
 
 	return code;
 }
@@ -243,14 +216,14 @@ string MatchController::event_handler_new_matches(struct mg_connection *nc,
 
 	if (params.size()!=1){
 		code = STATUS_NOK;
-		json = "{ \"success\": \"false\", \"data\": \"Bad Request\"}";
+		json = this->getGenericJson("false","invalid params");
 	}else{
 		id = params[0];
 	}
 
 	if (id.compare("") == 0) {
 		code = STATUS_NOK;
-		json = "{ \"success\": \"false\", \"data\": \"Bad Request\"}";
+		json = this->getGenericJson("false","invalid user in params");
 	} else {
 
 		LOG4CPLUS_DEBUG(logger,
@@ -263,23 +236,16 @@ string MatchController::event_handler_new_matches(struct mg_connection *nc,
 		} catch (EntityNotFoundException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOT_FOUND;
-			json = "{ \"success\": \"false\", \"data\": \"Uno de los usuarios no existe en la base\"}";
+			json = this->getGenericJson("false",e.what());
 		} catch (exception& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
-			json = "{ \"success\": \"false\", \"data\": \"Error desconocido\"}";
+			json = this->getGenericJson("false",e.what());
 		}
 	}
 
-	string headers = "HTTP/1.1 " + code
-			+ " OK\r\nTransfer-Encoding: chunked\r\n\r\n";
+	this->sendResponse(nc, code, json, "");
 
-	/* Send headers */
-	mg_printf(nc, "%s", headers.c_str());
-	/* Send result back as a JSON object */
-	mg_printf_http_chunk(nc, "%s", json.c_str());
-	/* Send empty chunk, the end of response */
-	mg_send_http_chunk(nc, "", 0);
 
 	return code;
 }
