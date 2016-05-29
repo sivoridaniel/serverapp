@@ -260,10 +260,15 @@ bool MatchService::isACandidate(string idUser, string idOtherUser){
 	Match* matchOtherUser;
 	try{
 	 matchUser = (Match*) matchDao->get(idUser);
+	}catch(exception& e){
+		return false;
+	}
+	try{
 	 matchOtherUser = (Match*)matchDao->get(idOtherUser);
 	}catch(exception& e){
 		return false;
 	}
+
 	if (matchUser->isAccepted(idOtherUser)){
 		delete matchUser;
 		delete matchOtherUser;

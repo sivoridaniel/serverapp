@@ -42,6 +42,9 @@ vector<Message*> ChatService::getAllMessages(string idUser1, string idUser2) {
 	}catch(EntityNotFoundException& e){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("No se encuentra el chat "<<id));
 		throw e;
+	}catch(exception& e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+		throw e;
 	}
 	return messages;
 }
@@ -58,6 +61,9 @@ vector<Message*> ChatService::getNewMessages(string idUser1, string idUser2) {
 	}catch(EntityNotFoundException& e){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("No se encuentra el chat "<<id));
 		throw e;
+	}catch(exception& e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+		throw e;
 	}
 	return messages;
 }
@@ -70,9 +76,13 @@ void ChatService::addNewMessage(string idUser1, string idUser2, string message) 
 	try{
 		Chat* chat = (Chat*)chatDao->get(id);
 		chat->addNewMessage(idUser1, message);
+		chatDao->put(id,chat);
 		delete chat;
 	}catch(EntityNotFoundException& e){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("No se encuentra el chat "<<id));
+		throw e;
+	}catch(exception& e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 		throw e;
 	}
 }
@@ -85,9 +95,13 @@ void ChatService::updateLastMessageSeen(string idUser1, string idUser2, int mess
 	try{
 		Chat* chat = (Chat*)chatDao->get(id);
 		chat->setLastSeenByUser1(messageIndex);
+		chatDao->put(id, chat);
 		delete chat;
 	}catch(EntityNotFoundException& e){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("No se encuentra el chat "<<id));
+		throw e;
+	}catch(exception& e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 		throw e;
 	}
 }
@@ -100,7 +114,8 @@ void ChatService::createChat(string idUser1, string idUser2) {
 	//TODO: chequear que existan los usuarios
 	try{
 		try{
-			chatDao->get(id);
+			Chat* chatTmp = (Chat*)chatDao->get(id);
+			delete chatTmp;
 			throw EntityExistsException();
 		}catch(EntityNotFoundException& e){
 			chatDao->put(id, chat);

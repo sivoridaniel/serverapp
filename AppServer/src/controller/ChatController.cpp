@@ -166,6 +166,7 @@ string ChatController::postMessage(struct mg_connection *nc, struct http_message
 			chatService->addNewMessage(idFrom, idTo, message);
 
 			LOG4CPLUS_INFO(logger, "se agrega el mensaje de "<<idTo<<" a la conversacion con "<<idFrom);
+			code = STATUS_OK;
 			json = this->getGenericJson("true","message posted");
 		} catch (EntityNotFoundException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
@@ -176,6 +177,7 @@ string ChatController::postMessage(struct mg_connection *nc, struct http_message
 			json = this->getGenericJson("false",e.what());		}
 
 	} catch (JsonParseException& e) {
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 		code = STATUS_NOK;
 		json = this->getGenericJson("false",e.what());
 	}

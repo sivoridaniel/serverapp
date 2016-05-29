@@ -80,10 +80,12 @@ vector<Message*> Chat::getNewMessages(string idUser){
 	for (std::vector<Message*>::iterator it=messages.begin(); it!=messages.end(); ++it){
 		Message* mes = *it;
 		long id = mes->getId();
-		string idUser  = mes->getIdUser();
-		string content = mes->getMessage();
-		Message* message = new Message(id,idUser,content);
-		mess.push_back(message);
+		if (lastMessageSeen<id){
+			string idUser  = mes->getIdUser();
+			string content = mes->getMessage();
+			Message* message = new Message(id,idUser,content);
+			mess.push_back(message);
+		}
 	}
 	return mess;
 }

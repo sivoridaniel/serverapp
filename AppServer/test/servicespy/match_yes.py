@@ -10,8 +10,8 @@ def get_args():
         parser.add_argument('-u2','--user2',type=str,help='Nombre de usuario aceptado', required = True)
 
         args = parser.parse_args()
-        user = args.user1
-        userAccepted = args.user2
+        user1 = args.user1
+        user2 = args.user2
 
         return user1,user2 
 

@@ -8,7 +8,7 @@ import sys
 
 def get_args():
 
-        parser = argparse.ArgumentParser('Llamada al servicio login http://localhost:3000/match')
+        parser = argparse.ArgumentParser('Llamada al servicio get new matches http://localhost:3000/match')
         parser.add_argument('-u','--id',type=str,help='Id de usuario', required = True)
         
         args = parser.parse_args()

@@ -34,17 +34,9 @@ public:
 	vector<Message*> getNewMessages(string idUser);
 
 	void addNewMessage(string idUser, string message){
-		if (idUser.compare(idUser1)==0){
-			lastSeenByUser1 = messages.size()-1;
-			Message* mess = new Message(lastSeenByUser1, idUser, message);
-			messages.push_back(mess);
-		}
-
-		if (idUser.compare(idUser2)==0){
-			lastSeenByUser2 = messages.size()-1;
-			Message* mess = new Message(lastSeenByUser2, idUser, message);
-			messages.push_back(mess);
-		}
+		long id = messages.size()+1;
+		Message* mess = new Message(id, idUser, message);
+		messages.push_back(mess);
 	}
 
 	const string& getIdUser1() const {
