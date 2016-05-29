@@ -1,10 +1,10 @@
-Start testing: May 26 00:01 ART
+Start testing: May 28 21:43 ART
 ----------------------------------------------------------
 1/2 Testing: mockAuthenticationCtrlTest
 1/2 Test: mockAuthenticationCtrlTest
 Command: "/home/agustin/git/serverapp/AppServer/cmake/mockAuthenticationCtrlTest"
 Directory: /home/agustin/git/serverapp/AppServer/cmake
-"mockAuthenticationCtrlTest" start time: May 26 00:01 ART
+"mockAuthenticationCtrlTest" start time: May 28 21:43 ART
 Output:
 ----------------------------------------------------------
 INFO - Iniciando Tests
@@ -13,10 +13,10 @@ INFO - Iniciando Tests
 [----------] 1 test from JwTokenTest
 [ RUN      ] JwTokenTest.generatingToken
 *****************************************************************
-TOKEN GENERADO: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHBpcmUiOiI2MCIsInRpbWVzdGFtcCI6IjE0NjQyMzE2ODciLCJ1c2VybmFtZSI6InBzaXZvcmkifQ.p_pXwxqtn8KhSbbMm4J6TRsWFkwsim1ud3PC9aMpSB0
+TOKEN GENERADO: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHBpcmUiOiI2MCIsImlkIjoiMTciLCJ0aW1lc3RhbXAiOiIxNDY0NDgyNjAwIn0.MTlmcZjAmxi2De5AVrsnmdIAtDCI6ivEobLs9ql5fiA
 *****************************************************************
-[       OK ] JwTokenTest.generatingToken (2 ms)
-[----------] 1 test from JwTokenTest (2 ms total)
+[       OK ] JwTokenTest.generatingToken (17 ms)
+[----------] 1 test from JwTokenTest (17 ms total)
 
 [----------] 1 test from AuthorizationTokenTest
 [ RUN      ] AuthorizationTokenTest.isValidToken
@@ -25,28 +25,19 @@ TOKEN GENERADO: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHBpcmUiOiI2MCIsInRpbWV
 
 [----------] 1 test from AuthenticationServiceTest
 [ RUN      ] AuthenticationServiceTest.login
-terminate called after throwing an instance of 'RemoteException'
-  what():  el shared server retorno error
-DEBUG - JSON: {"user":{"email":"","id":"","name":"psivori","password":"password","token":""}}
-
-DEBUG - Password base password
-DEBUG - Password ingresado password
-DEBUG - Response code 400
-DEBUG - Response body {"success":false,"data":"Invalid user ID"}
-ERROR - El shared server retorno error
 <end of output>
-Test time =   0.76 sec
+Test time =   2.40 sec
 ----------------------------------------------------------
 Test Failed.
-"mockAuthenticationCtrlTest" end time: May 26 00:01 ART
-"mockAuthenticationCtrlTest" time elapsed: 00:00:00
+"mockAuthenticationCtrlTest" end time: May 28 21:43 ART
+"mockAuthenticationCtrlTest" time elapsed: 00:00:02
 ----------------------------------------------------------
 
 2/2 Testing: mockMatchServiceTest
 2/2 Test: mockMatchServiceTest
 Command: "/home/agustin/git/serverapp/AppServer/cmake/mockMatchServiceTest"
 Directory: /home/agustin/git/serverapp/AppServer/cmake
-"mockMatchServiceTest" start time: May 26 00:01 ART
+"mockMatchServiceTest" start time: May 28 21:43 ART
 Output:
 ----------------------------------------------------------
 INFO - Iniciando Tests
@@ -58,16 +49,17 @@ INFO - Confirmando match con usuario alinari para usuario psivori
 
 GMOCK WARNING:
 Uninteresting mock function call - returning directly.
-    Function call: MockFunctionPut("psivori", 0x1e82d10)
+    Function call: MockFunctionPut("psivori", 0x1a87d10)
 NOTE: You can safely ignore the above warning unless this call should not happen.  Do not suppress it by blindly adding an EXPECT_CALL() if you don't mean to enforce the call.  See https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#knowing-when-to-expect for details.
-[       OK ] MatchServiceConfirmTest.confirmingUser (0 ms)
-[----------] 1 test from MatchServiceConfirmTest (0 ms total)
+INFO - Se crea el chat entre el usuario alinari y el usuario psivori
+[       OK ] MatchServiceConfirmTest.confirmingUser (1 ms)
+[----------] 1 test from MatchServiceConfirmTest (1 ms total)
 
 [----------] 1 test from MatchServiceConfirmBadUserTest
 [ RUN      ] MatchServiceConfirmBadUserTest.confirmingBadUser
 ERROR - Es el mismo usuario
-[       OK ] MatchServiceConfirmBadUserTest.confirmingBadUser (1 ms)
-[----------] 1 test from MatchServiceConfirmBadUserTest (1 ms total)
+[       OK ] MatchServiceConfirmBadUserTest.confirmingBadUser (0 ms)
+[----------] 1 test from MatchServiceConfirmBadUserTest (0 ms total)
 
 [----------] 1 test from MatchServiceConfirmUserIsInAcceptedListTest
 [ RUN      ] MatchServiceConfirmUserIsInAcceptedListTest.confirmingUserIsInAcceptedList
@@ -88,65 +80,31 @@ ERROR - El usuario alinari ya se encuentra en la lista de rechazados
 
 [----------] 1 test from MatchServiceAccept1Test
 [ RUN      ] MatchServiceAccept1Test.acceptingUser1
-
-GMOCK WARNING:
-Uninteresting mock function call - returning default value.
-    Function call: getChat("psivori", "alinari")
-          Returns: NULL
-NOTE: You can safely ignore the above warning unless this call should not happen.  Do not suppress it by blindly adding an EXPECT_CALL() if you don't mean to enforce the call.  See https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#knowing-when-to-expect for details.
-ERROR - Los usuarios ya estan matcheados
-ERROR - La entidad ya existe
-/home/agustin/git/serverapp/AppServer/test/MockMatchService.cc:275: Failure
-Expected: {res = matchService->addToYesList("psivori","alinari");} doesn't throw an exception.
-  Actual: it throws.
-/home/agustin/git/serverapp/AppServer/test/MockMatchService.cc:272: Failure
-Actual function call count doesn't match EXPECT_CALL(*mockMatchDao, MockFunctionPut("psivori", matchPsivori))...
-         Expected: to be called once
-           Actual: never called - unsatisfied and active
-[  FAILED  ] MatchServiceAccept1Test.acceptingUser1 (2 ms)
-[----------] 1 test from MatchServiceAccept1Test (2 ms total)
+INFO - Agregando el usuario alinari a la lista de aceptados de psivori
+[       OK ] MatchServiceAccept1Test.acceptingUser1 (0 ms)
+[----------] 1 test from MatchServiceAccept1Test (0 ms total)
 
 [----------] 1 test from MatchServiceAccept2Test
 [ RUN      ] MatchServiceAccept2Test.acceptingUser2
-
-GMOCK WARNING:
-Uninteresting mock function call - returning default value.
-    Function call: getChat("psivori", "alinari")
-          Returns: NULL
-NOTE: You can safely ignore the above warning unless this call should not happen.  Do not suppress it by blindly adding an EXPECT_CALL() if you don't mean to enforce the call.  See https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#knowing-when-to-expect for details.
-ERROR - Los usuarios ya estan matcheados
-ERROR - La entidad ya existe
-/home/agustin/git/serverapp/AppServer/test/MockMatchService.cc:296: Failure
-Expected: {res = matchService->addToYesList("psivori","alinari");} doesn't throw an exception.
-  Actual: it throws.
-/home/agustin/git/serverapp/AppServer/test/MockMatchService.cc:293: Failure
-Actual function call count doesn't match EXPECT_CALL(*mockMatchDao, MockFunctionPut("psivori", matchPsivori))...
-         Expected: to be called once
-           Actual: never called - unsatisfied and active
-[  FAILED  ] MatchServiceAccept2Test.acceptingUser2 (0 ms)
+INFO - Agregando el usuario alinari a la lista de aceptados de psivori
+[       OK ] MatchServiceAccept2Test.acceptingUser2 (0 ms)
 [----------] 1 test from MatchServiceAccept2Test (0 ms total)
 
 [----------] 1 test from MatchServiceAcceptBadUserTest
 [ RUN      ] MatchServiceAcceptBadUserTest.acceptingBadUser
 ERROR - Es el mismo usuario
 [       OK ] MatchServiceAcceptBadUserTest.acceptingBadUser (0 ms)
-[----------] 1 test from MatchServiceAcceptBadUserTest (0 ms total)
+[----------] 1 test from MatchServiceAcceptBadUserTest (9 ms total)
 
 [----------] 1 test from MatchServiceAcceptUserIsInRejectedListTest
 [ RUN      ] MatchServiceAcceptUserIsInRejectedListTest.confirmingUserIsInRejectedList
 ERROR - El usuario alinari ya se encuentra en la lista de rechazados
 ERROR - La entidad ya existe
 [       OK ] MatchServiceAcceptUserIsInRejectedListTest.confirmingUserIsInRejectedList (0 ms)
-[----------] 1 test from MatchServiceAcceptUserIsInRejectedListTest (1 ms total)
+[----------] 1 test from MatchServiceAcceptUserIsInRejectedListTest (0 ms total)
 
 [----------] 1 test from MatchServiceAcceptUserIsMatchedTest
 [ RUN      ] MatchServiceAcceptUserIsMatchedTest.confirmingUserIsMatched
-
-GMOCK WARNING:
-Uninteresting mock function call - returning default value.
-    Function call: getChat("psivori", "jferrio")
-          Returns: NULL
-NOTE: You can safely ignore the above warning unless this call should not happen.  Do not suppress it by blindly adding an EXPECT_CALL() if you don't mean to enforce the call.  See https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#knowing-when-to-expect for details.
 ERROR - Los usuarios ya estan matcheados
 ERROR - La entidad ya existe
 [       OK ] MatchServiceAcceptUserIsMatchedTest.confirmingUserIsMatched (0 ms)
@@ -157,27 +115,13 @@ ERROR - La entidad ya existe
 ERROR - El usuario alinari ya se encuentra en la lista de matcheados
 ERROR - La entidad ya existe
 [       OK ] MatchServiceAcceptChatExistsTest.confirmingUserChatExists (0 ms)
-[----------] 1 test from MatchServiceAcceptChatExistsTest (4 ms total)
+[----------] 1 test from MatchServiceAcceptChatExistsTest (0 ms total)
 
 [----------] 1 test from MatchServiceRejectTest
 [ RUN      ] MatchServiceRejectTest.rejectingUser
-
-GMOCK WARNING:
-Uninteresting mock function call - returning default value.
-    Function call: getChat("psivori", "alinari")
-          Returns: NULL
-NOTE: You can safely ignore the above warning unless this call should not happen.  Do not suppress it by blindly adding an EXPECT_CALL() if you don't mean to enforce the call.  See https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#knowing-when-to-expect for details.
-ERROR - Los usuarios ya estan matcheados
-ERROR - La entidad ya existe
-/home/agustin/git/serverapp/AppServer/test/MockMatchService.cc:414: Failure
-Expected: {matchService->addToNoList("psivori","alinari");} doesn't throw an exception.
-  Actual: it throws.
-/home/agustin/git/serverapp/AppServer/test/MockMatchService.cc:412: Failure
-Actual function call count doesn't match EXPECT_CALL(*mockMatchDao, MockFunctionPut("psivori", match))...
-         Expected: to be called once
-           Actual: never called - unsatisfied and active
-[  FAILED  ] MatchServiceRejectTest.rejectingUser (1 ms)
-[----------] 1 test from MatchServiceRejectTest (1 ms total)
+INFO - Agregando el usuario alinari a la lista de rechazados de psivori
+[       OK ] MatchServiceRejectTest.rejectingUser (0 ms)
+[----------] 1 test from MatchServiceRejectTest (0 ms total)
 
 [----------] 1 test from MatchServiceRejectBadUserTest
 [ RUN      ] MatchServiceRejectBadUserTest.rejectingBadUser
@@ -200,16 +144,10 @@ ERROR - El usuario alinari ya se encuentra en la lista de rechazados
 
 [----------] 1 test from MatchServiceRejectUserIsMatchedTest
 [ RUN      ] MatchServiceRejectUserIsMatchedTest.rejectingUserIsMatched
-
-GMOCK WARNING:
-Uninteresting mock function call - returning default value.
-    Function call: getChat("psivori", "jferrio")
-          Returns: NULL
-NOTE: You can safely ignore the above warning unless this call should not happen.  Do not suppress it by blindly adding an EXPECT_CALL() if you don't mean to enforce the call.  See https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#knowing-when-to-expect for details.
 ERROR - Los usuarios ya estan matcheados
 ERROR - La entidad ya existe
 [       OK ] MatchServiceRejectUserIsMatchedTest.rejectingUserIsMatched (0 ms)
-[----------] 1 test from MatchServiceRejectUserIsMatchedTest (4 ms total)
+[----------] 1 test from MatchServiceRejectUserIsMatchedTest (0 ms total)
 
 [----------] 1 test from MatchServiceRejectChatExistsTest
 [ RUN      ] MatchServiceRejectChatExistsTest.rejectingUserChatExists
@@ -225,24 +163,44 @@ INFO - Obteniendo la lista de nuevos matches del usuario psivori
 [----------] 1 test from MatchServiceTest (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 18 tests from 18 test cases ran. (14 ms total)
-[  PASSED  ] 15 tests.
-[  FAILED  ] 3 tests, listed below:
-[  FAILED  ] MatchServiceAccept1Test.acceptingUser1
-[  FAILED  ] MatchServiceAccept2Test.acceptingUser2
-[  FAILED  ] MatchServiceRejectTest.rejectingUser
-
- 3 FAILED TESTS
-
-/home/agustin/git/serverapp/AppServer/test/MockMatchService.cc:360: ERROR: this mock object (used in test MatchServiceAcceptUserIsMatchedTest.confirmingUserIsMatched) should be deleted but never is. Its address is @0x1e890a0.
-/home/agustin/git/serverapp/AppServer/test/MockMatchService.cc:490: ERROR: this mock object (used in test MatchServiceRejectUserIsMatchedTest.rejectingUserIsMatched) should be deleted but never is. Its address is @0x1e8a2b0.
-ERROR: 2 leaked mock objects found at program exit.
+[==========] 18 tests from 18 test cases ran. (13 ms total)
+[  PASSED  ] 18 tests.
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/json.dir/home/agustin/git/serverapp/AppServer/src/jsoncpp.cpp.gcda:Cannot open
+profiling:/googlemock/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.gcda:Cannot open
+profiling:/googlemock/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/test/MockMatchService.cc.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/MatchService.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/ChatService.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/AbmUserService.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/RemoteSharedService.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/SearchCandidatesService.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/AuthenticationService.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/CandidateList.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Interest.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Location.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/UserProfile.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Chat.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Message.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Match.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/dao/MatchDao.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/dao/ChatDao.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/dao/CandidatesDao.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/dao/UserDao.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/utils/DbHelper.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/utils/JwToken.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/utils/UriParser.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/controller/FactoryController.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/controller/SearchCandidatesController.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/controller/MatchController.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/controller/AbmUserController.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/controller/ChatController.cpp.gcda:Cannot open
+profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/controller/AuthenticationController.cpp.gcda:Cannot open
 <end of output>
-Test time =   0.02 sec
+Test time =   0.12 sec
 ----------------------------------------------------------
-Test Failed.
-"mockMatchServiceTest" end time: May 26 00:01 ART
+Test Passed.
+"mockMatchServiceTest" end time: May 28 21:43 ART
 "mockMatchServiceTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: May 26 00:01 ART
+End testing: May 28 21:43 ART

@@ -11,51 +11,6 @@ MatchService::MatchService() {
 	this->matchDao = new MatchDao();
 	this->chatService = new ChatService();
 	this->sharedService = new RemoteSharedService("http://shared-server-match.herokuapp.com");
-
-	try{
-		matchDao->get("3");
-	}catch(EntityNotFoundException& e){
-		Match* match = new Match();
-		matchDao->put("3", match);
-	}
-	try{
-		matchDao->get("4");
-	}catch(EntityNotFoundException& e){
-		Match* match = new Match();
-		matchDao->put("4", match);
-	}
-	try{
-		matchDao->get("5");
-	}catch(EntityNotFoundException& e){
-		Match* match = new Match();
-		matchDao->put("5", match);
-	}
-	try{
-		matchDao->get("6");
-	}catch(EntityNotFoundException& e){
-		Match* match = new Match();
-		matchDao->put("6", match);
-	}
-	try{
-		matchDao->get("7");
-	}catch(EntityNotFoundException& e){
-		Match* match = new Match();
-		matchDao->put("7", match);
-	}
-	try{
-		matchDao->get("8");
-	}catch(EntityNotFoundException& e){
-		Match* match = new Match();
-		matchDao->put("8", match);
-	}
-	try{
-		matchDao->get("9");
-	}catch(EntityNotFoundException& e){
-		Match* match = new Match();
-		matchDao->put("9", match);
-	}
-
-
 }
 
 
