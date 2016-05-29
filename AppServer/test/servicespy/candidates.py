@@ -9,7 +9,7 @@ import sys
 def get_args():
 
         parser = argparse.ArgumentParser('Llamada al servicio login http://localhost:3000/candidates')
-        parser.add_argument('-i','--id',type=str,help='Id de usuario', required = True)
+        parser.add_argument('-u','--id',type=str,help='Id de usuario', required = True)
         
         args = parser.parse_args()
         iduser = args.id
@@ -27,8 +27,12 @@ params = {
 
 r = requests.get("http://localhost:3000/candidates", params = params , headers = headers)
 
-try:   
-    data = r.text    
+try:
+    assert( r.status_code == 200 ),"ERROR LLAMANDO A CANDIDATES"
     print r.json()
 except AssertionError, e:
     print 'NOK: %s'%e
+    print r.status_code
+    data = json.loads(r.text)
+    print data
+

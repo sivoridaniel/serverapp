@@ -194,6 +194,7 @@ string MatchController::event_handler_confirm_match(struct mg_connection *nc,
 		}
 
 	} catch (JsonParseException& e) {
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 		code = STATUS_NOK;
 		json = this->getGenericJson("false",e.what());
 	}
@@ -297,6 +298,7 @@ string MatchController::createNewMatchesResponse(list<UserProfile*> newMatches){
 			j++;
 		}
 		root["users"][i]["user"]["email"] = user->getEmail();
+		root["users"][i]["user"]["id"] = user->getId();
 		i++;
 		delete user;
 	}

@@ -41,11 +41,6 @@ r = requests.post("http://localhost:3000/user/newuser", data = data, headers = h
 
 try:
    assert( r.status_code == 200 ),"ERROR LLAMADA CREANDO NUEVO USUARIO"
-   # for raw_rsvp in r.iter_lines():
-    #	if raw_rsvp:
-     #   	rsvp = json.loads(raw_rsvp)
-   #  for chunk in r.iter_content(0):
-	#	print chunk
    data = json.loads(r.text)
    print data
 

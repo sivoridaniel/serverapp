@@ -104,6 +104,7 @@ string SearchCandidatesController::createSearchResponse(list<UserProfile*> candi
 				j++;
 			}
 			root["users"][i]["user"]["email"] = user->getEmail();
+			root["users"][i]["user"]["id"]=user->getId();
 			i++;
 			delete user;
 		}

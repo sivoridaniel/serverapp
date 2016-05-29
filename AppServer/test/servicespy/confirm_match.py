@@ -5,26 +5,29 @@ import sys
 
 def get_args():
 
-        parser = argparse.ArgumentParser('Llamada al servicio de confirm match http://localhost:3000/match/confirm')
-        parser.add_argument('-u','--user',type=str,help='Nombre de usuario', required = True)
-        parser.add_argument('-uc','--userConfirmed',type=str,help='Nombre de usuario confirmado', required = True)
+        parser = argparse.ArgumentParser('Llamada al servicio de match confirm http://localhost:3000/match/confirm')
+        parser.add_argument('-u1','--user1',type=str,help='Nombre de usuario', required = True)
+        parser.add_argument('-u2','--user2',type=str,help='Nombre de usuario a confirmar', required = True)
 
         args = parser.parse_args()
-        user = args.user
-        userConfirmed = args.userConfirmed
+        user1 = args.user1
+        user2 = args.user2
 
-        return user,userConfirmed
+        return user1,user2
 
-user, userConfirmed = get_args()
+user1, user2 = get_args()
 
-r = requests.get("http://localhost:3000/match/confirm", data = {"idUser":user,"idUserConfirmed":userConfirmed})
+data = '{\"idFrom\":'+user1+', \"idTo\":'+user2+'}'
 
-try:
-    assert( r.status_code == 200 ),"ERROR LLAMANDO AL MATCH CONFIRMED"
-    data = json.loads(r.text)
-    result = data['result']
-    assert( result == 'success'),"ERROR MATCHEO CONFIRMACION: %s"%result
-    print result
+r = requests.post("http://localhost:3000/match/confirm", data = data, headers = {"content-type": "application/json"})
+
+try: 
+    assert( r.status_code == 200 ),"ERROR LLAMANDO A MATCH CONFIRM"
+    print r.json()
 except AssertionError, e:
     print 'NOK: %s'%e
+    print r.status_code
+    data = json.loads(r.text)
+    print data
+
 

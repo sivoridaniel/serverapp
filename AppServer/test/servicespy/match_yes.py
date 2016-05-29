@@ -6,25 +6,28 @@ import sys
 def get_args():
 
         parser = argparse.ArgumentParser('Llamada al servicio de match yes http://localhost:3000/match/yes')
-        parser.add_argument('-u','--user',type=str,help='Nombre de usuario', required = True)
-        parser.add_argument('-ua','--userAccepted',type=str,help='Nombre de usuario aceptado', required = True)
+        parser.add_argument('-u1','--user1',type=str,help='Nombre de usuario', required = True)
+        parser.add_argument('-u2','--user2',type=str,help='Nombre de usuario aceptado', required = True)
 
         args = parser.parse_args()
-        user = args.user
-        userAccepted = args.userAccepted
+        user = args.user1
+        userAccepted = args.user2
 
-        return user,userAccepted 
+        return user1,user2 
 
-user, userAccepted = get_args()
+user1, user2 = get_args()
 
-r = requests.get("http://localhost:3000/match/yes", data = {"idUser":user,"idUserAccepted":userAccepted})
+data = '{\"idFrom\":'+user1+', \"idTo\":'+user2+'}'
 
-try:
-    assert( r.status_code == 200 ),"ERROR LLAMANDO AL MATCH YES"
-    data = json.loads(r.text)
-    result = data['result']
-    assert( result == 'success'),"MATCHEO NO VALIDO: %s"%result
-    print result
+r = requests.post("http://localhost:3000/match/yes", data = data, headers = {"content-type": "application/json"})
+
+try: 
+    assert( r.status_code == 200 ),"ERROR LLAMANDO A MATCH YES"
+    print r.json()
 except AssertionError, e:
     print 'NOK: %s'%e
+    print r.status_code
+    data = json.loads(r.text)
+    print data
+
 
