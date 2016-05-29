@@ -77,13 +77,14 @@ private:
 	 *	Se disparará la excepción TokenException en caso de que intcod!=0 o pcharcod==NULL.
 	 *
 	 *	@param intcod type int
+	 *	@param jwt type jwt
 	 *	@param pcharcod type char*
 	 *	@param msgerror type string
 	 *	@param logger type Logger
 	 *	@throw TokenException
 	 *
 	 */
-	static void evaluateOperation(int intcod,  char *pcharcod, string msgError,Logger logger)throw (TokenException);
+	static void evaluateOperation(int intcod,jwt*jwt,char *pcharcod, string msgError,Logger logger)throw (TokenException);
 
 	/** MSG_ERRORS **/
 	static const string MSG_ERROR_NEW_JWT(){

@@ -7,10 +7,11 @@
 
 #include "JwToken.h"
 
-void JwToken::evaluateOperation(int intcod,char* pcharcod,string msgError,Logger logger)throw (TokenException){
+void JwToken::evaluateOperation(int intcod,jwt*jwt,char* pcharcod,string msgError,Logger logger)throw (TokenException){
 
 	if(intcod!=0 || pcharcod==NULL){
 		LOG4CPLUS_ERROR(logger,LOG4CPLUS_TEXT(msgError));
+		jwt_free(jwt);
 		throw TokenException();
 	}
 }
@@ -28,19 +29,21 @@ string JwToken::generarToken(string id)throw (TokenException){
 	timestamp_aux_str << timestamp;
 	const char* timestamp_str = timestamp_aux_str.str().c_str();
 
-	evaluateOperation(jwt_new(&jwt),(char *)"",MSG_ERROR_NEW_JWT(),logger);
-	evaluateOperation(jwt_set_alg(jwt, JWT_ALG_HS256,key256, sizeof(key256)),(char *)"",
+	int codint = jwt_new(&jwt);
+
+	evaluateOperation(codint,jwt,(char *)"",MSG_ERROR_NEW_JWT(),logger);
+	evaluateOperation(jwt_set_alg(jwt, JWT_ALG_HS256,key256, sizeof(key256)),jwt,(char *)"",
 			                MSG_ERROR_HEADER(),logger); //Header: typ: jwt, alg: HS256
-	evaluateOperation(jwt_add_grant(jwt, "id", id.c_str()),(char *)"",
+	evaluateOperation(jwt_add_grant(jwt, "id", id.c_str()),jwt,(char *)"",
 			                MSG_ERROR_PAYLOAD(),logger); //Payload -> "username":"xxxx"
-	evaluateOperation(jwt_add_grant(jwt, "timestamp", timestamp_str),(char *)"",
+	evaluateOperation(jwt_add_grant(jwt, "timestamp", timestamp_str),jwt,(char *)"",
 			                MSG_ERROR_PAYLOAD(),logger); //Payload -> "timestamp":"long int"
-	evaluateOperation(jwt_add_grant(jwt, "expire", seconds_expire.c_str()),(char *)"",
+	evaluateOperation(jwt_add_grant(jwt, "expire", seconds_expire.c_str()),jwt,(char *)"",
 							MSG_ERROR_PAYLOAD(),logger); //Payload -> "expire": "cantidad de segundos en que expira el token"
 
 	out = jwt_encode_str(jwt);
 
-	evaluateOperation(0,out,MSG_ERROR_TOKEN(),logger);
+	evaluateOperation(0,jwt,out,MSG_ERROR_TOKEN(),logger);
 
 	if(out != NULL)
 	ret_token=out;
@@ -58,8 +61,10 @@ bool JwToken::isTokenValid(string token)throw (TokenException){
 	string seconds_expire_str = "60";
 	time_t timestamp = time(NULL);
 
-	evaluateOperation(jwt_new(&jwt),(char *)"",MSG_ERROR_NEW_JWT(),logger);
-	evaluateOperation(jwt_decode(&jwt, token.c_str(), key256, sizeof(key256)),(char *)"",
+	int codint = jwt_new(&jwt);
+
+	evaluateOperation(codint,jwt,(char *)"",MSG_ERROR_NEW_JWT(),logger);
+	evaluateOperation(jwt_decode(&jwt, token.c_str(), key256, sizeof(key256)),jwt,(char *)"",
 	                  MSG_ERROR_DECODE_TOKEN(),logger);
 
 	long int timestampold = atol(jwt_get_grant(jwt,"timestamp"));
@@ -76,8 +81,10 @@ string JwToken::getId(string token)throw (TokenException){
 	jwt *jwt = NULL;
 	unsigned char key256[32] = "012345678901234567890123456789X";//(unsigned char*)KEY_DATA(); //Key Data 32 bytes for algorithm
 
-	evaluateOperation(jwt_new(&jwt),(char *)"",MSG_ERROR_NEW_JWT(),logger);
-	evaluateOperation(jwt_decode(&jwt, token.c_str(), key256, sizeof(key256)),(char *)"",
+	int codint = jwt_new(&jwt);
+
+	evaluateOperation(codint,jwt,(char *)"",MSG_ERROR_NEW_JWT(),logger);
+	evaluateOperation(jwt_decode(&jwt, token.c_str(), key256, sizeof(key256)),jwt,(char *)"",
 					  MSG_ERROR_DECODE_ID(),logger);
 
 	string id = jwt_get_grant(jwt,"id");
