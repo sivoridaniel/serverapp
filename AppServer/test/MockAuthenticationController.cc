@@ -34,12 +34,36 @@ public:
 	}
 };
 
-class MockSharedService : public RemoteSharedService{
+class MockSharedService : public IRemote{
 public:
 
 	MOCK_CONST_METHOD1(MockFunctionGetUser, UserProfile*(string id) );
 	UserProfile* getUser(string id){
 		return MockFunctionGetUser(id);
+	}
+	MOCK_CONST_METHOD1(createInterest, void (Interest* interest));
+	void createInterest(Interest* interest){
+		createInterest(interest);
+	}
+	MOCK_CONST_METHOD0(getInterests, list<Interest*>(void));
+	list<Interest*> getInterests(){
+		return getInterests();
+	}
+	MOCK_CONST_METHOD0(getUsers, list<UserProfile*>(void));
+	list<UserProfile*> getUsers(){
+		return getUsers();
+	}
+	MOCK_CONST_METHOD1(createUser, void (UserProfile* userProfile));
+	void createUser(UserProfile* userProfile){
+		createUser(userProfile);
+	}
+	MOCK_CONST_METHOD1(deleteUser, void (string id));
+	void deleteUser(string id){
+		deleteUser(id);
+	}
+	MOCK_CONST_METHOD1(updateUser, void (UserProfile* userProfile));
+	void updateUser(UserProfile* userProfile){
+		updateUser(userProfile);
 	}
 
 };
@@ -83,7 +107,6 @@ TEST(AuthenticationServiceTest,login){
 	AuthenticationService* authenticationService = new AuthenticationService(mockUserDao,mockShared);
 	EXPECT_NO_THROW({authenticationService->getUserLogin("17","password");});
 
-	delete userProfile;
 	delete authenticationService;
 }
 
