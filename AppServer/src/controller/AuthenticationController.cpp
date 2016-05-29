@@ -65,10 +65,22 @@ string AuthenticationController::event_handler_login_user(struct mg_connection *
 		delete userProfileConsultado;
 
 	}catch(EntityNotFoundException& e){
+		if (userProfileBuscado != NULL){
+			delete userProfileBuscado;
+		}
+		if (userProfileConsultado !=NULL ){
+			delete userProfileConsultado;
+		}
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 		ret_json = this->getGenericJson("false",e.what());
 		code = STATUS_NOT_FOUND;
 	}catch(exception & e){
+		if (userProfileBuscado != NULL){
+			delete userProfileBuscado;
+		}
+		if (userProfileConsultado !=NULL ){
+			delete userProfileConsultado;
+		}
 		if(&e!=NULL){
 			ret_json = this->getGenericJson("false",e.what());
 		}else{

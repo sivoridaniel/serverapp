@@ -31,6 +31,7 @@ UserProfile* AuthenticationService::getUserLogin(string id, string password)thro
 
 		if(password.compare("")!=0 && (password.compare(userProfile->getPassword())!=0)){
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Usuario de id "<<id<<" con contraseña incorrecta."));
+			delete userProfile;
 			throw IncorrectPasswordException();
 		}
 
