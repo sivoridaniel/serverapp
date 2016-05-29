@@ -38,6 +38,7 @@ UserProfile* AuthenticationService::getUserLogin(string id, string password)thro
 		delete userProfile; //Se verifico que sea un usuario registrado, se procede a consultarlo del shared.
 
 		userProfile = remoteSharedService->getUser(id); //se consulta al servicio del shared.
+		userProfile->setPassword(password);
 
 	}catch(EntityNotFoundException& e){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario de id "<<id<<" no se encuentra registrado."));
