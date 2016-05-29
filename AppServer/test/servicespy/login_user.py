@@ -7,28 +7,28 @@ import json
 import sys
 
 class User:
-         def __init__(self, name, password):
-                self.name = name
+         def __init__(self, id, password):
+                self.id = id
                 self.password = password
 
          def reprJSON(self):
-                return dict(name=self.name,password = self.password)
+                return dict(id=self.id,password = self.password)
 
 def get_args():
 
         parser = argparse.ArgumentParser('Llamada al servicio login http://localhost:3000/login_user')
-        parser.add_argument('-n','--name',type=str,help='Nombre de usuario', required = True)
+        parser.add_argument('-id','--id',type=str,help='Id de usuario', required = True)
         parser.add_argument('-p','--password',type=str,help='Password', required = True)
         
         args = parser.parse_args()
-        name = args.name
+        id_ = args.id
         password = args.password
         
-	return name,password
+	return id_,password
 
-name, password = get_args()
+id_, password = get_args()
 
-user = User(name, password)
+user = User(id_, password)
 
 data = '{\"user\":'+json.dumps(user.reprJSON())+'}'
 

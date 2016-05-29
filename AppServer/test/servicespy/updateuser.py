@@ -97,8 +97,9 @@ headers = {"content-type": "application/json"}
 
 r = requests.put("http://localhost:3000/user/updateuser", data = data, headers = headers)
 
+
 try:
-    print r.text 
+    print r.body
     sys.exit(1)
     assert( r.success == 'true' ),"ERROR LLAMADA CREANDO NUEVO USUARIO"
     data = json.loads(r.text)

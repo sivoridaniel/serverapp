@@ -22,7 +22,7 @@ data=''
 
 try:
 	r = requests.get("http://localhost:3000/valid_session", data=data, headers=headers)
-        
+	
 	header = r.headers.get('Token')
 	
 	print 'Header: %s'%header

@@ -33,7 +33,7 @@ name, password, email = get_args()
 
 data = User(name,password,email)
 
-data = '{\"user\":'+json.dumps(data.reprJSON())+'}'
+data = "{\"user\":"+json.dumps(data.reprJSON())+"}"
 
 headers = {"content-type": "application/json"}
 
@@ -41,7 +41,7 @@ r = requests.post("http://localhost:3000/user/newuser", data = data, headers = h
 
 try:
    assert( r.status_code == 200 ),"ERROR LLAMADA CREANDO NUEVO USUARIO"
-   data = json.loads(r.text)
+   data = r.text
    print data
 
 except AssertionError, e:
