@@ -61,22 +61,56 @@ string AbmUserService::createNewUser(UserProfile* userProfile){
 void AbmUserService::updateToken(UserProfile* userProfile)throw (InvalidEntityException){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserService"));
 	try{
+		//TODO: validar que exista localmente el usuario
 		this->userDao->put(userProfile->getId(), userProfile);
 	}catch(InvalidEntityException& m){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario "<<userProfile->getName()<<" con id "
 				        <<userProfile->getId()<<" no pudo actualizar su token."));
 		throw m;
+	}catch(exception& e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Error inesperado."));
+		throw e;
 	}
 }
 
 void AbmUserService::modifyUser(UserProfile* userProfile)throw (InvalidEntityException){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserService"));
 	try{
-		this->userDao->put(userProfile->getId(), userProfile); //Si cambia el email, nombre de usuario, etc
 		this->remoteSharedService->updateUser(userProfile);
+		//TODO: validar que exista localmente
+		this->userDao->put(userProfile->getId(), userProfile); //Si cambia el email, nombre de usuario, etc
 	}catch(InvalidEntityException& m){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario "<<userProfile->getName()<<" con id "
 				        <<userProfile->getId()<<" no se pudo actualizar."));
 		throw m;
+	}catch(EntityNotFoundException& e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario "<<userProfile->getName()<<" con id "
+						        <<userProfile->getId()<<" no se encuentra."));
+		throw e;
+	}catch(RemoteException& e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Error en comunicacion con shared service."));
+		throw e;
+	}catch(exception& e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+		throw e;
 	}
+}
+
+list<Interest*> AbmUserService::getInterests(){
+	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserService"));
+
+	try{
+		list<Interest*> intereses = this->remoteSharedService->getInterests();
+		return intereses;
+	}catch(RemoteException& e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+		throw e;
+	}catch(JsonParseException& e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+		throw e;
+	}catch(exception& e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+		throw e;
+	}
+
 }

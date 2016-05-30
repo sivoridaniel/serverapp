@@ -1,4 +1,4 @@
-FROM agulinari/appserver:v2
+FROM agulinari/appserverbase:v1
 COPY AppServer /AppServer
 COPY log4cpp.properties /
 RUN cd /AppServer/cmake && cmake . && make
