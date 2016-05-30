@@ -96,13 +96,14 @@ void AbmUserService::modifyUser(UserProfile* userProfile)throw (InvalidEntityExc
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserService"));
 	try{
 		UserProfile* userProfileAux = (UserProfile*)this->userDao->get(userProfile->getEmail());
+		userProfile->setId(userProfileAux->getId());
 		delete userProfileAux; //Si no arroja la excepcion (EntityNotFound) quiere decir que existe
 		this->remoteSharedService->updateUser(userProfile);
 		//TODO: validar que exista localmente
 		this->userDao->put(userProfile->getEmail(), userProfile); //Si cambia el email, nombre de usuario, etc
 	}catch(InvalidEntityException& m){
-		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario "<<userProfile->getName()<<" con email "
-				        <<userProfile->getEmail()<<" no se pudo actualizar."));
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario "<<userProfile->getName()<<" con id "
+				        <<userProfile->getId()<<" no se pudo actualizar."));
 		throw m;
 	}catch(EntityNotFoundException& e){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario "<<userProfile->getName()<<" con email "
