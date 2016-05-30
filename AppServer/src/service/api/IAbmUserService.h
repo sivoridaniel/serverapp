@@ -11,9 +11,9 @@ public:
 
 	virtual string createNewUser(UserProfile* userProfile)=0;
 
-	virtual void modifyUser(UserProfile* userProfile)throw (InvalidEntityException) = 0;
+	virtual void modifyUser(UserProfile* userProfile) = 0;
 
-	virtual void updateToken(UserProfile* userProfile)throw (InvalidEntityException) = 0;
+	virtual void updateToken(UserProfile* userProfile) = 0;
 
 };
 

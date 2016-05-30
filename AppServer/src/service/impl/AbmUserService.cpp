@@ -19,7 +19,7 @@ AbmUserService::~AbmUserService() {
 	delete remoteSharedService;
 }
 
-void AbmUserService::existeUsuario(string email)throw (EntityExistsException){
+void AbmUserService::existeUsuario(string email){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserService"));
 
 	try{
@@ -72,7 +72,7 @@ string AbmUserService::createNewUser(UserProfile* userProfile){
     return id; //Devuelve el id del usuario generado por el servicio externo (shared server)
 }
 
-void AbmUserService::updateToken(UserProfile* userProfile)throw (InvalidEntityException){
+void AbmUserService::updateToken(UserProfile* userProfile){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserService"));
 	try{
 		UserProfile* userProfileAux = (UserProfile*)this->userDao->get(userProfile->getEmail());
@@ -92,7 +92,7 @@ void AbmUserService::updateToken(UserProfile* userProfile)throw (InvalidEntityEx
 	}
 }
 
-void AbmUserService::modifyUser(UserProfile* userProfile)throw (InvalidEntityException){
+void AbmUserService::modifyUser(UserProfile* userProfile){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserService"));
 	try{
 		UserProfile* userProfileAux = (UserProfile*)this->userDao->get(userProfile->getEmail());

@@ -26,7 +26,7 @@ UserProfile::UserProfile(string json) {
 	this->name = root["user"].get("name", "").asString();
 	this->password = root["user"].get("password", "").asString();
 	this->token = root["user"].get("token", "").asString();
-	this->sex = root["user"].get("sex","").asString();
+	//this->sex = root["user"].get("sex","").asString();
 	//this->age = root["user"].get("age","").asString();
 	this->email = root["user"].get("email", "").asString();
 	this->photoProfile = root["user"].get("photo", "").asString();
@@ -94,7 +94,7 @@ string UserProfile::toSharedJson(){
 	root["user"]["name"] = this->name;
 	root["user"]["alias"] = this->alias;
 	root["user"]["photo"] = this->photoProfile;
-	root["user"]["sex"] = this->sex;
+	//root["user"]["sex"] = this->sex;
 	//root["user"]["age"] = this->age;
 	root["user"]["location"]["latitude"] = this->location->getLatitude();
 	root["user"]["location"]["longitude"] = this->location->getLongitude();

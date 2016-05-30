@@ -59,7 +59,7 @@ public:
 	 * @throw IncorrectPasswordException
 	 * @return UserProfile
 	 */
-	UserProfile* getUserLogin(string email,string password) throw(IncorrectPasswordException, EntityNotFoundException);
+	UserProfile* getUserLogin(string email,string password);
 	/**
 	 * Libera la memoria reservada para IUserDao
 	 */

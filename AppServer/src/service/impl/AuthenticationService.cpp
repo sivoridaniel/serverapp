@@ -14,10 +14,10 @@ AuthenticationService::AuthenticationService() {
 
 AuthenticationService::AuthenticationService(UserDao* userDao,IRemote* remoteSharedService){
 	this->userDao = userDao;
-	this->remoteSharedService = new RemoteSharedService();
+	this->remoteSharedService = remoteSharedService;
 }
 
-UserProfile* AuthenticationService::getUserLogin(string email, string password)throw(IncorrectPasswordException, EntityNotFoundException){
+UserProfile* AuthenticationService::getUserLogin(string email, string password){
 
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AuthenticationService"));
 	UserProfile* userProfile = NULL;

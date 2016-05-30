@@ -29,7 +29,7 @@ private:
 	MatchDao* matchDao;
 	IRemote* remoteSharedService;
 
-	void existeUsuario(string email)throw (EntityExistsException);
+	void existeUsuario(string email);
 
 public:
 	AbmUserService();
@@ -53,14 +53,14 @@ public:
 	 * @param userProfile
 	 * @throw MergeDbException,JsonParseException
 	 */
-	void modifyUser(UserProfile* userProfile)throw (InvalidEntityException);
+	void modifyUser(UserProfile* userProfile);
 
 	/**
 	 * Actualización del token.
 	 *
 	 * @param userProfile
 	 */
-	void updateToken(UserProfile* userProfile)throw (InvalidEntityException);
+	void updateToken(UserProfile* userProfile);
 
 	/**
 	 * Obtiene la lista de intereses
