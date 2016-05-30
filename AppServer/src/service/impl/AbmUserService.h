@@ -28,6 +28,9 @@ private:
 	UserDao* userDao;
 	MatchDao* matchDao;
 	IRemote* remoteSharedService;
+
+	void existeUsuario(string email)throw (EntityExistsException);
+
 public:
 	AbmUserService();
 	/**
@@ -58,6 +61,13 @@ public:
 	 * @param userProfile
 	 */
 	void updateToken(UserProfile* userProfile)throw (InvalidEntityException);
+
+	/**
+	 * Obtiene la lista de intereses
+	 *
+	 * @return list<Interest*> lista de intereses
+	 */
+	list<Interest*> getInterests();
 
 	virtual ~AbmUserService();
 };

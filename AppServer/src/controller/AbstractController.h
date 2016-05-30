@@ -87,13 +87,13 @@ public:
 
 			if(isTokenValid){
 				LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("TOKEN VALIDO"));
-				string id = JwToken::getId(token);
-				token = JwToken::generarToken(id); //se genera el nuevo token, con el nuevo timestamp, renovando la sesion
-				userProfile=authenticationService->getUserLogin(id,""); //se pasa el password en vacío
+				string email = JwToken::getEmail(token);
+				token = JwToken::generarToken(email); //se genera el nuevo token, con el nuevo timestamp, renovando la sesion
+				userProfile=authenticationService->getUserLogin(email,""); //se pasa el password en vacío
 				userProfile->setToken(token);
 				abmUserService->updateToken(userProfile); //se modifica el usuario para asignarle el nuevo token
-				delete userProfile;
 				code=token;
+				delete userProfile;
 			}else{
 				code=STATUS_NOK;
 				ret_json = "{\"success\": \"false\", \"data\":\"Bad request\"}";
@@ -102,10 +102,12 @@ public:
 		}catch(EntityNotFoundException & e){
 			ret_json = (string("{\"success\": \"false\", \"data\":\"")+e.what()+string("\"}"));
 			code=STATUS_NOT_FOUND;
+			delete userProfile;
 		}catch(exception & e){
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			ret_json = (string("{\"success\": \"false\", \"data\":\"")+e.what()+string("\"}"));
 			code=STATUS_NOK;
+			delete userProfile;
 		}
 
 		mg_printf_http_chunk(nc, "%s", ret_json.c_str());

@@ -16,7 +16,7 @@ void JwToken::evaluateOperation(int intcod,jwt*jwt,char* pcharcod,string msgErro
 	}
 }
 
-string JwToken::generarToken(string id)throw (TokenException){
+string JwToken::generarToken(string email)throw (TokenException){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("JwToken"));
 	jwt *jwt=NULL;
 	unsigned char key256[32] = "012345678901234567890123456789X";//(unsigned char*)KEY_DATA(); //Key Data 32 bytes for algorithm
@@ -34,7 +34,7 @@ string JwToken::generarToken(string id)throw (TokenException){
 	evaluateOperation(codint,jwt,(char *)"",MSG_ERROR_NEW_JWT(),logger);
 	evaluateOperation(jwt_set_alg(jwt, JWT_ALG_HS256,key256, sizeof(key256)),jwt,(char *)"",
 			                MSG_ERROR_HEADER(),logger); //Header: typ: jwt, alg: HS256
-	evaluateOperation(jwt_add_grant(jwt, "id", id.c_str()),jwt,(char *)"",
+	evaluateOperation(jwt_add_grant(jwt, "email", email.c_str()),jwt,(char *)"",
 			                MSG_ERROR_PAYLOAD(),logger); //Payload -> "username":"xxxx"
 	evaluateOperation(jwt_add_grant(jwt, "timestamp", timestamp_str),jwt,(char *)"",
 			                MSG_ERROR_PAYLOAD(),logger); //Payload -> "timestamp":"long int"
@@ -76,7 +76,7 @@ bool JwToken::isTokenValid(string token)throw (TokenException){
 	return isNotExpired;
 }
 
-string JwToken::getId(string token)throw (TokenException){
+string JwToken::getEmail(string token)throw (TokenException){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("JwToken"));
 	jwt *jwt = NULL;
 	unsigned char key256[32] = "012345678901234567890123456789X";//(unsigned char*)KEY_DATA(); //Key Data 32 bytes for algorithm
@@ -85,11 +85,11 @@ string JwToken::getId(string token)throw (TokenException){
 
 	evaluateOperation(codint,jwt,(char *)"",MSG_ERROR_NEW_JWT(),logger);
 	evaluateOperation(jwt_decode(&jwt, token.c_str(), key256, sizeof(key256)),jwt,(char *)"",
-					  MSG_ERROR_DECODE_ID(),logger);
+					  MSG_ERROR_DECODE_EMAIL(),logger);
 
-	string id = jwt_get_grant(jwt,"id");
+	string email = jwt_get_grant(jwt,"email");
 
 	jwt_free(jwt);
 
-	return id;
+	return email;
 }

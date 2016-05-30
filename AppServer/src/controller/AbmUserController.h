@@ -85,6 +85,26 @@ private:
 	 *
 	 */
 	string event_handler_update_user(struct mg_connection *nc, struct http_message *hm);
+
+	/**
+	 * Obtiene la lista de intereses del shared server
+	 *
+	 *
+	 * Retorna:
+	 *
+	 * 200: OK
+	 * 400: ERROR (BAD REQUEST)
+	 *
+	 * @param struct mg_connection *nc
+	 * @param struct http_message *hm
+	 * @return string
+	 *
+	 */
+	string event_handler_get_interests(struct mg_connection *nc, struct http_message *hm);
+
+	string createInterestsResponse(list<Interest*> intereses);
+
+
 };
 
 #endif /* SRC_CONTROLLER_ABMUSERCONTROLLER_H_ */

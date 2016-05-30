@@ -54,12 +54,12 @@ public:
 	 * el perfil del usuario correspondiente a username.
 	 * Caso contrario disparará la excepcion IncorrectPasswordException.
 	 *
-	 * @param string username
+	 * @param string email
 	 * @param string password
 	 * @throw IncorrectPasswordException
 	 * @return UserProfile
 	 */
-	UserProfile* getUserLogin(string username,string password) throw(IncorrectPasswordException, EntityNotFoundException);
+	UserProfile* getUserLogin(string email,string password) throw(IncorrectPasswordException, EntityNotFoundException);
 	/**
 	 * Libera la memoria reservada para IUserDao
 	 */

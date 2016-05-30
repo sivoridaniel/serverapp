@@ -21,13 +21,18 @@ string AbmUserController::connect(struct mg_connection *nc, struct http_message 
 		if (mg_vcmp(&hm->method, "PUT") == 0) {
 			return event_handler_update_user(nc,hm);
 		}
+	}else if(mg_vcmp(&hm->uri, "/interests") == 0){
+		if (mg_vcmp(&hm->method, "GET") == 0) {
+			return event_handler_get_interests(nc,hm);
+		}
 	}
+
 	return STATUS_NOT_FOUND; //Por default devuelve NOT_FOUND.
 }
 
 string AbmUserController::event_handler_new_user(struct mg_connection *nc, struct http_message *hm){
 
-	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("UserLoginController"));
+	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserController"));
 
 	string data = string(hm->body.p,hm->body.len);
 	string json = "";
@@ -43,25 +48,28 @@ string AbmUserController::event_handler_new_user(struct mg_connection *nc, struc
 
 		try{
 			LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Guardando en db usuario " << userProfile->getName()));
-
 			abmService->createNewUser(userProfile);
 			json = this->getGenericJson("true", userProfile->getId());
 			code = STATUS_OK;
 			delete userProfile;
 		}catch(InvalidEntityException& e){
+			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
 			json = this->getGenericJson("true", e.what());
 			delete userProfile;
 		}catch(EntityExistsException& e){
+			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
 			json = this->getGenericJson("false", e.what());
 			delete userProfile;
 		}catch(RemoteException& e){
+			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
 			json = this->getGenericJson("false", e.what());
 			delete userProfile;
 		}
 		catch(exception& e){
+			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
 			json = this->getGenericJson("false", e.what());
 			delete userProfile;
@@ -80,7 +88,7 @@ string AbmUserController::event_handler_new_user(struct mg_connection *nc, struc
 
 string AbmUserController::event_handler_update_user(struct mg_connection *nc, struct http_message *hm){
 
-	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("UserLoginController"));
+	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserController"));
 	string data = string(hm->body.p,hm->body.len);
 	string json = "";
 	string code = STATUS_OK;
@@ -98,18 +106,22 @@ string AbmUserController::event_handler_update_user(struct mg_connection *nc, st
 			code = STATUS_OK;
 			delete userProfile;
 		}catch(InvalidEntityException& e){
+			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
 			json = this->getGenericJson("false", e.what());
 			delete userProfile;
 		}catch(EntityNotFoundException& e){
+			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOT_FOUND;
 			json = this->getGenericJson("false", e.what());
 			delete userProfile;
 		}catch(RemoteException& e){
+			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
 			json = this->getGenericJson("false", e.what());
 			delete userProfile;
 		}catch(exception& e){
+			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
 			json = this->getGenericJson("false", e.what());
 			delete userProfile;
@@ -117,6 +129,7 @@ string AbmUserController::event_handler_update_user(struct mg_connection *nc, st
 
 
 	}catch(JsonParseException& e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 		code = STATUS_NOK;
 		json = this->getGenericJson("false", e.what());
 		delete userProfile;
@@ -125,6 +138,58 @@ string AbmUserController::event_handler_update_user(struct mg_connection *nc, st
 	this->sendResponse(nc,code,json, "");
 
 	return code;
+}
+
+string AbmUserController::event_handler_get_interests(struct mg_connection *nc, struct http_message *hm){
+	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserController"));
+	string code = "";
+	string json = "";
+
+	try{
+		list<Interest*> intereses = abmService->getInterests();
+
+		json = createInterestsResponse(intereses);
+
+		code = STATUS_OK;
+
+		for (list< Interest* >::iterator it=intereses.begin(); it!=intereses.end(); ++it){
+			Interest* interest = *it;
+			delete interest;
+		}
+	}catch(exception& e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+		code = STATUS_NOK;
+		json = this->getGenericJson("false", e.what());
+	}
+
+	this->sendResponse(nc,code,json, "");
+
+	return code;
+}
+
+string AbmUserController::createInterestsResponse(list<Interest*> intereses){
+
+	Json::Value root;
+	Json::Value vecInterests(Json::arrayValue);
+	Json::FastWriter writer;
+
+	if (intereses.size()==0){
+		return "{ \"interests\": []}";
+	}
+
+	int i = 0;
+	for (list< Interest* >::iterator it=intereses.begin(); it!=intereses.end(); ++it){
+		Interest* interest = *it;
+
+		root["interests"][i]["category"] = interest->getCategory();
+		root["interests"][i]["value"] = interest->getValue();
+
+		i++;
+	}
+
+	string json = writer.write(root);
+	return json;
+
 }
 
 AbmUserController::~AbmUserController() {

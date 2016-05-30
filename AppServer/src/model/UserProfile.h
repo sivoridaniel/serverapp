@@ -24,6 +24,8 @@ private:
 	string name;
 	string alias;
 	string password;
+	string sex;
+	string age;
 	string token;
 	string email;
 	string photoProfile;
@@ -56,6 +58,22 @@ public:
 
 	const string& getPassword() const {
 		return password;
+	}
+
+	const string& getSex() const {
+		return sex;
+	}
+
+	void setSex(const string& sex) {
+		this->sex = sex;
+	}
+
+	const string& getAge() const {
+		return age;
+	}
+
+	void setAge(const string& age) {
+		this->age = age;
 	}
 
 	void setPassword(const string& password) {
