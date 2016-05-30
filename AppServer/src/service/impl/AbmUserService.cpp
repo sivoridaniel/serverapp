@@ -72,7 +72,7 @@ void AbmUserService::updateToken(UserProfile* userProfile)throw (InvalidEntityEx
 void AbmUserService::modifyUser(UserProfile* userProfile)throw (InvalidEntityException){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserService"));
 	try{
-		this->userDao->put(userProfile->getId(), userProfile); //Si cambia el email, nombre de usuario, etc
+		this->userDao->put(userProfile->getEmail(), userProfile); //Si cambia el email, nombre de usuario, etc
 		this->remoteSharedService->updateUser(userProfile);
 	}catch(InvalidEntityException& m){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario "<<userProfile->getName()<<" con id "
