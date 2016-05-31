@@ -120,7 +120,11 @@ public:
 
 	virtual void sendResponse(struct mg_connection *nc, string code, string json, string token){
 
-		mg_printf(nc, "HTTP/1.1 %s\r\nContent-Type: application/json\r\nContent-Length: %d\r\n\r\n%s",code,json.length(), json.c_str());
+		const char* charcode = code.c_str();
+		const char* buf = json.c_str();
+		int lenght = (int)json.length();
+
+		mg_printf(nc, "HTTP/1.1 %s\r\nContent-Type: application/json\r\nContent-Length: %d\r\n\r\n%s",charcode,lenght, buf);
 
 		nc->flags |= MG_F_SEND_AND_CLOSE;
 	}
