@@ -18,8 +18,8 @@ class UserDao: public GenericDao{
 
 public:
 	UserDao(){};
-	Entity* get(string id) const throw(EntityNotFoundException);
-	void put(string id, Entity* entity) const throw(InvalidEntityException);
+	Entity* get(string email) const throw(EntityNotFoundException);
+	void put(string email, Entity* entity) const throw(InvalidEntityException);
 	virtual ~UserDao(){};
 };
 

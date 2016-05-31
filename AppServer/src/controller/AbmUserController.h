@@ -104,6 +104,7 @@ private:
 
 	string createInterestsResponse(list<Interest*> intereses);
 
+
 };
 
 #endif /* SRC_CONTROLLER_ABMUSERCONTROLLER_H_ */

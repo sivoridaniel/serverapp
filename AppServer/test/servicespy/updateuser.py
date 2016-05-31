@@ -8,7 +8,7 @@ import sys
 
 class User:
 
-	 def __init__(self, id, name, alias, password, photo, interests, location, mail):
+	 def __init__(self, id, name, alias, password, photo, interests, location, email):
             	self.id = id
 		self.name = name
             	self.alias = alias
@@ -16,11 +16,11 @@ class User:
         	self.photo = photo
 	        self.interests = interests
         	self.location = location
-		self.mail = mail
+		self.email = email
 
   	 def reprJSON(self):
         	return dict(id=self.id,name=self.name,alias=self.alias,password = self.password,photo = self.photo, 
-                            interests = self.interests,location=self.location, mail = self.mail) 
+                            interests = self.interests,location=self.location, email = self.email) 
 
 class Interest:
 
@@ -58,7 +58,7 @@ def get_args():
 	parser.add_argument('-l','--location',type=str,help='Latitud;Longitud', required = True)
         parser.add_argument('-id','--id',type=str,help='Id usuario', required = True)
 	parser.add_argument('-f','--foto',type=str,help='Url de la foto')
-	parser.add_argument('-e','--mail',type=str,help='Correo electronico')
+	parser.add_argument('-e','--email',type=str,help='Correo electronico')
 	
 	args = parser.parse_args()
 	id_ = args.id
@@ -68,11 +68,11 @@ def get_args():
 	photo = args.foto
 	interests = args.interests
 	location = args.location
-	mail = args.mail
+	email = args.email
 	
-	return id_, name, alias, password, photo, interests, location, mail
+	return id_, name, alias, password, photo, interests, location, email
 
-id_, name, alias, password, photo, interests, location, mail = get_args()
+id_, name, alias, password, photo, interests, location, email = get_args()
 
 locations = location.split(';')
 
@@ -89,7 +89,7 @@ if(interests is not None):
 		interes = Interest(valores[0],valores[1])
 		vec_interests.append(interes)
 
-data = User(id_, name,alias,password,photo, vec_interests,location,mail)
+data = User(id_, name,alias,password,photo, vec_interests,location,email)
 
 data = '{\"user\":'+json.dumps(data.reprJSON(), cls=ComplexEncoder)+'}'
 
@@ -99,11 +99,10 @@ r = requests.put("http://localhost:3000/user/updateuser", data = data, headers =
 
 
 try:
-    print r.body
-    sys.exit(1)
-    assert( r.success == 'true' ),"ERROR LLAMADA CREANDO NUEVO USUARIO"
-    data = json.loads(r.text)
-    print data
+    response=json.loads(r.text)
+    val_ret = response["success"]
+    assert( val_ret == 'true' ),"ERROR LLAMADA CREANDO NUEVO USUARIO"
+    print r.text
 
 except AssertionError, e:
     print 'NOK: %s'%e

@@ -9,7 +9,7 @@ public:
 
 	virtual ~IAuthenticationService(){};
 
-	virtual UserProfile* getUserLogin(string username,string password) throw(IncorrectPasswordException, EntityNotFoundException) =0;
+	virtual UserProfile* getUserLogin(string username,string password) =0;
 
 
 };
