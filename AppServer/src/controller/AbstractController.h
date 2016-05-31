@@ -118,6 +118,13 @@ public:
 
 	virtual void sendResponse(struct mg_connection *nc, string code, string json, string token){
 
+		mg_printf(nc, "HTTP/1.1 %s\r\nContent-Type: application/json\r\nContent-Length: %d\r\n\r\n%s",code,json.length(), json.c_str());
+
+		nc->flags |= MG_F_SEND_AND_CLOSE;
+	}
+
+	virtual void sendChunkedResponse(struct mg_connection *nc, string code, string json, string token){
+
 		string transferEncoding = "chunked";
 		string contentType = "application/json; charset=UTF-8";
 		string headers = "HTTP/1.1 "+code+"\r\nTransfer-Encoding: "+transferEncoding+"\r\nContent-Type: "+contentType+"\r\nToken: "+token+"\r\n\r\n";
