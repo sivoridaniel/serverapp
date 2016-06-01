@@ -15,13 +15,25 @@ using namespace std;
 
 /**
  * Clase para guardar las listas de candidatos por usuario en la base
-
  */
 class CandidatesDao : public GenericDao{
 public:
 	CandidatesDao(){};
 	virtual ~CandidatesDao(){};
+	/**
+	 * Se obtiene el candidato con id pasado por parámetro.
+	 * @param id
+	 * @throw EntityNotFoundException
+	 * @return Entity*
+	 */
 	Entity* get(string id) const throw(EntityNotFoundException);
+	/**
+	 * Se inserta el candidato con el id que le corresponde.
+	 *
+	 * @param id
+	 * @param entity
+	 * @throw InvalidEntityException
+	 */
 	void put(string id,Entity* entity) const throw(InvalidEntityException);
 };
 

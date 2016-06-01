@@ -2,7 +2,10 @@
 #define ICHATSERVICE_H_
 
 using namespace std;
-
+/**
+ * Clase que se utiliza para el Chat de usuarios. 
+ * Se utiliza para poder mockear los servicios de esta clase.
+ */
 class IChatService{
 
 public:

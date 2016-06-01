@@ -18,7 +18,20 @@ class UserDao: public GenericDao{
 
 public:
 	UserDao(){};
+	/**
+	 * Se obtiene el usuario con email pasado por parámetro.
+	 * @param email
+	 * @throw EntityNotFoundException
+	 * @return Entity*
+	 */
 	Entity* get(string email) const throw(EntityNotFoundException);
+	/**
+	 * Se inserta el usuario con el email que le corresponde.
+	 *
+	 * @param email
+	 * @param entity
+	 * @throw InvalidEntityException
+	 */
 	void put(string email, Entity* entity) const throw(InvalidEntityException);
 	virtual ~UserDao(){};
 };

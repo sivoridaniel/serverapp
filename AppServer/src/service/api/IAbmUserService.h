@@ -2,8 +2,11 @@
 #define IABMUSERSERVICE_H_
 
 using namespace std;
-
-class IAbmUserService{
+/**
+ * Clase que se utiliza para el ABM de usuarios en el server. 
+ * Se utiliza para poder mockear los servicios de esta clase.
+ */
+ class IAbmUserService{
 
 public:
 

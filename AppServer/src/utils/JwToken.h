@@ -26,7 +26,7 @@ using namespace log4cplus;
 
 class JwToken{
 public:
-	//JwToken();
+
 	/**
 	 * Se utilizará para la generación del token el algoritmo JWT_ALG_HS256 utilizando una clave interna de 32 bytes. El header quedará
 	 * conformado por el type: jwt (metodo de generación del token) y alg: HS256 que es el algoritmo utilizado.
@@ -65,7 +65,7 @@ public:
 	 */
 	static string getEmail(string token)throw (TokenException);
 
-	//virtual ~JwToken();
+	
 
 private:
 

@@ -2,7 +2,10 @@
 #define IAUTHSERVICE_H_
 
 using namespace std;
-
+/**
+ * Clase que se utiliza para manejar la autenticación de usuarios. 
+ * Se utiliza para poder mockear los servicios de esta clase.
+ */
 class IAuthenticationService{
 
 public:

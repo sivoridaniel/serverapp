@@ -2,7 +2,10 @@
 #define IREMOTE_H_
 
 using namespace std;
-
+/**
+ * Clase que se utiliza para la llamada a los servicios externos a la aplicación (shared server). 
+ * Se utiliza para poder mockear los servicios de esta clase.
+ */
 class IRemote{
 
 public:

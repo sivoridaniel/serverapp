@@ -21,7 +21,20 @@ class MatchDao : public GenericDao{
 public:
 	MatchDao(){};
 	virtual ~MatchDao(){};
+	/**
+	 * Se obtiene el Match con id pasado por parámetro.
+	 * @param id
+	 * @throw EntityNotFoundException
+	 * @return Entity*
+	 */
 	Entity* get(string id) const throw(EntityNotFoundException);
+	/**
+	 * Se inserta el match con el id que le corresponde.
+	 *
+	 * @param id
+	 * @param entity
+	 * @throw InvalidEntityException
+	 */
 	void put(string id,Entity* entity) const throw(InvalidEntityException);
 };
 

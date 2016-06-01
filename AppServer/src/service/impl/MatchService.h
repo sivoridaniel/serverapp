@@ -82,6 +82,19 @@ public:
 	 *
 	 */
 	list<UserProfile*> getNewMatches(string idUser);
+	
+	/**
+	 * Valida que no sea el mismo usuario, que no lo haya rechazado, y que no haya sido aceptado.
+	 * Cumpliendose lo anterior, en caso de haber match, se procede al proceso de confirmación eliminandolo 
+     * de la columnfamily de nuevos matches y agregandolo en la columnfamily de aceptados. 
+     * Luego se crea el chat para poder iniciar la conversación entre ambos usuarios.	 
+	 *
+	 * @param idUser
+	 * @param idUserConfirmed 
+	 * @throw EntityNotFoundException
+	 * @throw EntityExistsException
+	 * @throw IllegalStateException
+	 */
 	void confirmUser(string idUser, string idUserConfirmed);
 
 	/**

@@ -102,6 +102,14 @@ private:
 	 */
 	string event_handler_get_interests(struct mg_connection *nc, struct http_message *hm);
 
+	/**
+	 * Transforma la lista de intereses devuelta por el shared a un json.
+	 *
+	 * @param struct mg_connection *nc
+	 * @param struct http_message *hm
+	 * @return string
+	 *
+	 */
 	string createInterestsResponse(list<Interest*> intereses);
 
 

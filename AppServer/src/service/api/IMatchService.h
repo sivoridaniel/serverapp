@@ -2,7 +2,10 @@
 #define IMATCHSERVICE_H_
 
 using namespace std;
-
+/**
+ * Clase que se utiliza para el Match de usuarios. 
+ * Se utiliza para poder mockear los servicios de esta clase.
+ */
 class IMatchService{
 
 public:

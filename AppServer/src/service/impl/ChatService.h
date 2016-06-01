@@ -59,7 +59,7 @@ public:
 	void addNewMessage(string idUser1, string idUser2, string message);
 
 	/**
-	 * Actualiza el ultimo mensaje visto del idUser1 de los mensajes enviados por idUser2
+	 * Actualiza el último mensaje visto del idUser1 de los mensajes enviados por idUser2
 	 *
 	 * @param string idUser1 usuario que desea notificar la actualizacion
 	 * @param string idUser2 usuario con el cual tiene la conversacion el idUser1
@@ -76,9 +76,23 @@ public:
 	 */
 	void createChat(string idUser1, string idUser2);
 
+	/**
+	 * Obtiene la conversación de los usuarios participantes.
+	 * @param string idUser1 usuario participante
+	 * @param string idUser2 usuario participante
+	 * @throw EntityNotFoundException si no existe alguno de los usuarios
+	 */
 	Chat* getChat(string idUser1, string idUser2);
 
 private:
+
+	/**
+	 * Genera el id del chat en orden alfabetico.
+	 * Si idUser1 >= idUser2 -> resultado idUser2 - idUser1, caso contrario
+     * será idUser1 - idUser1 el id generado para la conversación.
+	 * @param string idUser1 usuario participante
+	 * @param string idUser2 usuario participante
+	 */
 	string generateChatId(string idUser1, string idUser2);
 
 };

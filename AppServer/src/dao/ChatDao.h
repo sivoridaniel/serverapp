@@ -21,9 +21,20 @@ class ChatDao : public GenericDao{
 public:
 	ChatDao(){};
 	virtual ~ChatDao(){};
-
+	/**
+	 * Se obtiene el chat con id pasado por parámetro.
+	 * @param id
+	 * @throw EntityNotFoundException
+	 * @return Entity*
+	 */
 	Entity* get(string id) const throw(EntityNotFoundException);
-
+	/**
+	 * Se inserta el chat con el id que le corresponde.
+	 *
+	 * @param id
+	 * @param entity
+	 * @throw InvalidEntityException
+	 */
 	void put(string id, Entity* entity) const throw(InvalidEntityException);
 };
 
