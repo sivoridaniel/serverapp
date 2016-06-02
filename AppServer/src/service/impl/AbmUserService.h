@@ -33,6 +33,9 @@ private:
 
 public:
 	AbmUserService();
+
+	AbmUserService(UserDao* userDao, MatchDao* matchDao, IRemote* sharedServer);
+
 	/**
 	 * Crea un nuevo usuario con password, token y email para un posible recupero
 	 * de cuenta.

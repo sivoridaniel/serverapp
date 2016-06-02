@@ -8,4 +8,5 @@ Makefile
 mockAuthenticationCtrlTest
 mockMatchServiceTest
 mockChatServiceTest
+mockABMUsersServiceTest
 Testing

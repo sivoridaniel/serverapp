@@ -13,6 +13,12 @@ AbmUserService::AbmUserService() {
 	this->remoteSharedService = new RemoteSharedService();
 }
 
+AbmUserService::AbmUserService(UserDao* userDao, MatchDao* matchDao, IRemote* sharedServer){
+	this->userDao = userDao;
+	this->matchDao = matchDao;
+	this->remoteSharedService = sharedServer;
+}
+
 AbmUserService::~AbmUserService() {
 	delete userDao;
 	delete matchDao;
