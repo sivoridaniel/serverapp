@@ -44,7 +44,6 @@ string AbmUserController::event_handler_new_user(struct mg_connection *nc, struc
 
 	try{
 		userProfile = new UserProfile(data);
-		userProfile->setRegistracionUser(true);
 
 		try{
 			LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Guardando en db usuario " << userProfile->getName()));

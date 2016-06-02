@@ -8,9 +8,11 @@ import sys
 
 class User:
 
-	 def __init__(self, id, name, alias, password, photo, interests, location, email):
+	 def __init__(self, id, name, alias, password, sex, age, photo, interests, location, email):
             	self.id = id
 		self.name = name
+		self.sex = sex
+		self.age = age
             	self.alias = alias
         	self.password = password
         	self.photo = photo
@@ -19,7 +21,7 @@ class User:
 		self.email = email
 
   	 def reprJSON(self):
-        	return dict(id=self.id,name=self.name,alias=self.alias,password = self.password,photo = self.photo, 
+        	return dict(id=self.id,name=self.name,alias=self.alias,password = self.password,sex=self.sex,age=self.age,photo = self.photo, 
                             interests = self.interests,location=self.location, email = self.email) 
 
 class Interest:
@@ -55,8 +57,10 @@ def get_args():
         parser.add_argument('-a','--alias',type=str,help='Alias del usuario')
 	parser.add_argument('-i','--interests',type=str,help='Intereses. Categoria1,Valor1;Categoria2,Valor2;...;CategoriaN,ValorN')
 	parser.add_argument('-p','--password',type=str,help='Password')
+	parser.add_argument('-s','--sex',type=str,help='Sexo')
+	parser.add_argument('-ag','--age',type=str,help='Edad')
 	parser.add_argument('-l','--location',type=str,help='Latitud;Longitud', required = True)
-        parser.add_argument('-id','--id',type=str,help='Id usuario', required = True)
+        parser.add_argument('-id','--id',type=str,help='Id usuario')
 	parser.add_argument('-f','--foto',type=str,help='Url de la foto')
 	parser.add_argument('-e','--email',type=str,help='Correo electronico')
 	
@@ -64,15 +68,17 @@ def get_args():
 	id_ = args.id
 	name = args.name
 	alias = args.alias
+	sex = args.sex
+	age = args.age
 	password = args.password
 	photo = args.foto
 	interests = args.interests
 	location = args.location
 	email = args.email
 	
-	return id_, name, alias, password, photo, interests, location, email
+	return id_, name, alias, password,sex,age, photo, interests, location, email
 
-id_, name, alias, password, photo, interests, location, email = get_args()
+id_, name, alias, password,sex,age, photo, interests, location, email = get_args()
 
 locations = location.split(';')
 
@@ -89,7 +95,7 @@ if(interests is not None):
 		interes = Interest(valores[0],valores[1])
 		vec_interests.append(interes)
 
-data = User(id_, name,alias,password,photo, vec_interests,location,email)
+data = User(id_, name,alias,password,sex,age,photo, vec_interests,location,email)
 
 data = '{\"user\":'+json.dumps(data.reprJSON(), cls=ComplexEncoder)+'}'
 
