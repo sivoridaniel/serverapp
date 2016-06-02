@@ -1,5 +1,4 @@
-mockAuthenticationCtrlTest 8 0
-mockMatchServiceTest 13 0.00288162
-mockChatServiceTest 3 0.0437284
+mockAuthenticationCtrlTest 9 0.00406477
+mockMatchServiceTest 14 0.0029992
+mockChatServiceTest 4 0.010973
 ---
-mockAuthenticationCtrlTest

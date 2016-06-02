@@ -31,34 +31,13 @@ public:
 class MockSharedService : public IRemote{
 public:
 
-	MOCK_CONST_METHOD1(MockFunctionGetUser, UserProfile*(string id) );
-	UserProfile* getUser(string id){
-		return MockFunctionGetUser(id);
-	}
-	MOCK_CONST_METHOD1(createInterest, void (Interest* interest));
-	void createInterest(Interest* interest){
-		createInterest(interest);
-	}
-	MOCK_CONST_METHOD0(getInterests, list<Interest*>(void));
-	list<Interest*> getInterests(){
-		return getInterests();
-	}
-	MOCK_CONST_METHOD0(getUsers, list<UserProfile*>(void));
-	list<UserProfile*> getUsers(){
-		return getUsers();
-	}
-	MOCK_CONST_METHOD1(createUser, void (UserProfile* userProfile));
-	void createUser(UserProfile* userProfile){
-		createUser(userProfile);
-	}
-	MOCK_CONST_METHOD1(deleteUser, void (string id));
-	void deleteUser(string id){
-		deleteUser(id);
-	}
-	MOCK_CONST_METHOD1(updateUser, void (UserProfile* userProfile));
-	void updateUser(UserProfile* userProfile){
-		updateUser(userProfile);
-	}
+	MOCK_METHOD1(getUser, UserProfile*(string id) );
+	MOCK_METHOD1(createInterest, void (Interest* interest));
+	MOCK_METHOD0(getInterests, list<Interest*>(void));
+	MOCK_METHOD0(getUsers, list<UserProfile*>(void));
+	MOCK_METHOD1(createUser, void (UserProfile* userProfile));
+	MOCK_METHOD1(deleteUser, void (string id));
+	MOCK_METHOD1(updateUser, void (UserProfile* userProfile));
 
 };
 
@@ -97,10 +76,14 @@ TEST(AuthenticationServiceTest,login){
 	MockUserDao* mockUserDao = new MockUserDao();
 	MockSharedService* mockShared = new MockSharedService();
 	UserProfile* userProfile = new UserProfile("sivori.daniel@gmail.com","password");
+	UserProfile* userProfileShared = new UserProfile("sivori.daniel@gmail.com","password");
+	userProfile->setId("1");
 	EXPECT_CALL(*mockUserDao, get("sivori.daniel@gmail.com")).Times(AtLeast(1)).WillOnce(Return(userProfile));
+	EXPECT_CALL(*mockShared, getUser("1")).Times(AtLeast(1)).WillOnce(Return(userProfileShared));
 	AuthenticationService* authenticationService = new AuthenticationService(mockUserDao,mockShared);
 	EXPECT_NO_THROW({authenticationService->getUserLogin("sivori.daniel@gmail.com","password");});
-
+	ASSERT_TRUE(userProfileShared->getPassword() == "password");
+	delete userProfileShared;
 	delete authenticationService;
 }
 
