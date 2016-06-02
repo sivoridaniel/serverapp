@@ -71,15 +71,6 @@ public:
 		mg_str* mg_token = mg_get_http_header(hm,"token");
 		string token = string(mg_token->p,mg_token->len);
 
-		/* Get Form variables */
-
-		//mg_get_http_var(&hm->message, "token", vecToken, sizeof(vecToken));
-
-		//mg_http_parse_header(&hm->mg_header,'token',vecToken,sizeof(vecToken));
-
-		/* Call authentication service */
-
-
 			LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("TOKEN RECIBIDO: "+token));
 
 			bool isTokenValid = JwToken::isTokenValid(token);
