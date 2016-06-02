@@ -35,17 +35,92 @@ public:
 	 *
 	 * @param mg_connection*
 	 * @param http_message*
-	 * @result string json result
+	 * @return string json result
 	 */
 	string connect(struct mg_connection *nc, struct http_message *hm);
 
 private:
 
+	/**
+	 * Se obtienen los parametros idFrom y idTo de la query, y se trata de agregar el usuario de
+	 * idTo a la lista de aceptados de idFrom.
+	 *
+	 * Devuelve el status:
+	 *
+	 * 200 OK
+	 * 400 NOK
+	 * 404 NOT_FOUND
+	 *
+	 * @param mg_connection*
+	 * @param http_message*
+	 * @return string
+	 *
+	 */
 	string event_handler_submit_yes(struct mg_connection *nc, struct http_message *hm);
+	/**
+	 * Se obtienen los parametros idFrom y idTo de la query, y se trata de agregar el usuario de
+	 * idTo a la lista de rechazados de idFrom.
+	 *
+	 * Devuelve el status:
+	 *
+	 * 200 OK
+	 * 400 NOK
+	 * 404 NOT_FOUND
+	 *
+	 * @param mg_connection*
+	 * @param http_message*
+	 * @return string
+	 *
+	 */
 	string event_handler_submit_no(struct mg_connection *nc, struct http_message *hm);
+	/**
+	 * Se obtiene el parametro id de la query, y se buscan los nuevos matchs de ese usuario.
+	 *
+	 * Devuelve el status:
+	 *
+	 * 200 OK
+	 * 400 NOK
+	 * 404 NOT_FOUND
+	 *
+	 * @param mg_connection*
+	 * @param http_message*
+	 * @return string
+	 *
+	 */
 	string event_handler_new_matches(struct mg_connection *nc, struct http_message *hm);
+	/**
+	 * Se obtienen los parametros idTo y idFrom de la query, y se trata de agregar el idTo a la lista
+	 * de matchs confirmados del usuario con idFrom.
+	 *
+	 * Devuelve el status:
+	 *
+	 * 200 OK
+	 * 400 NOK
+	 * 404 NOT_FOUND
+	 *
+	 * @param mg_connection*
+	 * @param http_message*
+	 * @return string
+	 *
+	 */
 	string event_handler_confirm_match(struct mg_connection *nc, struct http_message *hm);
+	/**
+	 * Devuelve un vector de string con los parametros contenidos en el json. El vector de string
+	 * tendrá en la primera posicion el idFrom y en la segunda el idTo, ids de usuarios con los
+	 * que se van a hacer el match.
+	 *
+	 * @param json
+	 * @throw JsonParseException
+	 * @return vector<string>
+	 */
 	vector<string> parseMatchRequest(string json);
+	/**
+	 * Devuelve el json con los usuarios de nuevos matches.
+	 *
+	 * @param newMatches
+	 * @return string
+	 *
+	 */
 	string createNewMatchesResponse(list<UserProfile*> newMatches);
 
 };

@@ -36,7 +36,22 @@ public:
 	string connect(struct mg_connection *nc, struct http_message *hm);
 
 private:
-
+	/**
+	 * Se pasa por parametro el id del usuario para el cual se quieren buscar los candidatos.
+	 * Se aplica el algoritmo de busqueda para buscar candidatos cercanos y que no se hayan matcheado
+	 * o rechazado antes.
+	 *
+	 * Devuelve el status:
+	 *
+	 * 200 OK
+	 * 400 NOK
+	 * 404 NOT_FOUND
+	 *
+	 * @param mg_connection*
+	 * @param http_message*
+	 * @result string
+	 *
+	 */
 	string event_handler_search_candidates(struct mg_connection *nc, struct http_message *hm);
 	string createSearchResponse(list<UserProfile*> candidates);
 
