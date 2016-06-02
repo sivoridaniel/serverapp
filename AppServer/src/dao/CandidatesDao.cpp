@@ -7,7 +7,7 @@
 
 #include "CandidatesDao.h"
 
-Entity* CandidatesDao::get(string id) const throw(EntityNotFoundException){
+Entity* CandidatesDao::get(string id){
 
 	string json;
 
@@ -18,7 +18,7 @@ Entity* CandidatesDao::get(string id) const throw(EntityNotFoundException){
 	return candidates;
 }
 
-void CandidatesDao::put(string id, Entity* e) const throw(InvalidEntityException){
+void CandidatesDao::put(string id, Entity* e){
 
 	CandidateList* candidates = dynamic_cast<CandidateList*>(e);
 	if (candidates==0){

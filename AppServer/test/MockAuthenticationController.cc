@@ -22,16 +22,10 @@ using ::testing::Return;
 class MockUserDao : public UserDao{
 public:
 
-	MOCK_CONST_METHOD1(MockFunctionGet, Entity*(string id) );
-	virtual Entity* get(string email) const throw(EntityNotFoundException)
-	{
-	    return MockFunctionGet(email);
-	}
-	MOCK_CONST_METHOD2( MockFunctionPut, void(string id, Entity* e) );
-	virtual void put(string id, Entity * e) const throw(InvalidEntityException)
-	{
-			MockFunctionPut(id,e);
-	}
+	MOCK_METHOD1(get, Entity*(string id) );
+
+	MOCK_METHOD2(put, void(string id, Entity* e) );
+
 };
 
 class MockSharedService : public IRemote{
@@ -103,7 +97,7 @@ TEST(AuthenticationServiceTest,login){
 	MockUserDao* mockUserDao = new MockUserDao();
 	MockSharedService* mockShared = new MockSharedService();
 	UserProfile* userProfile = new UserProfile("sivori.daniel@gmail.com","password");
-	EXPECT_CALL(*mockUserDao, MockFunctionGet("sivori.daniel@gmail.com")).Times(AtLeast(1)).WillOnce(Return(userProfile));
+	EXPECT_CALL(*mockUserDao, get("sivori.daniel@gmail.com")).Times(AtLeast(1)).WillOnce(Return(userProfile));
 	AuthenticationService* authenticationService = new AuthenticationService(mockUserDao,mockShared);
 	EXPECT_NO_THROW({authenticationService->getUserLogin("sivori.daniel@gmail.com","password");});
 

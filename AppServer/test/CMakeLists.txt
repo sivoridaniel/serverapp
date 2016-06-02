@@ -21,24 +21,30 @@ add_subdirectory(${GTEST_DIR} /googlemock)
 include_directories(SYSTEM ${GTEST_DIR}/googletest/include ${GTEST_DIR}/googlemock/include) 
 
 set(UNITTEST_SRC ../test/MockAuthenticationController.cc)
-
 set(SRC_FILES ${WEBSERVER_SRC} ${CONTROLLER_SRC} ${UTILS_SRC} ${DAO_SRC} ${JSON_SRC} ${MODEL_SRC} ${SERVICE_SRC} ${UNITTEST_SRC})
 
 set(UNITTEST_MATCH_SRC ../test/MockMatchService.cc)
 set(SRC_FILES_MATCH ${WEBSERVER_SRC} ${CONTROLLER_SRC} ${UTILS_SRC} ${DAO_SRC} ${JSON_SRC} ${MODEL_SRC} ${SERVICE_SRC} ${UNITTEST_MATCH_SRC})
 
-add_executable(mockMatchServiceTest ${SRC_FILES_MATCH}) 
+set(UNITTEST_CHAT_SRC ../test/MockChatService.cc)
+set(SRC_FILES_CHAT ${WEBSERVER_SRC} ${CONTROLLER_SRC} ${UTILS_SRC} ${DAO_SRC} ${JSON_SRC} ${MODEL_SRC} ${SERVICE_SRC} ${UNITTEST_CHAT_SRC})
 
+add_executable(mockMatchServiceTest ${SRC_FILES_MATCH}) 
 add_executable(mockAuthenticationCtrlTest ${SRC_FILES})
+add_executable(mockChatServiceTest ${SRC_FILES_CHAT}) 
+
 target_link_libraries(mockAuthenticationCtrlTest utils dao model service controller gmock gmock_main rocksdb log4cplus jansson jwt json webserver ${LibXML2_LIBRARIES} ${CPPUNIT_LIBRARY} ${LINUX_LIBRARIES} ${GCOV_LINK_FLAGS})
 target_link_libraries(mockMatchServiceTest utils dao model service controller gmock gmock_main rocksdb log4cplus jansson jwt json webserver ${LibXML2_LIBRARIES} ${CPPUNIT_LIBRARY} ${LINUX_LIBRARIES} ${GCOV_LINK_FLAGS})
+target_link_libraries(mockChatServiceTest utils dao model service controller gmock gmock_main rocksdb log4cplus jansson jwt json webserver ${LibXML2_LIBRARIES} ${CPPUNIT_LIBRARY} ${LINUX_LIBRARIES} ${GCOV_LINK_FLAGS})
 
 add_test(NAME mockAuthenticationCtrlTest COMMAND mockAuthenticationCtrlTest)
 add_test(NAME mockMatchServiceTest COMMAND mockMatchServiceTest)
+add_test(NAME mockChatServiceTest COMMAND mockChatServiceTest)
 
 add_custom_target(cov COMMAND ${LCOV_PATH} --directory . --zerocounters
 COMMAND mockAuthenticationCtrlTest
 COMMAND mockMatchServiceTest
+COMMAND mockChatServiceTest
 # Capture lcov counters
 COMMAND ${LCOV_PATH} --directory ${DIR_APP} --capture --output-file ${OUTPUT_NAME}.info
  # Remove googletest coverage results
