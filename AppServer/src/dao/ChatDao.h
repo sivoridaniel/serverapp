@@ -27,7 +27,7 @@ public:
 	 * @throw EntityNotFoundException
 	 * @return Entity*
 	 */
-	Entity* get(string id) const throw(EntityNotFoundException);
+	Entity* get(string id);
 	/**
 	 * Se inserta el chat con el id que le corresponde.
 	 *
@@ -35,7 +35,7 @@ public:
 	 * @param entity
 	 * @throw InvalidEntityException
 	 */
-	void put(string id, Entity* entity) const throw(InvalidEntityException);
+	void put(string id, Entity* entity);
 };
 
 #endif /* CHATDAO_H_ */

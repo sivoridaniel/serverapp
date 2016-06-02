@@ -24,7 +24,7 @@ public:
 	 * @throw EntityNotFoundException
 	 * @return Entity*
 	 */
-	Entity* get(string email) const throw(EntityNotFoundException);
+	Entity* get(string email);
 	/**
 	 * Se inserta el usuario con el email que le corresponde.
 	 *
@@ -32,7 +32,7 @@ public:
 	 * @param entity
 	 * @throw InvalidEntityException
 	 */
-	void put(string email, Entity* entity) const throw(InvalidEntityException);
+	void put(string email, Entity* entity);
 	virtual ~UserDao(){};
 };
 

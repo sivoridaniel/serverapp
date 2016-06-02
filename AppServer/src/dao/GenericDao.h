@@ -28,14 +28,14 @@ public:
 	 * @return Entity
 	 *
 	 */
-	virtual Entity* get(string id) const throw(EntityNotFoundException)=0;
+	virtual Entity* get(string id)=0;
 	/**
 	 * Persiste la entidad cuya estructura es (clave-valor).
 	 *
 	 * @param Entity
 	 * @throw InvalidEntityException
 	 */
-	virtual void put(string id, Entity* entity) const throw(InvalidEntityException)=0;
+	virtual void put(string id, Entity* entity)=0;
 
 };
 

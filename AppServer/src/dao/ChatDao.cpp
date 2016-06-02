@@ -8,7 +8,7 @@
 #include "ChatDao.h"
 
 
-Entity* ChatDao::get(string id) const throw(EntityNotFoundException){
+Entity* ChatDao::get(string id){
 	string json;
 
 	json = DbHelper::get(id, CHAT);
@@ -17,7 +17,7 @@ Entity* ChatDao::get(string id) const throw(EntityNotFoundException){
 
 	return chat;
 }
-void ChatDao::put(string id, Entity* e) const throw(InvalidEntityException){
+void ChatDao::put(string id, Entity* e){
 	Chat* chat = dynamic_cast<Chat*>(e);
 	if (chat==0){
 		throw InvalidEntityException();

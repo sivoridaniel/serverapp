@@ -7,7 +7,7 @@
 
 #include "UserDao.h"
 
-Entity* UserDao::get(string email) const throw(EntityNotFoundException){
+Entity* UserDao::get(string email){
 
 	string json;
 
@@ -18,7 +18,7 @@ Entity* UserDao::get(string email) const throw(EntityNotFoundException){
 	return usr;
 }
 
-void UserDao::put(string email, Entity* e) const throw(InvalidEntityException){
+void UserDao::put(string email, Entity* e){
 
 	UserProfile* user = dynamic_cast<UserProfile*>(e);
 	if (user==0){
