@@ -103,10 +103,12 @@ void AbmUserService::modifyUser(UserProfile* userProfile){
 	try{
 		UserProfile* userProfileAux = (UserProfile*)this->userDao->get(userProfile->getEmail());
 		userProfile->setId(userProfileAux->getId());
-		delete userProfileAux; //Si no arroja la excepcion (EntityNotFound) quiere decir que existe
 		this->remoteSharedService->updateUser(userProfile);
-		//TODO: validar que exista localmente
+		if(userProfile->getPassword().compare("")==0){
+			userProfile->setPassword(userProfileAux->getPassword());
+		}
 		this->userDao->put(userProfile->getEmail(), userProfile); //Si cambia el email, nombre de usuario, etc
+		delete userProfileAux; //Si no arroja la excepcion (EntityNotFound) quiere decir que existe
 	}catch(InvalidEntityException& m){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario "<<userProfile->getName()<<" con id "
 				        <<userProfile->getId()<<" no se pudo actualizar."));
