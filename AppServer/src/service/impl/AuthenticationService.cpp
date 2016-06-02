@@ -28,6 +28,7 @@ UserProfile* AuthenticationService::getUserLogin(string email, string password){
 		LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("JSON: "<<userProfile->toJson()));
 		LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Password base "<<userProfile->getPassword()));
 		LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Password ingresado "<<password));
+		LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Email base "<<userProfile->getEmail()));
 
 		if(password.compare("")!=0 && (password.compare(userProfile->getPassword())!=0)){
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Usuario de id "<<userProfile->getId()<<" con contraseña incorrecta."));
