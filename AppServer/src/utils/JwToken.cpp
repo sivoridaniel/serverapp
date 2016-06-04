@@ -10,7 +10,7 @@
 void JwToken::evaluateOperation(int intcod,jwt*jwt,char* pcharcod,string msgError,Logger logger)throw (TokenException){
 
 	if(intcod!=0 || pcharcod==NULL){
-		LOG4CPLUS_ERROR(logger,LOG4CPLUS_TEXT(msgError));
+		LOG4CPLUS_ERROR(logger,LOG4CPLUS_TEXT(msgError) << " " << intcod);
 		jwt_free(jwt);
 		throw TokenException();
 	}
