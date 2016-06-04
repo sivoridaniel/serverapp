@@ -24,10 +24,10 @@ string JwToken::generarToken(string email)throw (TokenException){
 	char *out;
 	string ret_token="";
 	time_t timestamp = time(NULL);
-	stringstream timestamp_aux_str;
+	string stimestamp = to_string(timestamp);
 
-	timestamp_aux_str << timestamp;
-	const char* timestamp_str = timestamp_aux_str.str().c_str();
+	//timestamp_aux_str << timestamp;
+	//const char* timestamp_str = timestamp_aux_str.str().c_str();
 
 	int codint = jwt_new(&jwt);
 
@@ -40,8 +40,8 @@ string JwToken::generarToken(string email)throw (TokenException){
 	LOG4CPLUS_DEBUG(logger,LOG4CPLUS_TEXT("EMAIL PARA EL PAYLOAD: "<<email<<" "<<jwt));
 	evaluateOperation(jwt_add_grant(jwt, "email", email.c_str()),jwt,(char *)"",
 			                MSG_ERROR_PAYLOAD(),logger); //Payload -> "username":"xxxx"
-	LOG4CPLUS_DEBUG(logger,LOG4CPLUS_TEXT("TIMESTAMP: "<<timestamp_aux_str.str()<<" "<<jwt));
-	evaluateOperation(jwt_add_grant(jwt, "timestamp", timestamp_str),jwt,(char *)"",
+	LOG4CPLUS_DEBUG(logger,LOG4CPLUS_TEXT("TIMESTAMP: "<<stimestamp<<" "<<jwt));
+	evaluateOperation(jwt_add_grant(jwt, "timestamp", stimestamp.c_str()),jwt,(char *)"",
 			                MSG_ERROR_PAYLOAD(),logger); //Payload -> "timestamp":"long int"
 	LOG4CPLUS_DEBUG(logger,LOG4CPLUS_TEXT("EXPIRE: "<<seconds_expire<<" "<<jwt));
 	evaluateOperation(jwt_add_grant(jwt, "expire", seconds_expire.c_str()),jwt,(char *)"",
