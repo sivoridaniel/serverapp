@@ -56,7 +56,7 @@ string AuthenticationController::event_handler_login_user(struct mg_connection *
 			LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("TOKEN: "+token));
 			userProfileConsultado->setToken(token);
 			abmUserService->updateToken(userProfileConsultado);
-			ret_json = userProfileConsultado->toSharedJson();
+			ret_json = this->createLoginResponse(userProfileConsultado);
 			code = STATUS_OK;
 		}else{
 			code = STATUS_NOK;
@@ -114,4 +114,36 @@ AuthenticationController::~AuthenticationController() {
 	delete this->authenticationService;
 	delete this->abmUserService;
 
+}
+
+string AuthenticationController::createLoginResponse(UserProfile* user){
+	Json::Value root;
+	Json::Value vecInterests(Json::arrayValue);
+	Json::FastWriter writer;
+	int i=0;
+
+	root["user"]["name"] = user->getName();
+	root["user"]["alias"] = user->getAlias();
+	root["user"]["photo"] = user->getPhotoProfile();
+	root["user"]["sex"] = user->getSex();
+	root["user"]["age"] = user->getAge();
+	Location* location = user->getLocation();
+	root["user"]["location"]["latitude"] = location->getLatitude();
+	root["user"]["location"]["longitude"] = location->getLongitude();
+	list<Interest*> interests = user->getInterests();
+	if(interests.empty()){
+		root["user"]["interests"] = Json::Value(Json::arrayValue);
+	}
+
+	for (list< Interest* >::iterator it=interests.begin(); it!=interests.end(); ++it){
+		Interest* interest = *it;
+		root["user"]["interests"][i]["category"] = interest->getCategory();;
+		root["user"]["interests"][i]["value"] = interest->getValue();
+		i++;
+	}
+
+	root["user"]["email"] = user->getEmail();
+	root["user"]["id" ] = user->getId();
+	string json = writer.write(root);
+	return json;
 }

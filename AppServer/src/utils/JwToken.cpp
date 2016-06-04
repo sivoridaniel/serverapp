@@ -62,9 +62,6 @@ bool JwToken::isTokenValid(string token)throw (TokenException){
 	string seconds_expire_str = "60";
 	time_t timestamp = time(NULL);
 
-	int codint = jwt_new(&jwt);
-
-	evaluateOperation(codint,jwt,(char *)"",MSG_ERROR_NEW_JWT(),logger);
 	evaluateOperation(jwt_decode(&jwt, token.c_str(), key256, sizeof(key256)),jwt,(char *)"",
 	                  MSG_ERROR_DECODE_TOKEN(),logger);
 

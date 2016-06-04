@@ -82,6 +82,8 @@ private:
 	 * @return string
 	 */
 	string event_handler_valid_session(struct mg_connection *nc, struct http_message *hm);
+
+	string createLoginResponse(UserProfile* user);
 };
 
 
