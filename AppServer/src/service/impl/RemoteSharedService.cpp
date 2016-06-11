@@ -242,9 +242,7 @@ string RemoteSharedService::parsePhoto(string json){
 		throw JsonParseException();
 	}
 
-	const Json::Value photoValue = root["photo"];
-
-	string photo =  writer.write(photoValue);
+	string photo = root["photo"].asString();
 
 	return photo;
 }
