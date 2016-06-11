@@ -18,6 +18,8 @@ public:
 
 	virtual list<UserProfile*> getNewMatches(string idUser)=0;
 
+	virtual list<UserProfile*> getChats(string idUser)=0;
+
 	virtual void confirmUser(string idUser, string idUserConfirmed)=0;
 
 	virtual bool isACandidate(string idUser, string idOtherUser)=0;

@@ -50,6 +50,8 @@ string CandidateList::toJson(){
 
 		root["users"][i]["user"]["name"] = candidate->getName();
 		root["users"][i]["user"]["alias"] = candidate->getAlias();
+		root["users"][i]["user"]["sex"] = candidate->getSex();
+		root["users"][i]["user"]["age"] = candidate->getAge();
 		root["users"][i]["user"]["photo"] = candidate->getPhotoProfile();
 		root["users"][i]["user"]["location"]["latitude"] = location->getLatitude();
 		root["users"][i]["user"]["location"]["longitude"] = location->getLongitude();

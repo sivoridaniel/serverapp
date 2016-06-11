@@ -88,6 +88,23 @@ private:
 	 *
 	 */
 	string event_handler_new_matches(struct mg_connection *nc, struct http_message *hm);
+
+	/**
+	 * Se obtiene el parametro id de la query, y se buscan los chats de ese usuario.
+	 *
+	 * Devuelve el status:
+	 *
+	 * 200 OK
+	 * 400 NOK
+	 * 404 NOT_FOUND
+	 *
+	 * @param mg_connection*
+	 * @param http_message*
+	 * @return string
+	 *
+	 */
+	string event_handler_chats(struct mg_connection *nc, struct http_message *hm);
+
 	/**
 	 * Se obtienen los parametros idTo y idFrom de la query, y se trata de agregar el idTo a la lista
 	 * de matchs confirmados del usuario con idFrom.

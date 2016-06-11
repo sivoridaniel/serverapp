@@ -84,6 +84,17 @@ public:
 	list<UserProfile*> getNewMatches(string idUser);
 	
 	/**
+	 * Devuelve la lista de nuevos chats de un usuario.
+	 * En caso de no poder realizar la operación disparará la excepción EntityNotFoundException.
+	 *
+	 * @param idUser
+	 * @throw EntityNotFoundException
+	 * @return list<UserProfile*> lista de nuevos chats
+	 *
+	 */
+	list<UserProfile*> getChats(string idUser);
+
+	/**
 	 * Valida que no sea el mismo usuario, que no lo haya rechazado, y que no haya sido aceptado.
 	 * Cumpliendose lo anterior, en caso de haber match, se procede al proceso de confirmación eliminandolo 
      * de la columnfamily de nuevos matches y agregandolo en la columnfamily de aceptados. 

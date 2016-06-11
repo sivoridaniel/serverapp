@@ -18,6 +18,7 @@ private:
 	std::list<std::string> yesList;
 	std::list<std::string> noList;
 	std::list<std::string> newMatches;
+	std::list<std::string> chats;
 public:
 
 	Match();
@@ -32,11 +33,15 @@ public:
 
 	void addNewMatch(std::string idUser);
 
+	void addChat(std::string idUser);
+
 	bool isAccepted(std::string idUser);
 
 	bool isRejected(std::string idUser);
 
 	bool isMatched(std::string idUser);
+
+	bool isInChat(std::string idUser);
 
 	void removeFromYesList(std::string idUser);
 
@@ -44,8 +49,14 @@ public:
 
 	void removeFromNewMatches(std::string idUser);
 
+	void removeFromChats(std::string idUser);
+
 	std::list<std::string> getNewMatches(){
 		return this->newMatches;
+	}
+
+	std::list<std::string> getChats(){
+		return this->chats;
 	}
 };
 

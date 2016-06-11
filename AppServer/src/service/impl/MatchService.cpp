@@ -210,6 +210,42 @@ list<UserProfile*> MatchService::getNewMatches(string idUser){
 	}
 }
 
+list<UserProfile*> MatchService::getChats(string idUser){
+	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("MatchService"));
+
+	LOG4CPLUS_INFO(logger,
+			LOG4CPLUS_TEXT("Obteniendo la lista de chats del usuario "<<idUser ));
+
+	list<UserProfile*> chats;
+
+	try {
+
+		Match* matchUser = (Match*) matchDao->get(idUser);
+
+		list<string> chatsUser = matchUser->getChats();
+		for (std::list< string >::iterator it=chatsUser.begin(); it!=chatsUser.end(); ++it){
+			string idUserChat = *it;
+			try{
+				UserProfile* user = sharedService->getUser(idUserChat);
+				chats.push_back(user);
+			}catch(exception& e){
+				LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+			}
+		}
+		delete matchUser;
+		return chats;
+
+	} catch (EntityNotFoundException& e) {
+		LOG4CPLUS_ERROR(logger,
+				LOG4CPLUS_TEXT("No se encontro el usuario en la base"));
+		throw e;
+	} catch (exception& e) {
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+		throw e;
+	}
+}
+
+
 void MatchService::confirmUser(string idUser, string idUserConfirmed){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("MatchService"));
 
@@ -238,6 +274,7 @@ void MatchService::confirmUser(string idUser, string idUserConfirmed){
 		LOG4CPLUS_INFO(logger,
 				LOG4CPLUS_TEXT("Confirmando match con usuario " << idUserConfirmed << " para usuario " <<idUser));
 		matchUser->removeFromNewMatches(idUserConfirmed);
+		matchUser->addChat(idUserConfirmed);
 		matchDao->put(idUser,matchUser);
 		try{
 			chatService->createChat(idUser,idUserConfirmed);

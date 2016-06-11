@@ -37,7 +37,7 @@ data = "{\"user\":"+json.dumps(data.reprJSON())+"}"
 
 headers = {"content-type": "application/json"}
 
-r = requests.post("http://localhost:3000/user/newuser", data = data, headers = headers, stream=True)
+r = requests.post("http://200.16.116.146:3000/user/newuser", data = data, headers = headers, stream=True)
 
 try:
    assert( r.status_code == 200 ),"ERROR LLAMADA CREANDO NUEVO USUARIO"

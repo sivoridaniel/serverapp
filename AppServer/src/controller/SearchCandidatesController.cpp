@@ -94,6 +94,8 @@ string SearchCandidatesController::createSearchResponse(list<UserProfile*> candi
 			root["users"][i]["user"]["name"] = user->getName();
 			root["users"][i]["user"]["alias"] = user->getAlias();
 			root["users"][i]["user"]["photo"] = user->getPhotoProfile();
+			root["users"][i]["user"]["sex"] = user->getSex();
+			root["users"][i]["user"]["age"] = user->getAge();
 			root["users"][i]["user"]["location"]["latitude"] = location->getLatitude();
 			root["users"][i]["user"]["location"]["longitude"] = location->getLongitude();
 			int j=0;

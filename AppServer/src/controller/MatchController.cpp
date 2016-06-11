@@ -30,7 +30,12 @@ string MatchController::connect(struct mg_connection *nc,
 		if (mg_vcmp(&hm->method, "GET") == 0) {
 			return event_handler_new_matches(nc, hm);
 		}
-	} else if (mg_vcmp(&hm->uri, "/match/confirm") == 0) {
+	} else if (mg_vcmp(&hm->uri, "/chats") == 0){
+		if (mg_vcmp(&hm->method, "GET") == 0) {
+			return event_handler_chats(nc, hm);
+		}
+	}
+	else if (mg_vcmp(&hm->uri, "/match/confirm") == 0) {
 		if (mg_vcmp(&hm->method, "POST") == 0) {
 			return event_handler_confirm_match(nc, hm);
 		}
@@ -251,6 +256,52 @@ string MatchController::event_handler_new_matches(struct mg_connection *nc,
 	return code;
 }
 
+string MatchController::event_handler_chats(struct mg_connection *nc, struct http_message *hm){
+	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("MatchController"));
+
+	string json = "";
+	string code = "";
+	string id = "";
+	string query = string((&hm->query_string)->p, (&hm->query_string)->len);
+	vector<string> params = UriParser::getParams(query);
+
+	if (params.size()!=1){
+		code = STATUS_NOK;
+		json = this->getGenericJson("false","invalid params");
+	}else{
+		id = params[0];
+	}
+
+	if (id.compare("") == 0) {
+		code = STATUS_NOK;
+		json = this->getGenericJson("false","invalid user in params");
+	} else {
+
+		LOG4CPLUS_DEBUG(logger,
+				LOG4CPLUS_TEXT("Se obtienen los chats del usuario " << id));
+
+		try {
+			list<UserProfile*> chats = matchService->getChats(id);
+			code = STATUS_OK;
+			json = createNewMatchesResponse(chats);
+		} catch (EntityNotFoundException& e) {
+			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+			code = STATUS_NOT_FOUND;
+			json = this->getGenericJson("false",e.what());
+		} catch (exception& e) {
+			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+			code = STATUS_NOK;
+			json = this->getGenericJson("false",e.what());
+		}
+	}
+
+	this->sendResponse(nc, code, json, "");
+
+
+	return code;
+}
+
+
 vector<string> MatchController::parseMatchRequest(string json) {
 	Json::Value root;
 	Json::Reader reader;
@@ -288,6 +339,8 @@ string MatchController::createNewMatchesResponse(list<UserProfile*> newMatches){
 		root["users"][i]["user"]["name"] = user->getName();
 		root["users"][i]["user"]["alias"] = user->getAlias();
 		root["users"][i]["user"]["photo"] = user->getPhotoProfile();
+		root["users"][i]["user"]["sex"] = user->getSex();
+		root["users"][i]["user"]["age"] = user->getAge();
 		root["users"][i]["user"]["location"]["latitude"] = location->getLatitude();
 		root["users"][i]["user"]["location"]["longitude"] = location->getLongitude();
 		int j=0;
