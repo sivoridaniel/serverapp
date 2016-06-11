@@ -26,6 +26,9 @@ public:
 
 	virtual void updateUser(UserProfile* userProfile) = 0;
 
+	virtual string getPhoto(string id) = 0;
+
+
 };
 
 #endif

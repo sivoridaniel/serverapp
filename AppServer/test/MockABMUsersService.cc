@@ -66,6 +66,7 @@ public:
 	MOCK_METHOD1(createUser, void (UserProfile* userProfile));
 	MOCK_METHOD1(deleteUser, void (string id));
 	MOCK_METHOD1(updateUser, void (UserProfile* userProfile));
+	MOCK_METHOD1(getPhoto, string(string id));
 
 };
 

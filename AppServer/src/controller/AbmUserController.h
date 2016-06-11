@@ -11,6 +11,7 @@
 #include "../service/impl/AbmUserService.h"
 #include "AbstractController.h"
 #include "../webserver/mongoose.h"
+#include "../utils/UriParser.h"
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
 #include <string>
@@ -103,6 +104,23 @@ private:
 	string event_handler_get_interests(struct mg_connection *nc, struct http_message *hm);
 
 	/**
+	 * Obtiene la foto del usuario del shared server
+	 *
+	 *
+	 * Retorna:
+	 *
+	 * 200: OK
+	 * 400: ERROR (BAD REQUEST)
+	 *
+	 * @param struct mg_connection *nc
+	 * @param struct http_message *hm
+	 * @return string
+	 *
+	 */
+	string event_handler_get_photo(struct mg_connection *nc, struct http_message *hm);
+
+
+	/**
 	 * Transforma la lista de intereses devuelta por el shared a un json.
 	 *
 	 * @param struct mg_connection *nc
@@ -111,6 +129,8 @@ private:
 	 *
 	 */
 	string createInterestsResponse(list<Interest*> intereses);
+
+	string createPhotoResponse(string photo);
 
 
 };

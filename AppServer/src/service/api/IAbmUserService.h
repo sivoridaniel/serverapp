@@ -18,6 +18,8 @@ public:
 
 	virtual void updateToken(UserProfile* userProfile) = 0;
 
+	virtual string getPhoto(string id) = 0;
+
 };
 
 #endif

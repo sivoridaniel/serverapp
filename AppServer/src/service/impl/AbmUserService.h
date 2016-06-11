@@ -72,6 +72,14 @@ public:
 	 */
 	list<Interest*> getInterests();
 
+	/**
+	 * Obtiene la foto del usuario
+	 *
+	 * @param id
+	 * @return string photo en base 64
+	 */
+	string getPhoto(string id);
+
 	virtual ~AbmUserService();
 };
 

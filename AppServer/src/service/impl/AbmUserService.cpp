@@ -126,6 +126,23 @@ void AbmUserService::modifyUser(UserProfile* userProfile){
 	}
 }
 
+string AbmUserService::getPhoto(string id){
+	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserService"));
+	try{
+		string photo = this->remoteSharedService->getPhoto(id);
+		return photo;
+	}catch(EntityNotFoundException& e){
+		LOG4CPLUS_ERROR(logger, "No se encuentra el usuario con id "<<id);
+		throw e;
+	}catch(RemoteException& e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+		throw e;
+	}catch(exception& e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+		throw e;
+	}
+}
+
 list<Interest*> AbmUserService::getInterests(){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserService"));
 

@@ -99,6 +99,29 @@ UserProfile* RemoteSharedService::getUser(string id) {
 	return user;
 }
 
+string RemoteSharedService::getPhoto(string id){
+	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("RemoteSharedService"));
+
+	RestClient::response r = RestClient::get(url + "/users/" + id + "/photo");
+	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response code "<<r.code));
+	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response body "<<r.body));
+
+	if (r.code == 404) {
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario no se encuentra"));
+		throw EntityNotFoundException();
+	}
+
+	if (r.code != 200) {
+		LOG4CPLUS_ERROR(logger,
+				LOG4CPLUS_TEXT("El shared server retorno error"));
+		throw RemoteException();
+	}
+
+	string json = r.body;
+	string photo = parsePhoto(json);
+	return photo;
+}
+
 void RemoteSharedService::createUser(UserProfile* userProfile) {
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("RemoteSharedService"));
 
@@ -208,4 +231,20 @@ list<UserProfile*> RemoteSharedService::parseUsers(string json) {
 	}
 
 	return listUsers;
+}
+
+string RemoteSharedService::parsePhoto(string json){
+	Json::Value root;
+	Json::Reader reader;
+	Json::FastWriter writer;
+	bool ok = reader.parse(json.c_str(), root);
+	if (!ok) {
+		throw JsonParseException();
+	}
+
+	const Json::Value photoValue = root["photo"];
+
+	string photo =  writer.write(photoValue);
+
+	return photo;
 }

@@ -21,6 +21,10 @@ string AbmUserController::connect(struct mg_connection *nc, struct http_message 
 		if (mg_vcmp(&hm->method, "PUT") == 0) {
 			return event_handler_update_user(nc,hm);
 		}
+	}else if(mg_vcmp(&hm->uri, "/user/photo") == 0){
+		if (mg_vcmp(&hm->method, "GET") == 0) {
+			return event_handler_get_photo(nc,hm);
+		}
 	}else if(mg_vcmp(&hm->uri, "/interests") == 0){
 		if (mg_vcmp(&hm->method, "GET") == 0) {
 			return event_handler_get_interests(nc,hm);
@@ -164,6 +168,61 @@ string AbmUserController::event_handler_get_interests(struct mg_connection *nc, 
 	this->sendResponse(nc,code,json, "");
 
 	return code;
+}
+
+string AbmUserController::event_handler_get_photo(struct mg_connection *nc, struct http_message *hm){
+	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserController"));
+
+	string json = "";
+	string code = "";
+	string id = "";
+	string query = string((&hm->query_string)->p, (&hm->query_string)->len);
+	vector<string> params = UriParser::getParams(query);
+
+	if (params.size()!=1){
+		code = STATUS_NOK;
+		json = this->getGenericJson("false","invalid params");
+	}else{
+		id = params[0];
+	}
+
+	if (id.compare("") == 0) {
+		code = STATUS_NOK;
+		json = this->getGenericJson("false","invalid user in params");
+	} else {
+
+		LOG4CPLUS_DEBUG(logger,
+				LOG4CPLUS_TEXT("Se obtiene la foto del usuario " << id));
+
+		try {
+			string photo = abmService->getPhoto(id);
+			code = STATUS_OK;
+			json = createPhotoResponse(photo);
+		} catch (EntityNotFoundException& e) {
+			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+			code = STATUS_NOT_FOUND;
+			json = this->getGenericJson("false",e.what());
+		} catch (exception& e) {
+			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+			code = STATUS_NOK;
+			json = this->getGenericJson("false",e.what());
+		}
+	}
+
+	this->sendResponse(nc, code, json, "");
+
+
+	return code;
+}
+
+string AbmUserController::createPhotoResponse(string photo){
+	Json::Value root;
+	Json::Value vecInterests(Json::arrayValue);
+	Json::FastWriter writer;
+
+	root["photo"] = photo;
+	string json = writer.write(root);
+	return json;
 }
 
 string AbmUserController::createInterestsResponse(list<Interest*> intereses){

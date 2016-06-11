@@ -108,6 +108,15 @@ public:
 	 */
 	void updateUser(UserProfile* userProfile);
 
+	/**
+	 * Obtiene la foto del usuario buscado por su id
+	 *
+	 * @param string id
+	 * @throw RemoteException
+	 * @throw EntityNotFoundException
+	 */
+	string getPhoto(string id);
+
 private:
 
 	/**
@@ -126,6 +135,15 @@ private:
 	 * @return list<UserProfile*>
 	 */
 	list<UserProfile*> parseUsers(string json);
+
+	/**
+	 * Convierte el json en foto base 64
+	 * En caso de que el json este mal formado disparará JsonParseException.
+	 * @throw JsonParseException
+	 * @return string foto en base 64
+	 */
+	string parsePhoto(string json);
+
 
 };
 
