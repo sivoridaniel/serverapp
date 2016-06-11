@@ -55,11 +55,9 @@ COMMAND mockABMUsersServiceTest
 # Capture lcov counters
 COMMAND ${LCOV_PATH} --directory ${DIR_APP} --capture --output-file ${OUTPUT_NAME}.info
  # Remove googletest coverage results
-#COMMAND ${LCOV_PATH} --remove ${OUTPUT_NAME}.info '/usr/*' 'gtest*' 'include/*' --output-file ${OUTPUT_NAME}.info.cleaned
-COMMAND ${LCOV_PATH} --remove ${OUTPUT_NAME}.info '/user/*' '../src/*' --output-file ${OUTPUT_NAME}.info.cleaned
-#COMMAND ${LCOV_PATH} --remove ${OUTPUT_NAME}.info  --output-file ${OUTPUT_NAME}.info.cleaned
-COMMAND ${GENHTML_PATH} -o ${OUTPUT_NAME} ${OUTPUT_NAME}.info.cleaned --legend -s
-COMMAND ${CMAKE_COMMAND} -E remove ${OUTPUT_NAME}.info ${OUTPUT_NAME}.info.cleaned
+COMMAND ${LCOV_PATH} --remove ${OUTPUT_NAME}.info '/usr/*' 'googleMock/*' 'googleTest/*' 'src/json*' --output-file ${OUTPUT_NAME}.info
+COMMAND ${GENHTML_PATH} -o ${OUTPUT_NAME} ${OUTPUT_NAME}.info --legend -s
+COMMAND ${CMAKE_COMMAND} -E remove ${OUTPUT_NAME}.info
 WORKING_DIRECTORY ${DIR_APP}/AppServer/test COMMENT "Generating code coverage results.")
 
 

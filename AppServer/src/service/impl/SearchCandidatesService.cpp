@@ -42,7 +42,7 @@ list<UserProfile*> SearchCandidatesService::runSearchAlgorithm(string idUser, do
 		UserProfile* userProfile = this->sharedService->getUser(idUser);
 		list<Interest*> interests = userProfile->getInterests();
 
-		for (list<UserProfile*>::iterator it=users.begin(); it!=users.end(); ++it){
+		for (list<UserProfile*>::iterator it=users.begin(); it!=users.end();){
 
 			UserProfile* user = *it;
 			list<Interest*> userInterests = user->getInterests();
@@ -51,6 +51,7 @@ list<UserProfile*> SearchCandidatesService::runSearchAlgorithm(string idUser, do
 			//filtro mismo usuario
 			if (idUser.compare(idCandidate)==0){
 				LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("El candidato "<<idCandidate<<" es filtrado por ser el mismo usuario"));
+				++it;
 				continue;
 			}
 
@@ -58,6 +59,7 @@ list<UserProfile*> SearchCandidatesService::runSearchAlgorithm(string idUser, do
 			bool eval = matchService->isACandidate(idUser, idCandidate);
 			if (!eval){
 				LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("El candidato "<<idCandidate<<" es filtrado por ya estar evaluado por los usuarios"));
+				++it;
 				continue;
 			}
 
@@ -67,9 +69,11 @@ list<UserProfile*> SearchCandidatesService::runSearchAlgorithm(string idUser, do
 
 				if (distance > maxDistance){
 					LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("El candidato "<<idCandidate<<" es filtrado por la distancia"));
+					++it;
 					continue;
 				}
 			}catch(exception& e){
+				++it;
 				continue;
 			}
 
@@ -91,9 +95,11 @@ list<UserProfile*> SearchCandidatesService::runSearchAlgorithm(string idUser, do
 
 			if (hasInterest){
 				LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("El candidato "<<idCandidate<<" se agrega a los resultados de la busqueda"));
+
 				candidates.push_back(user);
-				users.erase(it);
+				it = users.erase(it);
 			}else{
+				++it;
 				LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("El candidato "<<idCandidate<<" es filtrado por no tener interes en comun"));
 			}
 		}
