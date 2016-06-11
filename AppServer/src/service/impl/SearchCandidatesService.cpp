@@ -92,7 +92,7 @@ list<UserProfile*> SearchCandidatesService::runSearchAlgorithm(string idUser, do
 			if (hasInterest){
 				LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("El candidato "<<idCandidate<<" se agrega a los resultados de la busqueda"));
 				candidates.push_back(user);
-				it = users.erase(it);
+				users.erase(it);
 			}else{
 				LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("El candidato "<<idCandidate<<" es filtrado por no tener interes en comun"));
 			}
