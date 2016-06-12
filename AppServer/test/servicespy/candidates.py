@@ -25,14 +25,14 @@ params = {
 'id':iduser
 }
 
-r = requests.get("http://localhost:3000/candidates", params = params , headers = headers)
+r = requests.get("http://200.16.116.146:3000/candidates", params = params , headers = headers)
 
 try:
     assert( r.status_code == 200 ),"ERROR LLAMANDO A CANDIDATES"
-    print r.json()
+    print r.text
 except AssertionError, e:
     print 'NOK: %s'%e
     print r.status_code
-    data = json.loads(r.text)
+    data = r.text
     print data
 

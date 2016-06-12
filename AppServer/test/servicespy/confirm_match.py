@@ -19,15 +19,15 @@ user1, user2 = get_args()
 
 data = '{\"idFrom\":'+user1+', \"idTo\":'+user2+'}'
 
-r = requests.post("http://localhost:3000/match/confirm", data = data, headers = {"content-type": "application/json"})
+r = requests.post("http://200.16.116.146:3000/match/confirm", data = data, headers = {"content-type": "application/json"})
 
 try: 
     assert( r.status_code == 200 ),"ERROR LLAMANDO A MATCH CONFIRM"
-    print r.json()
+    print r.text
 except AssertionError, e:
     print 'NOK: %s'%e
     print r.status_code
-    data = json.loads(r.text)
+    data = r.text
     print data
 
 
