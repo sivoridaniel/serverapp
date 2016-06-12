@@ -12,7 +12,7 @@ set(GTEST_DIR ../../googletest)
 
 set(CMAKE_CURRENT_SOURCE_DIR ../cmake)
 
-include_directories(SYSTEM ${GTEST_DIR}/googletest/include ${GTEST_DIR}/googlemock/include) 
+#include_directories(SYSTEM ${GTEST_DIR}/googletest/include ${GTEST_DIR}/googlemock/include) 
 
 enable_testing()
 
@@ -55,7 +55,7 @@ COMMAND mockABMUsersServiceTest
 # Capture lcov counters
 COMMAND ${LCOV_PATH} --directory ${DIR_APP} --capture --output-file ${OUTPUT_NAME}.info
  # Remove googletest coverage results
-COMMAND ${LCOV_PATH} --remove ${OUTPUT_NAME}.info '/usr/*' 'googleMock/*' 'googleTest/*' 'src/json*' --output-file ${OUTPUT_NAME}.info
+COMMAND ${LCOV_PATH} --remove ${OUTPUT_NAME}.info '/usr/*' 'googletest*' 'googlemock*' 'src/json*' --output-file ${OUTPUT_NAME}.info
 COMMAND ${GENHTML_PATH} -o ${OUTPUT_NAME} ${OUTPUT_NAME}.info --legend -s
 COMMAND ${CMAKE_COMMAND} -E remove ${OUTPUT_NAME}.info
 WORKING_DIRECTORY ${DIR_APP}/AppServer/test COMMENT "Generating code coverage results.")
