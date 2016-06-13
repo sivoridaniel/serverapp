@@ -25,7 +25,7 @@ params = {
 'id':iduser
 }
 
-r = requests.get("http://200.16.116.146:3000/candidates", params = params , headers = headers)
+r = requests.get("http://localhost:3000/candidates", params = params , headers = headers)
 
 try:
     assert( r.status_code == 200 ),"ERROR LLAMANDO A CANDIDATES"

@@ -13,26 +13,30 @@
 #include "../../exception/EntityExistsException.h"
 #include "../../exception/EntityNotFoundException.h"
 #include "../../exception/RemoteException.h"
+#include "../../utils/RestClientHelper.h"
 #include "../api/IRemote.h"
 
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
-#include <restclient-cpp/restclient.h>
-#include <restclient-cpp/meta.h>
+
 
 using namespace std;
 using namespace log4cplus;
-
 
 class RemoteSharedService : public IRemote{
 
 private:
 	string url;
+	IRestClient* restClient;
 
 public:
 	RemoteSharedService(){
 		url = "http://shared-server-match.herokuapp.com";
+		restClient = new RestClientHelper();
 	}
+
+	RemoteSharedService(string url, IRestClient* restClient);
+
 	RemoteSharedService(string url);
 	virtual ~RemoteSharedService();
 	/**
