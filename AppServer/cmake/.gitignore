@@ -9,4 +9,5 @@ mockAuthenticationCtrlTest
 mockMatchServiceTest
 mockChatServiceTest
 mockABMUsersServiceTest
+mockSharedServiceTest
 Testing
