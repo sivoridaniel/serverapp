@@ -21,7 +21,12 @@ string SearchCandidatesController::connect(struct mg_connection *nc,
 	if (mg_vcmp(&hm->uri, "/candidates") == 0) {
 
 		if (mg_vcmp(&hm->method, "GET") == 0){
-			return event_handler_search_candidates(nc, hm);
+			string token = isLogged(nc, hm);
+			if (!token.empty()){
+				return event_handler_search_candidates(nc, hm, token);
+			}else{
+				return STATUS_FORBIDDEN;
+			}
 		}
 
 	}
@@ -30,7 +35,7 @@ string SearchCandidatesController::connect(struct mg_connection *nc,
 }
 
 string SearchCandidatesController::event_handler_search_candidates(struct mg_connection *nc,
-		struct http_message *hm) {
+		struct http_message *hm, string token) {
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("SearchCandidatesController"));
 
 	string json = "";
@@ -69,7 +74,7 @@ string SearchCandidatesController::event_handler_search_candidates(struct mg_con
 		}
 	}
 
-	this->sendResponse(nc, code, json, "");
+	this->sendResponse(nc, code, json, token);
 
 	return code;
 

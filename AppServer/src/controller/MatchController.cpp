@@ -20,24 +20,49 @@ string MatchController::connect(struct mg_connection *nc,
 
 	if (mg_vcmp(&hm->uri, "/match/yes") == 0) {
 		if (mg_vcmp(&hm->method, "POST") == 0) {
-			return event_handler_submit_yes(nc, hm);
+			string token = isLogged(nc, hm);
+			if (!token.empty()){
+				return event_handler_submit_yes(nc, hm, token);
+			}else{
+				return STATUS_FORBIDDEN;
+			}
 		}
 	} else if (mg_vcmp(&hm->uri, "/match/no") == 0) {
 		if (mg_vcmp(&hm->method, "POST") == 0) {
-			return event_handler_submit_no(nc, hm);
+			string token = isLogged(nc, hm);
+			if (!token.empty()){
+				return event_handler_submit_no(nc, hm, token);
+			}else{
+				return STATUS_FORBIDDEN;
+			}
 		}
 	} else if (mg_vcmp(&hm->uri, "/match") == 0) {
 		if (mg_vcmp(&hm->method, "GET") == 0) {
-			return event_handler_new_matches(nc, hm);
+			string token = isLogged(nc, hm);
+			if (!token.empty()){
+				return event_handler_new_matches(nc, hm, token);
+			}else{
+				return STATUS_FORBIDDEN;
+			}
 		}
 	} else if (mg_vcmp(&hm->uri, "/chats") == 0){
 		if (mg_vcmp(&hm->method, "GET") == 0) {
-			return event_handler_chats(nc, hm);
+			string token = isLogged(nc, hm);
+			if (!token.empty()){
+				return event_handler_chats(nc, hm, token);
+			}else{
+				return STATUS_FORBIDDEN;
+			}
 		}
 	}
 	else if (mg_vcmp(&hm->uri, "/match/confirm") == 0) {
 		if (mg_vcmp(&hm->method, "POST") == 0) {
-			return event_handler_confirm_match(nc, hm);
+			string token = isLogged(nc, hm);
+			if (!token.empty()){
+				return event_handler_confirm_match(nc, hm, token);
+			}else{
+				return STATUS_FORBIDDEN;
+			}
 		}
 	}
 	return STATUS_NOT_FOUND; //Por default devuelve un JSON vacío.
@@ -45,7 +70,7 @@ string MatchController::connect(struct mg_connection *nc,
 }
 
 string MatchController::event_handler_submit_yes(struct mg_connection *nc,
-		struct http_message *hm) {
+		struct http_message *hm, string token) {
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("MatchController"));
 
 	string json = "";
@@ -99,14 +124,14 @@ string MatchController::event_handler_submit_yes(struct mg_connection *nc,
 
 	}
 
-	this->sendResponse(nc, code, json, "");
+	this->sendResponse(nc, code, json, token);
 
 	return code;
 
 }
 
 string MatchController::event_handler_submit_no(struct mg_connection *nc,
-		struct http_message *hm) {
+		struct http_message *hm, string token) {
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("MatchController"));
 
 	string json = "";
@@ -130,8 +155,8 @@ string MatchController::event_handler_submit_no(struct mg_connection *nc,
 			code = STATUS_OK;
 		} catch (EntityExistsException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = STATUS_NOK;			json = this->getGenericJson("false",e.what());
-
+			code = STATUS_NOK;
+			json = this->getGenericJson("false",e.what());
 		} catch (EntityNotFoundException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOT_FOUND;
@@ -151,13 +176,13 @@ string MatchController::event_handler_submit_no(struct mg_connection *nc,
 		json = this->getGenericJson("false",e.what());
 	}
 
-	this->sendResponse(nc, code, json, "");
+	this->sendResponse(nc, code, json, token);
 
 	return code;
 }
 
 string MatchController::event_handler_confirm_match(struct mg_connection *nc,
-		struct http_message *hm) {
+		struct http_message *hm, string token) {
 
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("MatchController"));
 
@@ -204,14 +229,14 @@ string MatchController::event_handler_confirm_match(struct mg_connection *nc,
 		json = this->getGenericJson("false",e.what());
 	}
 
-	this->sendResponse(nc, code, json, "");
+	this->sendResponse(nc, code, json, token);
 
 
 	return code;
 }
 
 string MatchController::event_handler_new_matches(struct mg_connection *nc,
-		struct http_message *hm) {
+		struct http_message *hm, string token) {
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("MatchController"));
 
 	string json = "";
@@ -250,13 +275,13 @@ string MatchController::event_handler_new_matches(struct mg_connection *nc,
 		}
 	}
 
-	this->sendResponse(nc, code, json, "");
+	this->sendResponse(nc, code, json, token);
 
 
 	return code;
 }
 
-string MatchController::event_handler_chats(struct mg_connection *nc, struct http_message *hm){
+string MatchController::event_handler_chats(struct mg_connection *nc, struct http_message *hm, string token){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("MatchController"));
 
 	string json = "";
@@ -295,7 +320,7 @@ string MatchController::event_handler_chats(struct mg_connection *nc, struct htt
 		}
 	}
 
-	this->sendResponse(nc, code, json, "");
+	this->sendResponse(nc, code, json, token);
 
 
 	return code;

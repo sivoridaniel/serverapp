@@ -63,6 +63,7 @@ def get_args():
         parser.add_argument('-id','--id',type=str,help='Id usuario')
 	parser.add_argument('-f','--foto',type=str,help='Url de la foto')
 	parser.add_argument('-e','--email',type=str,help='Correo electronico')
+	parser.add_argument('-t','--token',type=str,help='Token')
 	
 	args = parser.parse_args()
 	id_ = args.id
@@ -75,10 +76,11 @@ def get_args():
 	interests = args.interests
 	location = args.location
 	email = args.email
+        token = args.token
 	
-	return id_, name, alias, password,sex,age, photo, interests, location, email
+	return id_, name, alias, password,sex,age, photo, interests, location, email, token
 
-id_, name, alias, password,sex,age, photo, interests, location, email = get_args()
+id_, name, alias, password,sex,age, photo, interests, location, email, token = get_args()
 
 locations = location.split(';')
 
@@ -99,7 +101,7 @@ data = User(id_, name,alias,password,sex,age,photo, vec_interests,location,email
 
 data = '{\"user\":'+json.dumps(data.reprJSON(), cls=ComplexEncoder)+'}'
 
-headers = {"content-type": "application/json"}
+headers = {"content-type": "application/json", "token":token}
 
 r = requests.put("http://localhost:3000/user/updateuser", data = data, headers = headers)
 
@@ -109,6 +111,7 @@ try:
     val_ret = response["success"]
     assert( val_ret == 'true' ),"ERROR LLAMADA CREANDO NUEVO USUARIO"
     print r.text
-
+    header = r.headers.get('Token')	
+    print 'Header: %s'%header  
 except AssertionError, e:
     print 'NOK: %s'%e

@@ -101,7 +101,7 @@ private:
 	 * @return string
 	 *
 	 */
-	string event_handler_get_interests(struct mg_connection *nc, struct http_message *hm);
+	string event_handler_get_interests(struct mg_connection *nc, struct http_message *hm, string token);
 
 	/**
 	 * Obtiene la foto del usuario del shared server
@@ -117,7 +117,7 @@ private:
 	 * @return string
 	 *
 	 */
-	string event_handler_get_photo(struct mg_connection *nc, struct http_message *hm);
+	string event_handler_get_photo(struct mg_connection *nc, struct http_message *hm, string token);
 
 
 	/**

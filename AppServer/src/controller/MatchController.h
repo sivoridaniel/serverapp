@@ -56,7 +56,7 @@ private:
 	 * @return string
 	 *
 	 */
-	string event_handler_submit_yes(struct mg_connection *nc, struct http_message *hm);
+	string event_handler_submit_yes(struct mg_connection *nc, struct http_message *hm, string token);
 	/**
 	 * Se obtienen los parametros idFrom y idTo de la query, y se trata de agregar el usuario de
 	 * idTo a la lista de rechazados de idFrom.
@@ -72,7 +72,7 @@ private:
 	 * @return string
 	 *
 	 */
-	string event_handler_submit_no(struct mg_connection *nc, struct http_message *hm);
+	string event_handler_submit_no(struct mg_connection *nc, struct http_message *hm, string token);
 	/**
 	 * Se obtiene el parametro id de la query, y se buscan los nuevos matchs de ese usuario.
 	 *
@@ -87,7 +87,7 @@ private:
 	 * @return string
 	 *
 	 */
-	string event_handler_new_matches(struct mg_connection *nc, struct http_message *hm);
+	string event_handler_new_matches(struct mg_connection *nc, struct http_message *hm, string token);
 
 	/**
 	 * Se obtiene el parametro id de la query, y se buscan los chats de ese usuario.
@@ -103,7 +103,7 @@ private:
 	 * @return string
 	 *
 	 */
-	string event_handler_chats(struct mg_connection *nc, struct http_message *hm);
+	string event_handler_chats(struct mg_connection *nc, struct http_message *hm, string token);
 
 	/**
 	 * Se obtienen los parametros idTo y idFrom de la query, y se trata de agregar el idTo a la lista
@@ -120,7 +120,7 @@ private:
 	 * @return string
 	 *
 	 */
-	string event_handler_confirm_match(struct mg_connection *nc, struct http_message *hm);
+	string event_handler_confirm_match(struct mg_connection *nc, struct http_message *hm, string token);
 	/**
 	 * Devuelve un vector de string con los parametros contenidos en el json. El vector de string
 	 * tendrá en la primera posicion el idFrom y en la segunda el idTo, ids de usuarios con los

@@ -22,10 +22,12 @@ def get_args():
       	parser.add_argument('-n','--name',type=str,help='Nombre de usuario', required = True)
         parser.add_argument('-p','--password',type=str,help='Password', required = True)
 	parser.add_argument('-e','--email',type=str,help='Correo electronico', required = True)
+
 	args = parser.parse_args()
 	name = args.name
 	password = args.password
 	email = args.email
+
 	
 	return name, password, email
 
@@ -43,6 +45,6 @@ try:
    assert( r.status_code == 200 ),"ERROR LLAMADA CREANDO NUEVO USUARIO"
    data = r.text
    print data
-
+ 
 except AssertionError, e:
     print 'NOK: %s'%e

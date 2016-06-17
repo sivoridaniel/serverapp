@@ -19,27 +19,31 @@ def get_args():
         parser.add_argument('-u1','--user1',type=str,help='Nombre de usuario1', required = True)
         parser.add_argument('-u2','--user2',type=str,help='Nombre de usuario2', required = True)
         parser.add_argument('-m','--message',type=str,help='Mensaje a enviar', required = True)
+        parser.add_argument('-t','--token',type=str,help='Token', required = True)
 
         args = parser.parse_args()
         user1 = args.user1
         user2 = args.user2
 	message = args.message
+        token = args.token
 
-        return user1,user2,message 
+        return user1,user2,message,token
 
-user1, user2, message = get_args()
+user1, user2, message, token = get_args()
 
 data = Message(user1,user2,message)
 
 data = json.dumps(data.reprJSON())
 
-headers = {"content-type": "application/json"}
+headers = {"content-type": "application/json", "token":token}
 
 r = requests.post("http://localhost:3000/chat/message", data = data, headers = headers)
 
 try: 
     assert( r.status_code == 200 ),"ERROR LLAMANDO A POST MESSAGE"
     print r.json()
+    header = r.headers.get('Token')	
+    print 'Header: %s'%header  
 except AssertionError, e:
     print 'NOK: %s'%e
     print r.status_code

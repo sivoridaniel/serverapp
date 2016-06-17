@@ -29,8 +29,9 @@ UserProfile* AuthenticationService::getUserLogin(string email, string password){
 		LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Password base "<<userProfile->getPassword()));
 		LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Password ingresado "<<password));
 		LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Email base "<<userProfile->getEmail()));
+		string passwordBase = userProfile->getPassword();
 
-		if(password.compare("")!=0 && (password.compare(userProfile->getPassword())!=0)){
+		if( !password.empty() && (password.compare(userProfile->getPassword())!=0)){
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Usuario de id "<<userProfile->getId()<<" con contraseña incorrecta."));
 			delete userProfile;
 			throw IncorrectPasswordException();
@@ -39,11 +40,14 @@ UserProfile* AuthenticationService::getUserLogin(string email, string password){
 		delete userProfile; //Se verifico que sea un usuario registrado, se procede a consultarlo del shared.
 
 		userProfile = remoteSharedService->getUser(id); //se consulta al servicio del shared.
-		userProfile->setPassword(password);
+
+		userProfile->setPassword(passwordBase);
 
 	}catch(EntityNotFoundException& e){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario con email "<<email<<" no se encuentra registrado."));
-		delete userProfile;
+		throw e;
+	}catch(exception& e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 		throw e;
 	}
     return userProfile;

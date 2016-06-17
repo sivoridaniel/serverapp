@@ -23,11 +23,21 @@ string AbmUserController::connect(struct mg_connection *nc, struct http_message 
 		}
 	}else if(mg_vcmp(&hm->uri, "/user/photo") == 0){
 		if (mg_vcmp(&hm->method, "GET") == 0) {
-			return event_handler_get_photo(nc,hm);
+			string token = isLogged(nc, hm);
+			if (!token.empty()){
+				return event_handler_get_photo(nc,hm, token);
+			}else{
+				return STATUS_FORBIDDEN;
+			}
 		}
 	}else if(mg_vcmp(&hm->uri, "/interests") == 0){
 		if (mg_vcmp(&hm->method, "GET") == 0) {
-			return event_handler_get_interests(nc,hm);
+			string token = isLogged(nc, hm);
+			if (!token.empty()){
+				return event_handler_get_interests(nc,hm, token);
+			}else{
+				return STATUS_FORBIDDEN;
+			}
 		}
 	}
 
@@ -143,7 +153,7 @@ string AbmUserController::event_handler_update_user(struct mg_connection *nc, st
 	return code;
 }
 
-string AbmUserController::event_handler_get_interests(struct mg_connection *nc, struct http_message *hm){
+string AbmUserController::event_handler_get_interests(struct mg_connection *nc, struct http_message *hm, string token){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserController"));
 	string code = "";
 	string json = "";
@@ -165,12 +175,12 @@ string AbmUserController::event_handler_get_interests(struct mg_connection *nc, 
 		json = this->getGenericJson("false", e.what());
 	}
 
-	this->sendResponse(nc,code,json, "");
+	this->sendResponse(nc,code,json, token);
 
 	return code;
 }
 
-string AbmUserController::event_handler_get_photo(struct mg_connection *nc, struct http_message *hm){
+string AbmUserController::event_handler_get_photo(struct mg_connection *nc, struct http_message *hm, string token){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserController"));
 
 	string json = "";
@@ -209,7 +219,7 @@ string AbmUserController::event_handler_get_photo(struct mg_connection *nc, stru
 		}
 	}
 
-	this->sendResponse(nc, code, json, "");
+	this->sendResponse(nc, code, json, token);
 
 
 	return code;

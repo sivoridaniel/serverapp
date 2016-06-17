@@ -23,26 +23,46 @@ string ChatController::connect(struct mg_connection *nc,
 
 	if (mg_vcmp(&hm->uri, "/chat") == 0) {
 		if (mg_vcmp(&hm->method, "GET") == 0) {
-			return getMessages(nc, hm);
+			string token = isLogged(nc, hm);
+			if (!token.empty()){
+				return getMessages(nc, hm, token);
+			}else{
+				return STATUS_FORBIDDEN;
+			}
 		}
 	} else if (mg_vcmp(&hm->uri, "/chat/new") == 0) {
 		if (mg_vcmp(&hm->method, "GET") == 0) {
-			return getNewMessages(nc, hm);
+			string token = isLogged(nc, hm);
+			if (!token.empty()){
+				return getNewMessages(nc, hm, token);
+			}else{
+				return STATUS_FORBIDDEN;
+			}
 		}
 	} else if (mg_vcmp(&hm->uri, "/chat/message") == 0) {
 		if (mg_vcmp(&hm->method, "POST") == 0) {
-			return postMessage(nc, hm);
+			string token = isLogged(nc, hm);
+			if (!token.empty()){
+				return postMessage(nc, hm, token);
+			}else{
+				return STATUS_FORBIDDEN;
+			}
 		}
 	} else if (mg_vcmp(&hm->uri, "/chat/last") == 0) {
 		if (mg_vcmp(&hm->method, "PUT") == 0) {
-			return updateLastMessageSeen(nc, hm);
+			string token = isLogged(nc, hm);
+			if (!token.empty()){
+				return updateLastMessageSeen(nc, hm, token);
+			}else{
+				return STATUS_FORBIDDEN;
+			}
 		}
 	}
 	return STATUS_NOT_FOUND; //Por default devuelve un JSON vacío.
 
 }
 
-string ChatController::getMessages(struct mg_connection *nc, struct http_message *hm){
+string ChatController::getMessages(struct mg_connection *nc, struct http_message *hm, string token){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("ChatController"));
 
 	string json = "";
@@ -88,12 +108,12 @@ string ChatController::getMessages(struct mg_connection *nc, struct http_message
 
 	}
 
-	this->sendResponse(nc, code, json, "");
+	this->sendResponse(nc, code, json, token);
 
 	return code;
 }
 
-string ChatController::getNewMessages(struct mg_connection *nc, struct http_message *hm){
+string ChatController::getNewMessages(struct mg_connection *nc, struct http_message *hm, string token){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("ChatController"));
 
 	string json = "";
@@ -139,13 +159,13 @@ string ChatController::getNewMessages(struct mg_connection *nc, struct http_mess
 
 	}
 
-	this->sendResponse(nc, code, json, "");
+	this->sendResponse(nc, code, json, token);
 
 
 	return code;
 }
 
-string ChatController::postMessage(struct mg_connection *nc, struct http_message *hm){
+string ChatController::postMessage(struct mg_connection *nc, struct http_message *hm, string token){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("ChatController"));
 
 	string json = "";
@@ -182,12 +202,12 @@ string ChatController::postMessage(struct mg_connection *nc, struct http_message
 		json = this->getGenericJson("false",e.what());
 	}
 
-	this->sendResponse(nc, code, json, "");
+	this->sendResponse(nc, code, json, token);
 
 	return code;
 }
 
-string ChatController::updateLastMessageSeen(struct mg_connection *nc, struct http_message *hm){
+string ChatController::updateLastMessageSeen(struct mg_connection *nc, struct http_message *hm, string token){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("ChatController"));
 
 	string json = "";
@@ -225,7 +245,7 @@ string ChatController::updateLastMessageSeen(struct mg_connection *nc, struct ht
 		json = this->getGenericJson("false",e.what());
 	}
 
-	this->sendResponse(nc, code, json, "");
+	this->sendResponse(nc, code, json, token);
 
 
 	return code;

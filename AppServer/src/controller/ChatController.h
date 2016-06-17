@@ -52,7 +52,7 @@ private:
 	 * @param http_message*
 	 * @return string
 	 */
-	string getMessages(struct mg_connection *nc, struct http_message *hm);
+	string getMessages(struct mg_connection *nc, struct http_message *hm, string token);
 	/**
 	 * Se obtienen de la query los parametros idUser1 y idUser2 con los que se establecio el chat.
 	 * Luego se obtienen todos los mensajes nuevos que hubo entre estos dos usuarios.
@@ -67,7 +67,7 @@ private:
 	 * @param http_message*
 	 * @return string
 	 */
-	string getNewMessages(struct mg_connection *nc, struct http_message *hm);
+	string getNewMessages(struct mg_connection *nc, struct http_message *hm, string token);
 	/**
 	 * Se obtienen de la query los parametros idTo y idFrom.
 	 * Luego se intenta postear un mensaje del idTo al idFrom.
@@ -82,7 +82,7 @@ private:
 	 * @param http_message*
 	 * @return string
 	 */
-	string postMessage(struct mg_connection *nc, struct http_message *hm);
+	string postMessage(struct mg_connection *nc, struct http_message *hm, string token);
 	/**
 	 * Se obtienen de la query los parametros idTo y idFrom.
 	 * Se actualiza el ultimo mensaje visto por idFrom de idTo.
@@ -97,7 +97,7 @@ private:
 	 * @param http_message*
 	 * @return string
 	 */
-	string updateLastMessageSeen(struct mg_connection *nc, struct http_message *hm);
+	string updateLastMessageSeen(struct mg_connection *nc, struct http_message *hm, string token);
 	/**
 	 * Se procesa el json poniendo en el vector el idFrom, luego el idTo y por último
 	 * el mensaje enviado por idTo al idFrom.
