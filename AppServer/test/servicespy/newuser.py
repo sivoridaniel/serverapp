@@ -45,6 +45,7 @@ try:
    assert( r.status_code == 200 ),"ERROR LLAMADA CREANDO NUEVO USUARIO"
    data = r.text
    print data
- 
+   header = r.headers.get('Token')	
+   print 'Header: %s'%header 
 except AssertionError, e:
     print 'NOK: %s'%e

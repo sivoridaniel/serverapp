@@ -11,6 +11,7 @@
 #include "../service/impl/AbmUserService.h"
 #include "AbstractController.h"
 #include "../webserver/mongoose.h"
+#include "../utils/JwToken.h"
 #include "../utils/UriParser.h"
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
@@ -85,7 +86,7 @@ private:
 	 * @return string
 	 *
 	 */
-	string event_handler_update_user(struct mg_connection *nc, struct http_message *hm);
+	string event_handler_update_user(struct mg_connection *nc, struct http_message *hm, string token);
 
 	/**
 	 * Obtiene la lista de intereses del shared server

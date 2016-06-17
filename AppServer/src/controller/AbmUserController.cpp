@@ -19,7 +19,12 @@ string AbmUserController::connect(struct mg_connection *nc, struct http_message 
 		}
 	}else if(mg_vcmp(&hm->uri, "/user/updateuser") == 0){
 		if (mg_vcmp(&hm->method, "PUT") == 0) {
-			return event_handler_update_user(nc,hm);
+			string token = isLogged(nc, hm);
+			if (!token.empty()){
+				return event_handler_update_user(nc,hm,token);
+			}else{
+				return STATUS_FORBIDDEN;
+			}
 		}
 	}else if(mg_vcmp(&hm->uri, "/user/photo") == 0){
 		if (mg_vcmp(&hm->method, "GET") == 0) {
@@ -52,6 +57,7 @@ string AbmUserController::event_handler_new_user(struct mg_connection *nc, struc
 	string json = "";
 	string code = STATUS_OK;
 	string messageCode = "";
+	string token = "";
 	UserProfile* userProfile=NULL;
 
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("JSon Ingresado: " << data));
@@ -61,6 +67,9 @@ string AbmUserController::event_handler_new_user(struct mg_connection *nc, struc
 
 		try{
 			LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Guardando en db usuario " << userProfile->getName()));
+		    token = JwToken::generarToken(userProfile->getEmail());
+			LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("TOKEN: "+token));
+			userProfile->setToken(token);
 			abmService->createNewUser(userProfile);
 			json = this->getGenericJson("true", userProfile->getId());
 			code = STATUS_OK;
@@ -94,12 +103,12 @@ string AbmUserController::event_handler_new_user(struct mg_connection *nc, struc
 		delete userProfile;
 	}
 
-	this->sendResponse(nc,code,json,"");
+	this->sendResponse(nc,code,json,token);
 
 	return code;
 }
 
-string AbmUserController::event_handler_update_user(struct mg_connection *nc, struct http_message *hm){
+string AbmUserController::event_handler_update_user(struct mg_connection *nc, struct http_message *hm, string token){
 
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserController"));
 	string data = string(hm->body.p,hm->body.len);
@@ -148,7 +157,7 @@ string AbmUserController::event_handler_update_user(struct mg_connection *nc, st
 		delete userProfile;
 	}
 
-	this->sendResponse(nc,code,json, "");
+	this->sendResponse(nc,code,json,token);
 
 	return code;
 }
