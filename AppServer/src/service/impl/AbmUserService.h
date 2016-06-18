@@ -10,6 +10,7 @@
 
 #include "../../dao/UserDao.h"
 #include "../../dao/MatchDao.h"
+#include "../../dao/SearchStatsDao.h"
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
 #include "RemoteSharedService.h"
@@ -27,6 +28,7 @@ class AbmUserService : public IAbmUserService{
 private:
 	UserDao* userDao;
 	MatchDao* matchDao;
+	SearchStatsDao* searchStatsDao;
 	IRemote* remoteSharedService;
 
 	void existeUsuario(string email);
@@ -34,7 +36,7 @@ private:
 public:
 	AbmUserService();
 
-	AbmUserService(UserDao* userDao, MatchDao* matchDao, IRemote* sharedServer);
+	AbmUserService(UserDao* userDao, MatchDao* matchDao, SearchStatsDao* searchStatsDao, IRemote* sharedServer);
 
 	/**
 	 * Crea un nuevo usuario con password, token y email para un posible recupero

@@ -9,19 +9,22 @@
 
 MatchService::MatchService() {
 	this->matchDao = new MatchDao();
+	this->searchStatsDao = new SearchStatsDao();
 	this->chatService = new ChatService();
 	this->sharedService = new RemoteSharedService("http://shared-server-match.herokuapp.com");
 }
 
 
-MatchService::MatchService(MatchDao* matchDao, IChatService* chatService, IRemote* sharedService) {
+MatchService::MatchService(MatchDao* matchDao, SearchStatsDao* searchStatsDao, IChatService* chatService, IRemote* sharedService) {
 	this->matchDao = matchDao;
+	this->searchStatsDao = searchStatsDao;
 	this->chatService = chatService;
 	this->sharedService = sharedService;
 }
 
 MatchService::~MatchService() {
 	delete matchDao;
+	delete searchStatsDao;
 	delete chatService;
 	delete sharedService;
 }
@@ -79,6 +82,10 @@ bool MatchService::addToYesList(string idUser, string idUserAccepted) {
 			matchUserAccepted->addNewMatch(idUser);
 			matchDao->put(idUser, matchUser);
 			matchDao->put(idUserAccepted,matchUserAccepted);
+			SearchStats* stats = (SearchStats*)searchStatsDao->get("stats");
+			stats->addLike(idUserAccepted);
+			searchStatsDao->put("stats", stats);
+			delete stats;
 			delete matchUser;
 			delete matchUserAccepted;
 			return true;
@@ -88,6 +95,10 @@ bool MatchService::addToYesList(string idUser, string idUserAccepted) {
 					LOG4CPLUS_TEXT("Agregando el usuario "<<idUserAccepted<< " a la lista de aceptados de "<<idUser ));
 			matchUser->acceptUser(idUserAccepted);
 			matchDao->put(idUser, matchUser);
+			SearchStats* stats = (SearchStats*)searchStatsDao->get("stats");
+			stats->addLike(idUserAccepted);
+			searchStatsDao->put("stats", stats);
+			delete stats;
 			delete matchUser;
 			delete matchUserAccepted;
 			return false;

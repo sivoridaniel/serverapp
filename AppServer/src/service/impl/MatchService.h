@@ -9,6 +9,7 @@
 #define MATCHSERVICE_H_
 
 #include "../../dao/MatchDao.h"
+#include "../../dao/SearchStatsDao.h"
 #include "ChatService.h"
 #include "RemoteSharedService.h"
 #include "../../exception/IllegalStateException.h"
@@ -27,6 +28,7 @@ using namespace log4cplus;
 class MatchService : public IMatchService{
 private:
 	MatchDao* matchDao;
+	SearchStatsDao* searchStatsDao;
 	IChatService* chatService;
 	IRemote* sharedService;
 
@@ -40,10 +42,11 @@ public:
 	 * clase.
 	 *
 	 * @param MatchDao
+	 * @param SearchStatsDao
 	 * @param chatService
 	 * @param sharedService
 	 */
-	MatchService(MatchDao* matchDao, IChatService* chatService, IRemote* sharedService);
+	MatchService(MatchDao* matchDao, SearchStatsDao* searchStats, IChatService* chatService, IRemote* sharedService);
 
 
 	virtual ~MatchService();

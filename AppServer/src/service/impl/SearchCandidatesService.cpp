@@ -10,24 +10,34 @@
 SearchCandidatesService::SearchCandidatesService() {
 	this->matchService = new MatchService();
 	this->sharedService = new RemoteSharedService();
+	this->searchStatsDao = new SearchStatsDao();
 }
 
-SearchCandidatesService::SearchCandidatesService(IMatchService* matchService, IRemote* sharedService){
+SearchCandidatesService::SearchCandidatesService(SearchStatsDao* searchStatsDao, IMatchService* matchService, IRemote* sharedService){
 	this->matchService = matchService;
 	this->sharedService = sharedService;
+	this->searchStatsDao = searchStatsDao;
 }
 
 
 SearchCandidatesService::~SearchCandidatesService() {
 	delete matchService;
 	delete sharedService;
+	delete searchStatsDao;
 }
 
 list<UserProfile*> SearchCandidatesService::getCandidates(string idUser){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("SearchCandidatesService"));
 
-	list<UserProfile*> candidates = this->runSearchAlgorithm(idUser, 3000);
+	list<UserProfile*> candidates;
 
+	this->updateSearchStats(idUser);
+
+	if (hasAvailableSearchs(idUser)){
+		candidates = this->runSearchAlgorithm(idUser, 3000);
+	}else{
+		throw SearchDailyLimitExcededException();
+	}
     return candidates;
 }
 
@@ -77,6 +87,13 @@ list<UserProfile*> SearchCandidatesService::runSearchAlgorithm(string idUser, do
 				continue;
 			}
 
+			//filtro del 1%
+			if (this->isOnePercentRule(idCandidate)){
+				LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("El candidato "<<idCandidate<<" es filtrado por que cumple la regla del 1%"));
+				//randomizar
+				continue;
+			}
+
 			//filtro de intereses
 			bool hasInterest = false;
 			for (list<Interest*>::iterator itI = userInterests.begin(); itI!=userInterests.end(); ++itI ){
@@ -103,9 +120,6 @@ list<UserProfile*> SearchCandidatesService::runSearchAlgorithm(string idUser, do
 				LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("El candidato "<<idCandidate<<" es filtrado por no tener interes en comun"));
 			}
 		}
-
-		//Guardo la lista
-
 
 		//libero recursos
 		for (list<UserProfile*>::iterator it=users.begin(); it!=users.end(); ++it){
@@ -145,4 +159,30 @@ double SearchCandidatesService::calculateDistance(Location* location1, Location*
 	return distance;
 }
 
+bool SearchCandidatesService::isOnePercentRule(string idUser){
+	SearchStats* stats = (SearchStats*)searchStatsDao->get("stats");
 
+	list<string> mostLikedUsers = stats->getMostLikedUsers();
+	bool found = (std::find(mostLikedUsers.begin(), mostLikedUsers.end(), idUser)!=mostLikedUsers.end());
+
+	delete stats;
+	return found;
+}
+
+bool SearchCandidatesService::hasAvailableSearchs(string idUser){
+	SearchStats* stats = (SearchStats*)searchStatsDao->get("stats");
+	UserStat* userStat = stats->getUserStat(idUser);
+	if (userStat->todaySearchsCount > 10){
+		delete stats;
+		return false;
+	}
+	delete stats;
+	return true;
+}
+
+void SearchCandidatesService::updateSearchStats(string idUser){
+	SearchStats* stats = (SearchStats*)searchStatsDao->get("stats");
+	stats->updateLastSearch(idUser);
+	searchStatsDao->put("stats", stats);
+	delete stats;
+}

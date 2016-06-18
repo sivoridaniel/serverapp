@@ -10,6 +10,7 @@
 #include "../src/service/impl/RemoteSharedService.h"
 #include "../src/dao/MatchDao.h"
 #include "../src/dao/ChatDao.h"
+#include "../src/dao/SearchStatsDao.h"
 #include "../src/service/impl/ChatService.h"
 #include <string>
 #include <ctime>
@@ -37,6 +38,15 @@ public:
 	MOCK_METHOD1(get, Entity*(string id) );
 
 	MOCK_METHOD2( put, void(string id, Entity* e) );
+
+};
+
+class MockSearchStatsDao : public SearchStatsDao{
+public:
+
+	MOCK_METHOD1(get, Entity*(string id) );
+
+	MOCK_METHOD2(put, void(string id, Entity* e) );
 
 };
 
@@ -104,13 +114,14 @@ public:
 TEST(MatchServiceConfirmTest,confirmingUser){
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockChatDao* mockChatDao = new MockChatDao();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
 	MockChatService* mockChatService = new MockChatService(mockChatDao);
 	MockSharedService* mockSharedService = new MockSharedService();
 	Match* match = new Match();
 	match->addNewMatch("alinari");
 	EXPECT_CALL(*mockMatchDao, get("psivori")).Times(AtLeast(1)).WillOnce(Return(match));
 	EXPECT_CALL(*mockChatService, createChat("psivori", "alinari"));
-	MatchService* matchService = new MatchService(mockMatchDao, mockChatService, mockSharedService);
+	MatchService* matchService = new MatchService(mockMatchDao, mockSearchStatsDao, mockChatService, mockSharedService);
 	EXPECT_NO_THROW({matchService->confirmUser("psivori","alinari");});
 
 	delete matchService;
@@ -122,10 +133,11 @@ TEST(MatchServiceConfirmTest,confirmingUser){
 TEST(MatchServiceConfirmBadUserTest,confirmingBadUser){
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockChatDao* mockChatDao = new MockChatDao();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
 	MockChatService* mockChatService = new MockChatService(mockChatDao);
 	MockSharedService* mockSharedService = new MockSharedService();
 
-	MatchService* matchService = new MatchService(mockMatchDao, mockChatService, mockSharedService);
+	MatchService* matchService = new MatchService(mockMatchDao, mockSearchStatsDao, mockChatService, mockSharedService);
 	try{
 		matchService->confirmUser("psivori","psivori");
 		FAIL();
@@ -145,12 +157,13 @@ TEST(MatchServiceConfirmBadUserTest,confirmingBadUser){
 TEST(MatchServiceConfirmUserIsInAcceptedListTest,confirmingUserIsInAcceptedList){
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockChatDao* mockChatDao = new MockChatDao();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
 	MockChatService* mockChatService = new MockChatService(mockChatDao);
 	MockSharedService* mockSharedService = new MockSharedService();
 	Match* match = new Match();
 	match->acceptUser("alinari");
 	EXPECT_CALL(*mockMatchDao, get("psivori")).Times(AtLeast(1)).WillOnce(Return(match));
-	MatchService* matchService = new MatchService(mockMatchDao, mockChatService, mockSharedService);
+	MatchService* matchService = new MatchService(mockMatchDao, mockSearchStatsDao, mockChatService, mockSharedService);
 	try{
 		matchService->confirmUser("psivori","alinari");
 		FAIL();
@@ -170,12 +183,13 @@ TEST(MatchServiceConfirmUserIsInAcceptedListTest,confirmingUserIsInAcceptedList)
 TEST(MatchServiceConfirmUserIsInRejectedListTest,confirmingUserIsInRejectedList){
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockChatDao* mockChatDao = new MockChatDao();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
 	MockChatService* mockChatService = new MockChatService(mockChatDao);
 	MockSharedService* mockSharedService = new MockSharedService();
 	Match* match = new Match();
 	match->rejectUser("alinari");
 	EXPECT_CALL(*mockMatchDao, get("psivori")).Times(AtLeast(1)).WillOnce(Return(match));
-	MatchService* matchService = new MatchService(mockMatchDao, mockChatService, mockSharedService);
+	MatchService* matchService = new MatchService(mockMatchDao, mockSearchStatsDao, mockChatService, mockSharedService);
 	try{
 		matchService->confirmUser("psivori","alinari");
 		FAIL();
@@ -195,11 +209,12 @@ TEST(MatchServiceConfirmUserIsInRejectedListTest,confirmingUserIsInRejectedList)
 TEST(MatchServiceConfirmUserIsNotMatchedTest,confirmingUserIsNotMatched){
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockChatDao* mockChatDao = new MockChatDao();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
 	MockChatService* mockChatService = new MockChatService(mockChatDao);
 	MockSharedService* mockSharedService = new MockSharedService();
 	Match* match = new Match();
 	EXPECT_CALL(*mockMatchDao, get("psivori")).Times(AtLeast(1)).WillOnce(Return(match));
-	MatchService* matchService = new MatchService(mockMatchDao, mockChatService, mockSharedService);
+	MatchService* matchService = new MatchService(mockMatchDao, mockSearchStatsDao, mockChatService, mockSharedService);
 	try{
 		matchService->confirmUser("psivori","alinari");
 		FAIL();
@@ -219,6 +234,7 @@ TEST(MatchServiceConfirmUserIsNotMatchedTest,confirmingUserIsNotMatched){
 TEST(MatchServiceAccept1Test, acceptingUser1){
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockChatDao* mockChatDao = new MockChatDao();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
 	MockChatService* mockChatService = new MockChatService(mockChatDao);
 	MockSharedService* mockSharedService = new MockSharedService();
 	Match* matchPsivori = new Match();
@@ -226,10 +242,16 @@ TEST(MatchServiceAccept1Test, acceptingUser1){
 	EXPECT_CALL(*mockMatchDao, get(_))
 	.WillOnce(Return(matchPsivori))
 	.WillOnce(Return(matchAlinari));
+
+	SearchStats* stats = new SearchStats();
+	UserStat* userStat = new UserStat("alinari",0,0,"");
+	stats->addUserStat(userStat);
+
+	EXPECT_CALL(*mockSearchStatsDao, get("stats")).Times(1).WillRepeatedly(Return(stats));
 	EXPECT_CALL(*mockMatchDao, put("psivori", matchPsivori)).Times(1).WillOnce(Return());
 	EXPECT_CALL(*mockChatService, getChat("psivori","alinari")).Times(1).WillRepeatedly(ThrowEntityNotFoundException());
 
-	MatchService* matchService = new MatchService(mockMatchDao, mockChatService, mockSharedService);
+	MatchService* matchService = new MatchService(mockMatchDao, mockSearchStatsDao, mockChatService, mockSharedService);
 	bool res;
 	EXPECT_NO_THROW({res = matchService->addToYesList("psivori","alinari");});
 	ASSERT_TRUE(!res);
@@ -242,16 +264,23 @@ TEST(MatchServiceAccept1Test, acceptingUser1){
 TEST(MatchServiceAccept2Test, acceptingUser2){
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockChatDao* mockChatDao = new MockChatDao();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
 	MockChatService* mockChatService = new MockChatService(mockChatDao);
 	MockSharedService* mockSharedService = new MockSharedService();
 	Match* matchPsivori = new Match();
 	Match* matchAlinari = new Match();
+
+	SearchStats* stats = new SearchStats();
+	UserStat* userStat = new UserStat("alinari",0,0,"");
+	stats->addUserStat(userStat);
+
+	EXPECT_CALL(*mockSearchStatsDao, get("stats")).Times(1).WillRepeatedly(Return(stats));
 	EXPECT_CALL(*mockMatchDao, get(_))
 	.WillOnce(Return(matchPsivori))
 	.WillOnce(Return(matchAlinari));
 	EXPECT_CALL(*mockMatchDao, put("psivori", matchPsivori)).Times(1).WillOnce(Return());
 	EXPECT_CALL(*mockChatService, getChat("psivori","alinari")).Times(1).WillRepeatedly(ThrowEntityNotFoundException());
-	MatchService* matchService = new MatchService(mockMatchDao, mockChatService, mockSharedService);
+	MatchService* matchService = new MatchService(mockMatchDao, mockSearchStatsDao, mockChatService, mockSharedService);
 	bool res;
 	EXPECT_NO_THROW({res = matchService->addToYesList("psivori","alinari");});
 	ASSERT_TRUE(!res);
@@ -264,9 +293,10 @@ TEST(MatchServiceAccept2Test, acceptingUser2){
 TEST(MatchServiceAcceptBadUserTest,acceptingBadUser){
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockChatDao* mockChatDao = new MockChatDao();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
 	MockChatService* mockChatService = new MockChatService(mockChatDao);
 	MockSharedService* mockSharedService = new MockSharedService();
-	MatchService* matchService = new MatchService(mockMatchDao, mockChatService, mockSharedService);
+	MatchService* matchService = new MatchService(mockMatchDao, mockSearchStatsDao, mockChatService, mockSharedService);
 	try{
 		matchService->addToYesList("psivori","psivori");
 		FAIL();
@@ -283,6 +313,7 @@ TEST(MatchServiceAcceptBadUserTest,acceptingBadUser){
 TEST(MatchServiceAcceptUserIsInRejectedListTest,confirmingUserIsInRejectedList){
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockChatDao* mockChatDao = new MockChatDao();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
 	MockChatService* mockChatService = new MockChatService(mockChatDao);
 	MockSharedService* mockSharedService = new MockSharedService();
 	Match* matchPsivori = new Match();
@@ -290,7 +321,7 @@ TEST(MatchServiceAcceptUserIsInRejectedListTest,confirmingUserIsInRejectedList){
 	matchPsivori->rejectUser("alinari");
 	EXPECT_CALL(*mockMatchDao, get("psivori")).WillOnce(Return(matchPsivori));
 	EXPECT_CALL(*mockMatchDao, get("alinari")).WillOnce(Return(matchAlinari));
-	MatchService* matchService = new MatchService(mockMatchDao, mockChatService, mockSharedService);
+	MatchService* matchService = new MatchService(mockMatchDao, mockSearchStatsDao, mockChatService, mockSharedService);
 	try{
 		matchService->addToYesList("psivori","alinari");
 		FAIL();
@@ -310,13 +341,14 @@ TEST(MatchServiceAcceptUserIsInRejectedListTest,confirmingUserIsInRejectedList){
 TEST(MatchServiceAcceptUserIsMatchedTest,confirmingUserIsMatched){
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockChatDao* mockChatDao = new MockChatDao();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
 	MockChatService* mockChatService = new MockChatService(mockChatDao);
 	MockSharedService* mockSharedService = new MockSharedService();
 	Match* matchPsivori = new Match();
 	Match* matchJFerrio = new Match();
 	EXPECT_CALL(*mockMatchDao, get("psivori")).WillOnce(Return(matchPsivori));
 	EXPECT_CALL(*mockMatchDao, get("jferrio")).WillOnce(Return(matchJFerrio));
-	MatchService* matchService = new MatchService(mockMatchDao, mockChatService, mockSharedService);
+	MatchService* matchService = new MatchService(mockMatchDao, mockSearchStatsDao, mockChatService, mockSharedService);
 	try{
 		matchService->addToYesList("psivori","jferrio");
 		FAIL();
@@ -336,6 +368,7 @@ TEST(MatchServiceAcceptUserIsMatchedTest,confirmingUserIsMatched){
 TEST(MatchServiceAcceptChatExistsTest,confirmingUserChatExists){
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockChatDao* mockChatDao = new MockChatDao();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
 	MockChatService* mockChatService = new MockChatService(mockChatDao);
 	MockSharedService* mockSharedService = new MockSharedService();
 	Match* matchPsivori = new Match();
@@ -344,7 +377,7 @@ TEST(MatchServiceAcceptChatExistsTest,confirmingUserChatExists){
 	EXPECT_CALL(*mockMatchDao, get("psivori")).WillOnce(Return(matchPsivori));
 	EXPECT_CALL(*mockMatchDao, get("alinari")).WillOnce(Return(matchAlinari));
 	EXPECT_CALL(*mockChatService, getChat("psivori","alinari")).Times(1).WillOnce(Return(chat));
-	MatchService* matchService = new MatchService(mockMatchDao, mockChatService, mockSharedService);
+	MatchService* matchService = new MatchService(mockMatchDao, mockSearchStatsDao, mockChatService, mockSharedService);
 	try{
 		matchService->addToYesList("psivori","alinari");
 		FAIL();
@@ -364,13 +397,14 @@ TEST(MatchServiceAcceptChatExistsTest,confirmingUserChatExists){
 TEST(MatchServiceRejectTest, rejectingUser){
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockChatDao* mockChatDao = new MockChatDao();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
 	MockChatService* mockChatService = new MockChatService(mockChatDao);
 	MockSharedService* mockSharedService = new MockSharedService();
 	Match* match = new Match();
 	EXPECT_CALL(*mockMatchDao, get("psivori")).Times(AtLeast(1)).WillOnce(Return(match));
 	EXPECT_CALL(*mockMatchDao, put("psivori", match)).Times(1).WillOnce(Return());
 	EXPECT_CALL(*mockChatService, getChat("psivori","alinari")).Times(1).WillRepeatedly(ThrowEntityNotFoundException());
-	MatchService* matchService = new MatchService(mockMatchDao, mockChatService, mockSharedService);
+	MatchService* matchService = new MatchService(mockMatchDao, mockSearchStatsDao, mockChatService, mockSharedService);
 	EXPECT_NO_THROW({matchService->addToNoList("psivori","alinari");});
 	delete matchService;
 }
@@ -381,9 +415,10 @@ TEST(MatchServiceRejectTest, rejectingUser){
 TEST(MatchServiceRejectBadUserTest,rejectingBadUser){
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockChatDao* mockChatDao = new MockChatDao();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
 	MockChatService* mockChatService = new MockChatService(mockChatDao);
 	MockSharedService* mockSharedService = new MockSharedService();
-	MatchService* matchService = new MatchService(mockMatchDao, mockChatService, mockSharedService);
+	MatchService* matchService = new MatchService(mockMatchDao, mockSearchStatsDao, mockChatService, mockSharedService);
 	try{
 		matchService->addToNoList("psivori","psivori");
 		FAIL();
@@ -400,12 +435,13 @@ TEST(MatchServiceRejectBadUserTest,rejectingBadUser){
 TEST(MatchServiceRejectUserIsInAceptedListTest,rejectingUserIsInAceptedList){
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockChatDao* mockChatDao = new MockChatDao();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
 	MockChatService* mockChatService = new MockChatService(mockChatDao);
 	MockSharedService* mockSharedService = new MockSharedService();
 	Match* matchPsivori = new Match();
 	matchPsivori->acceptUser("alinari");
 	EXPECT_CALL(*mockMatchDao, get("psivori")).WillOnce(Return(matchPsivori));
-	MatchService* matchService = new MatchService(mockMatchDao, mockChatService, mockSharedService);
+	MatchService* matchService = new MatchService(mockMatchDao, mockSearchStatsDao, mockChatService, mockSharedService);
 	try{
 		matchService->addToNoList("psivori","alinari");
 		FAIL();
@@ -425,12 +461,13 @@ TEST(MatchServiceRejectUserIsInAceptedListTest,rejectingUserIsInAceptedList){
 TEST(MatchServiceRejectUserIsInRejectedListTest,rejectingUserIsInRejectedList){
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockChatDao* mockChatDao = new MockChatDao();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
 	MockChatService* mockChatService = new MockChatService(mockChatDao);
 	MockSharedService* mockSharedService = new MockSharedService();
 	Match* matchPsivori = new Match();
 	matchPsivori->rejectUser("alinari");
 	EXPECT_CALL(*mockMatchDao, get("psivori")).WillOnce(Return(matchPsivori));
-	MatchService* matchService = new MatchService(mockMatchDao, mockChatService, mockSharedService);
+	MatchService* matchService = new MatchService(mockMatchDao, mockSearchStatsDao, mockChatService, mockSharedService);
 	matchService->addToNoList("psivori","alinari");
 
 	delete matchService;
@@ -442,11 +479,12 @@ TEST(MatchServiceRejectUserIsInRejectedListTest,rejectingUserIsInRejectedList){
 TEST(MatchServiceRejectUserIsMatchedTest,rejectingUserIsMatched){
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockChatDao* mockChatDao = new MockChatDao();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
 	MockChatService* mockChatService = new MockChatService(mockChatDao);
 	MockSharedService* mockSharedService = new MockSharedService();
 	Match* matchPsivori = new Match();
 	EXPECT_CALL(*mockMatchDao, get("psivori")).WillOnce(Return(matchPsivori));
-	MatchService* matchService = new MatchService(mockMatchDao, mockChatService, mockSharedService);
+	MatchService* matchService = new MatchService(mockMatchDao, mockSearchStatsDao, mockChatService, mockSharedService);
 	try{
 		matchService->addToNoList("psivori","jferrio");
 		FAIL();
@@ -466,6 +504,7 @@ TEST(MatchServiceRejectUserIsMatchedTest,rejectingUserIsMatched){
 TEST(MatchServiceRejectChatExistsTest,rejectingUserChatExists){
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockChatDao* mockChatDao = new MockChatDao();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
 	MockChatService* mockChatService = new MockChatService(mockChatDao);
 	MockSharedService* mockSharedService = new MockSharedService();
 	Chat* chat = new Chat();
@@ -473,7 +512,7 @@ TEST(MatchServiceRejectChatExistsTest,rejectingUserChatExists){
 	EXPECT_CALL(*mockMatchDao, get("psivori")).WillOnce(Return(matchPsivori));
 	EXPECT_CALL(*mockChatService, getChat("psivori","alinari")).Times(1).WillOnce(Return(chat));
 
-	MatchService* matchService = new MatchService(mockMatchDao, mockChatService, mockSharedService);
+	MatchService* matchService = new MatchService(mockMatchDao, mockSearchStatsDao, mockChatService, mockSharedService);
 	try{
 		matchService->addToNoList("psivori","alinari");
 		FAIL();
@@ -490,13 +529,14 @@ TEST(MatchServiceRejectChatExistsTest,rejectingUserChatExists){
 TEST(MatchServiceTest, getNewMatches){
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockChatDao* mockChatDao = new MockChatDao();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
 	MockChatService* mockChatService = new MockChatService(mockChatDao);
 	MockSharedService* mockSharedService = new MockSharedService();
 	Match* matchPsivori = new Match();
 	matchPsivori->addNewMatch("alinari");
 	matchPsivori->addNewMatch("jferrio");
 	EXPECT_CALL(*mockMatchDao, get("psivori")).WillOnce(Return(matchPsivori));
-	MatchService* matchService = new MatchService(mockMatchDao, mockChatService, mockSharedService);
+	MatchService* matchService = new MatchService(mockMatchDao, mockSearchStatsDao, mockChatService, mockSharedService);
 	list<UserProfile*> users = matchService->getNewMatches("psivori");
 	ASSERT_TRUE(users.size()==2);
 	for (list<UserProfile*>::iterator it=users.begin(); it!=users.end(); ++it){

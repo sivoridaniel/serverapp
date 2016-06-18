@@ -20,6 +20,7 @@
 
 #include "../src/dao/MatchDao.h"
 #include "../src/dao/UserDao.h"
+#include "../src/dao/SearchStatsDao.h"
 #include "../src/exception/EntityExistsException.h"
 #include "../src/exception/EntityNotFoundException.h"
 #include "../src/exception/InvalidEntityException.h"
@@ -48,6 +49,15 @@ public:
 };
 
 class MockUserDao : public UserDao{
+public:
+
+	MOCK_METHOD1(get, Entity*(string id) );
+
+	MOCK_METHOD2(put, void(string id, Entity* e) );
+
+};
+
+class MockSearchStatsDao : public SearchStatsDao{
 public:
 
 	MOCK_METHOD1(get, Entity*(string id) );
@@ -98,16 +108,18 @@ TEST(AbmUserServiceCreateUser,createUserTest){
 	MockUserDao* mockUserDao = new MockUserDao();
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockSharedService* mockSharedService = new MockSharedService();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
 
 	UserProfile* userProfile = new UserProfile("juan","123");
 	userProfile->setId("1");
 	userProfile->setEmail("juan@gmail.com");
 
+	EXPECT_CALL(*mockSearchStatsDao, get("stats")).Times(1).WillRepeatedly(ThrowEntityNotFoundException());
 	EXPECT_CALL(*mockUserDao, get("juan@gmail.com")).Times(AtLeast(1)).WillRepeatedly(ThrowEntityNotFoundException());
 	EXPECT_CALL(*mockSharedService, createUser(userProfile)).Times(1).WillRepeatedly(Return());
 	EXPECT_CALL(*mockUserDao, put("juan@gmail.com",userProfile)).Times(1).WillRepeatedly(Return());
 	EXPECT_CALL(*mockMatchDao, put("1",_)).Times(1).WillRepeatedly(Return());
-	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSharedService);
+	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao,mockSearchStatsDao, mockSharedService);
 	EXPECT_NO_THROW({abmService->createNewUser(userProfile);});
 
 	delete userProfile;
@@ -121,6 +133,7 @@ TEST(AbmUserServiceCreateUserInvalid, createUserInvalidTest){
 	MockUserDao* mockUserDao = new MockUserDao();
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockSharedService* mockSharedService = new MockSharedService();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
 
 	UserProfile* userProfile = new UserProfile("juan","123");
 	userProfile->setId("1");
@@ -129,7 +142,7 @@ TEST(AbmUserServiceCreateUserInvalid, createUserInvalidTest){
 	EXPECT_CALL(*mockUserDao, get("juan@gmail.com")).Times(AtLeast(1)).WillRepeatedly(ThrowEntityNotFoundException());
 	EXPECT_CALL(*mockSharedService, createUser(userProfile)).Times(1).WillRepeatedly(Return());
 	EXPECT_CALL(*mockUserDao, put("juan@gmail.com",userProfile)).Times(1).WillRepeatedly(ThrowInvalidEntityException());
-	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSharedService);
+	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSearchStatsDao, mockSharedService);
 
 	try{
 		abmService->createNewUser(userProfile);
@@ -153,6 +166,7 @@ TEST(AbmUserServiceCreateUserExists, createUserExistsTest){
 	MockUserDao* mockUserDao = new MockUserDao();
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockSharedService* mockSharedService = new MockSharedService();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
 
 	UserProfile* userProfile = new UserProfile("juan","123");
 	userProfile->setId("1");
@@ -160,7 +174,7 @@ TEST(AbmUserServiceCreateUserExists, createUserExistsTest){
 
 	EXPECT_CALL(*mockUserDao, get("juan@gmail.com")).Times(AtLeast(1)).WillRepeatedly(ThrowEntityExistsException());
 
-	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSharedService);
+	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSearchStatsDao, mockSharedService);
 
 	try{
 		abmService->createNewUser(userProfile);
@@ -184,6 +198,8 @@ TEST(AbmUserServiceCreateUserRemoteError, createUserRemoteErrorTest){
 	MockUserDao* mockUserDao = new MockUserDao();
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockSharedService* mockSharedService = new MockSharedService();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
+
 
 	UserProfile* userProfile = new UserProfile("juan","123");
 	userProfile->setId("1");
@@ -191,7 +207,7 @@ TEST(AbmUserServiceCreateUserRemoteError, createUserRemoteErrorTest){
 
 	EXPECT_CALL(*mockUserDao, get("juan@gmail.com")).Times(AtLeast(1)).WillRepeatedly(ThrowEntityNotFoundException());
 	EXPECT_CALL(*mockSharedService, createUser(userProfile)).Times(1).WillRepeatedly(ThrowRemoteException());
-	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSharedService);
+	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSearchStatsDao, mockSharedService);
 
 	try{
 		abmService->createNewUser(userProfile);
@@ -216,6 +232,8 @@ TEST(AbmUserServiceModifyUser,modifyUserTest){
 	MockUserDao* mockUserDao = new MockUserDao();
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockSharedService* mockSharedService = new MockSharedService();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
+
 
 	UserProfile* userProfile = new UserProfile("juan","123");
 	userProfile->setId("1");
@@ -227,7 +245,7 @@ TEST(AbmUserServiceModifyUser,modifyUserTest){
 	EXPECT_CALL(*mockUserDao, get("juan@gmail.com")).Times(AtLeast(1)).WillOnce(Return(userProfileDb));
 	EXPECT_CALL(*mockSharedService, updateUser(userProfile)).Times(1).WillRepeatedly(Return());
 	EXPECT_CALL(*mockUserDao, put("juan@gmail.com",userProfile)).Times(1).WillRepeatedly(Return());
-	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSharedService);
+	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSearchStatsDao, mockSharedService);
 	EXPECT_NO_THROW({abmService->modifyUser(userProfile);});
 
 	delete userProfile;
@@ -241,6 +259,8 @@ TEST(AbmUserServiceModifyUserInvalid, modifyUserInvalidTest){
 	MockUserDao* mockUserDao = new MockUserDao();
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockSharedService* mockSharedService = new MockSharedService();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
+
 
 	UserProfile* userProfile = new UserProfile("juan","123");
 	userProfile->setId("1");
@@ -252,7 +272,7 @@ TEST(AbmUserServiceModifyUserInvalid, modifyUserInvalidTest){
 	EXPECT_CALL(*mockUserDao, get("juan@gmail.com")).Times(AtLeast(1)).WillOnce(Return(userProfileDb));
 	EXPECT_CALL(*mockSharedService, updateUser(userProfile)).Times(1).WillRepeatedly(Return());
 	EXPECT_CALL(*mockUserDao, put("juan@gmail.com",userProfile)).Times(1).WillRepeatedly(ThrowInvalidEntityException());
-	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSharedService);
+	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSearchStatsDao, mockSharedService);
 
 	try{
 		abmService->modifyUser(userProfile);
@@ -265,6 +285,7 @@ TEST(AbmUserServiceModifyUserInvalid, modifyUserInvalidTest){
 		FAIL();
 	}
 
+	delete userProfileDb;
 	delete userProfile;
 	delete abmService;
 }
@@ -276,6 +297,8 @@ TEST(AbmUserServiceModifyUserExists, modifyUserExistsTest){
 	MockUserDao* mockUserDao = new MockUserDao();
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockSharedService* mockSharedService = new MockSharedService();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
+
 
 	UserProfile* userProfile = new UserProfile("juan","123");
 	userProfile->setId("1");
@@ -283,7 +306,7 @@ TEST(AbmUserServiceModifyUserExists, modifyUserExistsTest){
 
 	EXPECT_CALL(*mockUserDao, get("juan@gmail.com")).Times(AtLeast(1)).WillRepeatedly(ThrowEntityNotFoundException());
 
-	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSharedService);
+	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSearchStatsDao, mockSharedService);
 
 	try{
 		abmService->modifyUser(userProfile);
@@ -307,6 +330,8 @@ TEST(AbmUserServiceModifyUserRemoteError, modifyUserRemoteErrorTest){
 	MockUserDao* mockUserDao = new MockUserDao();
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockSharedService* mockSharedService = new MockSharedService();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
+
 
 	UserProfile* userProfile = new UserProfile("juan","123");
 	userProfile->setId("1");
@@ -317,7 +342,7 @@ TEST(AbmUserServiceModifyUserRemoteError, modifyUserRemoteErrorTest){
 
 	EXPECT_CALL(*mockUserDao, get("juan@gmail.com")).Times(AtLeast(1)).WillOnce(Return(userProfileDb));
 	EXPECT_CALL(*mockSharedService, updateUser(userProfile)).Times(1).WillRepeatedly(ThrowRemoteException());
-	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSharedService);
+	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSearchStatsDao, mockSharedService);
 
 	try{
 		abmService->modifyUser(userProfile);
@@ -342,6 +367,8 @@ TEST(AbmUserServiceGetInterestsTest, getInterestsTest){
 	MockUserDao* mockUserDao = new MockUserDao();
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockSharedService* mockSharedService = new MockSharedService();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
+
 
 	list<Interest*> interests;
 	list<Interest*> response;
@@ -350,7 +377,7 @@ TEST(AbmUserServiceGetInterestsTest, getInterestsTest){
 	interests.push_back(interest1);
 	interests.push_back(interest2);
 	EXPECT_CALL(*mockSharedService, getInterests()).Times(1).WillRepeatedly(Return(interests));
-	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSharedService);
+	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSearchStatsDao, mockSharedService);
 	EXPECT_NO_THROW({response = abmService->getInterests();});
 	ASSERT_TRUE(response.size()==2);
 	delete interest1;
@@ -365,9 +392,11 @@ TEST(AbmUserServiceGetInterestsRemoteError, getInterestsRemoteErrorTest){
 	MockUserDao* mockUserDao = new MockUserDao();
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockSharedService* mockSharedService = new MockSharedService();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
+
 
 	EXPECT_CALL(*mockSharedService, getInterests()).Times(1).WillRepeatedly(ThrowRemoteException());
-	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSharedService);
+	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSearchStatsDao, mockSharedService);
 
 	try{
 		abmService->getInterests();
@@ -390,9 +419,11 @@ TEST(AbmUserServiceGetInterestsInvalidJson, getInterestsInvalidJsonTest){
 	MockUserDao* mockUserDao = new MockUserDao();
 	MockMatchDao* mockMatchDao = new MockMatchDao();
 	MockSharedService* mockSharedService = new MockSharedService();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
+
 
 	EXPECT_CALL(*mockSharedService, getInterests()).Times(1).WillRepeatedly(ThrowJsonParseException());
-	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSharedService);
+	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSearchStatsDao, mockSharedService);
 
 	try{
 		abmService->getInterests();

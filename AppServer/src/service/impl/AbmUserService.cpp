@@ -10,18 +10,21 @@
 AbmUserService::AbmUserService() {
 	this->userDao = new UserDao();
 	this->matchDao = new MatchDao();
+	this->searchStatsDao = new SearchStatsDao();
 	this->remoteSharedService = new RemoteSharedService();
 }
 
-AbmUserService::AbmUserService(UserDao* userDao, MatchDao* matchDao, IRemote* sharedServer){
+AbmUserService::AbmUserService(UserDao* userDao, MatchDao* matchDao, SearchStatsDao* searchStatsDao, IRemote* sharedServer){
 	this->userDao = userDao;
 	this->matchDao = matchDao;
+	this->searchStatsDao = searchStatsDao;
 	this->remoteSharedService = sharedServer;
 }
 
 AbmUserService::~AbmUserService() {
 	delete userDao;
 	delete matchDao;
+	delete searchStatsDao;
 	delete remoteSharedService;
 }
 
@@ -51,6 +54,16 @@ string AbmUserService::createNewUser(UserProfile* userProfile){
 
 		this->userDao->put(userProfile->getEmail(),userProfile);
 		this->matchDao->put(userProfile->getId(),match);
+		UserStat* userStat = new UserStat(userProfile->getId(),0,0,"");
+		SearchStats* stats;
+		try{
+			stats = (SearchStats*)this->searchStatsDao->get("stats");
+		}catch(EntityNotFoundException& e){
+			stats = new SearchStats();
+		}
+		stats->addUserStat(userStat);
+		this->searchStatsDao->put("stats", stats);
+		delete stats;
 		delete match;
 
 	}catch(InvalidEntityException& e){
@@ -100,8 +113,9 @@ void AbmUserService::updateToken(UserProfile* userProfile){
 
 void AbmUserService::modifyUser(UserProfile* userProfile){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserService"));
+	UserProfile* userProfileAux;
 	try{
-		UserProfile* userProfileAux = (UserProfile*)this->userDao->get(userProfile->getEmail());
+		userProfileAux = (UserProfile*)this->userDao->get(userProfile->getEmail());
 		userProfile->setId(userProfileAux->getId());
 		this->remoteSharedService->updateUser(userProfile);
 		if(userProfile->getPassword().compare("")==0){
@@ -119,6 +133,7 @@ void AbmUserService::modifyUser(UserProfile* userProfile){
 		throw e;
 	}catch(RemoteException& e){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Error en comunicacion con shared service."));
+		delete userProfileAux;
 		throw e;
 	}catch(exception& e){
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));

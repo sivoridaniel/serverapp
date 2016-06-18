@@ -10,7 +10,9 @@
 
 #include "MatchService.h"
 #include "../../exception/IllegalStateException.h"
+#include "../../exception/SearchDailyLimitExcededException.h"
 #include "../../model/UserProfile.h"
+#include "../../dao/SearchStatsDao.h"
 #include "RemoteSharedService.h"
 #include "../api/ISearchCandidatesService.h"
 #include <log4cplus/logger.h>
@@ -25,6 +27,7 @@ using namespace log4cplus;
 
 class SearchCandidatesService : public ISearchCandidatesService{
 private:
+	SearchStatsDao* searchStatsDao;
 	IMatchService* matchService;
 	IRemote* sharedService;
 
@@ -37,16 +40,18 @@ public:
 	 * la base de datos y poder realizar los test unit de los métodos de la
 	 * clase.
 	 *
+	 * @param SearchStatsDao
 	 * @param MatchService
 	 * @param SharedService
 	 */
-	SearchCandidatesService( IMatchService* matchService, IRemote* sharedService);
+	SearchCandidatesService(SearchStatsDao* searchStatsDao, IMatchService* matchService, IRemote* sharedService);
 
 	/**
 	 * Obtiene una lista de candidatos para el usuario dado que tengan intereses
 	 * comunes
 	 *
 	 * @param idUser
+	 * @throws SearchDailyLimitExcededException si se excede el limite diario de busquedas por usuario
 	 */
 	list<UserProfile*> getCandidates(string idUser);
 
@@ -55,6 +60,10 @@ public:
 private:
 	list<UserProfile*> runSearchAlgorithm(string idUser, double maxDistance);
 	double calculateDistance(Location* location1, Location* location2);
+	bool isOnePercentRule(string idUser);
+	bool hasAvailableSearchs(string idUser);
+	void updateSearchStats(string idUser);
+
 
 };
 
