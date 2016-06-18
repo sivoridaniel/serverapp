@@ -25,7 +25,7 @@ string SearchCandidatesController::connect(struct mg_connection *nc,
 			if (!token.empty()){
 				return event_handler_search_candidates(nc, hm, token);
 			}else{
-				return STATUS_FORBIDDEN;
+				return sendForbiddenResponse(nc);
 			}
 		}
 

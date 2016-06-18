@@ -24,7 +24,7 @@ string MatchController::connect(struct mg_connection *nc,
 			if (!token.empty()){
 				return event_handler_submit_yes(nc, hm, token);
 			}else{
-				return STATUS_FORBIDDEN;
+				return sendForbiddenResponse(nc);
 			}
 		}
 	} else if (mg_vcmp(&hm->uri, "/match/no") == 0) {
@@ -33,7 +33,7 @@ string MatchController::connect(struct mg_connection *nc,
 			if (!token.empty()){
 				return event_handler_submit_no(nc, hm, token);
 			}else{
-				return STATUS_FORBIDDEN;
+				return sendForbiddenResponse(nc);
 			}
 		}
 	} else if (mg_vcmp(&hm->uri, "/match") == 0) {
@@ -42,7 +42,7 @@ string MatchController::connect(struct mg_connection *nc,
 			if (!token.empty()){
 				return event_handler_new_matches(nc, hm, token);
 			}else{
-				return STATUS_FORBIDDEN;
+				return sendForbiddenResponse(nc);
 			}
 		}
 	} else if (mg_vcmp(&hm->uri, "/chats") == 0){
@@ -51,7 +51,7 @@ string MatchController::connect(struct mg_connection *nc,
 			if (!token.empty()){
 				return event_handler_chats(nc, hm, token);
 			}else{
-				return STATUS_FORBIDDEN;
+				return sendForbiddenResponse(nc);
 			}
 		}
 	}
@@ -61,7 +61,7 @@ string MatchController::connect(struct mg_connection *nc,
 			if (!token.empty()){
 				return event_handler_confirm_match(nc, hm, token);
 			}else{
-				return STATUS_FORBIDDEN;
+				return sendForbiddenResponse(nc);
 			}
 		}
 	}

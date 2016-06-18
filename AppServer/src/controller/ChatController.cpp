@@ -27,7 +27,7 @@ string ChatController::connect(struct mg_connection *nc,
 			if (!token.empty()){
 				return getMessages(nc, hm, token);
 			}else{
-				return STATUS_FORBIDDEN;
+				return sendForbiddenResponse(nc);
 			}
 		}
 	} else if (mg_vcmp(&hm->uri, "/chat/new") == 0) {
@@ -36,7 +36,7 @@ string ChatController::connect(struct mg_connection *nc,
 			if (!token.empty()){
 				return getNewMessages(nc, hm, token);
 			}else{
-				return STATUS_FORBIDDEN;
+				return sendForbiddenResponse(nc);
 			}
 		}
 	} else if (mg_vcmp(&hm->uri, "/chat/message") == 0) {
@@ -45,7 +45,7 @@ string ChatController::connect(struct mg_connection *nc,
 			if (!token.empty()){
 				return postMessage(nc, hm, token);
 			}else{
-				return STATUS_FORBIDDEN;
+				return sendForbiddenResponse(nc);
 			}
 		}
 	} else if (mg_vcmp(&hm->uri, "/chat/last") == 0) {
@@ -54,7 +54,7 @@ string ChatController::connect(struct mg_connection *nc,
 			if (!token.empty()){
 				return updateLastMessageSeen(nc, hm, token);
 			}else{
-				return STATUS_FORBIDDEN;
+				return sendForbiddenResponse(nc);
 			}
 		}
 	}

@@ -121,6 +121,12 @@ public:
 		return json;
 	}
 
+	virtual string sendForbiddenResponse(struct mg_connection *nc){
+		string json = getGenericJson("false", "unauthorized");
+		this->sendResponse(nc,STATUS_FORBIDDEN,json,"");
+		return STATUS_FORBIDDEN;
+	}
+
 	virtual string isLogged(struct mg_connection *nc, struct http_message *hm) {
 
 		Logger logger = Logger::getInstance(

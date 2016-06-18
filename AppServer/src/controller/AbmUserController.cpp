@@ -23,7 +23,7 @@ string AbmUserController::connect(struct mg_connection *nc, struct http_message 
 			if (!token.empty()){
 				return event_handler_update_user(nc,hm,token);
 			}else{
-				return STATUS_FORBIDDEN;
+				return sendForbiddenResponse(nc);
 			}
 		}
 	}else if(mg_vcmp(&hm->uri, "/user/photo") == 0){
@@ -32,7 +32,7 @@ string AbmUserController::connect(struct mg_connection *nc, struct http_message 
 			if (!token.empty()){
 				return event_handler_get_photo(nc,hm, token);
 			}else{
-				return STATUS_FORBIDDEN;
+				return sendForbiddenResponse(nc);
 			}
 		}
 	}else if(mg_vcmp(&hm->uri, "/interests") == 0){
@@ -41,7 +41,7 @@ string AbmUserController::connect(struct mg_connection *nc, struct http_message 
 			if (!token.empty()){
 				return event_handler_get_interests(nc,hm, token);
 			}else{
-				return STATUS_FORBIDDEN;
+				return sendForbiddenResponse(nc);
 			}
 		}
 	}
