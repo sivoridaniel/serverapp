@@ -102,21 +102,11 @@ string MatchController::event_handler_submit_yes(struct mg_connection *nc,
 				json = this->getGenericJson("true","unmatched");
 			}
 			code = STATUS_OK;
-		} catch (EntityExistsException& e) {
-			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = STATUS_NOK;
-			json = this->getGenericJson("false",e.what());
-
 		} catch (EntityNotFoundException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOT_FOUND;
 			json = this->getGenericJson("false",e.what());
-		} catch (IllegalStateException& e) {
-			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = STATUS_NOK;
-			json = this->getGenericJson("false",e.what());
-		}
-		catch (exception& e) {
+		} catch (exception& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
 			json = this->getGenericJson("false",e.what());
@@ -157,17 +147,9 @@ string MatchController::event_handler_submit_no(struct mg_connection *nc,
 					"se agrega el usuario "<<idTo<<" a la lista de rechazados de "<<idFrom);
 			json = this->getGenericJson("true","rejected");
 			code = STATUS_OK;
-		} catch (EntityExistsException& e) {
-			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = STATUS_NOK;
-			json = this->getGenericJson("false",e.what());
 		} catch (EntityNotFoundException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOT_FOUND;
-			json = this->getGenericJson("false",e.what());
-		} catch (IllegalStateException& e) {
-			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = STATUS_NOK;
 			json = this->getGenericJson("false",e.what());
 		} catch (exception& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
@@ -209,19 +191,11 @@ string MatchController::event_handler_confirm_match(struct mg_connection *nc,
 					"se agrega el usuario "<<idTo<<" a la lista de confirmados de "<<idFrom);
 			json = this->getGenericJson("true","confirmed");
 			code = STATUS_OK;
-		} catch (EntityExistsException& e) {
-			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = STATUS_NOK;
-			json = this->getGenericJson("false",e.what());
 		} catch (EntityNotFoundException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOT_FOUND;
 			json = this->getGenericJson("false",e.what());
-		} catch (IllegalStateException& e) {
-			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = STATUS_NOK;
-			json = this->getGenericJson("false",e.what());
-		}  catch (exception& e) {
+		} catch (exception& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
 			json = this->getGenericJson("false",e.what());

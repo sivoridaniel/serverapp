@@ -11,5 +11,6 @@ mockChatServiceTest
 mockABMUsersServiceTest
 mockSharedServiceTest
 mockChatCtrlTest
+mockMatchCtrlTest
 mockSearchCtrlTest
 Testing

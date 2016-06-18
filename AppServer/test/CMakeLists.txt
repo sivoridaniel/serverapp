@@ -41,6 +41,9 @@ set(SRC_SEARCH_CTRL  ${UTILS_SRC} ${JSON_SRC} ${MODEL_SRC} ${SERVICE_SRC} ${CONT
 set(CHAT_CTRL_SRC ../test/MockChatCtrl.cc)
 set(SRC_CHAT_CTRL  ${UTILS_SRC} ${JSON_SRC} ${MODEL_SRC} ${SERVICE_SRC} ${CONTROLLER_SRC} ${CHAT_CTRL_SRC})
 
+set(MATCH_CTRL_SRC ../test/MockMatchCtrl.cc)
+set(SRC_MATCH_CTRL  ${UTILS_SRC} ${JSON_SRC} ${MODEL_SRC} ${SERVICE_SRC} ${CONTROLLER_SRC} ${MATCH_CTRL_SRC})
+
 add_executable(mockMatchServiceTest ${SRC_FILES_MATCH}) 
 add_executable(mockAuthenticationCtrlTest ${SRC_FILES})
 add_executable(mockChatServiceTest ${SRC_FILES_CHAT}) 
@@ -48,6 +51,7 @@ add_executable(mockABMUsersServiceTest ${SRC_FILES_ABMUSER})
 add_executable(mockSharedServiceTest ${SRC_FILES_SHARED})
 add_executable(mockSearchCtrlTest ${SRC_SEARCH_CTRL})
 add_executable(mockChatCtrlTest ${SRC_CHAT_CTRL})
+add_executable(mockMatchCtrlTest ${SRC_MATCH_CTRL})
 
 target_link_libraries(mockAuthenticationCtrlTest utils dao model service  gmock gmock_main  log4cplus jansson jwt json  ${LibXML2_LIBRARIES} ${CPPUNIT_LIBRARY} ${LINUX_LIBRARIES} ${GCOV_LINK_FLAGS})
 target_link_libraries(mockMatchServiceTest utils dao model service  gmock gmock_main  log4cplus json  ${LibXML2_LIBRARIES} ${CPPUNIT_LIBRARY} ${LINUX_LIBRARIES} ${GCOV_LINK_FLAGS})
@@ -56,7 +60,7 @@ target_link_libraries(mockABMUsersServiceTest utils dao model service  gmock gmo
 target_link_libraries(mockSharedServiceTest utils model service  gmock gmock_main  log4cplus json ${LibXML2_LIBRARIES} ${CPPUNIT_LIBRARY} ${LINUX_LIBRARIES} ${GCOV_LINK_FLAGS})
 target_link_libraries(mockSearchCtrlTest utils model service controller webserver gmock gmock_main  log4cplus json ${LibXML2_LIBRARIES} ${CPPUNIT_LIBRARY} ${LINUX_LIBRARIES} ${GCOV_LINK_FLAGS})
 target_link_libraries(mockChatCtrlTest utils model service controller webserver gmock gmock_main  log4cplus json ${LibXML2_LIBRARIES} ${CPPUNIT_LIBRARY} ${LINUX_LIBRARIES} ${GCOV_LINK_FLAGS})
-
+target_link_libraries(mockMatchCtrlTest utils model service controller webserver gmock gmock_main  log4cplus json ${LibXML2_LIBRARIES} ${CPPUNIT_LIBRARY} ${LINUX_LIBRARIES} ${GCOV_LINK_FLAGS})
 
 add_test(NAME mockAuthenticationCtrlTest COMMAND mockAuthenticationCtrlTest)
 add_test(NAME mockMatchServiceTest COMMAND mockMatchServiceTest)
@@ -65,6 +69,7 @@ add_test(NAME mockABMUsersServiceTest COMMAND mockABMUsersServiceTest)
 add_test(NAME mockSharedServiceTest COMMAND mockSharedServiceTest)
 add_test(NAME mockSearchCtrlTest COMMAND mockSearchCtrlTest)
 add_test(NAME mockChatCtrlTest COMMAND mockChatCtrlTest)
+add_test(NAME mockMatchCtrlTest COMMAND mockMatchCtrlTest)
 
 add_custom_target(cov COMMAND ${LCOV_PATH} --directory . --zerocounters
 COMMAND mockAuthenticationCtrlTest
@@ -74,6 +79,7 @@ COMMAND mockABMUsersServiceTest
 COMMAND mockSharedServiceTest
 COMMAND mockSearchCtrlTest
 COMMAND mockChatCtrlTest
+COMMAND mockMatchCtrlTest
 # Capture lcov counters
 COMMAND ${LCOV_PATH} --directory ${DIR_APP} --capture --output-file ${OUTPUT_NAME}.info
  # Remove googletest coverage results
