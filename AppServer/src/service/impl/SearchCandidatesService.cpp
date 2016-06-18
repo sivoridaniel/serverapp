@@ -91,6 +91,7 @@ list<UserProfile*> SearchCandidatesService::runSearchAlgorithm(string idUser, do
 			if (this->isOnePercentRule(idCandidate)){
 				LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("El candidato "<<idCandidate<<" es filtrado por que cumple la regla del 1%"));
 				//randomizar
+				++it;
 				continue;
 			}
 
