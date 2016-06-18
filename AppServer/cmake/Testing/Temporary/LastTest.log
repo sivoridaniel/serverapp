@@ -1,10 +1,10 @@
-Start testing: Jun 18 14:05 ART
+Start testing: Jun 18 16:34 ART
 ----------------------------------------------------------
-1/5 Testing: mockAuthenticationCtrlTest
-1/5 Test: mockAuthenticationCtrlTest
+1/6 Testing: mockAuthenticationCtrlTest
+1/6 Test: mockAuthenticationCtrlTest
 Command: "/home/agustin/git/serverapp/AppServer/cmake/mockAuthenticationCtrlTest"
 Directory: /home/agustin/git/serverapp/AppServer/cmake
-"mockAuthenticationCtrlTest" start time: Jun 18 14:05 ART
+"mockAuthenticationCtrlTest" start time: Jun 18 16:34 ART
 Output:
 ----------------------------------------------------------
 INFO - Iniciando Tests
@@ -12,24 +12,24 @@ INFO - Iniciando Tests
 [----------] Global test environment set-up.
 [----------] 1 test from JwTokenTest
 [ RUN      ] JwTokenTest.generatingToken
-DEBUG - EMAIL PARA EL PAYLOAD: sivori.daniel@gmail.com 0x2af3ee0
-DEBUG - TIMESTAMP: 1466269519 0x2af3ee0
-DEBUG - EXPIRE: 60 0x2af3ee0
-DEBUG - TOKEN GENERADO 0x2af3ee0
+DEBUG - EMAIL PARA EL PAYLOAD: sivori.daniel@gmail.com 0x1db4ee0
+DEBUG - TIMESTAMP: 1466278491 0x1db4ee0
+DEBUG - EXPIRE: 60 0x1db4ee0
+DEBUG - TOKEN GENERADO 0x1db4ee0
 *****************************************************************
-TOKEN GENERADO: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNpdm9yaS5kYW5pZWxAZ21haWwuY29tIiwiZXhwaXJlIjoiNjAiLCJ0aW1lc3RhbXAiOiIxNDY2MjY5NTE5In0.yd5GzAC1Ltq8oLLR-z0wGdGe_7YGD4VXFK2BYVv-Ln8
+TOKEN GENERADO: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNpdm9yaS5kYW5pZWxAZ21haWwuY29tIiwiZXhwaXJlIjoiNjAiLCJ0aW1lc3RhbXAiOiIxNDY2Mjc4NDkxIn0.A841Ce7hpOGORo0yGahca7hrtSyUNVouBOPy32akpE4
 *****************************************************************
-[       OK ] JwTokenTest.generatingToken (40 ms)
-[----------] 1 test from JwTokenTest (40 ms total)
+[       OK ] JwTokenTest.generatingToken (21 ms)
+[----------] 1 test from JwTokenTest (21 ms total)
 
 [----------] 1 test from AuthorizationTokenTest
 [ RUN      ] AuthorizationTokenTest.isValidToken
-DEBUG - EMAIL PARA EL PAYLOAD: 17 0x2af3ee0
-DEBUG - TIMESTAMP: 1466269519 0x2af3ee0
-DEBUG - EXPIRE: 60 0x2af3ee0
-DEBUG - TOKEN GENERADO 0x2af3ee0
-[       OK ] AuthorizationTokenTest.isValidToken (1 ms)
-[----------] 1 test from AuthorizationTokenTest (1 ms total)
+DEBUG - EMAIL PARA EL PAYLOAD: 17 0x1db4ee0
+DEBUG - TIMESTAMP: 1466278491 0x1db4ee0
+DEBUG - EXPIRE: 60 0x1db4ee0
+DEBUG - TOKEN GENERADO 0x1db4ee0
+[       OK ] AuthorizationTokenTest.isValidToken (0 ms)
+[----------] 1 test from AuthorizationTokenTest (0 ms total)
 
 [----------] 1 test from AuthenticationServiceTest
 [ RUN      ] AuthenticationServiceTest.login
@@ -38,52 +38,25 @@ DEBUG - JSON: {"user":{"email":"","id":"1","name":"sivori.daniel@gmail.com","pas
 DEBUG - Password base password
 DEBUG - Password ingresado password
 DEBUG - Email base 
-[       OK ] AuthenticationServiceTest.login (0 ms)
-[----------] 1 test from AuthenticationServiceTest (0 ms total)
+[       OK ] AuthenticationServiceTest.login (1 ms)
+[----------] 1 test from AuthenticationServiceTest (1 ms total)
 
 [----------] Global test environment tear-down
-[==========] 3 tests from 3 test cases ran. (46 ms total)
+[==========] 3 tests from 3 test cases ran. (22 ms total)
 [  PASSED  ] 3 tests.
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/json.dir/home/agustin/git/serverapp/AppServer/src/jsoncpp.cpp.gcda:Cannot open
-profiling:/googlemock/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.gcda:Cannot open
-profiling:/googlemock/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockAuthenticationCtrlTest.dir/home/agustin/git/serverapp/AppServer/test/MockAuthenticationController.cc.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockAuthenticationCtrlTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/MatchService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockAuthenticationCtrlTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/ChatService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockAuthenticationCtrlTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/AbmUserService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockAuthenticationCtrlTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/RemoteSharedService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockAuthenticationCtrlTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/SearchCandidatesService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockAuthenticationCtrlTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/AuthenticationService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockAuthenticationCtrlTest.dir/home/agustin/git/serverapp/AppServer/src/model/CandidateList.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockAuthenticationCtrlTest.dir/home/agustin/git/serverapp/AppServer/src/model/Interest.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockAuthenticationCtrlTest.dir/home/agustin/git/serverapp/AppServer/src/model/Location.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockAuthenticationCtrlTest.dir/home/agustin/git/serverapp/AppServer/src/model/UserProfile.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockAuthenticationCtrlTest.dir/home/agustin/git/serverapp/AppServer/src/model/Chat.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockAuthenticationCtrlTest.dir/home/agustin/git/serverapp/AppServer/src/model/Message.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockAuthenticationCtrlTest.dir/home/agustin/git/serverapp/AppServer/src/model/SearchStats.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockAuthenticationCtrlTest.dir/home/agustin/git/serverapp/AppServer/src/model/Match.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockAuthenticationCtrlTest.dir/home/agustin/git/serverapp/AppServer/src/dao/MatchDao.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockAuthenticationCtrlTest.dir/home/agustin/git/serverapp/AppServer/src/dao/ChatDao.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockAuthenticationCtrlTest.dir/home/agustin/git/serverapp/AppServer/src/dao/CandidatesDao.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockAuthenticationCtrlTest.dir/home/agustin/git/serverapp/AppServer/src/dao/SearchStatsDao.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockAuthenticationCtrlTest.dir/home/agustin/git/serverapp/AppServer/src/dao/UserDao.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockAuthenticationCtrlTest.dir/home/agustin/git/serverapp/AppServer/src/utils/DbHelper.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockAuthenticationCtrlTest.dir/home/agustin/git/serverapp/AppServer/src/utils/JwToken.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockAuthenticationCtrlTest.dir/home/agustin/git/serverapp/AppServer/src/utils/RestClientHelper.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockAuthenticationCtrlTest.dir/home/agustin/git/serverapp/AppServer/src/utils/UriParser.cpp.gcda:Cannot open
 <end of output>
-Test time =   0.44 sec
+Test time =   1.42 sec
 ----------------------------------------------------------
 Test Passed.
-"mockAuthenticationCtrlTest" end time: Jun 18 14:05 ART
-"mockAuthenticationCtrlTest" time elapsed: 00:00:00
+"mockAuthenticationCtrlTest" end time: Jun 18 16:34 ART
+"mockAuthenticationCtrlTest" time elapsed: 00:00:01
 ----------------------------------------------------------
 
-2/5 Testing: mockMatchServiceTest
-2/5 Test: mockMatchServiceTest
+2/6 Testing: mockMatchServiceTest
+2/6 Test: mockMatchServiceTest
 Command: "/home/agustin/git/serverapp/AppServer/cmake/mockMatchServiceTest"
 Directory: /home/agustin/git/serverapp/AppServer/cmake
-"mockMatchServiceTest" start time: Jun 18 14:05 ART
+"mockMatchServiceTest" start time: Jun 18 16:34 ART
 Output:
 ----------------------------------------------------------
 INFO - Iniciando Tests
@@ -95,11 +68,11 @@ INFO - Confirmando match con usuario alinari para usuario psivori
 
 GMOCK WARNING:
 Uninteresting mock function call - returning directly.
-    Function call: put("psivori", 0x1e59250)
+    Function call: put("psivori", 0x230a250)
 NOTE: You can safely ignore the above warning unless this call should not happen.  Do not suppress it by blindly adding an EXPECT_CALL() if you don't mean to enforce the call.  See https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#knowing-when-to-expect for details.
 INFO - Se crea el chat entre el usuario alinari y el usuario psivori
-[       OK ] MatchServiceConfirmTest.confirmingUser (1 ms)
-[----------] 1 test from MatchServiceConfirmTest (1 ms total)
+[       OK ] MatchServiceConfirmTest.confirmingUser (0 ms)
+[----------] 1 test from MatchServiceConfirmTest (0 ms total)
 
 [----------] 1 test from MatchServiceConfirmBadUserTest
 [ RUN      ] MatchServiceConfirmBadUserTest.confirmingBadUser
@@ -122,7 +95,7 @@ ERROR - El usuario alinari ya se encuentra en la lista de rechazados
 [----------] 1 test from MatchServiceConfirmUserIsNotMatchedTest
 [ RUN      ] MatchServiceConfirmUserIsNotMatchedTest.confirmingUserIsNotMatched
 [       OK ] MatchServiceConfirmUserIsNotMatchedTest.confirmingUserIsNotMatched (0 ms)
-[----------] 1 test from MatchServiceConfirmUserIsNotMatchedTest (2 ms total)
+[----------] 1 test from MatchServiceConfirmUserIsNotMatchedTest (0 ms total)
 
 [----------] 1 test from MatchServiceAccept1Test
 [ RUN      ] MatchServiceAccept1Test.acceptingUser1
@@ -130,10 +103,10 @@ INFO - Agregando el usuario alinari a la lista de aceptados de psivori
 
 GMOCK WARNING:
 Uninteresting mock function call - returning directly.
-    Function call: put("stats", 0x1e5bd50)
+    Function call: put("stats", 0x230cd50)
 NOTE: You can safely ignore the above warning unless this call should not happen.  Do not suppress it by blindly adding an EXPECT_CALL() if you don't mean to enforce the call.  See https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#knowing-when-to-expect for details.
-[       OK ] MatchServiceAccept1Test.acceptingUser1 (1 ms)
-[----------] 1 test from MatchServiceAccept1Test (1 ms total)
+[       OK ] MatchServiceAccept1Test.acceptingUser1 (9 ms)
+[----------] 1 test from MatchServiceAccept1Test (9 ms total)
 
 [----------] 1 test from MatchServiceAccept2Test
 [ RUN      ] MatchServiceAccept2Test.acceptingUser2
@@ -141,7 +114,7 @@ INFO - Agregando el usuario alinari a la lista de aceptados de psivori
 
 GMOCK WARNING:
 Uninteresting mock function call - returning directly.
-    Function call: put("stats", 0x1e5c730)
+    Function call: put("stats", 0x230d730)
 NOTE: You can safely ignore the above warning unless this call should not happen.  Do not suppress it by blindly adding an EXPECT_CALL() if you don't mean to enforce the call.  See https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#knowing-when-to-expect for details.
 [       OK ] MatchServiceAccept2Test.acceptingUser2 (0 ms)
 [----------] 1 test from MatchServiceAccept2Test (0 ms total)
@@ -156,8 +129,8 @@ ERROR - Es el mismo usuario
 [ RUN      ] MatchServiceAcceptUserIsInRejectedListTest.confirmingUserIsInRejectedList
 ERROR - El usuario alinari ya se encuentra en la lista de rechazados
 ERROR - La entidad ya existe
-[       OK ] MatchServiceAcceptUserIsInRejectedListTest.confirmingUserIsInRejectedList (0 ms)
-[----------] 1 test from MatchServiceAcceptUserIsInRejectedListTest (0 ms total)
+[       OK ] MatchServiceAcceptUserIsInRejectedListTest.confirmingUserIsInRejectedList (1 ms)
+[----------] 1 test from MatchServiceAcceptUserIsInRejectedListTest (1 ms total)
 
 [----------] 1 test from MatchServiceAcceptUserIsMatchedTest
 [ RUN      ] MatchServiceAcceptUserIsMatchedTest.confirmingUserIsMatched
@@ -170,13 +143,13 @@ NOTE: You can safely ignore the above warning unless this call should not happen
 ERROR - Los usuarios ya estan matcheados
 ERROR - La entidad ya existe
 [       OK ] MatchServiceAcceptUserIsMatchedTest.confirmingUserIsMatched (0 ms)
-[----------] 1 test from MatchServiceAcceptUserIsMatchedTest (2 ms total)
+[----------] 1 test from MatchServiceAcceptUserIsMatchedTest (0 ms total)
 
 [----------] 1 test from MatchServiceAcceptChatExistsTest
 [ RUN      ] MatchServiceAcceptChatExistsTest.confirmingUserChatExists
 ERROR - Los usuarios ya estan matcheados
 ERROR - La entidad ya existe
-[       OK ] MatchServiceAcceptChatExistsTest.confirmingUserChatExists (1 ms)
+[       OK ] MatchServiceAcceptChatExistsTest.confirmingUserChatExists (0 ms)
 [----------] 1 test from MatchServiceAcceptChatExistsTest (1 ms total)
 
 [----------] 1 test from MatchServiceRejectTest
@@ -195,14 +168,14 @@ ERROR - Es el mismo usuario
 [ RUN      ] MatchServiceRejectUserIsInAceptedListTest.rejectingUserIsInAceptedList
 ERROR - El usuario alinari ya se encuentra en la lista de aceptados
 ERROR - La entidad ya existe
-[       OK ] MatchServiceRejectUserIsInAceptedListTest.rejectingUserIsInAceptedList (0 ms)
-[----------] 1 test from MatchServiceRejectUserIsInAceptedListTest (0 ms total)
+[       OK ] MatchServiceRejectUserIsInAceptedListTest.rejectingUserIsInAceptedList (1 ms)
+[----------] 1 test from MatchServiceRejectUserIsInAceptedListTest (1 ms total)
 
 [----------] 1 test from MatchServiceRejectUserIsInRejectedListTest
 [ RUN      ] MatchServiceRejectUserIsInRejectedListTest.rejectingUserIsInRejectedList
 ERROR - El usuario alinari ya se encuentra en la lista de rechazados
 [       OK ] MatchServiceRejectUserIsInRejectedListTest.rejectingUserIsInRejectedList (0 ms)
-[----------] 1 test from MatchServiceRejectUserIsInRejectedListTest (0 ms total)
+[----------] 1 test from MatchServiceRejectUserIsInRejectedListTest (4 ms total)
 
 [----------] 1 test from MatchServiceRejectUserIsMatchedTest
 [ RUN      ] MatchServiceRejectUserIsMatchedTest.rejectingUserIsMatched
@@ -214,8 +187,8 @@ Uninteresting mock function call - returning default value.
 NOTE: You can safely ignore the above warning unless this call should not happen.  Do not suppress it by blindly adding an EXPECT_CALL() if you don't mean to enforce the call.  See https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#knowing-when-to-expect for details.
 ERROR - Los usuarios ya estan matcheados
 ERROR - La entidad ya existe
-[       OK ] MatchServiceRejectUserIsMatchedTest.rejectingUserIsMatched (1 ms)
-[----------] 1 test from MatchServiceRejectUserIsMatchedTest (1 ms total)
+[       OK ] MatchServiceRejectUserIsMatchedTest.rejectingUserIsMatched (0 ms)
+[----------] 1 test from MatchServiceRejectUserIsMatchedTest (0 ms total)
 
 [----------] 1 test from MatchServiceRejectChatExistsTest
 [ RUN      ] MatchServiceRejectChatExistsTest.rejectingUserChatExists
@@ -228,51 +201,24 @@ ERROR - La entidad ya existe
 [ RUN      ] MatchServiceTest.getNewMatches
 INFO - Obteniendo la lista de nuevos matches del usuario psivori
 [       OK ] MatchServiceTest.getNewMatches (0 ms)
-[----------] 1 test from MatchServiceTest (2 ms total)
+[----------] 1 test from MatchServiceTest (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 18 tests from 18 test cases ran. (24 ms total)
+[==========] 18 tests from 18 test cases ran. (19 ms total)
 [  PASSED  ] 18 tests.
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/json.dir/home/agustin/git/serverapp/AppServer/src/jsoncpp.cpp.gcda:Cannot open
-profiling:/googlemock/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.gcda:Cannot open
-profiling:/googlemock/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/test/MockMatchService.cc.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/MatchService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/ChatService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/AbmUserService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/RemoteSharedService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/SearchCandidatesService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/AuthenticationService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/CandidateList.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Interest.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Location.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/UserProfile.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Chat.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Message.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/SearchStats.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Match.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/dao/MatchDao.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/dao/ChatDao.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/dao/CandidatesDao.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/dao/SearchStatsDao.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/dao/UserDao.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/utils/DbHelper.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/utils/JwToken.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/utils/RestClientHelper.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockMatchServiceTest.dir/home/agustin/git/serverapp/AppServer/src/utils/UriParser.cpp.gcda:Cannot open
 <end of output>
-Test time =   0.06 sec
+Test time =   0.29 sec
 ----------------------------------------------------------
 Test Passed.
-"mockMatchServiceTest" end time: Jun 18 14:05 ART
+"mockMatchServiceTest" end time: Jun 18 16:34 ART
 "mockMatchServiceTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-3/5 Testing: mockChatServiceTest
-3/5 Test: mockChatServiceTest
+3/6 Testing: mockChatServiceTest
+3/6 Test: mockChatServiceTest
 Command: "/home/agustin/git/serverapp/AppServer/cmake/mockChatServiceTest"
 Directory: /home/agustin/git/serverapp/AppServer/cmake
-"mockChatServiceTest" start time: Jun 18 14:05 ART
+"mockChatServiceTest" start time: Jun 18 16:34 ART
 Output:
 ----------------------------------------------------------
 INFO - Iniciando Tests
@@ -280,41 +226,41 @@ INFO - Iniciando Tests
 [----------] Global test environment set-up.
 [----------] 1 test from ChatServiceGetAllMessagesTest
 [ RUN      ] ChatServiceGetAllMessagesTest.getAllMessages
-[       OK ] ChatServiceGetAllMessagesTest.getAllMessages (0 ms)
+[       OK ] ChatServiceGetAllMessagesTest.getAllMessages (1 ms)
 [----------] 1 test from ChatServiceGetAllMessagesTest (1 ms total)
 
 [----------] 1 test from ChatServiceGetAllMessagesNonexistentChatTest
 [ RUN      ] ChatServiceGetAllMessagesNonexistentChatTest.getAllMessagesNonexistentChat
 ERROR - No se encuentra el chat alinari-psivori
 [       OK ] ChatServiceGetAllMessagesNonexistentChatTest.getAllMessagesNonexistentChat (0 ms)
-[----------] 1 test from ChatServiceGetAllMessagesNonexistentChatTest (1 ms total)
+[----------] 1 test from ChatServiceGetAllMessagesNonexistentChatTest (0 ms total)
 
 [----------] 1 test from ChatServiceGetNewMessagesTest
 [ RUN      ] ChatServiceGetNewMessagesTest.getNewMessages
-[       OK ] ChatServiceGetNewMessagesTest.getNewMessages (0 ms)
-[----------] 1 test from ChatServiceGetNewMessagesTest (0 ms total)
+[       OK ] ChatServiceGetNewMessagesTest.getNewMessages (2 ms)
+[----------] 1 test from ChatServiceGetNewMessagesTest (2 ms total)
 
 [----------] 1 test from ChatServiceGetNewMessagesNonexistentChatTest
 [ RUN      ] ChatServiceGetNewMessagesNonexistentChatTest.getNewMessagesNonexistentChat
 ERROR - No se encuentra el chat alinari-psivori
 [       OK ] ChatServiceGetNewMessagesNonexistentChatTest.getNewMessagesNonexistentChat (0 ms)
-[----------] 1 test from ChatServiceGetNewMessagesNonexistentChatTest (1 ms total)
+[----------] 1 test from ChatServiceGetNewMessagesNonexistentChatTest (0 ms total)
 
 [----------] 1 test from ChatServiceAddNewMessageTest
 [ RUN      ] ChatServiceAddNewMessageTest.addNewMessage
-[       OK ] ChatServiceAddNewMessageTest.addNewMessage (0 ms)
-[----------] 1 test from ChatServiceAddNewMessageTest (0 ms total)
+[       OK ] ChatServiceAddNewMessageTest.addNewMessage (1 ms)
+[----------] 1 test from ChatServiceAddNewMessageTest (1 ms total)
 
 [----------] 1 test from ChatServiceAddNewMessageNonexistentChatTest
 [ RUN      ] ChatServiceAddNewMessageNonexistentChatTest.addNewMessageNonexistentChat
 ERROR - No se encuentra el chat alinari-psivori
-[       OK ] ChatServiceAddNewMessageNonexistentChatTest.addNewMessageNonexistentChat (1 ms)
-[----------] 1 test from ChatServiceAddNewMessageNonexistentChatTest (1 ms total)
+[       OK ] ChatServiceAddNewMessageNonexistentChatTest.addNewMessageNonexistentChat (0 ms)
+[----------] 1 test from ChatServiceAddNewMessageNonexistentChatTest (0 ms total)
 
 [----------] 1 test from ChatServiceUpdateLastMessageTest
 [ RUN      ] ChatServiceUpdateLastMessageTest.updateLastMessage
 [       OK ] ChatServiceUpdateLastMessageTest.updateLastMessage (0 ms)
-[----------] 1 test from ChatServiceUpdateLastMessageTest (1 ms total)
+[----------] 1 test from ChatServiceUpdateLastMessageTest (0 ms total)
 
 [----------] 1 test from ChatServiceUpdateLastMessageNonexistentChatTest
 [ RUN      ] ChatServiceUpdateLastMessageNonexistentChatTest.updateLastMessageNonexistentChat
@@ -324,8 +270,8 @@ ERROR - No se encuentra el chat alinari-psivori
 
 [----------] 1 test from ChatServiceCreateChatTest
 [ RUN      ] ChatServiceCreateChatTest.createChat
-[       OK ] ChatServiceCreateChatTest.createChat (1 ms)
-[----------] 1 test from ChatServiceCreateChatTest (1 ms total)
+[       OK ] ChatServiceCreateChatTest.createChat (0 ms)
+[----------] 1 test from ChatServiceCreateChatTest (0 ms total)
 
 [----------] 1 test from ChatServiceCreateExistentChatTest
 [ RUN      ] ChatServiceCreateExistentChatTest.createExistentChat
@@ -336,8 +282,8 @@ Uninteresting mock function call - returning default value.
           Returns: NULL
 NOTE: You can safely ignore the above warning unless this call should not happen.  Do not suppress it by blindly adding an EXPECT_CALL() if you don't mean to enforce the call.  See https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#knowing-when-to-expect for details.
 WARN - La conversacion jferrio-psivori ya existe
-[       OK ] ChatServiceCreateExistentChatTest.createExistentChat (0 ms)
-[----------] 1 test from ChatServiceCreateExistentChatTest (0 ms total)
+[       OK ] ChatServiceCreateExistentChatTest.createExistentChat (6 ms)
+[----------] 1 test from ChatServiceCreateExistentChatTest (6 ms total)
 
 [----------] 1 test from ChatServiceGetChatTest
 [ RUN      ] ChatServiceGetChatTest.getChatTest
@@ -350,48 +296,21 @@ WARN - La conversacion jferrio-psivori ya existe
 [----------] 1 test from ChatServiceGetNonexistentChatTest (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 12 tests from 12 test cases ran. (14 ms total)
+[==========] 12 tests from 12 test cases ran. (12 ms total)
 [  PASSED  ] 12 tests.
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/json.dir/home/agustin/git/serverapp/AppServer/src/jsoncpp.cpp.gcda:Cannot open
-profiling:/googlemock/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.gcda:Cannot open
-profiling:/googlemock/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockChatServiceTest.dir/home/agustin/git/serverapp/AppServer/test/MockChatService.cc.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockChatServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/MatchService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockChatServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/ChatService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockChatServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/AbmUserService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockChatServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/RemoteSharedService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockChatServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/SearchCandidatesService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockChatServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/AuthenticationService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockChatServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/CandidateList.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockChatServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Interest.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockChatServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Location.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockChatServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/UserProfile.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockChatServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Chat.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockChatServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Message.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockChatServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/SearchStats.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockChatServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Match.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockChatServiceTest.dir/home/agustin/git/serverapp/AppServer/src/dao/MatchDao.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockChatServiceTest.dir/home/agustin/git/serverapp/AppServer/src/dao/ChatDao.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockChatServiceTest.dir/home/agustin/git/serverapp/AppServer/src/dao/CandidatesDao.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockChatServiceTest.dir/home/agustin/git/serverapp/AppServer/src/dao/SearchStatsDao.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockChatServiceTest.dir/home/agustin/git/serverapp/AppServer/src/dao/UserDao.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockChatServiceTest.dir/home/agustin/git/serverapp/AppServer/src/utils/DbHelper.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockChatServiceTest.dir/home/agustin/git/serverapp/AppServer/src/utils/JwToken.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockChatServiceTest.dir/home/agustin/git/serverapp/AppServer/src/utils/RestClientHelper.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockChatServiceTest.dir/home/agustin/git/serverapp/AppServer/src/utils/UriParser.cpp.gcda:Cannot open
 <end of output>
-Test time =   0.05 sec
+Test time =   0.07 sec
 ----------------------------------------------------------
 Test Passed.
-"mockChatServiceTest" end time: Jun 18 14:05 ART
+"mockChatServiceTest" end time: Jun 18 16:34 ART
 "mockChatServiceTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-4/5 Testing: mockABMUsersServiceTest
-4/5 Test: mockABMUsersServiceTest
+4/6 Testing: mockABMUsersServiceTest
+4/6 Test: mockABMUsersServiceTest
 Command: "/home/agustin/git/serverapp/AppServer/cmake/mockABMUsersServiceTest"
 Directory: /home/agustin/git/serverapp/AppServer/cmake
-"mockABMUsersServiceTest" start time: Jun 18 14:05 ART
+"mockABMUsersServiceTest" start time: Jun 18 16:34 ART
 Output:
 ----------------------------------------------------------
 INFO - Iniciando Tests
@@ -403,7 +322,7 @@ INFO - El usuario con email juan@gmail.com no esta registrado. Se continua con l
 
 GMOCK WARNING:
 Uninteresting mock function call - returning directly.
-    Function call: put("stats", 0x2530530)
+    Function call: put("stats", 0x10c4530)
 NOTE: You can safely ignore the above warning unless this call should not happen.  Do not suppress it by blindly adding an EXPECT_CALL() if you don't mean to enforce the call.  See https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#knowing-when-to-expect for details.
 [       OK ] AbmUserServiceCreateUser.createUserTest (0 ms)
 [----------] 1 test from AbmUserServiceCreateUser (0 ms total)
@@ -412,14 +331,14 @@ NOTE: You can safely ignore the above warning unless this call should not happen
 [ RUN      ] AbmUserServiceCreateUserInvalid.createUserInvalidTest
 INFO - El usuario con email juan@gmail.com no esta registrado. Se continua con la registración.
 ERROR - El usuario juan con email juan@gmail.com no se pudo crear.
-[       OK ] AbmUserServiceCreateUserInvalid.createUserInvalidTest (1 ms)
-[----------] 1 test from AbmUserServiceCreateUserInvalid (2 ms total)
+[       OK ] AbmUserServiceCreateUserInvalid.createUserInvalidTest (0 ms)
+[----------] 1 test from AbmUserServiceCreateUserInvalid (0 ms total)
 
 [----------] 1 test from AbmUserServiceCreateUserExists
 [ RUN      ] AbmUserServiceCreateUserExists.createUserExistsTest
 ERROR - El usuario juan con email juan@gmail.com no se puede crear porque ya existe.
-[       OK ] AbmUserServiceCreateUserExists.createUserExistsTest (0 ms)
-[----------] 1 test from AbmUserServiceCreateUserExists (0 ms total)
+[       OK ] AbmUserServiceCreateUserExists.createUserExistsTest (1 ms)
+[----------] 1 test from AbmUserServiceCreateUserExists (5 ms total)
 
 [----------] 1 test from AbmUserServiceCreateUserRemoteError
 [ RUN      ] AbmUserServiceCreateUserRemoteError.createUserRemoteErrorTest
@@ -448,13 +367,13 @@ ERROR - El usuario juan con email juan@gmail.com no se encuentra.
 [----------] 1 test from AbmUserServiceModifyUserRemoteError
 [ RUN      ] AbmUserServiceModifyUserRemoteError.modifyUserRemoteErrorTest
 ERROR - Error en comunicacion con shared service.
-[       OK ] AbmUserServiceModifyUserRemoteError.modifyUserRemoteErrorTest (0 ms)
+[       OK ] AbmUserServiceModifyUserRemoteError.modifyUserRemoteErrorTest (1 ms)
 [----------] 1 test from AbmUserServiceModifyUserRemoteError (1 ms total)
 
 [----------] 1 test from AbmUserServiceGetInterestsTest
 [ RUN      ] AbmUserServiceGetInterestsTest.getInterestsTest
-[       OK ] AbmUserServiceGetInterestsTest.getInterestsTest (1 ms)
-[----------] 1 test from AbmUserServiceGetInterestsTest (1 ms total)
+[       OK ] AbmUserServiceGetInterestsTest.getInterestsTest (0 ms)
+[----------] 1 test from AbmUserServiceGetInterestsTest (0 ms total)
 
 [----------] 1 test from AbmUserServiceGetInterestsRemoteError
 [ RUN      ] AbmUserServiceGetInterestsRemoteError.getInterestsRemoteErrorTest
@@ -469,48 +388,21 @@ ERROR - error parseando json
 [----------] 1 test from AbmUserServiceGetInterestsInvalidJson (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 11 tests from 11 test cases ran. (5 ms total)
+[==========] 11 tests from 11 test cases ran. (9 ms total)
 [  PASSED  ] 11 tests.
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/json.dir/home/agustin/git/serverapp/AppServer/src/jsoncpp.cpp.gcda:Cannot open
-profiling:/googlemock/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.gcda:Cannot open
-profiling:/googlemock/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockABMUsersServiceTest.dir/home/agustin/git/serverapp/AppServer/test/MockABMUsersService.cc.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockABMUsersServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/MatchService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockABMUsersServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/ChatService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockABMUsersServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/AbmUserService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockABMUsersServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/RemoteSharedService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockABMUsersServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/SearchCandidatesService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockABMUsersServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/AuthenticationService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockABMUsersServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/CandidateList.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockABMUsersServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Interest.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockABMUsersServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Location.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockABMUsersServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/UserProfile.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockABMUsersServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Chat.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockABMUsersServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Message.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockABMUsersServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/SearchStats.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockABMUsersServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Match.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockABMUsersServiceTest.dir/home/agustin/git/serverapp/AppServer/src/dao/MatchDao.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockABMUsersServiceTest.dir/home/agustin/git/serverapp/AppServer/src/dao/ChatDao.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockABMUsersServiceTest.dir/home/agustin/git/serverapp/AppServer/src/dao/CandidatesDao.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockABMUsersServiceTest.dir/home/agustin/git/serverapp/AppServer/src/dao/SearchStatsDao.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockABMUsersServiceTest.dir/home/agustin/git/serverapp/AppServer/src/dao/UserDao.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockABMUsersServiceTest.dir/home/agustin/git/serverapp/AppServer/src/utils/DbHelper.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockABMUsersServiceTest.dir/home/agustin/git/serverapp/AppServer/src/utils/JwToken.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockABMUsersServiceTest.dir/home/agustin/git/serverapp/AppServer/src/utils/RestClientHelper.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockABMUsersServiceTest.dir/home/agustin/git/serverapp/AppServer/src/utils/UriParser.cpp.gcda:Cannot open
 <end of output>
-Test time =   0.04 sec
+Test time =   0.12 sec
 ----------------------------------------------------------
 Test Passed.
-"mockABMUsersServiceTest" end time: Jun 18 14:05 ART
+"mockABMUsersServiceTest" end time: Jun 18 16:34 ART
 "mockABMUsersServiceTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-5/5 Testing: mockSharedServiceTest
-5/5 Test: mockSharedServiceTest
+5/6 Testing: mockSharedServiceTest
+5/6 Test: mockSharedServiceTest
 Command: "/home/agustin/git/serverapp/AppServer/cmake/mockSharedServiceTest"
 Directory: /home/agustin/git/serverapp/AppServer/cmake
-"mockSharedServiceTest" start time: Jun 18 14:05 ART
+"mockSharedServiceTest" start time: Jun 18 16:34 ART
 Output:
 ----------------------------------------------------------
 INFO - Iniciando Tests
@@ -521,8 +413,8 @@ INFO - Iniciando Tests
 DEBUG - Response code 200
 DEBUG - Response body {"user":{"age":"33","alias":"alinari","email":"alinari@gmail.com","interests":[{"category":"cars","value":"Ferrari"}],"location":{"latitude":"0","longitude":"0"},"name":"Agustin","photo":"-","sex":"M"}}
 
-[       OK ] SharedServiceGetUserTest.getUserTest (1 ms)
-[----------] 1 test from SharedServiceGetUserTest (2 ms total)
+[       OK ] SharedServiceGetUserTest.getUserTest (10 ms)
+[----------] 1 test from SharedServiceGetUserTest (10 ms total)
 
 [----------] 1 test from SharedServiceGetUser404Test
 [ RUN      ] SharedServiceGetUser404Test.getUser404Test
@@ -530,8 +422,8 @@ DEBUG - Response code 404
 DEBUG - Response body {"data":"usuario inexistente","success":"false"}
 
 ERROR - El usuario no se encuentra
-[       OK ] SharedServiceGetUser404Test.getUser404Test (0 ms)
-[----------] 1 test from SharedServiceGetUser404Test (2 ms total)
+[       OK ] SharedServiceGetUser404Test.getUser404Test (1 ms)
+[----------] 1 test from SharedServiceGetUser404Test (1 ms total)
 
 [----------] 1 test from SharedServiceGetUserErrorTest
 [ RUN      ] SharedServiceGetUserErrorTest.getUserErrorTest
@@ -540,7 +432,7 @@ DEBUG - Response body {"data":"error","success":"false"}
 
 ERROR - El shared server retorno error
 [       OK ] SharedServiceGetUserErrorTest.getUserErrorTest (0 ms)
-[----------] 1 test from SharedServiceGetUserErrorTest (1 ms total)
+[----------] 1 test from SharedServiceGetUserErrorTest (0 ms total)
 
 [----------] 1 test from SharedServiceCreateInterestTest
 [ RUN      ] SharedServiceCreateInterestTest.createInterestTest
@@ -566,7 +458,7 @@ DEBUG - Response body {"data":"error","success":"false"}
 
 ERROR - El shared server retorno error
 [       OK ] SharedServiceCreateInterestErrorTest.createInterestErrorTest (0 ms)
-[----------] 1 test from SharedServiceCreateInterestErrorTest (1 ms total)
+[----------] 1 test from SharedServiceCreateInterestErrorTest (0 ms total)
 
 [----------] 1 test from SharedServiceGetInterestsTest
 [ RUN      ] SharedServiceGetInterestsTest.getInterestsTest
@@ -574,7 +466,7 @@ DEBUG - Response code 200
 DEBUG - Response body {"interests":[{"category":"Bandas","value":"Divididos"},{"category":"Bandas","value":"The Beatles"}]}
 
 [       OK ] SharedServiceGetInterestsTest.getInterestsTest (0 ms)
-[----------] 1 test from SharedServiceGetInterestsTest (1 ms total)
+[----------] 1 test from SharedServiceGetInterestsTest (0 ms total)
 
 [----------] 1 test from SharedServiceGetInterestsErrorTest
 [ RUN      ] SharedServiceGetInterestsErrorTest.createGetInterestsErrorTest
@@ -591,7 +483,7 @@ DEBUG - Response code 200
 DEBUG - Response body {"users":[{"user":{"age":"33","alias":"alinari","email":"alinari@gmail.com","id":"138","interests":[{"category":"Bandas","value":"Divididos"}],"location":{"latitude":"0.0","longitude":"0.0"},"name":"Agustin","photo":"/users/138/photo","sex":"M"}},{"user":{"age":"25","alias":"jperez","email":"jperez@gmail.com","id":"198","interests":[{"category":"Bandas","value":"The Beatles"}],"location":{"latitude":"0.0","longitude":"0.0"},"name":"Juan","photo":"/users/198/photo","sex":"M"}}]}
 
 [       OK ] SharedServiceGetUsersTest.getUsersTest (0 ms)
-[----------] 1 test from SharedServiceGetUsersTest (2 ms total)
+[----------] 1 test from SharedServiceGetUsersTest (0 ms total)
 
 [----------] 1 test from SharedServiceGetUsersErrorTest
 [ RUN      ] SharedServiceGetUsersErrorTest.createGetUsersErrorTest
@@ -599,7 +491,7 @@ DEBUG - Response code 500
 DEBUG - Response body {"data":"error","success":"false"}
 
 ERROR - El shared server retorno error
-[       OK ] SharedServiceGetUsersErrorTest.createGetUsersErrorTest (0 ms)
+[       OK ] SharedServiceGetUsersErrorTest.createGetUsersErrorTest (1 ms)
 [----------] 1 test from SharedServiceGetUsersErrorTest (1 ms total)
 
 [----------] 1 test from SharedServiceGetPhotoTest
@@ -616,8 +508,8 @@ DEBUG - Response code 404
 DEBUG - Response body {"data":"usuario inexistente","success":"false"}
 
 ERROR - El usuario no se encuentra
-[       OK ] SharedServiceGetPhoto404Test.getPhoto404Test (1 ms)
-[----------] 1 test from SharedServiceGetPhoto404Test (1 ms total)
+[       OK ] SharedServiceGetPhoto404Test.getPhoto404Test (0 ms)
+[----------] 1 test from SharedServiceGetPhoto404Test (0 ms total)
 
 [----------] 1 test from SharedServiceGetPhotoErrorTest
 [ RUN      ] SharedServiceGetPhotoErrorTest.getPhotoErrorTest
@@ -626,7 +518,7 @@ DEBUG - Response body {"data":"error","success":"false"}
 
 ERROR - El shared server retorno error
 [       OK ] SharedServiceGetPhotoErrorTest.getPhotoErrorTest (0 ms)
-[----------] 1 test from SharedServiceGetPhotoErrorTest (1 ms total)
+[----------] 1 test from SharedServiceGetPhotoErrorTest (0 ms total)
 
 [----------] 1 test from SharedServiceCreateUserTest
 [ RUN      ] SharedServiceCreateUserTest.createUserTest
@@ -636,7 +528,7 @@ DEBUG - Response code 200
 DEBUG - Response body {"user":{"age":"33","alias":"alinari","email":"alinari@gmail.com","interests":[{"category":"cars","value":"Ferrari"}],"location":{"latitude":"0","longitude":"0"},"name":"Agustin","photo":"-","sex":"M"}}
 
 [       OK ] SharedServiceCreateUserTest.createUserTest (0 ms)
-[----------] 1 test from SharedServiceCreateUserTest (1 ms total)
+[----------] 1 test from SharedServiceCreateUserTest (0 ms total)
 
 [----------] 1 test from SharedServiceCreateUser400Test
 [ RUN      ] SharedServiceCreateUser400Test.createUser400Test
@@ -665,8 +557,8 @@ ERROR - El shared server retorno error
 DEBUG - Response code 200
 DEBUG - Response body {"user":{"age":"33","alias":"alinari","email":"alinari@gmail.com","interests":[{"category":"cars","value":"Ferrari"}],"location":{"latitude":"0","longitude":"0"},"name":"Agustin","photo":"-","sex":"M"}}
 
-[       OK ] SharedServiceUpdateUserTest.updateUserTest (1 ms)
-[----------] 1 test from SharedServiceUpdateUserTest (1 ms total)
+[       OK ] SharedServiceUpdateUserTest.updateUserTest (0 ms)
+[----------] 1 test from SharedServiceUpdateUserTest (0 ms total)
 
 [----------] 1 test from SharedServiceUpdateUser404Test
 [ RUN      ] SharedServiceUpdateUser404Test.updateUser404Test
@@ -683,8 +575,8 @@ DEBUG - Response code 500
 DEBUG - Response body {"data":"error","success":"false"}
 
 ERROR - El shared server retorno error
-[       OK ] SharedServiceUpdateUserErrorTest.updateUserErrorTest (0 ms)
-[----------] 1 test from SharedServiceUpdateUserErrorTest (0 ms total)
+[       OK ] SharedServiceUpdateUserErrorTest.updateUserErrorTest (1 ms)
+[----------] 1 test from SharedServiceUpdateUserErrorTest (1 ms total)
 
 [----------] 1 test from SharedServiceDeleteUserTest
 [ RUN      ] SharedServiceDeleteUserTest.deleteUserTest
@@ -692,7 +584,7 @@ DEBUG - Response code 200
 DEBUG - Response body {"data":"eliminado","success":"true"}
 
 [       OK ] SharedServiceDeleteUserTest.deleteUserTest (0 ms)
-[----------] 1 test from SharedServiceDeleteUserTest (5 ms total)
+[----------] 1 test from SharedServiceDeleteUserTest (0 ms total)
 
 [----------] 1 test from SharedServiceDeleteUser404Test
 [ RUN      ] SharedServiceDeleteUser404Test.deleteUser404Test
@@ -700,8 +592,8 @@ DEBUG - Response code 404
 DEBUG - Response body {"data":"usuario inexistente","success":"false"}
 
 ERROR - El usuario no se encuentra
-[       OK ] SharedServiceDeleteUser404Test.deleteUser404Test (1 ms)
-[----------] 1 test from SharedServiceDeleteUser404Test (1 ms total)
+[       OK ] SharedServiceDeleteUser404Test.deleteUser404Test (0 ms)
+[----------] 1 test from SharedServiceDeleteUser404Test (0 ms total)
 
 [----------] 1 test from SharedServiceDeleteUserErrorTest
 [ RUN      ] SharedServiceDeleteUserErrorTest.deleteUserErrorTest
@@ -713,40 +605,60 @@ ERROR - El shared server retorno error
 [----------] 1 test from SharedServiceDeleteUserErrorTest (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 22 tests from 22 test cases ran. (26 ms total)
+[==========] 22 tests from 22 test cases ran. (16 ms total)
 [  PASSED  ] 22 tests.
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/dao.dir/home/agustin/git/serverapp/AppServer/src/dao/MatchDao.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/dao.dir/home/agustin/git/serverapp/AppServer/src/dao/ChatDao.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/dao.dir/home/agustin/git/serverapp/AppServer/src/dao/SearchStatsDao.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/dao.dir/home/agustin/git/serverapp/AppServer/src/dao/UserDao.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/json.dir/home/agustin/git/serverapp/AppServer/src/jsoncpp.cpp.gcda:Cannot open
-profiling:/googlemock/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.gcda:Cannot open
-profiling:/googlemock/googlemock/CMakeFiles/gmock.dir/__/googletest/src/gtest-all.cc.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockSharedServiceTest.dir/home/agustin/git/serverapp/AppServer/test/MockRemoteSharedService.cc.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockSharedServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/MatchService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockSharedServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/ChatService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockSharedServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/AbmUserService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockSharedServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/RemoteSharedService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockSharedServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/SearchCandidatesService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockSharedServiceTest.dir/home/agustin/git/serverapp/AppServer/src/service/impl/AuthenticationService.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockSharedServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/CandidateList.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockSharedServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Interest.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockSharedServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Location.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockSharedServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/UserProfile.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockSharedServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Chat.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockSharedServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Message.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockSharedServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/SearchStats.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockSharedServiceTest.dir/home/agustin/git/serverapp/AppServer/src/model/Match.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockSharedServiceTest.dir/home/agustin/git/serverapp/AppServer/src/utils/DbHelper.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockSharedServiceTest.dir/home/agustin/git/serverapp/AppServer/src/utils/JwToken.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockSharedServiceTest.dir/home/agustin/git/serverapp/AppServer/src/utils/RestClientHelper.cpp.gcda:Cannot open
-profiling:/home/agustin/git/serverapp/AppServer/cmake/CMakeFiles/mockSharedServiceTest.dir/home/agustin/git/serverapp/AppServer/src/utils/UriParser.cpp.gcda:Cannot open
 <end of output>
-Test time =   0.05 sec
+Test time =   0.28 sec
 ----------------------------------------------------------
 Test Passed.
-"mockSharedServiceTest" end time: Jun 18 14:05 ART
+"mockSharedServiceTest" end time: Jun 18 16:34 ART
 "mockSharedServiceTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Jun 18 14:05 ART
+6/6 Testing: mockSearchCtrlTest
+6/6 Test: mockSearchCtrlTest
+Command: "/home/agustin/git/serverapp/AppServer/cmake/mockSearchCtrlTest"
+Directory: /home/agustin/git/serverapp/AppServer/cmake
+"mockSearchCtrlTest" start time: Jun 18 16:34 ART
+Output:
+----------------------------------------------------------
+INFO - Iniciando Tests
+[==========] Running 4 tests from 4 test cases.
+[----------] Global test environment set-up.
+[----------] 1 test from SearchCtrlTest
+[ RUN      ] SearchCtrlTest.searchCtrlTest
+DEBUG - Se buscan candidatos para el usuario 10
+[       OK ] SearchCtrlTest.searchCtrlTest (18 ms)
+[----------] 1 test from SearchCtrlTest (18 ms total)
+
+[----------] 1 test from SearchCtrlInvalidQueryStringTest
+[ RUN      ] SearchCtrlInvalidQueryStringTest.searchCtrlInvalidQueryStringTest
+[       OK ] SearchCtrlInvalidQueryStringTest.searchCtrlInvalidQueryStringTest (0 ms)
+[----------] 1 test from SearchCtrlInvalidQueryStringTest (0 ms total)
+
+[----------] 1 test from SearchCtrlDailyLimitTest
+[ RUN      ] SearchCtrlDailyLimitTest.searchCtrlDailyLimitTest
+DEBUG - Se buscan candidatos para el usuario 10
+ERROR - se excedio el limite diario de busquedas de candidatos
+[       OK ] SearchCtrlDailyLimitTest.searchCtrlDailyLimitTest (14 ms)
+[----------] 1 test from SearchCtrlDailyLimitTest (14 ms total)
+
+[----------] 1 test from SearchCtrlUserNotFoundTest
+[ RUN      ] SearchCtrlUserNotFoundTest.searchCtrlUserNotFoundTest
+DEBUG - Se buscan candidatos para el usuario 11
+ERROR - No se encuentra la entidad
+[       OK ] SearchCtrlUserNotFoundTest.searchCtrlUserNotFoundTest (0 ms)
+[----------] 1 test from SearchCtrlUserNotFoundTest (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 4 tests from 4 test cases ran. (38 ms total)
+[  PASSED  ] 4 tests.
+<end of output>
+Test time =   0.30 sec
+----------------------------------------------------------
+Test Passed.
+"mockSearchCtrlTest" end time: Jun 18 16:34 ART
+"mockSearchCtrlTest" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: Jun 18 16:34 ART

@@ -11,7 +11,12 @@ AbmUserController::AbmUserController() {
 	abmService = new AbmUserService();
 }
 
-string AbmUserController::connect(struct mg_connection *nc, struct http_message *hm){
+AbmUserController::AbmUserController(IAbmUserService* abmService){
+	this->abmService = abmService;
+}
+
+
+string AbmUserController::connect(struct mg_connection *nc, struct http_message *hm, bool test){
 
 	if(mg_vcmp(&hm->uri, "/user/newuser") == 0){
 		if (mg_vcmp(&hm->method, "POST") == 0) {
@@ -19,7 +24,7 @@ string AbmUserController::connect(struct mg_connection *nc, struct http_message 
 		}
 	}else if(mg_vcmp(&hm->uri, "/user/updateuser") == 0){
 		if (mg_vcmp(&hm->method, "PUT") == 0) {
-			string token = isLogged(nc, hm);
+			string token = isLogged(hm, test);
 			if (!token.empty()){
 				return event_handler_update_user(nc,hm,token);
 			}else{
@@ -28,7 +33,7 @@ string AbmUserController::connect(struct mg_connection *nc, struct http_message 
 		}
 	}else if(mg_vcmp(&hm->uri, "/user/photo") == 0){
 		if (mg_vcmp(&hm->method, "GET") == 0) {
-			string token = isLogged(nc, hm);
+			string token = isLogged(hm, test);
 			if (!token.empty()){
 				return event_handler_get_photo(nc,hm, token);
 			}else{
@@ -37,9 +42,9 @@ string AbmUserController::connect(struct mg_connection *nc, struct http_message 
 		}
 	}else if(mg_vcmp(&hm->uri, "/interests") == 0){
 		if (mg_vcmp(&hm->method, "GET") == 0) {
-			string token = isLogged(nc, hm);
+			string token = isLogged(hm, test);
 			if (!token.empty()){
-				return event_handler_get_interests(nc,hm, token);
+				return event_handler_get_interests(nc, token);
 			}else{
 				return sendForbiddenResponse(nc);
 			}
@@ -162,7 +167,7 @@ string AbmUserController::event_handler_update_user(struct mg_connection *nc, st
 	return code;
 }
 
-string AbmUserController::event_handler_get_interests(struct mg_connection *nc, struct http_message *hm, string token){
+string AbmUserController::event_handler_get_interests(struct mg_connection *nc, string token){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbmUserController"));
 	string code = "";
 	string json = "";

@@ -13,7 +13,6 @@
 #include <log4cplus/configurator.h>
 
 using namespace std;
-using namespace std;
 using ::testing::AtLeast;
 using ::testing::Return;
 using ::testing::_;

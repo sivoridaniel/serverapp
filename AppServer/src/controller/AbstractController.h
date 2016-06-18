@@ -38,9 +38,10 @@ public:
 	 *
 	 * @param struct mg_connection *nc
 	 * @param struct http_message *hm
+	 * @param bool test si vale true no se realiza la autenticacion
 	 * @return string
 	 */
-	virtual string connect(struct mg_connection *nc, struct http_message *hm)=0;
+	virtual string connect(struct mg_connection *nc, struct http_message *hm, bool test)=0;
 
 	/**
 	 * Método que verifica el token recibido cuando se consulta un servicio, en el cual
@@ -67,7 +68,7 @@ public:
 		string ret_json = "";
 		string code = "";
 
-		string token = this->isLogged(nc, hm);
+		string token = this->isLogged(hm, false);
 
 		if (!token.empty()) {
 			ret_json = "{\"success\": \"true\", \"data\":\"logged\"}";
@@ -127,7 +128,11 @@ public:
 		return STATUS_FORBIDDEN;
 	}
 
-	virtual string isLogged(struct mg_connection *nc, struct http_message *hm) {
+	virtual string isLogged(struct http_message *hm, bool test) {
+
+		if (test){
+			return "token";
+		}
 
 		Logger logger = Logger::getInstance(
 				LOG4CPLUS_TEXT("AbstractController"));

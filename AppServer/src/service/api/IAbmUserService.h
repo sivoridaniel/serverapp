@@ -1,6 +1,8 @@
 #ifndef IABMUSERSERVICE_H_
 #define IABMUSERSERVICE_H_
 
+#include "../../model/Interest.h"
+
 using namespace std;
 /**
  * Clase que se utiliza para el ABM de usuarios en el server. 
@@ -20,6 +22,7 @@ public:
 
 	virtual string getPhoto(string id) = 0;
 
+	virtual list<Interest*> getInterests() = 0;
 };
 
 #endif

@@ -35,23 +35,30 @@ set(SRC_FILES_ABMUSER  ${UTILS_SRC} ${DAO_SRC} ${JSON_SRC} ${MODEL_SRC} ${SERVIC
 set(UNITTEST_SHARED_SRC ../test/MockRemoteSharedService.cc)
 set(SRC_FILES_SHARED  ${UTILS_SRC} ${JSON_SRC} ${MODEL_SRC} ${SERVICE_SRC} ${UNITTEST_SHARED_SRC})
 
+set(SEARCH_CTRL_SRC ../test/MockSearchCandidatesCtrl.cc)
+set(SRC_SEARCH_CTRL  ${UTILS_SRC} ${JSON_SRC} ${MODEL_SRC} ${SERVICE_SRC} ${CONTROLLER_SRC} ${SEARCH_CTRL_SRC})
+
+
 add_executable(mockMatchServiceTest ${SRC_FILES_MATCH}) 
 add_executable(mockAuthenticationCtrlTest ${SRC_FILES})
 add_executable(mockChatServiceTest ${SRC_FILES_CHAT}) 
 add_executable(mockABMUsersServiceTest ${SRC_FILES_ABMUSER}) 
 add_executable(mockSharedServiceTest ${SRC_FILES_SHARED})
+add_executable(mockSearchCtrlTest ${SRC_SEARCH_CTRL})
 
 target_link_libraries(mockAuthenticationCtrlTest utils dao model service  gmock gmock_main  log4cplus jansson jwt json  ${LibXML2_LIBRARIES} ${CPPUNIT_LIBRARY} ${LINUX_LIBRARIES} ${GCOV_LINK_FLAGS})
 target_link_libraries(mockMatchServiceTest utils dao model service  gmock gmock_main  log4cplus json  ${LibXML2_LIBRARIES} ${CPPUNIT_LIBRARY} ${LINUX_LIBRARIES} ${GCOV_LINK_FLAGS})
 target_link_libraries(mockChatServiceTest utils dao model service  gmock gmock_main  log4cplus json  ${LibXML2_LIBRARIES} ${CPPUNIT_LIBRARY} ${LINUX_LIBRARIES} ${GCOV_LINK_FLAGS})
 target_link_libraries(mockABMUsersServiceTest utils dao model service  gmock gmock_main  log4cplus jansson jwt json  ${LibXML2_LIBRARIES} ${CPPUNIT_LIBRARY} ${LINUX_LIBRARIES} ${GCOV_LINK_FLAGS})
 target_link_libraries(mockSharedServiceTest utils model service  gmock gmock_main  log4cplus json ${LibXML2_LIBRARIES} ${CPPUNIT_LIBRARY} ${LINUX_LIBRARIES} ${GCOV_LINK_FLAGS})
+target_link_libraries(mockSearchCtrlTest utils model service controller webserver gmock gmock_main  log4cplus json ${LibXML2_LIBRARIES} ${CPPUNIT_LIBRARY} ${LINUX_LIBRARIES} ${GCOV_LINK_FLAGS})
 
 add_test(NAME mockAuthenticationCtrlTest COMMAND mockAuthenticationCtrlTest)
 add_test(NAME mockMatchServiceTest COMMAND mockMatchServiceTest)
 add_test(NAME mockChatServiceTest COMMAND mockChatServiceTest)
 add_test(NAME mockABMUsersServiceTest COMMAND mockABMUsersServiceTest)
 add_test(NAME mockSharedServiceTest COMMAND mockSharedServiceTest)
+add_test(NAME mockSearchCtrlTest COMMAND mockSearchCtrlTest)
 
 add_custom_target(cov COMMAND ${LCOV_PATH} --directory . --zerocounters
 COMMAND mockAuthenticationCtrlTest
@@ -59,10 +66,11 @@ COMMAND mockMatchServiceTest
 COMMAND mockChatServiceTest
 COMMAND mockABMUsersServiceTest
 COMMAND mockSharedServiceTest
+COMMAND mockSearchCtrlTest
 # Capture lcov counters
 COMMAND ${LCOV_PATH} --directory ${DIR_APP} --capture --output-file ${OUTPUT_NAME}.info
  # Remove googletest coverage results
-COMMAND ${LCOV_PATH} --remove ${OUTPUT_NAME}.info '/usr/*' 'googletest*' 'googlemock*' 'src/json*' 'controller/*' --output-file ${OUTPUT_NAME}.info
+COMMAND ${LCOV_PATH} --remove ${OUTPUT_NAME}.info '/usr/*' 'googletest*' 'googlemock*' 'src/json*' --output-file ${OUTPUT_NAME}.info
 COMMAND ${GENHTML_PATH} -o ${OUTPUT_NAME} ${OUTPUT_NAME}.info --legend -s
 COMMAND ${CMAKE_COMMAND} -E remove ${OUTPUT_NAME}.info
 WORKING_DIRECTORY ${DIR_APP}/AppServer/test COMMENT "Generating code coverage results.")

@@ -28,6 +28,7 @@ using namespace log4cplus;
 class AbmUserController: public AbstractController{
 public:
 	AbmUserController();
+	AbmUserController(IAbmUserService* abmService);
 	/**
 	 * Se maneja la uri de consulta o creación de nuevo usuario.
 	 *
@@ -39,12 +40,13 @@ public:
 	 *
 	 * @param mg_connection*
 	 * @param http_message*
+	 * @param bool test
 	 * @result string
 	 */
-	string connect(struct mg_connection *nc, struct http_message *hm);
+	string connect(struct mg_connection *nc, struct http_message *hm, bool test);
 	virtual ~AbmUserController();
 private:
-	AbmUserService* abmService;
+	IAbmUserService* abmService;
 	/**
 	 * Método que crea el usuario con las credenciales, y lo da de alta en el shared
 	 * server.
@@ -98,11 +100,10 @@ private:
 	 * 400: ERROR (BAD REQUEST)
 	 *
 	 * @param struct mg_connection *nc
-	 * @param struct http_message *hm
 	 * @return string
 	 *
 	 */
-	string event_handler_get_interests(struct mg_connection *nc, struct http_message *hm, string token);
+	string event_handler_get_interests(struct mg_connection *nc, string token);
 
 	/**
 	 * Obtiene la foto del usuario del shared server

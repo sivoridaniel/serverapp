@@ -14,15 +14,24 @@ AuthenticationController::AuthenticationController() {
 
 }
 
+AuthenticationController::AuthenticationController(IAuthenticationService* authService, IAbmUserService* abmUserService){
+	this->authenticationService = authService;
+	this->abmUserService = abmUserService;
+}
+
 string AuthenticationController::connect(struct mg_connection *nc,
-		struct http_message *hm) {
+		struct http_message *hm, bool test) {
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AuthenticationController"));
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("CONNECT AUTHENTICATION CONTROLLER"));
 
 	if (mg_vcmp(&hm->uri, "/login_user") == 0) {
-		return event_handler_login_user(nc, hm);
+		if (mg_vcmp(&hm->method, "GET") == 0) {
+			return event_handler_login_user(nc, hm);
+		}
 	}else if(mg_vcmp(&hm->uri, "/valid_session") == 0){
-		return event_handler_valid_session(nc, hm);
+		if (mg_vcmp(&hm->method, "GET") == 0) {
+			return event_handler_valid_session(nc, hm);
+		}
 	}
 	return STATUS_NOT_FOUND; //Por default devuelve un JSON vacío.
 

@@ -29,20 +29,22 @@ class AuthenticationController:public AbstractController {
 
 public:
 	AuthenticationController();
+	AuthenticationController(IAuthenticationService* authService, IAbmUserService* abmUserService);
 	/**
 	 * Maneja las llamadas de login pasandole el message con los paramatros
 	 * necesarios para el logueo.
 	 *
 	 * @param mg_connection
 	 * @param http_message
+	 * @param bool test
 	 * @return string status error (200: OK, 400: NOK, 404: NOT_FOUND)
 	 */
-	string connect(struct mg_connection *nc, struct http_message *hm);
+	string connect(struct mg_connection *nc, struct http_message *hm, bool test);
 	virtual ~AuthenticationController();
 
 private:
-	AuthenticationService* authenticationService;
-	AbmUserService* abmUserService;
+	IAuthenticationService* authenticationService;
+	IAbmUserService* abmUserService;
 	/**
 	 * Se pasan por post el nombre de usuario y password en un json ({user:{name:string, password:string}})
 	 * y se obtiene el mismo haciendo la consulta en el shared y obtienendo las credenciales (token) para devolver

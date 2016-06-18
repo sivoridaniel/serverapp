@@ -11,17 +11,21 @@ SearchCandidatesController::SearchCandidatesController() {
 	searchService = new SearchCandidatesService();
 }
 
+SearchCandidatesController::SearchCandidatesController(ISearchCandidatesService* searchService){
+	this->searchService = searchService;
+}
+
 SearchCandidatesController::~SearchCandidatesController() {
 	delete searchService;
 }
 
 string SearchCandidatesController::connect(struct mg_connection *nc,
-		struct http_message *hm) {
+		struct http_message *hm, bool test) {
 
 	if (mg_vcmp(&hm->uri, "/candidates") == 0) {
 
 		if (mg_vcmp(&hm->method, "GET") == 0){
-			string token = isLogged(nc, hm);
+			string token = isLogged(hm, test);
 			if (!token.empty()){
 				return event_handler_search_candidates(nc, hm, token);
 			}else{
@@ -62,18 +66,13 @@ string SearchCandidatesController::event_handler_search_candidates(struct mg_con
 			json = createSearchResponse(candidates);
 			code = STATUS_OK;
 		}
-		catch(SearchDailyLimitExcededException& e){
-			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-		    json = this->getGenericJson("false",e.what());
-			code = STATUS_NOK;
-		}
 		catch(EntityNotFoundException& e){
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			json = this->getGenericJson("false",e.what());
 			code = STATUS_NOT_FOUND;
 		}
 		catch(exception& e){
-			json = this->getGenericJson("false",e.what());
+			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
 			json = this->getGenericJson("false",e.what());
 		}

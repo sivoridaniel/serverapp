@@ -11,16 +11,20 @@ MatchController::MatchController() {
 	matchService = new MatchService();
 }
 
+MatchController::MatchController(IMatchService* matchService){
+	this->matchService = matchService;
+}
+
 MatchController::~MatchController() {
 	delete matchService;
 }
 
 string MatchController::connect(struct mg_connection *nc,
-		struct http_message *hm) {
+		struct http_message *hm, bool test) {
 
 	if (mg_vcmp(&hm->uri, "/match/yes") == 0) {
 		if (mg_vcmp(&hm->method, "POST") == 0) {
-			string token = isLogged(nc, hm);
+			string token = isLogged(hm, test);
 			if (!token.empty()){
 				return event_handler_submit_yes(nc, hm, token);
 			}else{
@@ -29,7 +33,7 @@ string MatchController::connect(struct mg_connection *nc,
 		}
 	} else if (mg_vcmp(&hm->uri, "/match/no") == 0) {
 		if (mg_vcmp(&hm->method, "POST") == 0) {
-			string token = isLogged(nc, hm);
+			string token = isLogged(hm, test);
 			if (!token.empty()){
 				return event_handler_submit_no(nc, hm, token);
 			}else{
@@ -38,7 +42,7 @@ string MatchController::connect(struct mg_connection *nc,
 		}
 	} else if (mg_vcmp(&hm->uri, "/match") == 0) {
 		if (mg_vcmp(&hm->method, "GET") == 0) {
-			string token = isLogged(nc, hm);
+			string token = isLogged(hm, test);
 			if (!token.empty()){
 				return event_handler_new_matches(nc, hm, token);
 			}else{
@@ -47,7 +51,7 @@ string MatchController::connect(struct mg_connection *nc,
 		}
 	} else if (mg_vcmp(&hm->uri, "/chats") == 0){
 		if (mg_vcmp(&hm->method, "GET") == 0) {
-			string token = isLogged(nc, hm);
+			string token = isLogged(hm, test);
 			if (!token.empty()){
 				return event_handler_chats(nc, hm, token);
 			}else{
@@ -57,7 +61,7 @@ string MatchController::connect(struct mg_connection *nc,
 	}
 	else if (mg_vcmp(&hm->uri, "/match/confirm") == 0) {
 		if (mg_vcmp(&hm->method, "POST") == 0) {
-			string token = isLogged(nc, hm);
+			string token = isLogged(hm, test);
 			if (!token.empty()){
 				return event_handler_confirm_match(nc, hm, token);
 			}else{

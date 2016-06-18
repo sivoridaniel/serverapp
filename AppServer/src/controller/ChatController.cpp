@@ -12,18 +12,23 @@ ChatController::ChatController() {
 
 }
 
+ChatController::ChatController(IChatService* chatService){
+	this->chatService = chatService;
+}
+
+
 ChatController::~ChatController() {
 	delete chatService;
 }
 
 string ChatController::connect(struct mg_connection *nc,
-		struct http_message *hm) {
+		struct http_message *hm, bool test) {
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("ChatController"));
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("CONNECT CHAT CONTROLLER"));
 
 	if (mg_vcmp(&hm->uri, "/chat") == 0) {
 		if (mg_vcmp(&hm->method, "GET") == 0) {
-			string token = isLogged(nc, hm);
+			string token = isLogged(hm, test);
 			if (!token.empty()){
 				return getMessages(nc, hm, token);
 			}else{
@@ -32,7 +37,7 @@ string ChatController::connect(struct mg_connection *nc,
 		}
 	} else if (mg_vcmp(&hm->uri, "/chat/new") == 0) {
 		if (mg_vcmp(&hm->method, "GET") == 0) {
-			string token = isLogged(nc, hm);
+			string token = isLogged(hm, test);
 			if (!token.empty()){
 				return getNewMessages(nc, hm, token);
 			}else{
@@ -41,7 +46,7 @@ string ChatController::connect(struct mg_connection *nc,
 		}
 	} else if (mg_vcmp(&hm->uri, "/chat/message") == 0) {
 		if (mg_vcmp(&hm->method, "POST") == 0) {
-			string token = isLogged(nc, hm);
+			string token = isLogged(hm, test);
 			if (!token.empty()){
 				return postMessage(nc, hm, token);
 			}else{
@@ -50,7 +55,7 @@ string ChatController::connect(struct mg_connection *nc,
 		}
 	} else if (mg_vcmp(&hm->uri, "/chat/last") == 0) {
 		if (mg_vcmp(&hm->method, "PUT") == 0) {
-			string token = isLogged(nc, hm);
+			string token = isLogged(hm, test);
 			if (!token.empty()){
 				return updateLastMessageSeen(nc, hm, token);
 			}else{

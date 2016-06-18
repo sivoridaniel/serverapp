@@ -23,9 +23,10 @@ using namespace log4cplus;
 class ChatController : public AbstractController{
 
 private:
-	ChatService* chatService;
+	IChatService* chatService;
 public:
 	ChatController();
+	ChatController(IChatService* chatService);
 	virtual ~ChatController();
 	/**
 	 * Se pasa los parametros del mensaje (uri de llamada para realizar la petición deseada
@@ -33,9 +34,10 @@ public:
 	 *
 	 * @param mg_connection*
 	 * @param http_message*
+	 * @param bool test
 	 * @return string json result
 	 */
-	string connect(struct mg_connection *nc, struct http_message *hm);
+	string connect(struct mg_connection *nc, struct http_message *hm, bool test);
 
 private:
 	/**

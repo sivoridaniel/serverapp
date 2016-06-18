@@ -21,9 +21,10 @@ using namespace log4cplus;
 
 class SearchCandidatesController : public AbstractController{
 private:
-	SearchCandidatesService* searchService;
+	ISearchCandidatesService* searchService;
 public:
 	SearchCandidatesController();
+	SearchCandidatesController(ISearchCandidatesService* searchService);
 	virtual ~SearchCandidatesController();
 	/**
 	 * Se pasa los parametros del mensaje (uri de llamada para realizar la petición deseada
@@ -31,9 +32,10 @@ public:
 	 *
 	 * @param mg_connection*
 	 * @param http_message*
+	 * @param bool test
 	 * @result string json result
 	 */
-	string connect(struct mg_connection *nc, struct http_message *hm);
+	string connect(struct mg_connection *nc, struct http_message *hm, bool test);
 
 private:
 	/**
