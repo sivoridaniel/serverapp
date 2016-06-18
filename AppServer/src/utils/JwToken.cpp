@@ -84,9 +84,6 @@ string JwToken::getEmail(string token)throw (TokenException){
 	jwt *jwt = NULL;
 	unsigned char key256[32] = "012345678901234567890123456789X";//(unsigned char*)KEY_DATA(); //Key Data 32 bytes for algorithm
 
-	int codint = jwt_new(&jwt);
-
-	evaluateOperation(codint,jwt,(char *)"",MSG_ERROR_NEW_JWT(),logger);
 	evaluateOperation(jwt_decode(&jwt, token.c_str(), key256, sizeof(key256)),jwt,(char *)"",
 					  MSG_ERROR_DECODE_EMAIL(),logger);
 

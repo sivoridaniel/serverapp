@@ -1,10 +1,10 @@
-Start testing: Jun 17 22:05 ART
+Start testing: Jun 17 22:30 ART
 ----------------------------------------------------------
 1/5 Testing: mockAuthenticationCtrlTest
 1/5 Test: mockAuthenticationCtrlTest
 Command: "/home/agustin/git/serverapp/AppServer/cmake/mockAuthenticationCtrlTest"
 Directory: /home/agustin/git/serverapp/AppServer/cmake
-"mockAuthenticationCtrlTest" start time: Jun 17 22:05 ART
+"mockAuthenticationCtrlTest" start time: Jun 17 22:30 ART
 Output:
 ----------------------------------------------------------
 INFO - Iniciando Tests
@@ -12,24 +12,24 @@ INFO - Iniciando Tests
 [----------] Global test environment set-up.
 [----------] 1 test from JwTokenTest
 [ RUN      ] JwTokenTest.generatingToken
-DEBUG - EMAIL PARA EL PAYLOAD: sivori.daniel@gmail.com 0x12d2ee0
-DEBUG - TIMESTAMP: 1466211924 0x12d2ee0
-DEBUG - EXPIRE: 60 0x12d2ee0
-DEBUG - TOKEN GENERADO 0x12d2ee0
+DEBUG - EMAIL PARA EL PAYLOAD: sivori.daniel@gmail.com 0x1fcdee0
+DEBUG - TIMESTAMP: 1466213421 0x1fcdee0
+DEBUG - EXPIRE: 60 0x1fcdee0
+DEBUG - TOKEN GENERADO 0x1fcdee0
 *****************************************************************
-TOKEN GENERADO: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNpdm9yaS5kYW5pZWxAZ21haWwuY29tIiwiZXhwaXJlIjoiNjAiLCJ0aW1lc3RhbXAiOiIxNDY2MjExOTI0In0.V2d_P1pwb0_f9YOfxXmcfzftcYbRgen9urAB-fn1am0
+TOKEN GENERADO: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNpdm9yaS5kYW5pZWxAZ21haWwuY29tIiwiZXhwaXJlIjoiNjAiLCJ0aW1lc3RhbXAiOiIxNDY2MjEzNDIxIn0.FHL2PICm0KKM8x9NHSWPWAlgmOQUxA-nDbmU62ywjww
 *****************************************************************
-[       OK ] JwTokenTest.generatingToken (20 ms)
-[----------] 1 test from JwTokenTest (20 ms total)
+[       OK ] JwTokenTest.generatingToken (37 ms)
+[----------] 1 test from JwTokenTest (37 ms total)
 
 [----------] 1 test from AuthorizationTokenTest
 [ RUN      ] AuthorizationTokenTest.isValidToken
-DEBUG - EMAIL PARA EL PAYLOAD: 17 0x12d2ee0
-DEBUG - TIMESTAMP: 1466211924 0x12d2ee0
-DEBUG - EXPIRE: 60 0x12d2ee0
-DEBUG - TOKEN GENERADO 0x12d2ee0
+DEBUG - EMAIL PARA EL PAYLOAD: 17 0x1fcdee0
+DEBUG - TIMESTAMP: 1466213421 0x1fcdee0
+DEBUG - EXPIRE: 60 0x1fcdee0
+DEBUG - TOKEN GENERADO 0x1fcdee0
 [       OK ] AuthorizationTokenTest.isValidToken (0 ms)
-[----------] 1 test from AuthorizationTokenTest (0 ms total)
+[----------] 1 test from AuthorizationTokenTest (1 ms total)
 
 [----------] 1 test from AuthenticationServiceTest
 [ RUN      ] AuthenticationServiceTest.login
@@ -38,17 +38,17 @@ DEBUG - JSON: {"user":{"email":"","id":"1","name":"sivori.daniel@gmail.com","pas
 DEBUG - Password base password
 DEBUG - Password ingresado password
 DEBUG - Email base 
-[       OK ] AuthenticationServiceTest.login (1 ms)
-[----------] 1 test from AuthenticationServiceTest (1 ms total)
+[       OK ] AuthenticationServiceTest.login (0 ms)
+[----------] 1 test from AuthenticationServiceTest (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 3 tests from 3 test cases ran. (21 ms total)
+[==========] 3 tests from 3 test cases ran. (38 ms total)
 [  PASSED  ] 3 tests.
 <end of output>
-Test time =   0.83 sec
+Test time =   0.80 sec
 ----------------------------------------------------------
 Test Passed.
-"mockAuthenticationCtrlTest" end time: Jun 17 22:05 ART
+"mockAuthenticationCtrlTest" end time: Jun 17 22:30 ART
 "mockAuthenticationCtrlTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -56,7 +56,7 @@ Test Passed.
 2/5 Test: mockMatchServiceTest
 Command: "/home/agustin/git/serverapp/AppServer/cmake/mockMatchServiceTest"
 Directory: /home/agustin/git/serverapp/AppServer/cmake
-"mockMatchServiceTest" start time: Jun 17 22:05 ART
+"mockMatchServiceTest" start time: Jun 17 22:30 ART
 Output:
 ----------------------------------------------------------
 INFO - Iniciando Tests
@@ -68,17 +68,17 @@ INFO - Confirmando match con usuario alinari para usuario psivori
 
 GMOCK WARNING:
 Uninteresting mock function call - returning directly.
-    Function call: put("psivori", 0x215f250)
+    Function call: put("psivori", 0x2652250)
 NOTE: You can safely ignore the above warning unless this call should not happen.  Do not suppress it by blindly adding an EXPECT_CALL() if you don't mean to enforce the call.  See https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#knowing-when-to-expect for details.
 INFO - Se crea el chat entre el usuario alinari y el usuario psivori
-[       OK ] MatchServiceConfirmTest.confirmingUser (8 ms)
-[----------] 1 test from MatchServiceConfirmTest (12 ms total)
+[       OK ] MatchServiceConfirmTest.confirmingUser (3 ms)
+[----------] 1 test from MatchServiceConfirmTest (3 ms total)
 
 [----------] 1 test from MatchServiceConfirmBadUserTest
 [ RUN      ] MatchServiceConfirmBadUserTest.confirmingBadUser
 ERROR - Es el mismo usuario
-[       OK ] MatchServiceConfirmBadUserTest.confirmingBadUser (1 ms)
-[----------] 1 test from MatchServiceConfirmBadUserTest (1 ms total)
+[       OK ] MatchServiceConfirmBadUserTest.confirmingBadUser (0 ms)
+[----------] 1 test from MatchServiceConfirmBadUserTest (0 ms total)
 
 [----------] 1 test from MatchServiceConfirmUserIsInAcceptedListTest
 [ RUN      ] MatchServiceConfirmUserIsInAcceptedListTest.confirmingUserIsInAcceptedList
@@ -89,13 +89,13 @@ ERROR - El usuario alinari ya se encuentra en la lista de aceptados
 [----------] 1 test from MatchServiceConfirmUserIsInRejectedListTest
 [ RUN      ] MatchServiceConfirmUserIsInRejectedListTest.confirmingUserIsInRejectedList
 ERROR - El usuario alinari ya se encuentra en la lista de rechazados
-[       OK ] MatchServiceConfirmUserIsInRejectedListTest.confirmingUserIsInRejectedList (0 ms)
-[----------] 1 test from MatchServiceConfirmUserIsInRejectedListTest (0 ms total)
+[       OK ] MatchServiceConfirmUserIsInRejectedListTest.confirmingUserIsInRejectedList (1 ms)
+[----------] 1 test from MatchServiceConfirmUserIsInRejectedListTest (1 ms total)
 
 [----------] 1 test from MatchServiceConfirmUserIsNotMatchedTest
 [ RUN      ] MatchServiceConfirmUserIsNotMatchedTest.confirmingUserIsNotMatched
-[       OK ] MatchServiceConfirmUserIsNotMatchedTest.confirmingUserIsNotMatched (1 ms)
-[----------] 1 test from MatchServiceConfirmUserIsNotMatchedTest (1 ms total)
+[       OK ] MatchServiceConfirmUserIsNotMatchedTest.confirmingUserIsNotMatched (0 ms)
+[----------] 1 test from MatchServiceConfirmUserIsNotMatchedTest (0 ms total)
 
 [----------] 1 test from MatchServiceAccept1Test
 [ RUN      ] MatchServiceAccept1Test.acceptingUser1
@@ -103,10 +103,10 @@ INFO - Agregando el usuario alinari a la lista de aceptados de psivori
 
 GMOCK WARNING:
 Uninteresting mock function call - returning directly.
-    Function call: put("stats", 0x2161d50)
+    Function call: put("stats", 0x2654d50)
 NOTE: You can safely ignore the above warning unless this call should not happen.  Do not suppress it by blindly adding an EXPECT_CALL() if you don't mean to enforce the call.  See https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#knowing-when-to-expect for details.
-[       OK ] MatchServiceAccept1Test.acceptingUser1 (0 ms)
-[----------] 1 test from MatchServiceAccept1Test (0 ms total)
+[       OK ] MatchServiceAccept1Test.acceptingUser1 (1 ms)
+[----------] 1 test from MatchServiceAccept1Test (1 ms total)
 
 [----------] 1 test from MatchServiceAccept2Test
 [ RUN      ] MatchServiceAccept2Test.acceptingUser2
@@ -114,23 +114,23 @@ INFO - Agregando el usuario alinari a la lista de aceptados de psivori
 
 GMOCK WARNING:
 Uninteresting mock function call - returning directly.
-    Function call: put("stats", 0x2162730)
+    Function call: put("stats", 0x2655730)
 NOTE: You can safely ignore the above warning unless this call should not happen.  Do not suppress it by blindly adding an EXPECT_CALL() if you don't mean to enforce the call.  See https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#knowing-when-to-expect for details.
-[       OK ] MatchServiceAccept2Test.acceptingUser2 (1 ms)
-[----------] 1 test from MatchServiceAccept2Test (1 ms total)
+[       OK ] MatchServiceAccept2Test.acceptingUser2 (0 ms)
+[----------] 1 test from MatchServiceAccept2Test (0 ms total)
 
 [----------] 1 test from MatchServiceAcceptBadUserTest
 [ RUN      ] MatchServiceAcceptBadUserTest.acceptingBadUser
 ERROR - Es el mismo usuario
 [       OK ] MatchServiceAcceptBadUserTest.acceptingBadUser (0 ms)
-[----------] 1 test from MatchServiceAcceptBadUserTest (0 ms total)
+[----------] 1 test from MatchServiceAcceptBadUserTest (1 ms total)
 
 [----------] 1 test from MatchServiceAcceptUserIsInRejectedListTest
 [ RUN      ] MatchServiceAcceptUserIsInRejectedListTest.confirmingUserIsInRejectedList
 ERROR - El usuario alinari ya se encuentra en la lista de rechazados
 ERROR - La entidad ya existe
-[       OK ] MatchServiceAcceptUserIsInRejectedListTest.confirmingUserIsInRejectedList (1 ms)
-[----------] 1 test from MatchServiceAcceptUserIsInRejectedListTest (1 ms total)
+[       OK ] MatchServiceAcceptUserIsInRejectedListTest.confirmingUserIsInRejectedList (0 ms)
+[----------] 1 test from MatchServiceAcceptUserIsInRejectedListTest (0 ms total)
 
 [----------] 1 test from MatchServiceAcceptUserIsMatchedTest
 [ RUN      ] MatchServiceAcceptUserIsMatchedTest.confirmingUserIsMatched
@@ -143,13 +143,13 @@ NOTE: You can safely ignore the above warning unless this call should not happen
 ERROR - Los usuarios ya estan matcheados
 ERROR - La entidad ya existe
 [       OK ] MatchServiceAcceptUserIsMatchedTest.confirmingUserIsMatched (0 ms)
-[----------] 1 test from MatchServiceAcceptUserIsMatchedTest (0 ms total)
+[----------] 1 test from MatchServiceAcceptUserIsMatchedTest (4 ms total)
 
 [----------] 1 test from MatchServiceAcceptChatExistsTest
 [ RUN      ] MatchServiceAcceptChatExistsTest.confirmingUserChatExists
 ERROR - Los usuarios ya estan matcheados
 ERROR - La entidad ya existe
-[       OK ] MatchServiceAcceptChatExistsTest.confirmingUserChatExists (0 ms)
+[       OK ] MatchServiceAcceptChatExistsTest.confirmingUserChatExists (1 ms)
 [----------] 1 test from MatchServiceAcceptChatExistsTest (1 ms total)
 
 [----------] 1 test from MatchServiceRejectTest
@@ -162,7 +162,7 @@ INFO - Agregando el usuario alinari a la lista de rechazados de psivori
 [ RUN      ] MatchServiceRejectBadUserTest.rejectingBadUser
 ERROR - Es el mismo usuario
 [       OK ] MatchServiceRejectBadUserTest.rejectingBadUser (0 ms)
-[----------] 1 test from MatchServiceRejectBadUserTest (4 ms total)
+[----------] 1 test from MatchServiceRejectBadUserTest (0 ms total)
 
 [----------] 1 test from MatchServiceRejectUserIsInAceptedListTest
 [ RUN      ] MatchServiceRejectUserIsInAceptedListTest.rejectingUserIsInAceptedList
@@ -187,7 +187,7 @@ Uninteresting mock function call - returning default value.
 NOTE: You can safely ignore the above warning unless this call should not happen.  Do not suppress it by blindly adding an EXPECT_CALL() if you don't mean to enforce the call.  See https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#knowing-when-to-expect for details.
 ERROR - Los usuarios ya estan matcheados
 ERROR - La entidad ya existe
-[       OK ] MatchServiceRejectUserIsMatchedTest.rejectingUserIsMatched (1 ms)
+[       OK ] MatchServiceRejectUserIsMatchedTest.rejectingUserIsMatched (0 ms)
 [----------] 1 test from MatchServiceRejectUserIsMatchedTest (1 ms total)
 
 [----------] 1 test from MatchServiceRejectChatExistsTest
@@ -204,13 +204,13 @@ INFO - Obteniendo la lista de nuevos matches del usuario psivori
 [----------] 1 test from MatchServiceTest (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 18 tests from 18 test cases ran. (26 ms total)
+[==========] 18 tests from 18 test cases ran. (21 ms total)
 [  PASSED  ] 18 tests.
 <end of output>
-Test time =   0.41 sec
+Test time =   0.15 sec
 ----------------------------------------------------------
 Test Passed.
-"mockMatchServiceTest" end time: Jun 17 22:05 ART
+"mockMatchServiceTest" end time: Jun 17 22:30 ART
 "mockMatchServiceTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -218,7 +218,7 @@ Test Passed.
 3/5 Test: mockChatServiceTest
 Command: "/home/agustin/git/serverapp/AppServer/cmake/mockChatServiceTest"
 Directory: /home/agustin/git/serverapp/AppServer/cmake
-"mockChatServiceTest" start time: Jun 17 22:05 ART
+"mockChatServiceTest" start time: Jun 17 22:30 ART
 Output:
 ----------------------------------------------------------
 INFO - Iniciando Tests
@@ -226,7 +226,7 @@ INFO - Iniciando Tests
 [----------] Global test environment set-up.
 [----------] 1 test from ChatServiceGetAllMessagesTest
 [ RUN      ] ChatServiceGetAllMessagesTest.getAllMessages
-[       OK ] ChatServiceGetAllMessagesTest.getAllMessages (1 ms)
+[       OK ] ChatServiceGetAllMessagesTest.getAllMessages (0 ms)
 [----------] 1 test from ChatServiceGetAllMessagesTest (1 ms total)
 
 [----------] 1 test from ChatServiceGetAllMessagesNonexistentChatTest
@@ -259,8 +259,8 @@ ERROR - No se encuentra el chat alinari-psivori
 
 [----------] 1 test from ChatServiceUpdateLastMessageTest
 [ RUN      ] ChatServiceUpdateLastMessageTest.updateLastMessage
-[       OK ] ChatServiceUpdateLastMessageTest.updateLastMessage (0 ms)
-[----------] 1 test from ChatServiceUpdateLastMessageTest (0 ms total)
+[       OK ] ChatServiceUpdateLastMessageTest.updateLastMessage (1 ms)
+[----------] 1 test from ChatServiceUpdateLastMessageTest (1 ms total)
 
 [----------] 1 test from ChatServiceUpdateLastMessageNonexistentChatTest
 [ RUN      ] ChatServiceUpdateLastMessageNonexistentChatTest.updateLastMessageNonexistentChat
@@ -288,7 +288,7 @@ WARN - La conversacion jferrio-psivori ya existe
 [----------] 1 test from ChatServiceGetChatTest
 [ RUN      ] ChatServiceGetChatTest.getChatTest
 [       OK ] ChatServiceGetChatTest.getChatTest (0 ms)
-[----------] 1 test from ChatServiceGetChatTest (4 ms total)
+[----------] 1 test from ChatServiceGetChatTest (0 ms total)
 
 [----------] 1 test from ChatServiceGetNonexistentChatTest
 [ RUN      ] ChatServiceGetNonexistentChatTest.updateLastMessageNonexistentChat
@@ -296,13 +296,13 @@ WARN - La conversacion jferrio-psivori ya existe
 [----------] 1 test from ChatServiceGetNonexistentChatTest (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 12 tests from 12 test cases ran. (19 ms total)
+[==========] 12 tests from 12 test cases ran. (8 ms total)
 [  PASSED  ] 12 tests.
 <end of output>
-Test time =   0.13 sec
+Test time =   0.11 sec
 ----------------------------------------------------------
 Test Passed.
-"mockChatServiceTest" end time: Jun 17 22:05 ART
+"mockChatServiceTest" end time: Jun 17 22:30 ART
 "mockChatServiceTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -310,7 +310,7 @@ Test Passed.
 4/5 Test: mockABMUsersServiceTest
 Command: "/home/agustin/git/serverapp/AppServer/cmake/mockABMUsersServiceTest"
 Directory: /home/agustin/git/serverapp/AppServer/cmake
-"mockABMUsersServiceTest" start time: Jun 17 22:05 ART
+"mockABMUsersServiceTest" start time: Jun 17 22:30 ART
 Output:
 ----------------------------------------------------------
 INFO - Iniciando Tests
@@ -322,23 +322,23 @@ INFO - El usuario con email juan@gmail.com no esta registrado. Se continua con l
 
 GMOCK WARNING:
 Uninteresting mock function call - returning directly.
-    Function call: put("stats", 0x1f15530)
+    Function call: put("stats", 0x23d8530)
 NOTE: You can safely ignore the above warning unless this call should not happen.  Do not suppress it by blindly adding an EXPECT_CALL() if you don't mean to enforce the call.  See https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#knowing-when-to-expect for details.
-[       OK ] AbmUserServiceCreateUser.createUserTest (4 ms)
-[----------] 1 test from AbmUserServiceCreateUser (4 ms total)
+[       OK ] AbmUserServiceCreateUser.createUserTest (5 ms)
+[----------] 1 test from AbmUserServiceCreateUser (5 ms total)
 
 [----------] 1 test from AbmUserServiceCreateUserInvalid
 [ RUN      ] AbmUserServiceCreateUserInvalid.createUserInvalidTest
 INFO - El usuario con email juan@gmail.com no esta registrado. Se continua con la registración.
 ERROR - El usuario juan con email juan@gmail.com no se pudo crear.
 [       OK ] AbmUserServiceCreateUserInvalid.createUserInvalidTest (1 ms)
-[----------] 1 test from AbmUserServiceCreateUserInvalid (2 ms total)
+[----------] 1 test from AbmUserServiceCreateUserInvalid (1 ms total)
 
 [----------] 1 test from AbmUserServiceCreateUserExists
 [ RUN      ] AbmUserServiceCreateUserExists.createUserExistsTest
 ERROR - El usuario juan con email juan@gmail.com no se puede crear porque ya existe.
 [       OK ] AbmUserServiceCreateUserExists.createUserExistsTest (0 ms)
-[----------] 1 test from AbmUserServiceCreateUserExists (7 ms total)
+[----------] 1 test from AbmUserServiceCreateUserExists (0 ms total)
 
 [----------] 1 test from AbmUserServiceCreateUserRemoteError
 [ RUN      ] AbmUserServiceCreateUserRemoteError.createUserRemoteErrorTest
@@ -355,8 +355,8 @@ ERROR - El usuario juan con email juan@gmail.com no se puede crear porque falló
 [----------] 1 test from AbmUserServiceModifyUserInvalid
 [ RUN      ] AbmUserServiceModifyUserInvalid.modifyUserInvalidTest
 ERROR - El usuario juan con id 1 no se pudo actualizar.
-[       OK ] AbmUserServiceModifyUserInvalid.modifyUserInvalidTest (0 ms)
-[----------] 1 test from AbmUserServiceModifyUserInvalid (0 ms total)
+[       OK ] AbmUserServiceModifyUserInvalid.modifyUserInvalidTest (1 ms)
+[----------] 1 test from AbmUserServiceModifyUserInvalid (1 ms total)
 
 [----------] 1 test from AbmUserServiceModifyUserExists
 [ RUN      ] AbmUserServiceModifyUserExists.modifyUserExistsTest
@@ -378,23 +378,23 @@ ERROR - Error en comunicacion con shared service.
 [----------] 1 test from AbmUserServiceGetInterestsRemoteError
 [ RUN      ] AbmUserServiceGetInterestsRemoteError.getInterestsRemoteErrorTest
 ERROR - el shared server retorno error
-[       OK ] AbmUserServiceGetInterestsRemoteError.getInterestsRemoteErrorTest (0 ms)
-[----------] 1 test from AbmUserServiceGetInterestsRemoteError (0 ms total)
+[       OK ] AbmUserServiceGetInterestsRemoteError.getInterestsRemoteErrorTest (1 ms)
+[----------] 1 test from AbmUserServiceGetInterestsRemoteError (1 ms total)
 
 [----------] 1 test from AbmUserServiceGetInterestsInvalidJson
 [ RUN      ] AbmUserServiceGetInterestsInvalidJson.getInterestsInvalidJsonTest
 ERROR - error parseando json
 [       OK ] AbmUserServiceGetInterestsInvalidJson.getInterestsInvalidJsonTest (0 ms)
-[----------] 1 test from AbmUserServiceGetInterestsInvalidJson (2 ms total)
+[----------] 1 test from AbmUserServiceGetInterestsInvalidJson (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 11 tests from 11 test cases ran. (17 ms total)
+[==========] 11 tests from 11 test cases ran. (14 ms total)
 [  PASSED  ] 11 tests.
 <end of output>
-Test time =   0.29 sec
+Test time =   0.14 sec
 ----------------------------------------------------------
 Test Passed.
-"mockABMUsersServiceTest" end time: Jun 17 22:05 ART
+"mockABMUsersServiceTest" end time: Jun 17 22:30 ART
 "mockABMUsersServiceTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -402,7 +402,7 @@ Test Passed.
 5/5 Test: mockSharedServiceTest
 Command: "/home/agustin/git/serverapp/AppServer/cmake/mockSharedServiceTest"
 Directory: /home/agustin/git/serverapp/AppServer/cmake
-"mockSharedServiceTest" start time: Jun 17 22:05 ART
+"mockSharedServiceTest" start time: Jun 17 22:30 ART
 Output:
 ----------------------------------------------------------
 INFO - Iniciando Tests
@@ -413,7 +413,7 @@ INFO - Iniciando Tests
 DEBUG - Response code 200
 DEBUG - Response body {"user":{"age":"33","alias":"alinari","email":"alinari@gmail.com","interests":[{"category":"cars","value":"Ferrari"}],"location":{"latitude":"0","longitude":"0"},"name":"Agustin","photo":"-","sex":"M"}}
 
-[       OK ] SharedServiceGetUserTest.getUserTest (0 ms)
+[       OK ] SharedServiceGetUserTest.getUserTest (1 ms)
 [----------] 1 test from SharedServiceGetUserTest (1 ms total)
 
 [----------] 1 test from SharedServiceGetUser404Test
@@ -423,7 +423,7 @@ DEBUG - Response body {"data":"usuario inexistente","success":"false"}
 
 ERROR - El usuario no se encuentra
 [       OK ] SharedServiceGetUser404Test.getUser404Test (0 ms)
-[----------] 1 test from SharedServiceGetUser404Test (0 ms total)
+[----------] 1 test from SharedServiceGetUser404Test (4 ms total)
 
 [----------] 1 test from SharedServiceGetUserErrorTest
 [ RUN      ] SharedServiceGetUserErrorTest.getUserErrorTest
@@ -431,16 +431,16 @@ DEBUG - Response code 500
 DEBUG - Response body {"data":"error","success":"false"}
 
 ERROR - El shared server retorno error
-[       OK ] SharedServiceGetUserErrorTest.getUserErrorTest (1 ms)
-[----------] 1 test from SharedServiceGetUserErrorTest (1 ms total)
+[       OK ] SharedServiceGetUserErrorTest.getUserErrorTest (0 ms)
+[----------] 1 test from SharedServiceGetUserErrorTest (0 ms total)
 
 [----------] 1 test from SharedServiceCreateInterestTest
 [ RUN      ] SharedServiceCreateInterestTest.createInterestTest
 DEBUG - Response code 200
 DEBUG - Response body {"interest":{"category":"cars","value":"Toyota"}}
 
-[       OK ] SharedServiceCreateInterestTest.createInterestTest (0 ms)
-[----------] 1 test from SharedServiceCreateInterestTest (0 ms total)
+[       OK ] SharedServiceCreateInterestTest.createInterestTest (1 ms)
+[----------] 1 test from SharedServiceCreateInterestTest (1 ms total)
 
 [----------] 1 test from SharedServiceCreateInterest400Test
 [ RUN      ] SharedServiceCreateInterest400Test.createInterest400Test
@@ -457,8 +457,8 @@ DEBUG - Response code 500
 DEBUG - Response body {"data":"error","success":"false"}
 
 ERROR - El shared server retorno error
-[       OK ] SharedServiceCreateInterestErrorTest.createInterestErrorTest (1 ms)
-[----------] 1 test from SharedServiceCreateInterestErrorTest (1 ms total)
+[       OK ] SharedServiceCreateInterestErrorTest.createInterestErrorTest (0 ms)
+[----------] 1 test from SharedServiceCreateInterestErrorTest (0 ms total)
 
 [----------] 1 test from SharedServiceGetInterestsTest
 [ RUN      ] SharedServiceGetInterestsTest.getInterestsTest
@@ -475,15 +475,15 @@ DEBUG - Response body {"data":"error","success":"false"}
 
 ERROR - El shared server retorno error
 [       OK ] SharedServiceGetInterestsErrorTest.createGetInterestsErrorTest (0 ms)
-[----------] 1 test from SharedServiceGetInterestsErrorTest (5 ms total)
+[----------] 1 test from SharedServiceGetInterestsErrorTest (0 ms total)
 
 [----------] 1 test from SharedServiceGetUsersTest
 [ RUN      ] SharedServiceGetUsersTest.getUsersTest
 DEBUG - Response code 200
 DEBUG - Response body {"users":[{"user":{"age":"33","alias":"alinari","email":"alinari@gmail.com","id":"138","interests":[{"category":"Bandas","value":"Divididos"}],"location":{"latitude":"0.0","longitude":"0.0"},"name":"Agustin","photo":"/users/138/photo","sex":"M"}},{"user":{"age":"25","alias":"jperez","email":"jperez@gmail.com","id":"198","interests":[{"category":"Bandas","value":"The Beatles"}],"location":{"latitude":"0.0","longitude":"0.0"},"name":"Juan","photo":"/users/198/photo","sex":"M"}}]}
 
-[       OK ] SharedServiceGetUsersTest.getUsersTest (1 ms)
-[----------] 1 test from SharedServiceGetUsersTest (1 ms total)
+[       OK ] SharedServiceGetUsersTest.getUsersTest (8 ms)
+[----------] 1 test from SharedServiceGetUsersTest (8 ms total)
 
 [----------] 1 test from SharedServiceGetUsersErrorTest
 [ RUN      ] SharedServiceGetUsersErrorTest.createGetUsersErrorTest
@@ -517,7 +517,7 @@ DEBUG - Response code 500
 DEBUG - Response body {"data":"error","success":"false"}
 
 ERROR - El shared server retorno error
-[       OK ] SharedServiceGetPhotoErrorTest.getPhotoErrorTest (1 ms)
+[       OK ] SharedServiceGetPhotoErrorTest.getPhotoErrorTest (0 ms)
 [----------] 1 test from SharedServiceGetPhotoErrorTest (1 ms total)
 
 [----------] 1 test from SharedServiceCreateUserTest
@@ -557,8 +557,8 @@ ERROR - El shared server retorno error
 DEBUG - Response code 200
 DEBUG - Response body {"user":{"age":"33","alias":"alinari","email":"alinari@gmail.com","interests":[{"category":"cars","value":"Ferrari"}],"location":{"latitude":"0","longitude":"0"},"name":"Agustin","photo":"-","sex":"M"}}
 
-[       OK ] SharedServiceUpdateUserTest.updateUserTest (0 ms)
-[----------] 1 test from SharedServiceUpdateUserTest (0 ms total)
+[       OK ] SharedServiceUpdateUserTest.updateUserTest (1 ms)
+[----------] 1 test from SharedServiceUpdateUserTest (1 ms total)
 
 [----------] 1 test from SharedServiceUpdateUser404Test
 [ RUN      ] SharedServiceUpdateUser404Test.updateUser404Test
@@ -601,18 +601,18 @@ DEBUG - Response code 500
 DEBUG - Response body {"data":"error","success":"false"}
 
 ERROR - El shared server retorno error
-[       OK ] SharedServiceDeleteUserErrorTest.deleteUserErrorTest (0 ms)
-[----------] 1 test from SharedServiceDeleteUserErrorTest (0 ms total)
+[       OK ] SharedServiceDeleteUserErrorTest.deleteUserErrorTest (1 ms)
+[----------] 1 test from SharedServiceDeleteUserErrorTest (1 ms total)
 
 [----------] Global test environment tear-down
-[==========] 22 tests from 22 test cases ran. (23 ms total)
+[==========] 22 tests from 22 test cases ran. (17 ms total)
 [  PASSED  ] 22 tests.
 <end of output>
 Test time =   0.13 sec
 ----------------------------------------------------------
 Test Passed.
-"mockSharedServiceTest" end time: Jun 17 22:05 ART
+"mockSharedServiceTest" end time: Jun 17 22:30 ART
 "mockSharedServiceTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Jun 17 22:05 ART
+End testing: Jun 17 22:30 ART

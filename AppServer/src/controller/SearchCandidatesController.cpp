@@ -62,6 +62,11 @@ string SearchCandidatesController::event_handler_search_candidates(struct mg_con
 			json = createSearchResponse(candidates);
 			code = STATUS_OK;
 		}
+		catch(SearchDailyLimitExcededException& e){
+			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+		    json = this->getGenericJson("false",e.what());
+			code = STATUS_NOK;
+		}
 		catch(EntityNotFoundException& e){
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			json = this->getGenericJson("false",e.what());
@@ -70,7 +75,7 @@ string SearchCandidatesController::event_handler_search_candidates(struct mg_con
 		catch(exception& e){
 			json = this->getGenericJson("false",e.what());
 			code = STATUS_NOK;
-			json = "{ \"success\": \"false\", \"data\": \"Bad Request\"}";
+			json = this->getGenericJson("false",e.what());
 		}
 	}
 
