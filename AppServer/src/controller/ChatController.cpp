@@ -196,10 +196,12 @@ string ChatController::postMessage(struct mg_connection *nc, struct http_message
 		} catch (EntityNotFoundException& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOT_FOUND;
-			json = this->getGenericJson("false",e.what());		} catch (exception& e) {
+			json = this->getGenericJson("false",e.what());
+		} catch (exception& e) {
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
-			json = this->getGenericJson("false",e.what());		}
+			json = this->getGenericJson("false",e.what());
+		}
 
 	} catch (JsonParseException& e) {
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
