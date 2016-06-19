@@ -12,6 +12,7 @@ mockABMUsersServiceTest
 mockSharedServiceTest
 mockAuthCtrlTest
 mockABMUserCtrlTest
+mockAbmUserCtrlTest
 mockChatCtrlTest
 mockMatchCtrlTest
 mockSearchCtrlTest

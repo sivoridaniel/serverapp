@@ -421,7 +421,6 @@ TEST(AbmUserServiceGetInterestsInvalidJson, getInterestsInvalidJsonTest){
 	MockSharedService* mockSharedService = new MockSharedService();
 	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
 
-
 	EXPECT_CALL(*mockSharedService, getInterests()).Times(1).WillRepeatedly(ThrowJsonParseException());
 	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSearchStatsDao, mockSharedService);
 
@@ -439,6 +438,132 @@ TEST(AbmUserServiceGetInterestsInvalidJson, getInterestsInvalidJsonTest){
 	delete abmService;
 }
 
+TEST(AbmUserGetPhotoTest, abmUserGetPhotoTest){
+	MockUserDao* mockUserDao = new MockUserDao();
+	MockMatchDao* mockMatchDao = new MockMatchDao();
+	MockSharedService* mockSharedService = new MockSharedService();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
+
+	EXPECT_CALL(*mockSharedService, getPhoto("1")).Times(1).WillRepeatedly(Return("photo"));
+	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSearchStatsDao, mockSharedService);
+	string photo="";
+	EXPECT_NO_THROW({photo = abmService->getPhoto("1");});
+	ASSERT_TRUE(photo=="photo");
+
+	delete abmService;
+}
+
+TEST(AbmUserGetPhotoRemoteErrorTest, abmUserGetPhotoRemoteErrorTest){
+	MockUserDao* mockUserDao = new MockUserDao();
+	MockMatchDao* mockMatchDao = new MockMatchDao();
+	MockSharedService* mockSharedService = new MockSharedService();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
+
+	EXPECT_CALL(*mockSharedService, getPhoto("1")).Times(1).WillRepeatedly(ThrowRemoteException());
+	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSearchStatsDao, mockSharedService);
+	string photo="";
+	try{
+		abmService->getPhoto("1");
+		FAIL();
+	}
+	catch(RemoteException& e){
+		//OK;
+	}
+	catch(exception& e){
+		FAIL();
+	}
+	delete abmService;
+}
+
+TEST(AbmUserGetPhotoNotFoundTest, abmUserGetPhotoNotFoundTest){
+	MockUserDao* mockUserDao = new MockUserDao();
+	MockMatchDao* mockMatchDao = new MockMatchDao();
+	MockSharedService* mockSharedService = new MockSharedService();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
+
+	EXPECT_CALL(*mockSharedService, getPhoto("1")).Times(1).WillRepeatedly(ThrowEntityNotFoundException());
+	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSearchStatsDao, mockSharedService);
+	string photo="";
+	try{
+		abmService->getPhoto("1");
+		FAIL();
+	}
+	catch(EntityNotFoundException& e){
+		//OK;
+	}
+	catch(exception& e){
+		FAIL();
+	}
+	delete abmService;
+}
+
+TEST(AbmUserUpdateTokenTest, abmUserUpdateTokenTest){
+	MockUserDao* mockUserDao = new MockUserDao();
+	MockMatchDao* mockMatchDao = new MockMatchDao();
+	MockSharedService* mockSharedService = new MockSharedService();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
+	UserProfile* user = new UserProfile("Agustin", "1234");
+	user->setEmail("alinari@gmail.com");
+	UserProfile* userAux = new UserProfile("Agustin", "1234");
+	userAux->setEmail("alinari@gmail.com");
+	EXPECT_CALL(*mockUserDao, get("alinari@gmail.com")).Times(1).WillRepeatedly(Return(userAux));
+	EXPECT_CALL(*mockUserDao, put("alinari@gmail.com", user));
+	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSearchStatsDao, mockSharedService);
+
+	EXPECT_NO_THROW({abmService->updateToken(user);});
+	delete user;
+	delete abmService;
+}
+
+TEST(AbmUserUpdateTokenInvalidUserErrorTest, abmUserUpdateTokenInvalidUserErrorTest){
+	MockUserDao* mockUserDao = new MockUserDao();
+	MockMatchDao* mockMatchDao = new MockMatchDao();
+	MockSharedService* mockSharedService = new MockSharedService();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
+
+	UserProfile* user = new UserProfile("Agustin", "1234");
+	user->setEmail("alinari@gmail.com");
+
+	EXPECT_CALL(*mockUserDao, get("alinari@gmail.com")).Times(1).WillRepeatedly(ThrowInvalidEntityException());
+	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSearchStatsDao, mockSharedService);
+	try{
+		abmService->updateToken(user);
+		FAIL();
+	}
+	catch(InvalidEntityException& e){
+		//OK;
+	}
+	catch(exception& e){
+		FAIL();
+	}
+	delete abmService;
+	delete user;
+}
+
+TEST(AbmUserUpdateTokenNotFoundTest, abmUserUpdateTokenNotFoundTest){
+	MockUserDao* mockUserDao = new MockUserDao();
+	MockMatchDao* mockMatchDao = new MockMatchDao();
+	MockSharedService* mockSharedService = new MockSharedService();
+	MockSearchStatsDao* mockSearchStatsDao = new MockSearchStatsDao();
+
+	UserProfile* user = new UserProfile("Agustin", "1234");
+	user->setEmail("alinari@gmail.com");
+
+	EXPECT_CALL(*mockUserDao, get("alinari@gmail.com")).Times(1).WillRepeatedly(ThrowEntityNotFoundException());
+	AbmUserService* abmService = new AbmUserService(mockUserDao, mockMatchDao, mockSearchStatsDao, mockSharedService);
+	try{
+		abmService->updateToken(user);
+		FAIL();
+	}
+	catch(EntityNotFoundException& e){
+		//OK;
+	}
+	catch(exception& e){
+		FAIL();
+	}
+	delete abmService;
+	delete user;
+}
 
 /*
  * Correr con valgrind: valgrind --leak-check=full -v ./mockMatchServiceTest
