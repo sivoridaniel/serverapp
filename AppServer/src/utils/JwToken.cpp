@@ -20,7 +20,7 @@ string JwToken::generarToken(string email)throw (TokenException){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("JwToken"));
 	jwt *jwt=NULL;
 	unsigned char key256[32] = "012345678901234567890123456789X";//(unsigned char*)KEY_DATA(); //Key Data 32 bytes for algorithm
-	string seconds_expire = "60";
+	string seconds_expire = "1800";
 	char *out;
 	string ret_token="";
 	time_t timestamp = time(NULL);
