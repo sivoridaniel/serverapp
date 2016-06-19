@@ -88,7 +88,7 @@ TEST(AuthenticationServiceTest,login){
 }
 
 /*
- * Correr con valgrind: valgrind --leak-check=full -v ./authenticationctrltest
+ * Correr con valgrind: valgrind --leak-check=full -v ./authenticationServicetest
  */
 int main(int argc, char* argv[]){
 	::testing::InitGoogleMock(&argc, argv);

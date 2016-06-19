@@ -79,23 +79,7 @@ string AbmUserController::event_handler_new_user(struct mg_connection *nc, struc
 			json = this->getGenericJson("true", userProfile->getId());
 			code = STATUS_OK;
 			delete userProfile;
-		}catch(InvalidEntityException& e){
-			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = STATUS_NOK;
-			json = this->getGenericJson("true", e.what());
-			delete userProfile;
-		}catch(EntityExistsException& e){
-			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = STATUS_NOK;
-			json = this->getGenericJson("false", e.what());
-			delete userProfile;
-		}catch(RemoteException& e){
-			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = STATUS_NOK;
-			json = this->getGenericJson("false", e.what());
-			delete userProfile;
-		}
-		catch(exception& e){
+		}catch(exception& e){
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOK;
 			json = this->getGenericJson("false", e.what());
@@ -132,19 +116,9 @@ string AbmUserController::event_handler_update_user(struct mg_connection *nc, st
 			json = this->getGenericJson("true", "profile updated");
 			code = STATUS_OK;
 			delete userProfile;
-		}catch(InvalidEntityException& e){
-			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = STATUS_NOK;
-			json = this->getGenericJson("false", e.what());
-			delete userProfile;
 		}catch(EntityNotFoundException& e){
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 			code = STATUS_NOT_FOUND;
-			json = this->getGenericJson("false", e.what());
-			delete userProfile;
-		}catch(RemoteException& e){
-			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
-			code = STATUS_NOK;
 			json = this->getGenericJson("false", e.what());
 			delete userProfile;
 		}catch(exception& e){
