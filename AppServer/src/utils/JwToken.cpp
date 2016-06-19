@@ -26,13 +26,7 @@ string JwToken::generarToken(string email)throw (TokenException){
 	time_t timestamp = time(NULL);
 	string stimestamp = to_string(timestamp);
 
-	//timestamp_aux_str << timestamp;
-	//const char* timestamp_str = timestamp_aux_str.str().c_str();
-
 	int codint = jwt_new(&jwt);
-
-
-
 
 	evaluateOperation(codint,jwt,(char *)"",MSG_ERROR_NEW_JWT(),logger);
 	evaluateOperation(jwt_set_alg(jwt, JWT_ALG_HS256,key256, sizeof(key256)),jwt,(char *)"",
@@ -64,7 +58,7 @@ bool JwToken::isTokenValid(string token)throw (TokenException){
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("JwToken"));
 	jwt *jwt = NULL;
 	unsigned char key256[32] = "012345678901234567890123456789X";//(unsigned char*)KEY_DATA(); //Key Data 32 bytes for algorithm
-	string seconds_expire_str = "60";
+	string seconds_expire_str = "1800";
 	time_t timestamp = time(NULL);
 
 	evaluateOperation(jwt_decode(&jwt, token.c_str(), key256, sizeof(key256)),jwt,(char *)"",
