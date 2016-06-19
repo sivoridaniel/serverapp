@@ -35,7 +35,7 @@ data = '{\"user\":'+json.dumps(user.reprJSON())+'}'
 headers = {"content-type": "application/json"}
 
 
-r = requests.get("http://localhost:3000/login_user", data = data, headers = headers)
+r = requests.put("http://localhost:3000/login_user", data = data, headers = headers)
 
 try:
     token = r.headers.get('Token')

@@ -24,7 +24,6 @@ ChatController::~ChatController() {
 string ChatController::connect(struct mg_connection *nc,
 		struct http_message *hm, bool test) {
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("ChatController"));
-	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("CONNECT CHAT CONTROLLER"));
 
 	if (mg_vcmp(&hm->uri, "/chat") == 0) {
 		if (mg_vcmp(&hm->method, "GET") == 0) {

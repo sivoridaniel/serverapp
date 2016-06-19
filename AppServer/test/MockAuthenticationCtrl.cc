@@ -51,7 +51,7 @@ TEST(AuthCtrlTest,authCtrlTest){
 	struct http_message  *hm = new http_message();
 
 	string url = "/login_user";
-	string method = "GET";
+	string method = "PUT";
 	string json = "{\"user\":{\"name\":\"Agustin\" , \"email\":\"alinari@gmail.com\", \"password\":\"1234\"} }";
 
 	hm->body.p=json.c_str();
@@ -90,7 +90,7 @@ TEST(AuthCtrlUserNotFoundTest,authCtrlUserNotFoundTest){
 	struct http_message  *hm = new http_message();
 
 	string url = "/login_user";
-	string method = "GET";
+	string method = "PUT";
 	string json = "{\"user\":{\"name\":\"Agustin\" , \"email\":\"alinari@gmail.com\", \"password\":\"1234\"} }";
 
 	hm->body.p=json.c_str();
@@ -128,7 +128,7 @@ TEST(AuthCtrlInvalidPasswordTest,authCtrlInvalidPasswordTest){
 	struct http_message  *hm = new http_message();
 
 	string url = "/login_user";
-	string method = "GET";
+	string method = "PUT";
 	string json = "{\"user\":{\"name\":\"Agustin\" , \"email\":\"alinari@gmail.com\", \"password\":\"1235\"} }";
 
 	hm->body.p=json.c_str();
@@ -163,7 +163,7 @@ TEST(AuthCtrlNotFoundTest,authCtrlNotFoundTest){
 	struct http_message  *hm = new http_message();
 
 	string url = "/login_user";
-	string method = "GET";
+	string method = "PUT";
 	string json = "{\"user\":{\"name\":\"Agustin\" , \"email\":\"alinari@gmail.com\", \"password\":\"1235\"} }";
 
 	hm->body.p=json.c_str();

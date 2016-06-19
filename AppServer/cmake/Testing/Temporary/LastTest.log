@@ -1,10 +1,10 @@
-Start testing: Jun 19 19:04 ART
+Start testing: Jun 19 19:54 ART
 ----------------------------------------------------------
 1/10 Testing: mockAuthenticationServiceTest
 1/10 Test: mockAuthenticationServiceTest
 Command: "/home/agustin/git/serverapp/AppServer/cmake/mockAuthenticationServiceTest"
 Directory: /home/agustin/git/serverapp/AppServer/cmake
-"mockAuthenticationServiceTest" start time: Jun 19 19:04 ART
+"mockAuthenticationServiceTest" start time: Jun 19 19:54 ART
 Output:
 ----------------------------------------------------------
 INFO - Iniciando Tests
@@ -12,24 +12,24 @@ INFO - Iniciando Tests
 [----------] Global test environment set-up.
 [----------] 1 test from JwTokenTest
 [ RUN      ] JwTokenTest.generatingToken
-DEBUG - EMAIL PARA EL PAYLOAD: sivori.daniel@gmail.com 0x1a4f060
-DEBUG - TIMESTAMP: 1466373892 0x1a4f060
-DEBUG - EXPIRE: 1800 0x1a4f060
-DEBUG - TOKEN GENERADO 0x1a4f060
+DEBUG - EMAIL PARA EL PAYLOAD: sivori.daniel@gmail.com 0x2b2c060
+DEBUG - TIMESTAMP: 1466376887 0x2b2c060
+DEBUG - EXPIRE: 1800 0x2b2c060
+DEBUG - TOKEN GENERADO 0x2b2c060
 *****************************************************************
-TOKEN GENERADO: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNpdm9yaS5kYW5pZWxAZ21haWwuY29tIiwiZXhwaXJlIjoiMTgwMCIsInRpbWVzdGFtcCI6IjE0NjYzNzM4OTIifQ.k2uNkZT1PkXXgslERs7atRNs-ez76aTaU5aGJLlFguw
+TOKEN GENERADO: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6InNpdm9yaS5kYW5pZWxAZ21haWwuY29tIiwiZXhwaXJlIjoiMTgwMCIsInRpbWVzdGFtcCI6IjE0NjYzNzY4ODcifQ.7cGtd802UDUOaYJ8Mq6HJ3TmjlBYF7xzd_1LUWnXPNs
 *****************************************************************
-[       OK ] JwTokenTest.generatingToken (32 ms)
-[----------] 1 test from JwTokenTest (32 ms total)
+[       OK ] JwTokenTest.generatingToken (34 ms)
+[----------] 1 test from JwTokenTest (34 ms total)
 
 [----------] 1 test from AuthorizationTokenTest
 [ RUN      ] AuthorizationTokenTest.isValidToken
-DEBUG - EMAIL PARA EL PAYLOAD: 17 0x1a53100
-DEBUG - TIMESTAMP: 1466373892 0x1a53100
-DEBUG - EXPIRE: 1800 0x1a53100
-DEBUG - TOKEN GENERADO 0x1a53100
-[       OK ] AuthorizationTokenTest.isValidToken (0 ms)
-[----------] 1 test from AuthorizationTokenTest (0 ms total)
+DEBUG - EMAIL PARA EL PAYLOAD: 17 0x2b30150
+DEBUG - TIMESTAMP: 1466376887 0x2b30150
+DEBUG - EXPIRE: 1800 0x2b30150
+DEBUG - TOKEN GENERADO 0x2b30150
+[       OK ] AuthorizationTokenTest.isValidToken (1 ms)
+[----------] 1 test from AuthorizationTokenTest (1 ms total)
 
 [----------] 1 test from AuthenticationServiceTest
 [ RUN      ] AuthenticationServiceTest.login
@@ -42,21 +42,21 @@ DEBUG - Email base
 [----------] 1 test from AuthenticationServiceTest (2 ms total)
 
 [----------] Global test environment tear-down
-[==========] 3 tests from 3 test cases ran. (35 ms total)
+[==========] 3 tests from 3 test cases ran. (37 ms total)
 [  PASSED  ] 3 tests.
 <end of output>
-Test time =   1.35 sec
+Test time =   0.95 sec
 ----------------------------------------------------------
 Test Passed.
-"mockAuthenticationServiceTest" end time: Jun 19 19:04 ART
-"mockAuthenticationServiceTest" time elapsed: 00:00:01
+"mockAuthenticationServiceTest" end time: Jun 19 19:54 ART
+"mockAuthenticationServiceTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
 2/10 Testing: mockMatchServiceTest
 2/10 Test: mockMatchServiceTest
 Command: "/home/agustin/git/serverapp/AppServer/cmake/mockMatchServiceTest"
 Directory: /home/agustin/git/serverapp/AppServer/cmake
-"mockMatchServiceTest" start time: Jun 19 19:04 ART
+"mockMatchServiceTest" start time: Jun 19 19:54 ART
 Output:
 ----------------------------------------------------------
 INFO - Iniciando Tests
@@ -68,17 +68,17 @@ INFO - Confirmando match con usuario alinari para usuario psivori
 
 GMOCK WARNING:
 Uninteresting mock function call - returning directly.
-    Function call: put("psivori", 0x1b85910)
+    Function call: put("psivori", 0x19b5910)
 NOTE: You can safely ignore the above warning unless this call should not happen.  Do not suppress it by blindly adding an EXPECT_CALL() if you don't mean to enforce the call.  See https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#knowing-when-to-expect for details.
 INFO - Se crea el chat entre el usuario alinari y el usuario psivori
 [       OK ] MatchServiceConfirmTest.confirmingUser (4 ms)
-[----------] 1 test from MatchServiceConfirmTest (4 ms total)
+[----------] 1 test from MatchServiceConfirmTest (5 ms total)
 
 [----------] 1 test from MatchServiceConfirmBadUserTest
 [ RUN      ] MatchServiceConfirmBadUserTest.confirmingBadUser
 ERROR - Es el mismo usuario
-[       OK ] MatchServiceConfirmBadUserTest.confirmingBadUser (6 ms)
-[----------] 1 test from MatchServiceConfirmBadUserTest (6 ms total)
+[       OK ] MatchServiceConfirmBadUserTest.confirmingBadUser (48 ms)
+[----------] 1 test from MatchServiceConfirmBadUserTest (48 ms total)
 
 [----------] 1 test from MatchServiceConfirmUserIsInAcceptedListTest
 [ RUN      ] MatchServiceConfirmUserIsInAcceptedListTest.confirmingUserIsInAcceptedList
@@ -103,10 +103,10 @@ INFO - Agregando el usuario alinari a la lista de aceptados de psivori
 
 GMOCK WARNING:
 Uninteresting mock function call - returning directly.
-    Function call: put("stats", 0x1b88410)
+    Function call: put("stats", 0x19b8410)
 NOTE: You can safely ignore the above warning unless this call should not happen.  Do not suppress it by blindly adding an EXPECT_CALL() if you don't mean to enforce the call.  See https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#knowing-when-to-expect for details.
-[       OK ] MatchServiceAccept1Test.acceptingUser1 (1 ms)
-[----------] 1 test from MatchServiceAccept1Test (1 ms total)
+[       OK ] MatchServiceAccept1Test.acceptingUser1 (2 ms)
+[----------] 1 test from MatchServiceAccept1Test (2 ms total)
 
 [----------] 1 test from MatchServiceAccept2Test
 [ RUN      ] MatchServiceAccept2Test.acceptingUser2
@@ -114,10 +114,10 @@ INFO - Se registra un match entre psivori y alinari
 
 GMOCK WARNING:
 Uninteresting mock function call - returning directly.
-    Function call: put("stats", 0x1b88df0)
+    Function call: put("stats", 0x19b8df0)
 NOTE: You can safely ignore the above warning unless this call should not happen.  Do not suppress it by blindly adding an EXPECT_CALL() if you don't mean to enforce the call.  See https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#knowing-when-to-expect for details.
-[       OK ] MatchServiceAccept2Test.acceptingUser2 (0 ms)
-[----------] 1 test from MatchServiceAccept2Test (0 ms total)
+[       OK ] MatchServiceAccept2Test.acceptingUser2 (5 ms)
+[----------] 1 test from MatchServiceAccept2Test (5 ms total)
 
 [----------] 1 test from MatchServiceAcceptBadUserTest
 [ RUN      ] MatchServiceAcceptBadUserTest.acceptingBadUser
@@ -129,15 +129,15 @@ ERROR - Es el mismo usuario
 [ RUN      ] MatchServiceAcceptUserIsInRejectedListTest.confirmingUserIsInRejectedList
 ERROR - El usuario alinari ya se encuentra en la lista de rechazados
 ERROR - La entidad ya existe
-[       OK ] MatchServiceAcceptUserIsInRejectedListTest.confirmingUserIsInRejectedList (1 ms)
-[----------] 1 test from MatchServiceAcceptUserIsInRejectedListTest (1 ms total)
+[       OK ] MatchServiceAcceptUserIsInRejectedListTest.confirmingUserIsInRejectedList (0 ms)
+[----------] 1 test from MatchServiceAcceptUserIsInRejectedListTest (0 ms total)
 
 [----------] 1 test from MatchServiceAcceptUserIsMatchedTest
 [ RUN      ] MatchServiceAcceptUserIsMatchedTest.confirmingUserIsMatched
 ERROR - El usuario jferrio ya se encuentra en la lista de matcheados
 ERROR - La entidad ya existe
 [       OK ] MatchServiceAcceptUserIsMatchedTest.confirmingUserIsMatched (0 ms)
-[----------] 1 test from MatchServiceAcceptUserIsMatchedTest (0 ms total)
+[----------] 1 test from MatchServiceAcceptUserIsMatchedTest (1 ms total)
 
 [----------] 1 test from MatchServiceAcceptChatExistsTest
 [ RUN      ] MatchServiceAcceptChatExistsTest.confirmingUserChatExists
@@ -150,7 +150,7 @@ ERROR - La entidad ya existe
 [ RUN      ] MatchServiceRejectTest.rejectingUser
 INFO - Agregando el usuario alinari a la lista de rechazados de psivori
 [       OK ] MatchServiceRejectTest.rejectingUser (0 ms)
-[----------] 1 test from MatchServiceRejectTest (1 ms total)
+[----------] 1 test from MatchServiceRejectTest (0 ms total)
 
 [----------] 1 test from MatchServiceRejectBadUserTest
 [ RUN      ] MatchServiceRejectBadUserTest.rejectingBadUser
@@ -183,7 +183,7 @@ ERROR - La entidad ya existe
 ERROR - Los usuarios ya estan matcheados
 ERROR - La entidad ya existe
 [       OK ] MatchServiceRejectChatExistsTest.rejectingUserChatExists (0 ms)
-[----------] 1 test from MatchServiceRejectChatExistsTest (1 ms total)
+[----------] 1 test from MatchServiceRejectChatExistsTest (0 ms total)
 
 [----------] 1 test from MatchServiceTest
 [ RUN      ] MatchServiceTest.getNewMatches
@@ -194,8 +194,8 @@ INFO - Obteniendo la lista de nuevos matches del usuario psivori
 [----------] 1 test from MatchServiceGetChatsTest
 [ RUN      ] MatchServiceGetChatsTest.getChatsTest
 INFO - Obteniendo la lista de chats del usuario psivori
-[       OK ] MatchServiceGetChatsTest.getChatsTest (0 ms)
-[----------] 1 test from MatchServiceGetChatsTest (0 ms total)
+[       OK ] MatchServiceGetChatsTest.getChatsTest (1 ms)
+[----------] 1 test from MatchServiceGetChatsTest (1 ms total)
 
 [----------] 1 test from MatchServiceGetChatsNotFoundTest
 [ RUN      ] MatchServiceGetChatsNotFoundTest.getChatsNotFoundTest
@@ -205,13 +205,13 @@ ERROR - No se encontro el usuario en la base
 [----------] 1 test from MatchServiceGetChatsNotFoundTest (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 20 tests from 20 test cases ran. (15 ms total)
+[==========] 20 tests from 20 test cases ran. (64 ms total)
 [  PASSED  ] 20 tests.
 <end of output>
-Test time =   0.23 sec
+Test time =   0.34 sec
 ----------------------------------------------------------
 Test Passed.
-"mockMatchServiceTest" end time: Jun 19 19:04 ART
+"mockMatchServiceTest" end time: Jun 19 19:54 ART
 "mockMatchServiceTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -219,7 +219,7 @@ Test Passed.
 3/10 Test: mockChatServiceTest
 Command: "/home/agustin/git/serverapp/AppServer/cmake/mockChatServiceTest"
 Directory: /home/agustin/git/serverapp/AppServer/cmake
-"mockChatServiceTest" start time: Jun 19 19:04 ART
+"mockChatServiceTest" start time: Jun 19 19:54 ART
 Output:
 ----------------------------------------------------------
 INFO - Iniciando Tests
@@ -233,8 +233,8 @@ INFO - Iniciando Tests
 [----------] 1 test from ChatServiceGetAllMessagesNonexistentChatTest
 [ RUN      ] ChatServiceGetAllMessagesNonexistentChatTest.getAllMessagesNonexistentChat
 ERROR - No se encuentra el chat alinari-psivori
-[       OK ] ChatServiceGetAllMessagesNonexistentChatTest.getAllMessagesNonexistentChat (14 ms)
-[----------] 1 test from ChatServiceGetAllMessagesNonexistentChatTest (14 ms total)
+[       OK ] ChatServiceGetAllMessagesNonexistentChatTest.getAllMessagesNonexistentChat (3 ms)
+[----------] 1 test from ChatServiceGetAllMessagesNonexistentChatTest (3 ms total)
 
 [----------] 1 test from ChatServiceGetNewMessagesTest
 [ RUN      ] ChatServiceGetNewMessagesTest.getNewMessages
@@ -244,8 +244,8 @@ ERROR - No se encuentra el chat alinari-psivori
 [----------] 1 test from ChatServiceGetNewMessagesNonexistentChatTest
 [ RUN      ] ChatServiceGetNewMessagesNonexistentChatTest.getNewMessagesNonexistentChat
 ERROR - No se encuentra el chat alinari-psivori
-[       OK ] ChatServiceGetNewMessagesNonexistentChatTest.getNewMessagesNonexistentChat (1 ms)
-[----------] 1 test from ChatServiceGetNewMessagesNonexistentChatTest (1 ms total)
+[       OK ] ChatServiceGetNewMessagesNonexistentChatTest.getNewMessagesNonexistentChat (0 ms)
+[----------] 1 test from ChatServiceGetNewMessagesNonexistentChatTest (0 ms total)
 
 [----------] 1 test from ChatServiceAddNewMessageTest
 [ RUN      ] ChatServiceAddNewMessageTest.addNewMessage
@@ -293,17 +293,17 @@ WARN - La conversacion jferrio-psivori ya existe
 
 [----------] 1 test from ChatServiceGetNonexistentChatTest
 [ RUN      ] ChatServiceGetNonexistentChatTest.updateLastMessageNonexistentChat
-[       OK ] ChatServiceGetNonexistentChatTest.updateLastMessageNonexistentChat (0 ms)
-[----------] 1 test from ChatServiceGetNonexistentChatTest (0 ms total)
+[       OK ] ChatServiceGetNonexistentChatTest.updateLastMessageNonexistentChat (1 ms)
+[----------] 1 test from ChatServiceGetNonexistentChatTest (1 ms total)
 
 [----------] Global test environment tear-down
-[==========] 12 tests from 12 test cases ran. (17 ms total)
+[==========] 12 tests from 12 test cases ran. (7 ms total)
 [  PASSED  ] 12 tests.
 <end of output>
-Test time =   0.26 sec
+Test time =   0.30 sec
 ----------------------------------------------------------
 Test Passed.
-"mockChatServiceTest" end time: Jun 19 19:04 ART
+"mockChatServiceTest" end time: Jun 19 19:54 ART
 "mockChatServiceTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -311,7 +311,7 @@ Test Passed.
 4/10 Test: mockABMUsersServiceTest
 Command: "/home/agustin/git/serverapp/AppServer/cmake/mockABMUsersServiceTest"
 Directory: /home/agustin/git/serverapp/AppServer/cmake
-"mockABMUsersServiceTest" start time: Jun 19 19:04 ART
+"mockABMUsersServiceTest" start time: Jun 19 19:54 ART
 Output:
 ----------------------------------------------------------
 INFO - Iniciando Tests
@@ -323,10 +323,10 @@ INFO - El usuario con email juan@gmail.com no esta registrado. Se continua con l
 
 GMOCK WARNING:
 Uninteresting mock function call - returning directly.
-    Function call: put("stats", 0x1fe0980)
+    Function call: put("stats", 0x1b50980)
 NOTE: You can safely ignore the above warning unless this call should not happen.  Do not suppress it by blindly adding an EXPECT_CALL() if you don't mean to enforce the call.  See https://github.com/google/googletest/blob/master/googlemock/docs/CookBook.md#knowing-when-to-expect for details.
-[       OK ] AbmUserServiceCreateUser.createUserTest (1 ms)
-[----------] 1 test from AbmUserServiceCreateUser (1 ms total)
+[       OK ] AbmUserServiceCreateUser.createUserTest (7 ms)
+[----------] 1 test from AbmUserServiceCreateUser (7 ms total)
 
 [----------] 1 test from AbmUserServiceCreateUserInvalid
 [ RUN      ] AbmUserServiceCreateUserInvalid.createUserInvalidTest
@@ -385,13 +385,13 @@ ERROR - el shared server retorno error
 [----------] 1 test from AbmUserServiceGetInterestsInvalidJson
 [ RUN      ] AbmUserServiceGetInterestsInvalidJson.getInterestsInvalidJsonTest
 ERROR - error parseando json
-[       OK ] AbmUserServiceGetInterestsInvalidJson.getInterestsInvalidJsonTest (0 ms)
-[----------] 1 test from AbmUserServiceGetInterestsInvalidJson (0 ms total)
+[       OK ] AbmUserServiceGetInterestsInvalidJson.getInterestsInvalidJsonTest (1 ms)
+[----------] 1 test from AbmUserServiceGetInterestsInvalidJson (1 ms total)
 
 [----------] 1 test from AbmUserGetPhotoTest
 [ RUN      ] AbmUserGetPhotoTest.abmUserGetPhotoTest
-[       OK ] AbmUserGetPhotoTest.abmUserGetPhotoTest (1 ms)
-[----------] 1 test from AbmUserGetPhotoTest (1 ms total)
+[       OK ] AbmUserGetPhotoTest.abmUserGetPhotoTest (0 ms)
+[----------] 1 test from AbmUserGetPhotoTest (0 ms total)
 
 [----------] 1 test from AbmUserGetPhotoRemoteErrorTest
 [ RUN      ] AbmUserGetPhotoRemoteErrorTest.abmUserGetPhotoRemoteErrorTest
@@ -414,7 +414,7 @@ ERROR - No se encuentra el usuario con id 1
 [ RUN      ] AbmUserUpdateTokenInvalidUserErrorTest.abmUserUpdateTokenInvalidUserErrorTest
 ERROR - El usuario Agustin con email alinari@gmail.com no pudo actualizar su token.
 [       OK ] AbmUserUpdateTokenInvalidUserErrorTest.abmUserUpdateTokenInvalidUserErrorTest (0 ms)
-[----------] 1 test from AbmUserUpdateTokenInvalidUserErrorTest (1 ms total)
+[----------] 1 test from AbmUserUpdateTokenInvalidUserErrorTest (0 ms total)
 
 [----------] 1 test from AbmUserUpdateTokenNotFoundTest
 [ RUN      ] AbmUserUpdateTokenNotFoundTest.abmUserUpdateTokenNotFoundTest
@@ -423,13 +423,13 @@ ERROR - El usuario Agustin con email alinari@gmail.com no se encuentra.
 [----------] 1 test from AbmUserUpdateTokenNotFoundTest (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 17 tests from 17 test cases ran. (5 ms total)
+[==========] 17 tests from 17 test cases ran. (9 ms total)
 [  PASSED  ] 17 tests.
 <end of output>
-Test time =   0.14 sec
+Test time =   0.36 sec
 ----------------------------------------------------------
 Test Passed.
-"mockABMUsersServiceTest" end time: Jun 19 19:04 ART
+"mockABMUsersServiceTest" end time: Jun 19 19:54 ART
 "mockABMUsersServiceTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -437,7 +437,7 @@ Test Passed.
 5/10 Test: mockSharedServiceTest
 Command: "/home/agustin/git/serverapp/AppServer/cmake/mockSharedServiceTest"
 Directory: /home/agustin/git/serverapp/AppServer/cmake
-"mockSharedServiceTest" start time: Jun 19 19:04 ART
+"mockSharedServiceTest" start time: Jun 19 19:54 ART
 Output:
 ----------------------------------------------------------
 INFO - Iniciando Tests
@@ -448,8 +448,8 @@ INFO - Iniciando Tests
 DEBUG - Response code 200
 DEBUG - Response body {"user":{"age":"33","alias":"alinari","email":"alinari@gmail.com","interests":[{"category":"cars","value":"Ferrari"}],"location":{"latitude":"0","longitude":"0"},"name":"Agustin","photo":"-","sex":"M"}}
 
-[       OK ] SharedServiceGetUserTest.getUserTest (0 ms)
-[----------] 1 test from SharedServiceGetUserTest (0 ms total)
+[       OK ] SharedServiceGetUserTest.getUserTest (13 ms)
+[----------] 1 test from SharedServiceGetUserTest (13 ms total)
 
 [----------] 1 test from SharedServiceGetUser404Test
 [ RUN      ] SharedServiceGetUser404Test.getUser404Test
@@ -457,7 +457,7 @@ DEBUG - Response code 404
 DEBUG - Response body {"data":"usuario inexistente","success":"false"}
 
 ERROR - El usuario no se encuentra
-[       OK ] SharedServiceGetUser404Test.getUser404Test (0 ms)
+[       OK ] SharedServiceGetUser404Test.getUser404Test (1 ms)
 [----------] 1 test from SharedServiceGetUser404Test (1 ms total)
 
 [----------] 1 test from SharedServiceGetUserErrorTest
@@ -474,8 +474,8 @@ ERROR - El shared server retorno error
 DEBUG - Response code 200
 DEBUG - Response body {"interest":{"category":"cars","value":"Toyota"}}
 
-[       OK ] SharedServiceCreateInterestTest.createInterestTest (0 ms)
-[----------] 1 test from SharedServiceCreateInterestTest (0 ms total)
+[       OK ] SharedServiceCreateInterestTest.createInterestTest (1 ms)
+[----------] 1 test from SharedServiceCreateInterestTest (1 ms total)
 
 [----------] 1 test from SharedServiceCreateInterest400Test
 [ RUN      ] SharedServiceCreateInterest400Test.createInterest400Test
@@ -492,16 +492,16 @@ DEBUG - Response code 500
 DEBUG - Response body {"data":"error","success":"false"}
 
 ERROR - El shared server retorno error
-[       OK ] SharedServiceCreateInterestErrorTest.createInterestErrorTest (1 ms)
-[----------] 1 test from SharedServiceCreateInterestErrorTest (1 ms total)
+[       OK ] SharedServiceCreateInterestErrorTest.createInterestErrorTest (0 ms)
+[----------] 1 test from SharedServiceCreateInterestErrorTest (0 ms total)
 
 [----------] 1 test from SharedServiceGetInterestsTest
 [ RUN      ] SharedServiceGetInterestsTest.getInterestsTest
 DEBUG - Response code 200
 DEBUG - Response body {"interests":[{"category":"Bandas","value":"Divididos"},{"category":"Bandas","value":"The Beatles"}]}
 
-[       OK ] SharedServiceGetInterestsTest.getInterestsTest (0 ms)
-[----------] 1 test from SharedServiceGetInterestsTest (0 ms total)
+[       OK ] SharedServiceGetInterestsTest.getInterestsTest (1 ms)
+[----------] 1 test from SharedServiceGetInterestsTest (1 ms total)
 
 [----------] 1 test from SharedServiceGetInterestsErrorTest
 [ RUN      ] SharedServiceGetInterestsErrorTest.createGetInterestsErrorTest
@@ -517,8 +517,8 @@ ERROR - El shared server retorno error
 DEBUG - Response code 200
 DEBUG - Response body {"users":[{"user":{"age":"33","alias":"alinari","email":"alinari@gmail.com","id":"138","interests":[{"category":"Bandas","value":"Divididos"}],"location":{"latitude":"0.0","longitude":"0.0"},"name":"Agustin","photo":"/users/138/photo","sex":"M"}},{"user":{"age":"25","alias":"jperez","email":"jperez@gmail.com","id":"198","interests":[{"category":"Bandas","value":"The Beatles"}],"location":{"latitude":"0.0","longitude":"0.0"},"name":"Juan","photo":"/users/198/photo","sex":"M"}}]}
 
-[       OK ] SharedServiceGetUsersTest.getUsersTest (4 ms)
-[----------] 1 test from SharedServiceGetUsersTest (4 ms total)
+[       OK ] SharedServiceGetUsersTest.getUsersTest (1 ms)
+[----------] 1 test from SharedServiceGetUsersTest (1 ms total)
 
 [----------] 1 test from SharedServiceGetUsersErrorTest
 [ RUN      ] SharedServiceGetUsersErrorTest.createGetUsersErrorTest
@@ -526,8 +526,8 @@ DEBUG - Response code 500
 DEBUG - Response body {"data":"error","success":"false"}
 
 ERROR - El shared server retorno error
-[       OK ] SharedServiceGetUsersErrorTest.createGetUsersErrorTest (1 ms)
-[----------] 1 test from SharedServiceGetUsersErrorTest (1 ms total)
+[       OK ] SharedServiceGetUsersErrorTest.createGetUsersErrorTest (0 ms)
+[----------] 1 test from SharedServiceGetUsersErrorTest (0 ms total)
 
 [----------] 1 test from SharedServiceGetPhotoTest
 [ RUN      ] SharedServiceGetPhotoTest.getPhotoTest
@@ -535,7 +535,7 @@ DEBUG - Response code 200
 DEBUG - Response body {"photo":"photobase64"}
 
 [       OK ] SharedServiceGetPhotoTest.getPhotoTest (0 ms)
-[----------] 1 test from SharedServiceGetPhotoTest (1 ms total)
+[----------] 1 test from SharedServiceGetPhotoTest (0 ms total)
 
 [----------] 1 test from SharedServiceGetPhoto404Test
 [ RUN      ] SharedServiceGetPhoto404Test.getPhoto404Test
@@ -543,8 +543,8 @@ DEBUG - Response code 404
 DEBUG - Response body {"data":"usuario inexistente","success":"false"}
 
 ERROR - El usuario no se encuentra
-[       OK ] SharedServiceGetPhoto404Test.getPhoto404Test (0 ms)
-[----------] 1 test from SharedServiceGetPhoto404Test (0 ms total)
+[       OK ] SharedServiceGetPhoto404Test.getPhoto404Test (1 ms)
+[----------] 1 test from SharedServiceGetPhoto404Test (1 ms total)
 
 [----------] 1 test from SharedServiceGetPhotoErrorTest
 [ RUN      ] SharedServiceGetPhotoErrorTest.getPhotoErrorTest
@@ -553,7 +553,7 @@ DEBUG - Response body {"data":"error","success":"false"}
 
 ERROR - El shared server retorno error
 [       OK ] SharedServiceGetPhotoErrorTest.getPhotoErrorTest (0 ms)
-[----------] 1 test from SharedServiceGetPhotoErrorTest (1 ms total)
+[----------] 1 test from SharedServiceGetPhotoErrorTest (0 ms total)
 
 [----------] 1 test from SharedServiceCreateUserTest
 [ RUN      ] SharedServiceCreateUserTest.createUserTest
@@ -563,7 +563,7 @@ DEBUG - Response code 200
 DEBUG - Response body {"user":{"age":"33","alias":"alinari","email":"alinari@gmail.com","interests":[{"category":"cars","value":"Ferrari"}],"location":{"latitude":"0","longitude":"0"},"name":"Agustin","photo":"-","sex":"M"}}
 
 [       OK ] SharedServiceCreateUserTest.createUserTest (0 ms)
-[----------] 1 test from SharedServiceCreateUserTest (6 ms total)
+[----------] 1 test from SharedServiceCreateUserTest (0 ms total)
 
 [----------] 1 test from SharedServiceCreateUser400Test
 [ RUN      ] SharedServiceCreateUser400Test.createUser400Test
@@ -573,8 +573,8 @@ DEBUG - Response code 400
 DEBUG - Response body {"data":"usuario ya existente","success":"false"}
 
 WARN - El usuario ya se encuentra registrado en el shared
-[       OK ] SharedServiceCreateUser400Test.createUser400Test (0 ms)
-[----------] 1 test from SharedServiceCreateUser400Test (0 ms total)
+[       OK ] SharedServiceCreateUser400Test.createUser400Test (1 ms)
+[----------] 1 test from SharedServiceCreateUser400Test (1 ms total)
 
 [----------] 1 test from SharedServiceCreateUserErrorTest
 [ RUN      ] SharedServiceCreateUserErrorTest.createUserErrorTest
@@ -584,16 +584,16 @@ DEBUG - Response code 500
 DEBUG - Response body {"data":"error","success":"false"}
 
 ERROR - El shared server retorno error
-[       OK ] SharedServiceCreateUserErrorTest.createUserErrorTest (1 ms)
-[----------] 1 test from SharedServiceCreateUserErrorTest (1 ms total)
+[       OK ] SharedServiceCreateUserErrorTest.createUserErrorTest (0 ms)
+[----------] 1 test from SharedServiceCreateUserErrorTest (0 ms total)
 
 [----------] 1 test from SharedServiceUpdateUserTest
 [ RUN      ] SharedServiceUpdateUserTest.updateUserTest
 DEBUG - Response code 200
 DEBUG - Response body {"user":{"age":"33","alias":"alinari","email":"alinari@gmail.com","interests":[{"category":"cars","value":"Ferrari"}],"location":{"latitude":"0","longitude":"0"},"name":"Agustin","photo":"-","sex":"M"}}
 
-[       OK ] SharedServiceUpdateUserTest.updateUserTest (4 ms)
-[----------] 1 test from SharedServiceUpdateUserTest (4 ms total)
+[       OK ] SharedServiceUpdateUserTest.updateUserTest (0 ms)
+[----------] 1 test from SharedServiceUpdateUserTest (0 ms total)
 
 [----------] 1 test from SharedServiceUpdateUser404Test
 [ RUN      ] SharedServiceUpdateUser404Test.updateUser404Test
@@ -602,7 +602,7 @@ DEBUG - Response body {"data":"usuario inexistente","success":"false"}
 
 WARN - El usuario o interes no se encuentra registrado en el shared
 [       OK ] SharedServiceUpdateUser404Test.updateUser404Test (0 ms)
-[----------] 1 test from SharedServiceUpdateUser404Test (1 ms total)
+[----------] 1 test from SharedServiceUpdateUser404Test (0 ms total)
 
 [----------] 1 test from SharedServiceUpdateUserErrorTest
 [ RUN      ] SharedServiceUpdateUserErrorTest.updateUserErrorTest
@@ -627,8 +627,8 @@ DEBUG - Response code 404
 DEBUG - Response body {"data":"usuario inexistente","success":"false"}
 
 ERROR - El usuario no se encuentra
-[       OK ] SharedServiceDeleteUser404Test.deleteUser404Test (0 ms)
-[----------] 1 test from SharedServiceDeleteUser404Test (0 ms total)
+[       OK ] SharedServiceDeleteUser404Test.deleteUser404Test (1 ms)
+[----------] 1 test from SharedServiceDeleteUser404Test (1 ms total)
 
 [----------] 1 test from SharedServiceDeleteUserErrorTest
 [ RUN      ] SharedServiceDeleteUserErrorTest.deleteUserErrorTest
@@ -637,16 +637,16 @@ DEBUG - Response body {"data":"error","success":"false"}
 
 ERROR - El shared server retorno error
 [       OK ] SharedServiceDeleteUserErrorTest.deleteUserErrorTest (0 ms)
-[----------] 1 test from SharedServiceDeleteUserErrorTest (3 ms total)
+[----------] 1 test from SharedServiceDeleteUserErrorTest (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 22 tests from 22 test cases ran. (25 ms total)
+[==========] 22 tests from 22 test cases ran. (21 ms total)
 [  PASSED  ] 22 tests.
 <end of output>
-Test time =   0.10 sec
+Test time =   0.39 sec
 ----------------------------------------------------------
 Test Passed.
-"mockSharedServiceTest" end time: Jun 19 19:04 ART
+"mockSharedServiceTest" end time: Jun 19 19:54 ART
 "mockSharedServiceTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -654,7 +654,7 @@ Test Passed.
 6/10 Test: mockSearchCtrlTest
 Command: "/home/agustin/git/serverapp/AppServer/cmake/mockSearchCtrlTest"
 Directory: /home/agustin/git/serverapp/AppServer/cmake
-"mockSearchCtrlTest" start time: Jun 19 19:04 ART
+"mockSearchCtrlTest" start time: Jun 19 19:54 ART
 Output:
 ----------------------------------------------------------
 INFO - Iniciando Tests
@@ -663,8 +663,8 @@ INFO - Iniciando Tests
 [----------] 1 test from SearchCtrlTest
 [ RUN      ] SearchCtrlTest.searchCtrlTest
 DEBUG - Se buscan candidatos para el usuario 10
-[       OK ] SearchCtrlTest.searchCtrlTest (0 ms)
-[----------] 1 test from SearchCtrlTest (0 ms total)
+[       OK ] SearchCtrlTest.searchCtrlTest (1 ms)
+[----------] 1 test from SearchCtrlTest (1 ms total)
 
 [----------] 1 test from SearchCtrlInvalidQueryStringTest
 [ RUN      ] SearchCtrlInvalidQueryStringTest.searchCtrlInvalidQueryStringTest
@@ -686,13 +686,13 @@ ERROR - No se encuentra la entidad
 [----------] 1 test from SearchCtrlUserNotFoundTest (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 4 tests from 4 test cases ran. (5 ms total)
+[==========] 4 tests from 4 test cases ran. (2 ms total)
 [  PASSED  ] 4 tests.
 <end of output>
-Test time =   0.16 sec
+Test time =   0.21 sec
 ----------------------------------------------------------
 Test Passed.
-"mockSearchCtrlTest" end time: Jun 19 19:04 ART
+"mockSearchCtrlTest" end time: Jun 19 19:54 ART
 "mockSearchCtrlTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -700,7 +700,7 @@ Test Passed.
 7/10 Test: mockChatCtrlTest
 Command: "/home/agustin/git/serverapp/AppServer/cmake/mockChatCtrlTest"
 Directory: /home/agustin/git/serverapp/AppServer/cmake
-"mockChatCtrlTest" start time: Jun 19 19:04 ART
+"mockChatCtrlTest" start time: Jun 19 19:54 ART
 Output:
 ----------------------------------------------------------
 INFO - Iniciando Tests
@@ -708,70 +708,60 @@ INFO - Iniciando Tests
 [----------] Global test environment set-up.
 [----------] 1 test from ChatCtrlGetAllMessagesTest
 [ RUN      ] ChatCtrlGetAllMessagesTest.chatCtrlGetAllMessagesTest
-DEBUG - CONNECT CHAT CONTROLLER
 INFO - se obtiene la conversacion entre 10 y 11
-[       OK ] ChatCtrlGetAllMessagesTest.chatCtrlGetAllMessagesTest (12 ms)
-[----------] 1 test from ChatCtrlGetAllMessagesTest (13 ms total)
+[       OK ] ChatCtrlGetAllMessagesTest.chatCtrlGetAllMessagesTest (0 ms)
+[----------] 1 test from ChatCtrlGetAllMessagesTest (1 ms total)
 
 [----------] 1 test from ChatCtrlGetAllMessagesInvalidQueryStringTest
 [ RUN      ] ChatCtrlGetAllMessagesInvalidQueryStringTest.chatCtrlGetAllMessagesInvalidQueryStringTest
-DEBUG - CONNECT CHAT CONTROLLER
-[       OK ] ChatCtrlGetAllMessagesInvalidQueryStringTest.chatCtrlGetAllMessagesInvalidQueryStringTest (0 ms)
-[----------] 1 test from ChatCtrlGetAllMessagesInvalidQueryStringTest (0 ms total)
+[       OK ] ChatCtrlGetAllMessagesInvalidQueryStringTest.chatCtrlGetAllMessagesInvalidQueryStringTest (1 ms)
+[----------] 1 test from ChatCtrlGetAllMessagesInvalidQueryStringTest (1 ms total)
 
 [----------] 1 test from ChatCtrlGetAllMessagesUserNotFoundTest
 [ RUN      ] ChatCtrlGetAllMessagesUserNotFoundTest.chatCtrlGetAllMessagesUserNotFoundTest
-DEBUG - CONNECT CHAT CONTROLLER
 ERROR - No se encuentra la entidad
-[       OK ] ChatCtrlGetAllMessagesUserNotFoundTest.chatCtrlGetAllMessagesUserNotFoundTest (25 ms)
-[----------] 1 test from ChatCtrlGetAllMessagesUserNotFoundTest (26 ms total)
+[       OK ] ChatCtrlGetAllMessagesUserNotFoundTest.chatCtrlGetAllMessagesUserNotFoundTest (0 ms)
+[----------] 1 test from ChatCtrlGetAllMessagesUserNotFoundTest (6 ms total)
 
 [----------] 1 test from ChatCtrlGetNewMessagesTest
 [ RUN      ] ChatCtrlGetNewMessagesTest.chatCtrlGetNewMessagesTest
-DEBUG - CONNECT CHAT CONTROLLER
 INFO - se obtiene los nuevos mensajes para 10 de 11
 [       OK ] ChatCtrlGetNewMessagesTest.chatCtrlGetNewMessagesTest (0 ms)
 [----------] 1 test from ChatCtrlGetNewMessagesTest (0 ms total)
 
 [----------] 1 test from ChatCtrlGetNewMessagesInvalidQueryStringTest
 [ RUN      ] ChatCtrlGetNewMessagesInvalidQueryStringTest.chatCtrlGetNewMessagesInvalidQueryStringTest
-DEBUG - CONNECT CHAT CONTROLLER
 [       OK ] ChatCtrlGetNewMessagesInvalidQueryStringTest.chatCtrlGetNewMessagesInvalidQueryStringTest (0 ms)
 [----------] 1 test from ChatCtrlGetNewMessagesInvalidQueryStringTest (0 ms total)
 
 [----------] 1 test from ChatCtrlGetNewMessagesUserNotFoundTest
 [ RUN      ] ChatCtrlGetNewMessagesUserNotFoundTest.chatCtrlGetNewMessagesUserNotFoundTest
-DEBUG - CONNECT CHAT CONTROLLER
 ERROR - No se encuentra la entidad
-[       OK ] ChatCtrlGetNewMessagesUserNotFoundTest.chatCtrlGetNewMessagesUserNotFoundTest (0 ms)
-[----------] 1 test from ChatCtrlGetNewMessagesUserNotFoundTest (0 ms total)
+[       OK ] ChatCtrlGetNewMessagesUserNotFoundTest.chatCtrlGetNewMessagesUserNotFoundTest (1 ms)
+[----------] 1 test from ChatCtrlGetNewMessagesUserNotFoundTest (1 ms total)
 
 [----------] 1 test from ChatCtrlAddNewMessagesTest
 [ RUN      ] ChatCtrlAddNewMessagesTest.chatCtrlAddNewMessagesTest
-DEBUG - CONNECT CHAT CONTROLLER
 DEBUG - Se intenta postear un mensaje del usuario 11 a 10
 INFO - se agrega el mensaje de 11 a la conversacion con 10
-[       OK ] ChatCtrlAddNewMessagesTest.chatCtrlAddNewMessagesTest (1 ms)
-[----------] 1 test from ChatCtrlAddNewMessagesTest (1 ms total)
+[       OK ] ChatCtrlAddNewMessagesTest.chatCtrlAddNewMessagesTest (3 ms)
+[----------] 1 test from ChatCtrlAddNewMessagesTest (3 ms total)
 
 [----------] 1 test from ChatCtrlAddNewMessagesInvalidJsonTest
 [ RUN      ] ChatCtrlAddNewMessagesInvalidJsonTest.chatCtrlAddNewMessagesInvalidJsonTest
-DEBUG - CONNECT CHAT CONTROLLER
 ERROR - error parseando json
 [       OK ] ChatCtrlAddNewMessagesInvalidJsonTest.chatCtrlAddNewMessagesInvalidJsonTest (0 ms)
 [----------] 1 test from ChatCtrlAddNewMessagesInvalidJsonTest (0 ms total)
 
 [----------] 1 test from ChatCtrlAddNewMessagesUserNotFoundTest
 [ RUN      ] ChatCtrlAddNewMessagesUserNotFoundTest.chatCtrlAddNewMessagesUserNotFoundTest
-DEBUG - CONNECT CHAT CONTROLLER
 DEBUG - Se intenta postear un mensaje del usuario 11 a 10
 ERROR - No se encuentra la entidad
 [       OK ] ChatCtrlAddNewMessagesUserNotFoundTest.chatCtrlAddNewMessagesUserNotFoundTest (0 ms)
-[----------] 1 test from ChatCtrlAddNewMessagesUserNotFoundTest (0 ms total)
+[----------] 1 test from ChatCtrlAddNewMessagesUserNotFoundTest (1 ms total)
 
 [----------] 1 test from ChatCtrlUpdateLastMessageTest
 [ RUN      ] ChatCtrlUpdateLastMessageTest.chatCtrlUpdateLastMessagesTest
-DEBUG - CONNECT CHAT CONTROLLER
 DEBUG - Se intenta actualizar el ultimo mensaje de 11 visto por usuario 10
 INFO - se actualiza el ultimo mensaje visto por 10 de11
 [       OK ] ChatCtrlUpdateLastMessageTest.chatCtrlUpdateLastMessagesTest (0 ms)
@@ -779,26 +769,24 @@ INFO - se actualiza el ultimo mensaje visto por 10 de11
 
 [----------] 1 test from ChatCtrlUpdateLastInvalidJsonTest
 [ RUN      ] ChatCtrlUpdateLastInvalidJsonTest.chatCtrlUpdateLastInvalidJsonTest
-DEBUG - CONNECT CHAT CONTROLLER
-[       OK ] ChatCtrlUpdateLastInvalidJsonTest.chatCtrlUpdateLastInvalidJsonTest (1 ms)
-[----------] 1 test from ChatCtrlUpdateLastInvalidJsonTest (1 ms total)
+[       OK ] ChatCtrlUpdateLastInvalidJsonTest.chatCtrlUpdateLastInvalidJsonTest (0 ms)
+[----------] 1 test from ChatCtrlUpdateLastInvalidJsonTest (0 ms total)
 
 [----------] 1 test from ChatCtrlUpdateLastUserNotFoundTest
 [ RUN      ] ChatCtrlUpdateLastUserNotFoundTest.chatCtrlUpdateLastUserNotFoundTest
-DEBUG - CONNECT CHAT CONTROLLER
 DEBUG - Se intenta actualizar el ultimo mensaje de 11 visto por usuario 10
 ERROR - No se encuentra la entidad
 [       OK ] ChatCtrlUpdateLastUserNotFoundTest.chatCtrlUpdateLastUserNotFoundTest (0 ms)
 [----------] 1 test from ChatCtrlUpdateLastUserNotFoundTest (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 12 tests from 12 test cases ran. (43 ms total)
+[==========] 12 tests from 12 test cases ran. (15 ms total)
 [  PASSED  ] 12 tests.
 <end of output>
-Test time =   0.32 sec
+Test time =   0.13 sec
 ----------------------------------------------------------
 Test Passed.
-"mockChatCtrlTest" end time: Jun 19 19:04 ART
+"mockChatCtrlTest" end time: Jun 19 19:54 ART
 "mockChatCtrlTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -806,7 +794,7 @@ Test Passed.
 8/10 Test: mockMatchCtrlTest
 Command: "/home/agustin/git/serverapp/AppServer/cmake/mockMatchCtrlTest"
 Directory: /home/agustin/git/serverapp/AppServer/cmake
-"mockMatchCtrlTest" start time: Jun 19 19:04 ART
+"mockMatchCtrlTest" start time: Jun 19 19:54 ART
 Output:
 ----------------------------------------------------------
 INFO - Iniciando Tests
@@ -815,19 +803,19 @@ INFO - Iniciando Tests
 [----------] 1 test from MatchCtrlGetMatchesTest
 [ RUN      ] MatchCtrlGetMatchesTest.matchCtrlGetMatchesTest
 DEBUG - Se obtienen los nuevos matches del usuario 10
-[       OK ] MatchCtrlGetMatchesTest.matchCtrlGetMatchesTest (2 ms)
-[----------] 1 test from MatchCtrlGetMatchesTest (2 ms total)
+[       OK ] MatchCtrlGetMatchesTest.matchCtrlGetMatchesTest (0 ms)
+[----------] 1 test from MatchCtrlGetMatchesTest (0 ms total)
 
 [----------] 1 test from MatchCtrlGetMatchesInvalidQueryStringTest
 [ RUN      ] MatchCtrlGetMatchesInvalidQueryStringTest.matchCtrlGetMatchesInvalidQueryStringTest
 [       OK ] MatchCtrlGetMatchesInvalidQueryStringTest.matchCtrlGetMatchesInvalidQueryStringTest (0 ms)
-[----------] 1 test from MatchCtrlGetMatchesInvalidQueryStringTest (0 ms total)
+[----------] 1 test from MatchCtrlGetMatchesInvalidQueryStringTest (1 ms total)
 
 [----------] 1 test from MatchCtrlGetMatchesUserNotFoundTest
 [ RUN      ] MatchCtrlGetMatchesUserNotFoundTest.matchCtrlGetMatchesUserNotFoundTest
 DEBUG - Se obtienen los nuevos matches del usuario 10
 ERROR - No se encuentra la entidad
-[       OK ] MatchCtrlGetMatchesUserNotFoundTest.matchCtrlGetMatchesUserNotFoundTest (1 ms)
+[       OK ] MatchCtrlGetMatchesUserNotFoundTest.matchCtrlGetMatchesUserNotFoundTest (0 ms)
 [----------] 1 test from MatchCtrlGetMatchesUserNotFoundTest (1 ms total)
 
 [----------] 1 test from MatchCtrlYesTest
@@ -841,13 +829,13 @@ INFO - se agrega el usuario 11 a la lista de aceptados de 10
 [ RUN      ] MatchCtrlYesMatchedTest.matchCtrlYesMatchedTest
 DEBUG - Se intenta agregar el usuario 11 a la lista de aceptados de 10
 INFO - se produzco un match entre 10 y 11
-[       OK ] MatchCtrlYesMatchedTest.matchCtrlYesMatchedTest (3 ms)
-[----------] 1 test from MatchCtrlYesMatchedTest (4 ms total)
+[       OK ] MatchCtrlYesMatchedTest.matchCtrlYesMatchedTest (0 ms)
+[----------] 1 test from MatchCtrlYesMatchedTest (1 ms total)
 
 [----------] 1 test from MatchCtrlYesInvalidJsonTest
 [ RUN      ] MatchCtrlYesInvalidJsonTest.matchCtrlYesInvalidJsonTest
 [       OK ] MatchCtrlYesInvalidJsonTest.matchCtrlYesInvalidJsonTest (0 ms)
-[----------] 1 test from MatchCtrlYesInvalidJsonTest (1 ms total)
+[----------] 1 test from MatchCtrlYesInvalidJsonTest (0 ms total)
 
 [----------] 1 test from MatchCtrlYesUserNotFoundTest
 [ RUN      ] MatchCtrlYesUserNotFoundTest.matchCtrlYesUserNotFoundTest
@@ -861,19 +849,19 @@ ERROR - No se encuentra la entidad
 DEBUG - Se intenta agregar el usuario 11 a la lista de aceptados de 10
 ERROR - La entidad ya existe
 [       OK ] MatchCtrlYesIllegalTest.matchCtrlYesIllegalTest (0 ms)
-[----------] 1 test from MatchCtrlYesIllegalTest (1 ms total)
+[----------] 1 test from MatchCtrlYesIllegalTest (5 ms total)
 
 [----------] 1 test from MatchCtrlNoTest
 [ RUN      ] MatchCtrlNoTest.matchCtrlNoTest
 DEBUG - Se intenta agregar el usuario 11 a la lista de rechazados de 10
 INFO - se agrega el usuario 11 a la lista de rechazados de 10
-[       OK ] MatchCtrlNoTest.matchCtrlNoTest (1 ms)
-[----------] 1 test from MatchCtrlNoTest (1 ms total)
+[       OK ] MatchCtrlNoTest.matchCtrlNoTest (0 ms)
+[----------] 1 test from MatchCtrlNoTest (0 ms total)
 
 [----------] 1 test from MatchCtrlNoInvalidJsonTest
 [ RUN      ] MatchCtrlNoInvalidJsonTest.matchCtrlNoInvalidJsonTest
 [       OK ] MatchCtrlNoInvalidJsonTest.matchCtrlNoInvalidJsonTest (0 ms)
-[----------] 1 test from MatchCtrlNoInvalidJsonTest (8 ms total)
+[----------] 1 test from MatchCtrlNoInvalidJsonTest (0 ms total)
 
 [----------] 1 test from MatchCtrlNoUserNotFoundTest
 [ RUN      ] MatchCtrlNoUserNotFoundTest.matchCtrlNoUserNotFoundTest
@@ -906,8 +894,8 @@ ERROR - error parseando json
 [ RUN      ] MatchCtrlConfirmUserNotFoundTest.matchCtrlConfirmUserNotFoundTest
 DEBUG - Se intenta agregar el usuario 11 a la lista de confirmados de 10
 ERROR - No se encuentra la entidad
-[       OK ] MatchCtrlConfirmUserNotFoundTest.matchCtrlConfirmUserNotFoundTest (1 ms)
-[----------] 1 test from MatchCtrlConfirmUserNotFoundTest (1 ms total)
+[       OK ] MatchCtrlConfirmUserNotFoundTest.matchCtrlConfirmUserNotFoundTest (0 ms)
+[----------] 1 test from MatchCtrlConfirmUserNotFoundTest (0 ms total)
 
 [----------] 1 test from MatchCtrlConfirmIllegalTest
 [ RUN      ] MatchCtrlConfirmIllegalTest.matchCtrlConfirmIllegalTest
@@ -920,7 +908,7 @@ ERROR - La entidad ya existe
 [ RUN      ] MatchCtrlGetChatsTest.matchCtrlGetChatsTest
 DEBUG - Se obtienen los chats del usuario 10
 [       OK ] MatchCtrlGetChatsTest.matchCtrlGetChatsTest (0 ms)
-[----------] 1 test from MatchCtrlGetChatsTest (4 ms total)
+[----------] 1 test from MatchCtrlGetChatsTest (1 ms total)
 
 [----------] 1 test from MatchCtrlGetChatsInvalidQueryStringTest
 [ RUN      ] MatchCtrlGetChatsInvalidQueryStringTest.matchCtrlGetChatsInvalidQueryStringTest
@@ -935,13 +923,13 @@ ERROR - No se encuentra la entidad
 [----------] 1 test from MatchCtrlGetChatsUserNotFoundTest (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 19 tests from 19 test cases ran. (26 ms total)
+[==========] 19 tests from 19 test cases ran. (11 ms total)
 [  PASSED  ] 19 tests.
 <end of output>
-Test time =   0.09 sec
+Test time =   0.08 sec
 ----------------------------------------------------------
 Test Passed.
-"mockMatchCtrlTest" end time: Jun 19 19:04 ART
+"mockMatchCtrlTest" end time: Jun 19 19:54 ART
 "mockMatchCtrlTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -949,7 +937,7 @@ Test Passed.
 9/10 Test: mockAuthCtrlTest
 Command: "/home/agustin/git/serverapp/AppServer/cmake/mockAuthCtrlTest"
 Directory: /home/agustin/git/serverapp/AppServer/cmake
-"mockAuthCtrlTest" start time: Jun 19 19:04 ART
+"mockAuthCtrlTest" start time: Jun 19 19:54 ART
 Output:
 ----------------------------------------------------------
 INFO - Iniciando Tests
@@ -957,30 +945,27 @@ INFO - Iniciando Tests
 [----------] Global test environment set-up.
 [----------] 1 test from AuthCtrlTest
 [ RUN      ] AuthCtrlTest.authCtrlTest
-DEBUG - CONNECT AUTHENTICATION CONTROLLER
 DEBUG - JSon Ingresado: {"user":{"name":"Agustin" , "email":"alinari@gmail.com", "password":"1234"} }
 DEBUG - INTENTO LOGUEO
 DEBUG - USUARIO LOGUEADO DE ID: 
 DEBUG - EMAIL DEL USUARIO A LOGUEAR: alinari@gmail.com
-DEBUG - EMAIL PARA EL PAYLOAD: alinari@gmail.com 0x1757d70
-DEBUG - TIMESTAMP: 1466373894 0x1757d70
-DEBUG - EXPIRE: 1800 0x1757d70
-DEBUG - TOKEN GENERADO 0x1757d70
-DEBUG - TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFsaW5hcmlAZ21haWwuY29tIiwiZXhwaXJlIjoiMTgwMCIsInRpbWVzdGFtcCI6IjE0NjYzNzM4OTQifQ.SFzov4kWxab_LaRQP0NDf5reCdN098OnPYKmqUOj60c
+DEBUG - EMAIL PARA EL PAYLOAD: alinari@gmail.com 0x1845a20
+DEBUG - TIMESTAMP: 1466376889 0x1845a20
+DEBUG - EXPIRE: 1800 0x1845a20
+DEBUG - TOKEN GENERADO 0x1845a20
+DEBUG - TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFsaW5hcmlAZ21haWwuY29tIiwiZXhwaXJlIjoiMTgwMCIsInRpbWVzdGFtcCI6IjE0NjYzNzY4ODkifQ.YjCrEHHPqxFHN525ao_SgcnUGGVcx7nrBM3EngmiQ2Y
 [       OK ] AuthCtrlTest.authCtrlTest (1 ms)
-[----------] 1 test from AuthCtrlTest (3 ms total)
+[----------] 1 test from AuthCtrlTest (1 ms total)
 
 [----------] 1 test from AuthCtrlUserNotFoundTest
 [ RUN      ] AuthCtrlUserNotFoundTest.authCtrlUserNotFoundTest
-DEBUG - CONNECT AUTHENTICATION CONTROLLER
 DEBUG - JSon Ingresado: {"user":{"name":"Agustin" , "email":"alinari@gmail.com", "password":"1234"} }
 DEBUG - INTENTO LOGUEO
-[       OK ] AuthCtrlUserNotFoundTest.authCtrlUserNotFoundTest (1 ms)
-[----------] 1 test from AuthCtrlUserNotFoundTest (1 ms total)
+[       OK ] AuthCtrlUserNotFoundTest.authCtrlUserNotFoundTest (0 ms)
+[----------] 1 test from AuthCtrlUserNotFoundTest (0 ms total)
 
 [----------] 1 test from AuthCtrlInvalidPasswordTest
 [ RUN      ] AuthCtrlInvalidPasswordTest.authCtrlInvalidPasswordTest
-DEBUG - CONNECT AUTHENTICATION CONTROLLER
 DEBUG - JSon Ingresado: {"user":{"name":"Agustin" , "email":"alinari@gmail.com", "password":"1235"} }
 DEBUG - INTENTO LOGUEO
 [       OK ] AuthCtrlInvalidPasswordTest.authCtrlInvalidPasswordTest (0 ms)
@@ -988,7 +973,6 @@ DEBUG - INTENTO LOGUEO
 
 [----------] 1 test from AuthCtrlNotFoundTest
 [ RUN      ] AuthCtrlNotFoundTest.authCtrlNotFoundTest
-DEBUG - CONNECT AUTHENTICATION CONTROLLER
 DEBUG - JSon Ingresado: {"user":{"name":"Agustin" , "email":"alinari@gmail.com", "password":"1235"} }
 DEBUG - INTENTO LOGUEO
 ERROR - No se encuentra la entidad
@@ -996,13 +980,13 @@ ERROR - No se encuentra la entidad
 [----------] 1 test from AuthCtrlNotFoundTest (0 ms total)
 
 [----------] Global test environment tear-down
-[==========] 4 tests from 4 test cases ran. (10 ms total)
+[==========] 4 tests from 4 test cases ran. (4 ms total)
 [  PASSED  ] 4 tests.
 <end of output>
-Test time =   0.14 sec
+Test time =   0.16 sec
 ----------------------------------------------------------
 Test Passed.
-"mockAuthCtrlTest" end time: Jun 19 19:04 ART
+"mockAuthCtrlTest" end time: Jun 19 19:54 ART
 "mockAuthCtrlTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -1010,7 +994,7 @@ Test Passed.
 10/10 Test: mockAbmUserCtrlTest
 Command: "/home/agustin/git/serverapp/AppServer/cmake/mockAbmUserCtrlTest"
 Directory: /home/agustin/git/serverapp/AppServer/cmake
-"mockAbmUserCtrlTest" start time: Jun 19 19:04 ART
+"mockAbmUserCtrlTest" start time: Jun 19 19:54 ART
 Output:
 ----------------------------------------------------------
 INFO - Iniciando Tests
@@ -1020,23 +1004,23 @@ INFO - Iniciando Tests
 [ RUN      ] AbmUserNewUserCtrlTest.abmUserNewUserCtrlTest
 DEBUG - JSon Ingresado: {"user":{"name":"Agustin" , "email":"alinari@gmail.com", "password":"1234"} }
 DEBUG - Guardando en db usuario Agustin
-DEBUG - EMAIL PARA EL PAYLOAD: alinari@gmail.com 0x14f4790
-DEBUG - TIMESTAMP: 1466373894 0x14f4790
-DEBUG - EXPIRE: 1800 0x14f4790
-DEBUG - TOKEN GENERADO 0x14f4790
-DEBUG - TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFsaW5hcmlAZ21haWwuY29tIiwiZXhwaXJlIjoiMTgwMCIsInRpbWVzdGFtcCI6IjE0NjYzNzM4OTQifQ.SFzov4kWxab_LaRQP0NDf5reCdN098OnPYKmqUOj60c
-[       OK ] AbmUserNewUserCtrlTest.abmUserNewUserCtrlTest (1 ms)
-[----------] 1 test from AbmUserNewUserCtrlTest (1 ms total)
+DEBUG - EMAIL PARA EL PAYLOAD: alinari@gmail.com 0x2baf790
+DEBUG - TIMESTAMP: 1466376889 0x2baf790
+DEBUG - EXPIRE: 1800 0x2baf790
+DEBUG - TOKEN GENERADO 0x2baf790
+DEBUG - TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFsaW5hcmlAZ21haWwuY29tIiwiZXhwaXJlIjoiMTgwMCIsInRpbWVzdGFtcCI6IjE0NjYzNzY4ODkifQ.YjCrEHHPqxFHN525ao_SgcnUGGVcx7nrBM3EngmiQ2Y
+[       OK ] AbmUserNewUserCtrlTest.abmUserNewUserCtrlTest (2 ms)
+[----------] 1 test from AbmUserNewUserCtrlTest (2 ms total)
 
 [----------] 1 test from AbmCtrlNewUserRemoteErrorTest
 [ RUN      ] AbmCtrlNewUserRemoteErrorTest.abmCtrlNewUserRemoteErrorTest
 DEBUG - JSon Ingresado: {"user":{"name":"Agustin" , "email":"alinari@gmail.com", "password":"1234"} }
 DEBUG - Guardando en db usuario Agustin
-DEBUG - EMAIL PARA EL PAYLOAD: alinari@gmail.com 0x14f42c0
-DEBUG - TIMESTAMP: 1466373894 0x14f42c0
-DEBUG - EXPIRE: 1800 0x14f42c0
-DEBUG - TOKEN GENERADO 0x14f42c0
-DEBUG - TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFsaW5hcmlAZ21haWwuY29tIiwiZXhwaXJlIjoiMTgwMCIsInRpbWVzdGFtcCI6IjE0NjYzNzM4OTQifQ.SFzov4kWxab_LaRQP0NDf5reCdN098OnPYKmqUOj60c
+DEBUG - EMAIL PARA EL PAYLOAD: alinari@gmail.com 0x2baf2c0
+DEBUG - TIMESTAMP: 1466376889 0x2baf2c0
+DEBUG - EXPIRE: 1800 0x2baf2c0
+DEBUG - TOKEN GENERADO 0x2baf2c0
+DEBUG - TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFsaW5hcmlAZ21haWwuY29tIiwiZXhwaXJlIjoiMTgwMCIsInRpbWVzdGFtcCI6IjE0NjYzNzY4ODkifQ.YjCrEHHPqxFHN525ao_SgcnUGGVcx7nrBM3EngmiQ2Y
 ERROR - el shared server retorno error
 [       OK ] AbmCtrlNewUserRemoteErrorTest.abmCtrlNewUserRemoteErrorTest (1 ms)
 [----------] 1 test from AbmCtrlNewUserRemoteErrorTest (1 ms total)
@@ -1044,8 +1028,8 @@ ERROR - el shared server retorno error
 [----------] 1 test from AbmCtrlNewUserInvalidJsonTest
 [ RUN      ] AbmCtrlNewUserInvalidJsonTest.authCtrlNewUserInvalidJsonTest
 DEBUG - JSon Ingresado: {"user":{"name":"Agustin" , "email":"alinari@gmail.com", }
-[       OK ] AbmCtrlNewUserInvalidJsonTest.authCtrlNewUserInvalidJsonTest (0 ms)
-[----------] 1 test from AbmCtrlNewUserInvalidJsonTest (0 ms total)
+[       OK ] AbmCtrlNewUserInvalidJsonTest.authCtrlNewUserInvalidJsonTest (1 ms)
+[----------] 1 test from AbmCtrlNewUserInvalidJsonTest (6 ms total)
 
 [----------] 1 test from AbmUserUpdateUserCtrlTest
 [ RUN      ] AbmUserUpdateUserCtrlTest.abmUserUpdateUserCtrlTest
@@ -1059,23 +1043,23 @@ DEBUG - Actualizando usuario con id
 DEBUG - JSon Ingresado: {"user":{"name":"Agustin" , "email":"alinari@gmail.com", "password":"1234"} }
 DEBUG - Actualizando usuario con id 
 ERROR - el shared server retorno error
-[       OK ] AuthCtrlUpdateUserRemoteErrorTest.authCtrlUpdateUserRemoteErrorTest (0 ms)
-[----------] 1 test from AuthCtrlUpdateUserRemoteErrorTest (0 ms total)
+[       OK ] AuthCtrlUpdateUserRemoteErrorTest.authCtrlUpdateUserRemoteErrorTest (1 ms)
+[----------] 1 test from AuthCtrlUpdateUserRemoteErrorTest (1 ms total)
 
 [----------] 1 test from AuthCtrlUpdateUserNotFoundTest
 [ RUN      ] AuthCtrlUpdateUserNotFoundTest.authCtrlUpdateUserNotFoundTest
 DEBUG - JSon Ingresado: {"user":{"name":"Agustin" , "email":"alinari@gmail.com", "password":"1234"} }
 DEBUG - Actualizando usuario con id 
 ERROR - No se encuentra la entidad
-[       OK ] AuthCtrlUpdateUserNotFoundTest.authCtrlUpdateUserNotFoundTest (3 ms)
-[----------] 1 test from AuthCtrlUpdateUserNotFoundTest (4 ms total)
+[       OK ] AuthCtrlUpdateUserNotFoundTest.authCtrlUpdateUserNotFoundTest (0 ms)
+[----------] 1 test from AuthCtrlUpdateUserNotFoundTest (0 ms total)
 
 [----------] 1 test from AbmCtrlUpdateUserInvalidJsonTest
 [ RUN      ] AbmCtrlUpdateUserInvalidJsonTest.abmCtrlUpdateUserInvalidJsonTest
 DEBUG - JSon Ingresado: {"user":{"name":"Agustin" , "email":"alinari@gmail.com", }
 ERROR - error parseando json
 [       OK ] AbmCtrlUpdateUserInvalidJsonTest.abmCtrlUpdateUserInvalidJsonTest (0 ms)
-[----------] 1 test from AbmCtrlUpdateUserInvalidJsonTest (1 ms total)
+[----------] 1 test from AbmCtrlUpdateUserInvalidJsonTest (0 ms total)
 
 [----------] 1 test from AbmUserGetPhotoCtrlTest
 [ RUN      ] AbmUserGetPhotoCtrlTest.abmUserGetPhotoCtrlTest
@@ -1086,7 +1070,7 @@ DEBUG - Se obtiene la foto del usuario 10
 [----------] 1 test from AbmUserGetPhotoInvalidParamsCtrlTest
 [ RUN      ] AbmUserGetPhotoInvalidParamsCtrlTest.abmUserGetPhotoInvalidParamsCtrlTest
 [       OK ] AbmUserGetPhotoInvalidParamsCtrlTest.abmUserGetPhotoInvalidParamsCtrlTest (0 ms)
-[----------] 1 test from AbmUserGetPhotoInvalidParamsCtrlTest (0 ms total)
+[----------] 1 test from AbmUserGetPhotoInvalidParamsCtrlTest (1 ms total)
 
 [----------] 1 test from AbmUserGetPhotoRemoteErrorCtrlTest
 [ RUN      ] AbmUserGetPhotoRemoteErrorCtrlTest.abmUserGetPhotoRemoteErrorCtrlTest
@@ -1100,7 +1084,7 @@ ERROR - el shared server retorno error
 DEBUG - Se obtiene la foto del usuario 10
 ERROR - No se encuentra la entidad
 [       OK ] AbmUserGetPhotoNotFoundCtrlTest.abmUserGetPhotoNotFoundCtrlTest (0 ms)
-[----------] 1 test from AbmUserGetPhotoNotFoundCtrlTest (1 ms total)
+[----------] 1 test from AbmUserGetPhotoNotFoundCtrlTest (0 ms total)
 
 [----------] 1 test from AbmUserGetInterestsTest
 [ RUN      ] AbmUserGetInterestsTest.abmUserGetInterestsTest
@@ -1114,14 +1098,14 @@ ERROR - el shared server retorno error
 [----------] 1 test from AbmUserGetInterestsRemoteErrorTest (1 ms total)
 
 [----------] Global test environment tear-down
-[==========] 13 tests from 13 test cases ran. (12 ms total)
+[==========] 13 tests from 13 test cases ran. (15 ms total)
 [  PASSED  ] 13 tests.
 <end of output>
-Test time =   0.20 sec
+Test time =   0.18 sec
 ----------------------------------------------------------
 Test Passed.
-"mockAbmUserCtrlTest" end time: Jun 19 19:04 ART
+"mockAbmUserCtrlTest" end time: Jun 19 19:54 ART
 "mockAbmUserCtrlTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Jun 19 19:04 ART
+End testing: Jun 19 19:54 ART
