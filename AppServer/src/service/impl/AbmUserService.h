@@ -24,7 +24,8 @@ using namespace log4cplus;
  * Clase que se utiliza para el ABM de usuarios en el server. Basicamente es
  * para poder almacenar los tokens para poder controlar la sesion del usuario.
  */
-class AbmUserService : public IAbmUserService{
+class AbmUserService: public IAbmUserService
+{
 private:
 	UserDao* userDao;
 	MatchDao* matchDao;

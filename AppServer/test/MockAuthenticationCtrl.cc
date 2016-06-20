@@ -18,7 +18,8 @@ using ::testing::AtLeast;
 using ::testing::Return;
 using ::testing::_;
 
-class MockAbmUserService : public IAbmUserService{
+class MockAbmUserService: public IAbmUserService
+{
 public:
 	MOCK_METHOD1(createNewUser, string(UserProfile*));
 	MOCK_METHOD1(modifyUser, void(UserProfile*));
@@ -27,44 +28,43 @@ public:
 	MOCK_METHOD0(getInterests, list<Interest*>());
 };
 
-class MockAuthService : public IAuthenticationService{
+class MockAuthService: public IAuthenticationService
+{
 public:
 	MOCK_METHOD2(getUserLogin, UserProfile*(string,string));
 };
 
-
 ACTION(ThrowEntityNotFoundException){
-	throw EntityNotFoundException();
+throw EntityNotFoundException();
 }
 
 ACTION(ThrowIncorrectPasswordException){
-	throw IncorrectPasswordException();
+throw IncorrectPasswordException();
 }
-
 
 /**
  * Test para probar el camino feliz cuando se invoca a /login_user
  */
-TEST(AuthCtrlTest,authCtrlTest){
+TEST(AuthCtrlTest,authCtrlTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/login_user";
 	string method = "PUT";
 	string json = "{\"user\":{\"name\":\"Agustin\" , \"email\":\"alinari@gmail.com\", \"password\":\"1234\"} }";
 
-	hm->body.p=json.c_str();
+	hm->body.p = json.c_str();
 	hm->body.len = json.length();
 	hm->uri.p = url.c_str();
 	hm->uri.len = url.length();
 	hm->method.p = method.c_str();
 	hm->method.len = method.length();
 
-
 	MockAbmUserService* mockAbmService = new MockAbmUserService();
 	MockAuthService* mockAuthService = new MockAuthService();
-	AuthenticationController* authCtrl = new AuthenticationController(mockAuthService,mockAbmService);
+	AuthenticationController* authCtrl = new AuthenticationController(mockAuthService, mockAbmService);
 
 	UserProfile* user = new UserProfile("alinari", "1234");
 	user->setEmail("alinari@gmail.com");
@@ -73,8 +73,13 @@ TEST(AuthCtrlTest,authCtrlTest){
 	EXPECT_CALL(*mockAbmService, updateToken(user)).Times(1);
 
 	string code;
-	EXPECT_NO_THROW({code = authCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==authCtrl->STATUS_OK);
+	EXPECT_NO_THROW(
+	{
+		code = authCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == authCtrl->STATUS_OK);
 	delete authCtrl;
 	delete nc;
 	delete hm;
@@ -84,70 +89,79 @@ TEST(AuthCtrlTest,authCtrlTest){
 /**
  * Test para probar cuando se invoca a /login_user y no se encuentra el usuario
  */
-TEST(AuthCtrlUserNotFoundTest,authCtrlUserNotFoundTest){
+TEST(AuthCtrlUserNotFoundTest,authCtrlUserNotFoundTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/login_user";
 	string method = "PUT";
 	string json = "{\"user\":{\"name\":\"Agustin\" , \"email\":\"alinari@gmail.com\", \"password\":\"1234\"} }";
 
-	hm->body.p=json.c_str();
+	hm->body.p = json.c_str();
 	hm->body.len = json.length();
 	hm->uri.p = url.c_str();
 	hm->uri.len = url.length();
 	hm->method.p = method.c_str();
 	hm->method.len = method.length();
 
-
 	MockAbmUserService* mockAbmService = new MockAbmUserService();
 	MockAuthService* mockAuthService = new MockAuthService();
-	AuthenticationController* authCtrl = new AuthenticationController(mockAuthService,mockAbmService);
+	AuthenticationController* authCtrl = new AuthenticationController(mockAuthService, mockAbmService);
 
 	UserProfile* user = NULL;
 
 	EXPECT_CALL(*mockAuthService, getUserLogin("alinari@gmail.com","1234")).Times(1).WillOnce(Return(user));
 
 	string code;
-	EXPECT_NO_THROW({code = authCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==authCtrl->STATUS_NOK);
+	EXPECT_NO_THROW(
+	{
+		code = authCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == authCtrl->STATUS_NOK);
 	delete authCtrl;
 	delete nc;
 	delete hm;
 
 }
 
-
 /**
  * Test para probar cuando se invoca a /login_user y el password es incorrecto
  */
-TEST(AuthCtrlInvalidPasswordTest,authCtrlInvalidPasswordTest){
+TEST(AuthCtrlInvalidPasswordTest,authCtrlInvalidPasswordTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/login_user";
 	string method = "PUT";
 	string json = "{\"user\":{\"name\":\"Agustin\" , \"email\":\"alinari@gmail.com\", \"password\":\"1235\"} }";
 
-	hm->body.p=json.c_str();
+	hm->body.p = json.c_str();
 	hm->body.len = json.length();
 	hm->uri.p = url.c_str();
 	hm->uri.len = url.length();
 	hm->method.p = method.c_str();
 	hm->method.len = method.length();
 
-
 	MockAbmUserService* mockAbmService = new MockAbmUserService();
 	MockAuthService* mockAuthService = new MockAuthService();
-	AuthenticationController* authCtrl = new AuthenticationController(mockAuthService,mockAbmService);
+	AuthenticationController* authCtrl = new AuthenticationController(mockAuthService, mockAbmService);
 
 	EXPECT_CALL(*mockAuthService, getUserLogin("alinari@gmail.com","1235")).Times(1).WillOnce(ThrowIncorrectPasswordException());
 
 	string code;
-	EXPECT_NO_THROW({code = authCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==authCtrl->STATUS_NOK);
+	EXPECT_NO_THROW(
+	{
+		code = authCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == authCtrl->STATUS_NOK);
 	delete authCtrl;
 	delete nc;
 	delete hm;
@@ -157,43 +171,48 @@ TEST(AuthCtrlInvalidPasswordTest,authCtrlInvalidPasswordTest){
 /**
  * Test para probar cuando se invoca a /login_user y devuelve error 404
  */
-TEST(AuthCtrlNotFoundTest,authCtrlNotFoundTest){
+TEST(AuthCtrlNotFoundTest,authCtrlNotFoundTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/login_user";
 	string method = "PUT";
 	string json = "{\"user\":{\"name\":\"Agustin\" , \"email\":\"alinari@gmail.com\", \"password\":\"1235\"} }";
 
-	hm->body.p=json.c_str();
+	hm->body.p = json.c_str();
 	hm->body.len = json.length();
 	hm->uri.p = url.c_str();
 	hm->uri.len = url.length();
 	hm->method.p = method.c_str();
 	hm->method.len = method.length();
 
-
 	MockAbmUserService* mockAbmService = new MockAbmUserService();
 	MockAuthService* mockAuthService = new MockAuthService();
-	AuthenticationController* authCtrl = new AuthenticationController(mockAuthService,mockAbmService);
+	AuthenticationController* authCtrl = new AuthenticationController(mockAuthService, mockAbmService);
 
 	EXPECT_CALL(*mockAuthService, getUserLogin("alinari@gmail.com","1235")).Times(1).WillOnce(ThrowEntityNotFoundException());
 
 	string code;
-	EXPECT_NO_THROW({code = authCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==authCtrl->STATUS_NOT_FOUND);
+	EXPECT_NO_THROW(
+	{
+		code = authCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == authCtrl->STATUS_NOT_FOUND);
 	delete authCtrl;
 	delete nc;
 	delete hm;
 
 }
 
-
 /*
  * Correr con valgrind: valgrind --leak-check=full -v ./mockAuthenticationCtrlTest
  */
-int main(int argc, char* argv[]){
+int main(int argc, char* argv[])
+{
 	::testing::InitGoogleMock(&argc, argv);
 
 	initialize();
@@ -205,5 +224,4 @@ int main(int argc, char* argv[]){
 
 	return RUN_ALL_TESTS();
 }
-
 

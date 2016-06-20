@@ -14,11 +14,18 @@ using namespace std;
  * Clase abstracta padre que implementan todos los DAOS para poder realizar las operaciones
  * en las entities correspondientes.
  */
-class GenericDao{
+class GenericDao
+{
 
 public:
-	GenericDao(){}
-	virtual ~GenericDao(){}
+
+	GenericDao()
+	{
+	}
+
+	virtual ~GenericDao()
+	{
+	}
 	/**
 	 * Devuelve la entity de un usuario en particular, dada la clave de
 	 * busqueda id.

@@ -17,7 +17,8 @@ using ::testing::AtLeast;
 using ::testing::Return;
 using ::testing::_;
 
-class MockMatchService : public IMatchService{
+class MockMatchService: public IMatchService
+{
 public:
 	MOCK_METHOD2(addToYesList, bool(string, string));
 	MOCK_METHOD2(addToNoList, void(string, string));
@@ -28,21 +29,21 @@ public:
 };
 
 ACTION(ThrowEntityNotFoundException){
-	throw EntityNotFoundException();
+throw EntityNotFoundException();
 }
 
 ACTION(ThrowEntityExistsException){
-	throw EntityExistsException();
+throw EntityExistsException();
 }
-
 
 /**
  * Test para probar el camino feliz cuando se invoca a /match
  */
-TEST(MatchCtrlGetMatchesTest,matchCtrlGetMatchesTest){
+TEST(MatchCtrlGetMatchesTest,matchCtrlGetMatchesTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/match";
 	string method = "GET";
@@ -60,7 +61,7 @@ TEST(MatchCtrlGetMatchesTest,matchCtrlGetMatchesTest){
 	list<UserProfile*> matches;
 	UserProfile* user1 = new UserProfile("alinari", "1234");
 	UserProfile* user2 = new UserProfile("psivori", "4321");
-	Interest* interest = new Interest("Bands","Divididos");
+	Interest* interest = new Interest("Bands", "Divididos");
 	user1->addInterest(interest);
 	matches.push_back(user1);
 	matches.push_back(user2);
@@ -68,8 +69,13 @@ TEST(MatchCtrlGetMatchesTest,matchCtrlGetMatchesTest){
 	EXPECT_CALL(*mockMatchService, getNewMatches("10")).Times(1).WillOnce(Return(matches));
 
 	string code;
-	EXPECT_NO_THROW({code = matchCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==matchCtrl->STATUS_OK);
+	EXPECT_NO_THROW(
+	{
+		code = matchCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == matchCtrl->STATUS_OK);
 	delete matchCtrl;
 	delete nc;
 	delete hm;
@@ -79,11 +85,11 @@ TEST(MatchCtrlGetMatchesTest,matchCtrlGetMatchesTest){
 /**
  * Test para probar cuando se invoca a /match con los parametros incorrectos
  */
-TEST(MatchCtrlGetMatchesInvalidQueryStringTest, matchCtrlGetMatchesInvalidQueryStringTest){
+TEST(MatchCtrlGetMatchesInvalidQueryStringTest, matchCtrlGetMatchesInvalidQueryStringTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
-
+	struct http_message *hm = new http_message();
 
 	string url = "/match";
 	string method = "GET";
@@ -99,22 +105,27 @@ TEST(MatchCtrlGetMatchesInvalidQueryStringTest, matchCtrlGetMatchesInvalidQueryS
 	MatchController* matchCtrl = new MatchController(mockMatchService);
 
 	string code;
-	EXPECT_NO_THROW({code = matchCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==matchCtrl->STATUS_NOK);
+	EXPECT_NO_THROW(
+	{
+		code = matchCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == matchCtrl->STATUS_NOK);
 	delete matchCtrl;
 	delete nc;
 	delete hm;
 
 }
 
-
 /**
  * Test para probar cuando se invoca a /match y devuelve error por usuario no encontrado
  */
-TEST(MatchCtrlGetMatchesUserNotFoundTest,matchCtrlGetMatchesUserNotFoundTest){
+TEST(MatchCtrlGetMatchesUserNotFoundTest,matchCtrlGetMatchesUserNotFoundTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/match";
 	string method = "GET";
@@ -132,29 +143,33 @@ TEST(MatchCtrlGetMatchesUserNotFoundTest,matchCtrlGetMatchesUserNotFoundTest){
 	EXPECT_CALL(*mockMatchService, getNewMatches("10")).Times(1).WillRepeatedly(ThrowEntityNotFoundException());
 
 	string code;
-	EXPECT_NO_THROW({code = matchCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==matchCtrl->STATUS_NOT_FOUND);
+	EXPECT_NO_THROW(
+	{
+		code = matchCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == matchCtrl->STATUS_NOT_FOUND);
 	delete matchCtrl;
 	delete nc;
 	delete hm;
 
 }
 
-
 /**
  * Test para probar cuando se invoca a /match/yes y no hay match
  */
-TEST(MatchCtrlYesTest,matchCtrlYesTest){
+TEST(MatchCtrlYesTest,matchCtrlYesTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
-
+	struct http_message *hm = new http_message();
 
 	string url = "/match/yes";
 	string method = "POST";
 	string json = "{\"idFrom\":\"10\" , \"idTo\":\"11\" }";
 
-	hm->body.p=json.c_str();
+	hm->body.p = json.c_str();
 	hm->body.len = json.length();
 	hm->uri.p = url.c_str();
 	hm->uri.len = url.length();
@@ -167,8 +182,13 @@ TEST(MatchCtrlYesTest,matchCtrlYesTest){
 	EXPECT_CALL(*mockMatchService, addToYesList("10","11")).Times(1).WillRepeatedly(Return(false));
 
 	string code;
-	EXPECT_NO_THROW({code = matchCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==matchCtrl->STATUS_OK);
+	EXPECT_NO_THROW(
+	{
+		code = matchCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == matchCtrl->STATUS_OK);
 	delete matchCtrl;
 	delete nc;
 	delete hm;
@@ -178,17 +198,17 @@ TEST(MatchCtrlYesTest,matchCtrlYesTest){
 /**
  * Test para probar cuando se invoca a /match/yes y hay match
  */
-TEST(MatchCtrlYesMatchedTest,matchCtrlYesMatchedTest){
+TEST(MatchCtrlYesMatchedTest,matchCtrlYesMatchedTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
-
+	struct http_message *hm = new http_message();
 
 	string url = "/match/yes";
 	string method = "POST";
 	string json = "{\"idFrom\":\"10\" , \"idTo\":\"11\" }";
 
-	hm->body.p=json.c_str();
+	hm->body.p = json.c_str();
 	hm->body.len = json.length();
 	hm->uri.p = url.c_str();
 	hm->uri.len = url.length();
@@ -201,8 +221,13 @@ TEST(MatchCtrlYesMatchedTest,matchCtrlYesMatchedTest){
 	EXPECT_CALL(*mockMatchService, addToYesList("10","11")).Times(1).WillRepeatedly(Return(true));
 
 	string code;
-	EXPECT_NO_THROW({code = matchCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==matchCtrl->STATUS_OK);
+	EXPECT_NO_THROW(
+	{
+		code = matchCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == matchCtrl->STATUS_OK);
 	delete matchCtrl;
 	delete nc;
 	delete hm;
@@ -212,16 +237,17 @@ TEST(MatchCtrlYesMatchedTest,matchCtrlYesMatchedTest){
 /**
  * Test para probar cuando se invoca a /match/yes y devuelve error por json malformado
  */
-TEST(MatchCtrlYesInvalidJsonTest,matchCtrlYesInvalidJsonTest){
+TEST(MatchCtrlYesInvalidJsonTest,matchCtrlYesInvalidJsonTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/match/yes";
 	string method = "POST";
 	string json = "{\"idFrom\":\"10\"  \"idTo\":\"11\" }";
 
-	hm->body.p=json.c_str();
+	hm->body.p = json.c_str();
 	hm->body.len = json.length();
 	hm->uri.p = url.c_str();
 	hm->uri.len = url.length();
@@ -232,8 +258,13 @@ TEST(MatchCtrlYesInvalidJsonTest,matchCtrlYesInvalidJsonTest){
 	MatchController* matchCtrl = new MatchController(mockMatchService);
 
 	string code;
-	EXPECT_NO_THROW({code = matchCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==matchCtrl->STATUS_NOK);
+	EXPECT_NO_THROW(
+	{
+		code = matchCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == matchCtrl->STATUS_NOK);
 	delete matchCtrl;
 	delete nc;
 	delete hm;
@@ -243,16 +274,17 @@ TEST(MatchCtrlYesInvalidJsonTest,matchCtrlYesInvalidJsonTest){
 /**
  * Test para probar cuando se invoca a /match/yes y devuelve error por usuario no encontrado
  */
-TEST(MatchCtrlYesUserNotFoundTest,matchCtrlYesUserNotFoundTest){
+TEST(MatchCtrlYesUserNotFoundTest,matchCtrlYesUserNotFoundTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/match/yes";
 	string method = "POST";
 	string json = "{\"idFrom\":\"10\" , \"idTo\":\"11\" }";
 
-	hm->body.p=json.c_str();
+	hm->body.p = json.c_str();
 	hm->body.len = json.length();
 	hm->uri.p = url.c_str();
 	hm->uri.len = url.length();
@@ -265,8 +297,13 @@ TEST(MatchCtrlYesUserNotFoundTest,matchCtrlYesUserNotFoundTest){
 	EXPECT_CALL(*mockMatchService, addToYesList("10","11")).Times(1).WillRepeatedly(ThrowEntityNotFoundException());
 
 	string code;
-	EXPECT_NO_THROW({code = matchCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==matchCtrl->STATUS_NOT_FOUND);
+	EXPECT_NO_THROW(
+	{
+		code = matchCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == matchCtrl->STATUS_NOT_FOUND);
 	delete matchCtrl;
 	delete nc;
 	delete hm;
@@ -276,16 +313,17 @@ TEST(MatchCtrlYesUserNotFoundTest,matchCtrlYesUserNotFoundTest){
 /**
  * Test para probar cuando se invoca a /match/yes y ya habia puesto que no
  */
-TEST(MatchCtrlYesIllegalTest,matchCtrlYesIllegalTest){
+TEST(MatchCtrlYesIllegalTest,matchCtrlYesIllegalTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/match/yes";
 	string method = "POST";
 	string json = "{\"idFrom\":\"10\" , \"idTo\":\"11\" }";
 
-	hm->body.p=json.c_str();
+	hm->body.p = json.c_str();
 	hm->body.len = json.length();
 	hm->uri.p = url.c_str();
 	hm->uri.len = url.length();
@@ -298,8 +336,13 @@ TEST(MatchCtrlYesIllegalTest,matchCtrlYesIllegalTest){
 	EXPECT_CALL(*mockMatchService, addToYesList("10","11")).Times(1).WillRepeatedly(ThrowEntityExistsException());
 
 	string code;
-	EXPECT_NO_THROW({code = matchCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==matchCtrl->STATUS_NOK);
+	EXPECT_NO_THROW(
+	{
+		code = matchCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == matchCtrl->STATUS_NOK);
 	delete matchCtrl;
 	delete nc;
 	delete hm;
@@ -309,17 +352,17 @@ TEST(MatchCtrlYesIllegalTest,matchCtrlYesIllegalTest){
 /**
  * Test para probar cuando se invoca a /match/no
  */
-TEST(MatchCtrlNoTest,matchCtrlNoTest){
+TEST(MatchCtrlNoTest,matchCtrlNoTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
-
+	struct http_message *hm = new http_message();
 
 	string url = "/match/no";
 	string method = "POST";
 	string json = "{\"idFrom\":\"10\" , \"idTo\":\"11\" }";
 
-	hm->body.p=json.c_str();
+	hm->body.p = json.c_str();
 	hm->body.len = json.length();
 	hm->uri.p = url.c_str();
 	hm->uri.len = url.length();
@@ -332,8 +375,13 @@ TEST(MatchCtrlNoTest,matchCtrlNoTest){
 	EXPECT_CALL(*mockMatchService, addToNoList("10","11")).Times(1);
 
 	string code;
-	EXPECT_NO_THROW({code = matchCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==matchCtrl->STATUS_OK);
+	EXPECT_NO_THROW(
+	{
+		code = matchCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == matchCtrl->STATUS_OK);
 	delete matchCtrl;
 	delete nc;
 	delete hm;
@@ -343,16 +391,17 @@ TEST(MatchCtrlNoTest,matchCtrlNoTest){
 /**
  * Test para probar cuando se invoca a /match/no y devuelve error por json malformado
  */
-TEST(MatchCtrlNoInvalidJsonTest,matchCtrlNoInvalidJsonTest){
+TEST(MatchCtrlNoInvalidJsonTest,matchCtrlNoInvalidJsonTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/match/no";
 	string method = "POST";
 	string json = "{\"idFrom\":\"10\"  }";
 
-	hm->body.p=json.c_str();
+	hm->body.p = json.c_str();
 	hm->body.len = json.length();
 	hm->uri.p = url.c_str();
 	hm->uri.len = url.length();
@@ -363,8 +412,13 @@ TEST(MatchCtrlNoInvalidJsonTest,matchCtrlNoInvalidJsonTest){
 	MatchController* matchCtrl = new MatchController(mockMatchService);
 
 	string code;
-	EXPECT_NO_THROW({code = matchCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==matchCtrl->STATUS_NOK);
+	EXPECT_NO_THROW(
+	{
+		code = matchCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == matchCtrl->STATUS_NOK);
 	delete matchCtrl;
 	delete nc;
 	delete hm;
@@ -374,16 +428,17 @@ TEST(MatchCtrlNoInvalidJsonTest,matchCtrlNoInvalidJsonTest){
 /**
  * Test para probar cuando se invoca a /match/no y devuelve error por usuario no encontrado
  */
-TEST(MatchCtrlNoUserNotFoundTest,matchCtrlNoUserNotFoundTest){
+TEST(MatchCtrlNoUserNotFoundTest,matchCtrlNoUserNotFoundTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/match/no";
 	string method = "POST";
 	string json = "{\"idFrom\":\"10\" , \"idTo\":\"11\" }";
 
-	hm->body.p=json.c_str();
+	hm->body.p = json.c_str();
 	hm->body.len = json.length();
 	hm->uri.p = url.c_str();
 	hm->uri.len = url.length();
@@ -396,8 +451,13 @@ TEST(MatchCtrlNoUserNotFoundTest,matchCtrlNoUserNotFoundTest){
 	EXPECT_CALL(*mockMatchService, addToNoList("10","11")).Times(1).WillRepeatedly(ThrowEntityNotFoundException());
 
 	string code;
-	EXPECT_NO_THROW({code = matchCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==matchCtrl->STATUS_NOT_FOUND);
+	EXPECT_NO_THROW(
+	{
+		code = matchCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == matchCtrl->STATUS_NOT_FOUND);
 	delete matchCtrl;
 	delete nc;
 	delete hm;
@@ -407,16 +467,17 @@ TEST(MatchCtrlNoUserNotFoundTest,matchCtrlNoUserNotFoundTest){
 /**
  * Test para probar cuando se invoca a /match/no y ya habia puesto que si
  */
-TEST(MatchCtrlNoIllegalTest,matchCtrlNoIllegalTest){
+TEST(MatchCtrlNoIllegalTest,matchCtrlNoIllegalTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/match/no";
 	string method = "POST";
 	string json = "{\"idFrom\":\"10\" , \"idTo\":\"11\" }";
 
-	hm->body.p=json.c_str();
+	hm->body.p = json.c_str();
 	hm->body.len = json.length();
 	hm->uri.p = url.c_str();
 	hm->uri.len = url.length();
@@ -429,29 +490,33 @@ TEST(MatchCtrlNoIllegalTest,matchCtrlNoIllegalTest){
 	EXPECT_CALL(*mockMatchService, addToNoList("10","11")).Times(1).WillRepeatedly(ThrowEntityExistsException());
 
 	string code;
-	EXPECT_NO_THROW({code = matchCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==matchCtrl->STATUS_NOK);
+	EXPECT_NO_THROW(
+	{
+		code = matchCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == matchCtrl->STATUS_NOK);
 	delete matchCtrl;
 	delete nc;
 	delete hm;
 
 }
 
-
 /**
  * Test para probar cuando se invoca a /match/confirm
  */
-TEST(MatchCtrlConfirmTest,matchCtrlConfirmTest){
+TEST(MatchCtrlConfirmTest,matchCtrlConfirmTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
-
+	struct http_message *hm = new http_message();
 
 	string url = "/match/confirm";
 	string method = "POST";
 	string json = "{\"idFrom\":\"10\" , \"idTo\":\"11\" }";
 
-	hm->body.p=json.c_str();
+	hm->body.p = json.c_str();
 	hm->body.len = json.length();
 	hm->uri.p = url.c_str();
 	hm->uri.len = url.length();
@@ -464,8 +529,13 @@ TEST(MatchCtrlConfirmTest,matchCtrlConfirmTest){
 	EXPECT_CALL(*mockMatchService, confirmUser("10","11")).Times(1);
 
 	string code;
-	EXPECT_NO_THROW({code = matchCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==matchCtrl->STATUS_OK);
+	EXPECT_NO_THROW(
+	{
+		code = matchCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == matchCtrl->STATUS_OK);
 	delete matchCtrl;
 	delete nc;
 	delete hm;
@@ -475,16 +545,17 @@ TEST(MatchCtrlConfirmTest,matchCtrlConfirmTest){
 /**
  * Test para probar cuando se invoca a /match/confirm y devuelve error por json malformado
  */
-TEST(MatchCtrlConfirmInvalidJsonTest,matchCtrlConfirmInvalidJsonTest){
+TEST(MatchCtrlConfirmInvalidJsonTest,matchCtrlConfirmInvalidJsonTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/match/confirm";
 	string method = "POST";
 	string json = "{\"idFrom\":\"10\" , \"idTo\": }";
 
-	hm->body.p=json.c_str();
+	hm->body.p = json.c_str();
 	hm->body.len = json.length();
 	hm->uri.p = url.c_str();
 	hm->uri.len = url.length();
@@ -495,8 +566,13 @@ TEST(MatchCtrlConfirmInvalidJsonTest,matchCtrlConfirmInvalidJsonTest){
 	MatchController* matchCtrl = new MatchController(mockMatchService);
 
 	string code;
-	EXPECT_NO_THROW({code = matchCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==matchCtrl->STATUS_NOK);
+	EXPECT_NO_THROW(
+	{
+		code = matchCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == matchCtrl->STATUS_NOK);
 	delete matchCtrl;
 	delete nc;
 	delete hm;
@@ -506,16 +582,17 @@ TEST(MatchCtrlConfirmInvalidJsonTest,matchCtrlConfirmInvalidJsonTest){
 /**
  * Test para probar cuando se invoca a /match/confirm y devuelve error por usuario no encontrado
  */
-TEST(MatchCtrlConfirmUserNotFoundTest,matchCtrlConfirmUserNotFoundTest){
+TEST(MatchCtrlConfirmUserNotFoundTest,matchCtrlConfirmUserNotFoundTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/match/confirm";
 	string method = "POST";
 	string json = "{\"idFrom\":\"10\" , \"idTo\":\"11\" }";
 
-	hm->body.p=json.c_str();
+	hm->body.p = json.c_str();
 	hm->body.len = json.length();
 	hm->uri.p = url.c_str();
 	hm->uri.len = url.length();
@@ -528,8 +605,13 @@ TEST(MatchCtrlConfirmUserNotFoundTest,matchCtrlConfirmUserNotFoundTest){
 	EXPECT_CALL(*mockMatchService, confirmUser("10","11")).Times(1).WillRepeatedly(ThrowEntityNotFoundException());
 
 	string code;
-	EXPECT_NO_THROW({code = matchCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==matchCtrl->STATUS_NOT_FOUND);
+	EXPECT_NO_THROW(
+	{
+		code = matchCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == matchCtrl->STATUS_NOT_FOUND);
 	delete matchCtrl;
 	delete nc;
 	delete hm;
@@ -539,16 +621,17 @@ TEST(MatchCtrlConfirmUserNotFoundTest,matchCtrlConfirmUserNotFoundTest){
 /**
  * Test para probar cuando se invoca a /match/confirm y es inconsistente
  */
-TEST(MatchCtrlConfirmIllegalTest,matchCtrlConfirmIllegalTest){
+TEST(MatchCtrlConfirmIllegalTest,matchCtrlConfirmIllegalTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/match/confirm";
 	string method = "POST";
 	string json = "{\"idFrom\":\"10\" , \"idTo\":\"11\" }";
 
-	hm->body.p=json.c_str();
+	hm->body.p = json.c_str();
 	hm->body.len = json.length();
 	hm->uri.p = url.c_str();
 	hm->uri.len = url.length();
@@ -561,8 +644,13 @@ TEST(MatchCtrlConfirmIllegalTest,matchCtrlConfirmIllegalTest){
 	EXPECT_CALL(*mockMatchService, confirmUser("10","11")).Times(1).WillRepeatedly(ThrowEntityExistsException());
 
 	string code;
-	EXPECT_NO_THROW({code = matchCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==matchCtrl->STATUS_NOK);
+	EXPECT_NO_THROW(
+	{
+		code = matchCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == matchCtrl->STATUS_NOK);
 	delete matchCtrl;
 	delete nc;
 	delete hm;
@@ -572,10 +660,11 @@ TEST(MatchCtrlConfirmIllegalTest,matchCtrlConfirmIllegalTest){
 /**
  * Test para probar el camino feliz cuando se invoca a /chats
  */
-TEST(MatchCtrlGetChatsTest,matchCtrlGetChatsTest){
+TEST(MatchCtrlGetChatsTest,matchCtrlGetChatsTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/chats";
 	string method = "GET";
@@ -593,7 +682,7 @@ TEST(MatchCtrlGetChatsTest,matchCtrlGetChatsTest){
 	list<UserProfile*> chats;
 	UserProfile* user1 = new UserProfile("alinari", "1234");
 	UserProfile* user2 = new UserProfile("psivori", "4321");
-	Interest* interest = new Interest("Bands","Divididos");
+	Interest* interest = new Interest("Bands", "Divididos");
 	user1->addInterest(interest);
 	chats.push_back(user1);
 	chats.push_back(user2);
@@ -601,8 +690,13 @@ TEST(MatchCtrlGetChatsTest,matchCtrlGetChatsTest){
 	EXPECT_CALL(*mockMatchService, getChats("10")).Times(1).WillOnce(Return(chats));
 
 	string code;
-	EXPECT_NO_THROW({code = matchCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==matchCtrl->STATUS_OK);
+	EXPECT_NO_THROW(
+	{
+		code = matchCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == matchCtrl->STATUS_OK);
 	delete matchCtrl;
 	delete nc;
 	delete hm;
@@ -612,11 +706,11 @@ TEST(MatchCtrlGetChatsTest,matchCtrlGetChatsTest){
 /**
  * Test para probar cuando se invoca a /chats y devuelve error parametros invalidos
  */
-TEST(MatchCtrlGetChatsInvalidQueryStringTest, matchCtrlGetChatsInvalidQueryStringTest){
+TEST(MatchCtrlGetChatsInvalidQueryStringTest, matchCtrlGetChatsInvalidQueryStringTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
-
+	struct http_message *hm = new http_message();
 
 	string url = "/match";
 	string method = "GET";
@@ -632,22 +726,27 @@ TEST(MatchCtrlGetChatsInvalidQueryStringTest, matchCtrlGetChatsInvalidQueryStrin
 	MatchController* matchCtrl = new MatchController(mockMatchService);
 
 	string code;
-	EXPECT_NO_THROW({code = matchCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==matchCtrl->STATUS_NOK);
+	EXPECT_NO_THROW(
+	{
+		code = matchCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == matchCtrl->STATUS_NOK);
 	delete matchCtrl;
 	delete nc;
 	delete hm;
 
 }
 
-
 /**
  * Test para probar cuando se invoca a /chats y devuelve error por usuario no encontrado
  */
-TEST(MatchCtrlGetChatsUserNotFoundTest,matchCtrlGetChatsUserNotFoundTest){
+TEST(MatchCtrlGetChatsUserNotFoundTest,matchCtrlGetChatsUserNotFoundTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/chats";
 	string method = "GET";
@@ -665,8 +764,13 @@ TEST(MatchCtrlGetChatsUserNotFoundTest,matchCtrlGetChatsUserNotFoundTest){
 	EXPECT_CALL(*mockMatchService, getChats("10")).Times(1).WillRepeatedly(ThrowEntityNotFoundException());
 
 	string code;
-	EXPECT_NO_THROW({code = matchCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==matchCtrl->STATUS_NOT_FOUND);
+	EXPECT_NO_THROW(
+	{
+		code = matchCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == matchCtrl->STATUS_NOT_FOUND);
 	delete matchCtrl;
 	delete nc;
 	delete hm;
@@ -676,7 +780,8 @@ TEST(MatchCtrlGetChatsUserNotFoundTest,matchCtrlGetChatsUserNotFoundTest){
 /*
  * Correr con valgrind: valgrind --leak-check=full -v ./mockMatchCtrlTest
  */
-int main(int argc, char* argv[]){
+int main(int argc, char* argv[])
+{
 	::testing::InitGoogleMock(&argc, argv);
 
 	initialize();
@@ -688,7 +793,4 @@ int main(int argc, char* argv[]){
 
 	return RUN_ALL_TESTS();
 }
-
-
-
 

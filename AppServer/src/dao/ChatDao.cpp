@@ -7,8 +7,8 @@
 
 #include "ChatDao.h"
 
-
-Entity* ChatDao::get(string id){
+Entity* ChatDao::get(string id)
+{
 	string json;
 
 	json = DbHelper::get(id, CHAT);
@@ -17,13 +17,16 @@ Entity* ChatDao::get(string id){
 
 	return chat;
 }
-void ChatDao::put(string id, Entity* e){
+
+void ChatDao::put(string id, Entity* e)
+{
 	Chat* chat = dynamic_cast<Chat*>(e);
-	if (chat==0){
+	if (chat == 0)
+	{
 		throw InvalidEntityException();
 	}
 
 	string json = chat->toJson();
 
-	DbHelper::put(id,json,CHAT);
+	DbHelper::put(id, json, CHAT);
 }

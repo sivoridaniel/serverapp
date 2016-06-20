@@ -25,7 +25,8 @@ using namespace log4cplus;
 /**
  * Matcheo de usuario por intereses.
  */
-class MatchService : public IMatchService{
+class MatchService: public IMatchService
+{
 private:
 	MatchDao* matchDao;
 	SearchStatsDao* searchStatsDao;
@@ -47,7 +48,6 @@ public:
 	 * @param sharedService
 	 */
 	MatchService(MatchDao* matchDao, SearchStatsDao* searchStats, IChatService* chatService, IRemote* sharedService);
-
 
 	virtual ~MatchService();
 	/**
@@ -85,7 +85,7 @@ public:
 	 *
 	 */
 	list<UserProfile*> getNewMatches(string idUser);
-	
+
 	/**
 	 * Devuelve la lista de nuevos chats de un usuario.
 	 * En caso de no poder realizar la operación disparará la excepción EntityNotFoundException.
@@ -100,8 +100,8 @@ public:
 	/**
 	 * Valida que no sea el mismo usuario, que no lo haya rechazado, y que no haya sido aceptado.
 	 * Cumpliendose lo anterior, en caso de haber match, se procede al proceso de confirmación eliminandolo 
-     * de la columnfamily de nuevos matches y agregandolo en la columnfamily de aceptados. 
-     * Luego se crea el chat para poder iniciar la conversación entre ambos usuarios.	 
+	 * de la columnfamily de nuevos matches y agregandolo en la columnfamily de aceptados.
+	 * Luego se crea el chat para poder iniciar la conversación entre ambos usuarios.
 	 *
 	 * @param idUser
 	 * @param idUserConfirmed 
@@ -116,7 +116,6 @@ public:
 	 * en la de confirmados propia o si ya se creo el chat
 	 */
 	bool isACandidate(string idUser, string idOtherUser);
-
 
 };
 

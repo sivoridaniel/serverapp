@@ -8,11 +8,15 @@ using namespace std;
  * Clase que se utiliza para el ABM de usuarios en el server. 
  * Se utiliza para poder mockear los servicios de esta clase.
  */
- class IAbmUserService{
+class IAbmUserService
+{
 
 public:
 
-	virtual ~IAbmUserService(){};
+	virtual ~IAbmUserService()
+	{
+	}
+	;
 
 	virtual string createNewUser(UserProfile* userProfile)=0;
 

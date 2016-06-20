@@ -16,10 +16,17 @@ using namespace std;
 /**
  * Clase para guardar las listas de candidatos por usuario en la base
  */
-class CandidatesDao : public GenericDao{
+class CandidatesDao: public GenericDao
+{
 public:
-	CandidatesDao(){};
-	virtual ~CandidatesDao(){};
+	CandidatesDao()
+	{
+	}
+	;
+	virtual ~CandidatesDao()
+	{
+	}
+	;
 	/**
 	 * Se obtiene el candidato con id pasado por parámetro.
 	 * @param id
@@ -34,7 +41,7 @@ public:
 	 * @param entity
 	 * @throw InvalidEntityException
 	 */
-	void put(string id,Entity* entity);
+	void put(string id, Entity* entity);
 };
 
 #endif /* CANDIDATESDAO_H_ */

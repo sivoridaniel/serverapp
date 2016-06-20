@@ -8,25 +8,29 @@
 
 #include "RestClientHelper.h"
 
-RestResponse* RestClientHelper::put(string url, string json) {
+RestResponse* RestClientHelper::put(string url, string json)
+{
 	RestClient::response r = RestClient::put(url, "application/json", json);
 	RestResponse* response = new RestResponse(r.code, r.body);
 	return response;
 }
 
-RestResponse* RestClientHelper::del(string url) {
+RestResponse* RestClientHelper::del(string url)
+{
 	RestClient::response r = RestClient::del(url);
 	RestResponse* response = new RestResponse(r.code, r.body);
 	return response;
 }
 
-RestResponse* RestClientHelper::post(string url, string json) {
+RestResponse* RestClientHelper::post(string url, string json)
+{
 	RestClient::response r = RestClient::post(url, "application/json", json);
 	RestResponse* response = new RestResponse(r.code, r.body);
 	return response;
 }
 
-RestResponse* RestClientHelper::get(string url) {
+RestResponse* RestClientHelper::get(string url)
+{
 	RestClient::response r = RestClient::get(url);
 	RestResponse* response = new RestResponse(r.code, r.body);
 	return response;

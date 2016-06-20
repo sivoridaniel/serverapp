@@ -7,7 +7,8 @@
 
 #include "UserDao.h"
 
-Entity* UserDao::get(string email){
+Entity* UserDao::get(string email)
+{
 
 	string json;
 
@@ -18,14 +19,16 @@ Entity* UserDao::get(string email){
 	return usr;
 }
 
-void UserDao::put(string email, Entity* e){
+void UserDao::put(string email, Entity* e)
+{
 
 	UserProfile* user = dynamic_cast<UserProfile*>(e);
-	if (user==0){
+	if (user == 0)
+	{
 		throw InvalidEntityException();
 	}
 	std::string json = user->toJson();
 
-	DbHelper::put(email,json,USER);
+	DbHelper::put(email, json, USER);
 
 }

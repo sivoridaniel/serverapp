@@ -7,17 +7,19 @@
 
 #include "Interest.h"
 
-Interest::Interest(std::string category, std::string value) {
+Interest::Interest(std::string category, std::string value)
+{
 	this->category = category;
 	this->value = value;
 
 }
 
-Interest::~Interest() {
-	// TODO Auto-generated destructor stub
+Interest::~Interest()
+{
 }
 
-std::string Interest::toJson(){
+std::string Interest::toJson()
+{
 	Json::Value root;
 	Json::FastWriter writer;
 	root["interest"]["category"] = this->category;

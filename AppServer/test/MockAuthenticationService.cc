@@ -19,7 +19,8 @@ using namespace std;
 using ::testing::AtLeast;
 using ::testing::Return;
 
-class MockUserDao : public UserDao{
+class MockUserDao: public UserDao
+{
 public:
 
 	MOCK_METHOD1(get, Entity*(string id) );
@@ -28,7 +29,8 @@ public:
 
 };
 
-class MockSharedService : public IRemote{
+class MockSharedService: public IRemote
+{
 public:
 
 	MOCK_METHOD1(getUser, UserProfile*(string id) );
@@ -41,30 +43,41 @@ public:
 	MOCK_METHOD1(getPhoto, string(string id));
 };
 
-TEST(JwTokenTest, generatingToken){
+TEST(JwTokenTest, generatingToken)
+{
 
-	  JwToken* jwToken=new JwToken();
-	  string token = "";
+	JwToken* jwToken = new JwToken();
+	string token = "";
 
-	  EXPECT_NO_THROW({token=jwToken->generarToken("sivori.daniel@gmail.com");});
+	EXPECT_NO_THROW(
+	{
+		token = jwToken->generarToken("sivori.daniel@gmail.com")
+		;
+	}
+	);
 
-	  cout<<"*****************************************************************"<<endl;
-	  cout<<"TOKEN GENERADO: "<<token<<endl;
-	  cout<<"*****************************************************************"<<endl;
+	cout << "*****************************************************************" << endl;
+	cout << "TOKEN GENERADO: " << token << endl;
+	cout << "*****************************************************************" << endl;
 
-	  delete jwToken;
+	delete jwToken;
 }
 
-TEST(AuthorizationTokenTest, isValidToken){
+TEST(AuthorizationTokenTest, isValidToken)
+{
 
-	JwToken* jwToken=new JwToken();
-	string token="";
+	JwToken* jwToken = new JwToken();
+	string token = "";
 	bool isValidToken = false;
 
-	EXPECT_NO_THROW({token = jwToken->generarToken("17");});
+	EXPECT_NO_THROW(
+	{
+		token = jwToken->generarToken("17")
+		;
+	}
+	);
 
-	if(token.size()!=0)
-	   isValidToken=jwToken->isTokenValid(token);
+	if (token.size() != 0) isValidToken = jwToken->isTokenValid(token);
 
 	ASSERT_TRUE(isValidToken);
 
@@ -72,17 +85,23 @@ TEST(AuthorizationTokenTest, isValidToken){
 
 }
 
-TEST(AuthenticationServiceTest,login){
+TEST(AuthenticationServiceTest,login)
+{
 	MockUserDao* mockUserDao = new MockUserDao();
 	MockSharedService* mockShared = new MockSharedService();
-	UserProfile* userProfile = new UserProfile("sivori.daniel@gmail.com","password");
-	UserProfile* userProfileShared = new UserProfile("sivori.daniel@gmail.com","password");
+	UserProfile* userProfile = new UserProfile("sivori.daniel@gmail.com", "password");
+	UserProfile* userProfileShared = new UserProfile("sivori.daniel@gmail.com", "password");
 	userProfile->setId("1");
 	EXPECT_CALL(*mockUserDao, get("sivori.daniel@gmail.com")).Times(AtLeast(1)).WillOnce(Return(userProfile));
 	EXPECT_CALL(*mockShared, getUser("1")).Times(AtLeast(1)).WillOnce(Return(userProfileShared));
-	AuthenticationService* authenticationService = new AuthenticationService(mockUserDao,mockShared);
-	EXPECT_NO_THROW({authenticationService->getUserLogin("sivori.daniel@gmail.com","password");});
-	ASSERT_TRUE(userProfileShared->getPassword() == "password");
+	AuthenticationService* authenticationService = new AuthenticationService(mockUserDao, mockShared);
+	EXPECT_NO_THROW(
+	{
+		authenticationService->getUserLogin("sivori.daniel@gmail.com", "password")
+		;
+	}
+);
+		ASSERT_TRUE(userProfileShared->getPassword() == "password");
 	delete userProfileShared;
 	delete authenticationService;
 }
@@ -90,7 +109,8 @@ TEST(AuthenticationServiceTest,login){
 /*
  * Correr con valgrind: valgrind --leak-check=full -v ./authenticationServicetest
  */
-int main(int argc, char* argv[]){
+int main(int argc, char* argv[])
+{
 	::testing::InitGoogleMock(&argc, argv);
 
 	initialize();

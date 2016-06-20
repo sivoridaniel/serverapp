@@ -19,7 +19,8 @@
 using namespace std;
 using namespace log4cplus;
 
-class SearchCandidatesController : public AbstractController{
+class SearchCandidatesController: public AbstractController
+{
 private:
 	ISearchCandidatesService* searchService;
 public:
@@ -56,7 +57,6 @@ private:
 	 */
 	string event_handler_search_candidates(struct mg_connection *nc, struct http_message *hm, string token);
 	string createSearchResponse(list<UserProfile*> candidates);
-
 
 };
 

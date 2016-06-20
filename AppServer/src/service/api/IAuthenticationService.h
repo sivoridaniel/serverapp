@@ -6,20 +6,19 @@ using namespace std;
  * Clase que se utiliza para manejar la autenticación de usuarios. 
  * Se utiliza para poder mockear los servicios de esta clase.
  */
-class IAuthenticationService{
+class IAuthenticationService
+{
 
 public:
 
-	virtual ~IAuthenticationService(){};
+	virtual ~IAuthenticationService()
+	{
+	}
+	;
 
-	virtual UserProfile* getUserLogin(string username,string password) =0;
-
+	virtual UserProfile* getUserLogin(string username, string password) =0;
 
 };
 
 #endif
-
-
-
-
 

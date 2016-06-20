@@ -14,24 +14,30 @@
 
 using namespace std;
 
-class UserStat {
+class UserStat
+{
 public:
 	string idUser;
 	int likesCount;
 	int todaySearchsCount;
 	string lastSearch;
 
-	UserStat(string idUser, int likesCount, int todaySearchsCount, string lastSearch){
+	UserStat(string idUser, int likesCount, int todaySearchsCount, string lastSearch)
+	{
 		this->idUser = idUser;
 		this->likesCount = likesCount;
 		this->todaySearchsCount = todaySearchsCount;
 		this->lastSearch = lastSearch;
 	}
 
-	virtual ~UserStat(){};
+	virtual ~UserStat()
+	{
+	}
+	;
 };
 
-class SearchStats : public Entity{
+class SearchStats: public Entity
+{
 private:
 	list<UserStat*> usersStats;
 public:
@@ -50,7 +56,8 @@ public:
 
 	void updateLastSearch(string idUser);
 
-	list<UserStat*> getUsersStats(){
+	list<UserStat*> getUsersStats()
+	{
 		return this->usersStats;
 	}
 

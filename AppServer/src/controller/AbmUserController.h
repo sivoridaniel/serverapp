@@ -25,7 +25,8 @@ using namespace log4cplus;
  * de creación de nuevo usuario, y obtención de un usuario en particular.
  * Usa el servicio AbmUserService.
  */
-class AbmUserController: public AbstractController{
+class AbmUserController: public AbstractController
+{
 public:
 	AbmUserController(string url);
 	AbmUserController(IAbmUserService* abmService);
@@ -121,7 +122,6 @@ private:
 	 */
 	string event_handler_get_photo(struct mg_connection *nc, struct http_message *hm, string token);
 
-
 	/**
 	 * Transforma la lista de intereses devuelta por el shared a un json.
 	 *
@@ -133,7 +133,6 @@ private:
 	string createInterestsResponse(list<Interest*> intereses);
 
 	string createPhotoResponse(string photo);
-
 
 };
 

@@ -25,10 +25,13 @@ using namespace log4cplus;
  * Maneja la api rest de authenticacion.
  * Usa los servicios de AuthenticationService y AbmUserService.
  */
-class AuthenticationController:public AbstractController {
+class AuthenticationController: public AbstractController
+{
 
 public:
+
 	AuthenticationController(string url);
+
 	AuthenticationController(IAuthenticationService* authService, IAbmUserService* abmUserService);
 	/**
 	 * Maneja las llamadas de login pasandole el message con los paramatros
@@ -40,9 +43,11 @@ public:
 	 * @return string status error (200: OK, 400: NOK, 404: NOT_FOUND)
 	 */
 	string connect(struct mg_connection *nc, struct http_message *hm, bool test);
+
 	virtual ~AuthenticationController();
 
 private:
+
 	IAuthenticationService* authenticationService;
 	IAbmUserService* abmUserService;
 	/**
@@ -87,7 +92,5 @@ private:
 
 	string createLoginResponse(UserProfile* user);
 };
-
-
 
 #endif /* SRC_CONTROLLER_IAUTHENTICATIONCONTROLLER_H_ */

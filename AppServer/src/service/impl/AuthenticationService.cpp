@@ -7,31 +7,36 @@
 
 #include "AuthenticationService.h"
 
-AuthenticationService::AuthenticationService(string url) {
+AuthenticationService::AuthenticationService(string url)
+{
 	this->userDao = new UserDao();
 	this->remoteSharedService = new RemoteSharedService(url);
 }
 
-AuthenticationService::AuthenticationService(UserDao* userDao,IRemote* remoteSharedService){
+AuthenticationService::AuthenticationService(UserDao* userDao, IRemote* remoteSharedService)
+{
 	this->userDao = userDao;
 	this->remoteSharedService = remoteSharedService;
 }
 
-UserProfile* AuthenticationService::getUserLogin(string email, string password){
+UserProfile* AuthenticationService::getUserLogin(string email, string password)
+{
 
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AuthenticationService"));
 	UserProfile* userProfile = NULL;
 
-	try{
+	try
+	{
 
-		userProfile=(UserProfile*)userDao->get(email);
+		userProfile = (UserProfile*) userDao->get(email);
 		LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("JSON: "<<userProfile->toJson()));
 		LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Password base "<<userProfile->getPassword()));
 		LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Password ingresado "<<password));
 		LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Email base "<<userProfile->getEmail()));
 		string passwordBase = userProfile->getPassword();
 
-		if( !password.empty() && (password.compare(userProfile->getPassword())!=0)){
+		if (!password.empty() && (password.compare(userProfile->getPassword()) != 0))
+		{
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("Usuario de id "<<userProfile->getId()<<" con contraseña incorrecta."));
 			delete userProfile;
 			throw IncorrectPasswordException();
@@ -43,17 +48,20 @@ UserProfile* AuthenticationService::getUserLogin(string email, string password){
 
 		userProfile->setPassword(passwordBase);
 
-	}catch(EntityNotFoundException& e){
+	} catch (EntityNotFoundException& e)
+	{
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario con email "<<email<<" no se encuentra registrado."));
 		throw e;
-	}catch(exception& e){
+	} catch (exception& e)
+	{
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 		throw e;
 	}
-    return userProfile;
+	return userProfile;
 }
 
-AuthenticationService::~AuthenticationService() {
+AuthenticationService::~AuthenticationService()
+{
 	delete userDao;
 	delete remoteSharedService;
 }

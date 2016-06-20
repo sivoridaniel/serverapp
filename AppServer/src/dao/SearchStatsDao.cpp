@@ -7,7 +7,8 @@
 
 #include "SearchStatsDao.h"
 
-Entity* SearchStatsDao::get(string id){
+Entity* SearchStatsDao::get(string id)
+{
 
 	string json;
 
@@ -18,14 +19,16 @@ Entity* SearchStatsDao::get(string id){
 	return searchStats;
 }
 
-void SearchStatsDao::put(string id, Entity* e){
+void SearchStatsDao::put(string id, Entity* e)
+{
 
 	SearchStats* searchStats = dynamic_cast<SearchStats*>(e);
-	if (searchStats==0){
+	if (searchStats == 0)
+	{
 		throw InvalidEntityException();
 	}
 	std::string json = searchStats->toJson();
 
-	DbHelper::put(id,json,SEARCH_STATS);
+	DbHelper::put(id, json, SEARCH_STATS);
 
 }

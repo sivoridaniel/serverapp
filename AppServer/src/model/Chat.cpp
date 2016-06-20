@@ -7,12 +7,14 @@
 
 #include "Chat.h"
 
-Chat::Chat(string json){
+Chat::Chat(string json)
+{
 	Json::Value root;
 	Json::Reader reader;
 	bool ok = reader.parse(json.c_str(), root);
-	if (!ok) {
-	    throw JsonParseException();
+	if (!ok)
+	{
+		throw JsonParseException();
 	}
 	this->idUser1 = root["chat"].get("iduser1", "").asString();
 	this->idUser2 = root["chat"].get("iduser2", "").asString();
@@ -20,7 +22,8 @@ Chat::Chat(string json){
 	this->lastSeenByUser2 = std::stoi(root["chat"].get("lastseen2", "").asString());
 
 	const Json::Value messages = root["chat"]["messages"];
-	for (unsigned int i = 0; i < messages.size(); ++i){
+	for (unsigned int i = 0; i < messages.size(); ++i)
+	{
 		long id = std::stol(messages[i]["id"].asString());
 		string user = messages[i]["user"].asString();
 		string value = messages[i]["value"].asString();
@@ -29,21 +32,25 @@ Chat::Chat(string json){
 	}
 }
 
-Chat::Chat(string idUser1, string idUser2) {
+Chat::Chat(string idUser1, string idUser2)
+{
 	this->idUser1 = idUser1;
 	this->idUser2 = idUser2;
 	this->lastSeenByUser1 = 0;
 	this->lastSeenByUser2 = 0;
 }
 
-Chat::~Chat() {
-	for (vector< Message* >::iterator it=messages.begin(); it!=messages.end(); ++it){
+Chat::~Chat()
+{
+	for (vector<Message*>::iterator it = messages.begin(); it != messages.end(); ++it)
+	{
 		Message* message = *it;
 		delete message;
 	}
 }
 
-string Chat::toJson(){
+string Chat::toJson()
+{
 	Json::Value root;
 	Json::Value vecInterests(Json::arrayValue);
 	Json::FastWriter writer;
@@ -52,8 +59,9 @@ string Chat::toJson(){
 	root["chat"]["iduser2"] = this->idUser2;
 	root["chat"]["lastseen1"] = std::to_string(this->lastSeenByUser1);
 	root["chat"]["lastseen2"] = std::to_string(this->lastSeenByUser2);
-	int i=0;
-	for (vector< Message* >::iterator it=messages.begin(); it!=messages.end(); ++it){
+	int i = 0;
+	for (vector<Message*>::iterator it = messages.begin(); it != messages.end(); ++it)
+	{
 		Message* message = *it;
 		root["chat"]["messages"][i]["id"] = std::to_string(message->getId());
 		root["chat"]["messages"][i]["user"] = message->getIdUser();
@@ -65,25 +73,29 @@ string Chat::toJson(){
 	return json;
 }
 
-
-vector<Message*> Chat::getNewMessages(string idUser){
+vector<Message*> Chat::getNewMessages(string idUser)
+{
 	int lastMessageSeen = 0;
-	if (idUser.compare(idUser1)==0){
+	if (idUser.compare(idUser1) == 0)
+	{
 		lastMessageSeen = lastSeenByUser1;
 	}
 
-	if (idUser.compare(idUser2)==0){
+	if (idUser.compare(idUser2) == 0)
+	{
 		lastMessageSeen = lastSeenByUser2;
 	}
 
 	vector<Message*> mess;
-	for (std::vector<Message*>::iterator it=messages.begin(); it!=messages.end(); ++it){
+	for (std::vector<Message*>::iterator it = messages.begin(); it != messages.end(); ++it)
+	{
 		Message* mes = *it;
 		long id = mes->getId();
-		if (lastMessageSeen<id){
-			string idUser  = mes->getIdUser();
+		if (lastMessageSeen < id)
+		{
+			string idUser = mes->getIdUser();
 			string content = mes->getMessage();
-			Message* message = new Message(id,idUser,content);
+			Message* message = new Message(id, idUser, content);
 			mess.push_back(message);
 		}
 	}

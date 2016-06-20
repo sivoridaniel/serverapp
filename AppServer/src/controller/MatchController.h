@@ -22,7 +22,8 @@ using namespace log4cplus;
 /**
  * Para manejar la api rest de matching
  */
-class MatchController : public AbstractController{
+class MatchController: public AbstractController
+{
 
 private:
 	IMatchService* matchService;

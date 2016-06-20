@@ -17,28 +17,28 @@ using ::testing::AtLeast;
 using ::testing::Return;
 using ::testing::_;
 
-class MockSearchCandidatesService : public ISearchCandidatesService{
+class MockSearchCandidatesService: public ISearchCandidatesService
+{
 public:
 	MOCK_METHOD1(getCandidates, list<UserProfile*>(string));
 };
 
 ACTION(ThrowSearchDailyLimitExcededException){
-	throw SearchDailyLimitExcededException();
+throw SearchDailyLimitExcededException();
 }
 
 ACTION(ThrowEntityNotFoundException){
-	throw EntityNotFoundException();
+throw EntityNotFoundException();
 }
-
 
 /**
  * Test para probar el camino feliz cuando se invoca a /candidates
  */
-TEST(SearchCtrlTest,searchCtrlTest){
+TEST(SearchCtrlTest,searchCtrlTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
-
+	struct http_message *hm = new http_message();
 
 	string url = "/candidates";
 	string method = "GET";
@@ -50,13 +50,12 @@ TEST(SearchCtrlTest,searchCtrlTest){
 	hm->query_string.p = queryString.c_str();
 	hm->query_string.len = queryString.length();
 
-
 	MockSearchCandidatesService* mockSearchService = new MockSearchCandidatesService();
 	SearchCandidatesController* searchCtrl = new SearchCandidatesController(mockSearchService);
 	list<UserProfile*> candidates;
 	UserProfile* user1 = new UserProfile("alinari", "1234");
 	UserProfile* user2 = new UserProfile("psivori", "4321");
-	Interest* interest = new Interest("Bands","Divididos");
+	Interest* interest = new Interest("Bands", "Divididos");
 	user1->addInterest(interest);
 	candidates.push_back(user1);
 	candidates.push_back(user2);
@@ -64,8 +63,13 @@ TEST(SearchCtrlTest,searchCtrlTest){
 	EXPECT_CALL(*mockSearchService, getCandidates("10")).Times(1).WillOnce(Return(candidates));
 
 	string code;
-	EXPECT_NO_THROW({code = searchCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==searchCtrl->STATUS_OK);
+	EXPECT_NO_THROW(
+	{
+		code = searchCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == searchCtrl->STATUS_OK);
 	delete searchCtrl;
 	delete nc;
 	delete hm;
@@ -75,11 +79,11 @@ TEST(SearchCtrlTest,searchCtrlTest){
 /**
  * Test para probar cuando se invoca a /candidates sin id usuario
  */
-TEST(SearchCtrlInvalidQueryStringTest,searchCtrlInvalidQueryStringTest){
+TEST(SearchCtrlInvalidQueryStringTest,searchCtrlInvalidQueryStringTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
-
+	struct http_message *hm = new http_message();
 
 	string url = "/candidates";
 	string method = "GET";
@@ -91,13 +95,17 @@ TEST(SearchCtrlInvalidQueryStringTest,searchCtrlInvalidQueryStringTest){
 	hm->query_string.p = queryString.c_str();
 	hm->query_string.len = queryString.length();
 
-
 	MockSearchCandidatesService* mockSearchService = new MockSearchCandidatesService();
 	SearchCandidatesController* searchCtrl = new SearchCandidatesController(mockSearchService);
 
 	string code;
-	EXPECT_NO_THROW({code = searchCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==searchCtrl->STATUS_NOK);
+	EXPECT_NO_THROW(
+	{
+		code = searchCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == searchCtrl->STATUS_NOK);
 	delete searchCtrl;
 	delete nc;
 	delete hm;
@@ -107,11 +115,11 @@ TEST(SearchCtrlInvalidQueryStringTest,searchCtrlInvalidQueryStringTest){
 /**
  * Test para probar cuando se invoca a /candidates y devuelve error por limite diario superado
  */
-TEST(SearchCtrlDailyLimitTest,searchCtrlDailyLimitTest){
+TEST(SearchCtrlDailyLimitTest,searchCtrlDailyLimitTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
-
+	struct http_message *hm = new http_message();
 
 	string url = "/candidates";
 	string method = "GET";
@@ -123,15 +131,19 @@ TEST(SearchCtrlDailyLimitTest,searchCtrlDailyLimitTest){
 	hm->query_string.p = queryString.c_str();
 	hm->query_string.len = queryString.length();
 
-
 	MockSearchCandidatesService* mockSearchService = new MockSearchCandidatesService();
 	SearchCandidatesController* searchCtrl = new SearchCandidatesController(mockSearchService);
 
 	EXPECT_CALL(*mockSearchService, getCandidates("10")).Times(1).WillRepeatedly(ThrowSearchDailyLimitExcededException());
 
 	string code;
-	EXPECT_NO_THROW({code = searchCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==searchCtrl->STATUS_NOK);
+	EXPECT_NO_THROW(
+	{
+		code = searchCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == searchCtrl->STATUS_NOK);
 	delete searchCtrl;
 	delete nc;
 	delete hm;
@@ -141,11 +153,11 @@ TEST(SearchCtrlDailyLimitTest,searchCtrlDailyLimitTest){
 /**
  * Test para probar cuando se invoca a /candidates y devuelve error por usuario no encontrado
  */
-TEST(SearchCtrlUserNotFoundTest,searchCtrlUserNotFoundTest){
+TEST(SearchCtrlUserNotFoundTest,searchCtrlUserNotFoundTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
-
+	struct http_message *hm = new http_message();
 
 	string url = "/candidates";
 	string method = "GET";
@@ -157,27 +169,30 @@ TEST(SearchCtrlUserNotFoundTest,searchCtrlUserNotFoundTest){
 	hm->query_string.p = queryString.c_str();
 	hm->query_string.len = queryString.length();
 
-
 	MockSearchCandidatesService* mockSearchService = new MockSearchCandidatesService();
 	SearchCandidatesController* searchCtrl = new SearchCandidatesController(mockSearchService);
 
 	EXPECT_CALL(*mockSearchService, getCandidates("11")).Times(1).WillRepeatedly(ThrowEntityNotFoundException());
 
 	string code;
-	EXPECT_NO_THROW({code = searchCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==searchCtrl->STATUS_NOT_FOUND);
+	EXPECT_NO_THROW(
+	{
+		code = searchCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == searchCtrl->STATUS_NOT_FOUND);
 	delete searchCtrl;
 	delete nc;
 	delete hm;
 
 }
 
-
-
 /*
  * Correr con valgrind: valgrind --leak-check=full -v ./mockSearchCtrlTest
  */
-int main(int argc, char* argv[]){
+int main(int argc, char* argv[])
+{
 	::testing::InitGoogleMock(&argc, argv);
 
 	initialize();

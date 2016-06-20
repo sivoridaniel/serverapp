@@ -6,11 +6,15 @@ using namespace std;
  * Clase que se utiliza para el Match de usuarios. 
  * Se utiliza para poder mockear los servicios de esta clase.
  */
-class IMatchService{
+class IMatchService
+{
 
 public:
 
-	virtual ~IMatchService(){};
+	virtual ~IMatchService()
+	{
+	}
+	;
 
 	virtual bool addToYesList(string idUser, string idUserAccepted)=0;
 

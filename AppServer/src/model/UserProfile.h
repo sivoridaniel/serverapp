@@ -18,7 +18,8 @@
 
 using namespace std;
 
-class UserProfile : public Entity{
+class UserProfile: public Entity
+{
 private:
 	string id;
 	string name;
@@ -42,92 +43,113 @@ public:
 
 	string toSharedJson();
 
-
-	const string& getName() const {
+	const string& getName() const
+	{
 		return name;
 	}
 
-	void setName(const string& name) {
+	void setName(const string& name)
+	{
 		this->name = name;
 	}
 
-	const string& getPassword() const {
+	const string& getPassword() const
+	{
 		return password;
 	}
 
-	const string& getSex() const {
+	const string& getSex() const
+	{
 		return sex;
 	}
 
-	void setSex(const string& sex) {
+	void setSex(const string& sex)
+	{
 		this->sex = sex;
 	}
 
-	const string& getAge() const {
+	const string& getAge() const
+	{
 		return age;
 	}
 
-	void setAge(const string& age) {
+	void setAge(const string& age)
+	{
 		this->age = age;
 	}
 
-	void setPassword(const string& password) {
+	void setPassword(const string& password)
+	{
 		this->password = password;
 	}
 
-	const string& getToken() const{
+	const string& getToken() const
+	{
 		return token;
 	}
 
-	void setToken(const string& token){
+	void setToken(const string& token)
+	{
 		this->token = token;
 	}
 
-	const string& getEmail() const {
+	const string& getEmail() const
+	{
 		return email;
 	}
 
-	void setEmail(const string& email) {
+	void setEmail(const string& email)
+	{
 		this->email = email;
 	}
 
-	const string& getAlias() const {
+	const string& getAlias() const
+	{
 		return alias;
 	}
 
-	void setAlias(const string& alias) {
+	void setAlias(const string& alias)
+	{
 		this->alias = alias;
 	}
 
-	const string& getId() const {
+	const string& getId() const
+	{
 		return id;
 	}
 
-	void setId(const string& id) {
+	void setId(const string& id)
+	{
 		this->id = id;
 	}
 
-	const list<Interest*>& getInterests() const {
+	const list<Interest*>& getInterests() const
+	{
 		return interests;
 	}
 
-	void setInterests(const list<Interest*>& interests) {
+	void setInterests(const list<Interest*>& interests)
+	{
 		this->interests = interests;
 	}
 
-	Location* getLocation() const {
+	Location* getLocation() const
+	{
 		return location;
 	}
 
-	void setLocation(Location* location) {
+	void setLocation(Location* location)
+	{
 		this->location = location;
 	}
 
-	const std::string& getPhotoProfile() const {
+	const std::string& getPhotoProfile() const
+	{
 		return photoProfile;
 	}
 
-	void setPhotoProfile(const string& photoProfile) {
+	void setPhotoProfile(const string& photoProfile)
+	{
 		this->photoProfile = photoProfile;
 	}
 

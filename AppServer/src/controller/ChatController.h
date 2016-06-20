@@ -20,7 +20,8 @@
 using namespace std;
 using namespace log4cplus;
 
-class ChatController : public AbstractController{
+class ChatController: public AbstractController
+{
 
 private:
 	IChatService* chatService;

@@ -17,10 +17,18 @@ using namespace std;
  * Clase para realizar las operaciones en la base con respecto a la entity
  * Match.
  */
-class MatchDao : public GenericDao{
+class MatchDao: public GenericDao
+{
+
 public:
-	MatchDao(){};
-	virtual ~MatchDao(){};
+	MatchDao()
+	{
+	}
+	;
+	virtual ~MatchDao()
+	{
+	}
+	;
 	/**
 	 * Se obtiene el Match con id pasado por parámetro.
 	 * @param id
@@ -35,7 +43,7 @@ public:
 	 * @param entity
 	 * @throw InvalidEntityException
 	 */
-	void put(string id,Entity* entity);
+	void put(string id, Entity* entity);
 };
 
 #endif /* MATCHDAO_H_ */

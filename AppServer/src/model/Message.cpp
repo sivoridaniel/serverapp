@@ -7,18 +7,20 @@
 
 #include "Message.h"
 
-Message::Message(long id, string idUser, string message){
+Message::Message(long id, string idUser, string message)
+{
 	this->id = id;
 	this->idUser = idUser;
 	this->message = message;
 
 }
 
-Message::~Message() {
-	// TODO Auto-generated destructor stub
+Message::~Message()
+{
 }
 
-string Message::toJson(){
+string Message::toJson()
+{
 	Json::Value root;
 	Json::FastWriter writer;
 	root["message"]["id"] = std::to_string(this->id);

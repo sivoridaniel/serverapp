@@ -13,7 +13,8 @@
 
 using namespace std;
 
-class Location : public Entity{
+class Location: public Entity
+{
 private:
 	string longitude;
 	string latitude;
@@ -23,19 +24,23 @@ public:
 
 	std::string toJson();
 
-	string getLatitude() const {
+	string getLatitude() const
+	{
 		return latitude;
 	}
 
-	void setLatitude(string latitude) {
+	void setLatitude(string latitude)
+	{
 		this->latitude = latitude;
 	}
 
-	string getLongitude() const {
+	string getLongitude() const
+	{
 		return longitude;
 	}
 
-	void setLongitude(string longitude) {
+	void setLongitude(string longitude)
+	{
 		this->longitude = longitude;
 	}
 };

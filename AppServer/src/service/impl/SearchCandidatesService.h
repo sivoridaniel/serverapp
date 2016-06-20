@@ -21,11 +21,11 @@
 #include <restclient-cpp/restclient.h>
 #include <restclient-cpp/meta.h>
 
-
 using namespace std;
 using namespace log4cplus;
 
-class SearchCandidatesService : public ISearchCandidatesService{
+class SearchCandidatesService: public ISearchCandidatesService
+{
 private:
 	SearchStatsDao* searchStatsDao;
 	IMatchService* matchService;
@@ -63,7 +63,6 @@ private:
 	bool isOnePercentRule(string idUser);
 	bool hasAvailableSearchs(string idUser);
 	void updateSearchStats(string idUser);
-
 
 };
 

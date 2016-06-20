@@ -7,9 +7,10 @@
 #define ENTITYEXISTSEXCEPTION_H_
 #include <exception>
 
-class EntityExistsException: public std::exception {
+class EntityExistsException: public std::exception
+{
 public:
-	virtual const char* what() const throw()
+	virtual const char* what() const throw ()
 	{
 		return "La entidad ya existe";
 	}

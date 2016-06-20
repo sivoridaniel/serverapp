@@ -18,7 +18,8 @@ using ::testing::AtLeast;
 using ::testing::Return;
 using ::testing::_;
 
-class MockAbmUserService : public IAbmUserService{
+class MockAbmUserService: public IAbmUserService
+{
 public:
 	MOCK_METHOD1(createNewUser, string(UserProfile*));
 	MOCK_METHOD1(modifyUser, void(UserProfile*));
@@ -27,13 +28,12 @@ public:
 	MOCK_METHOD0(getInterests, list<Interest*>());
 };
 
-
 ACTION(ThrowEntityNotFoundException){
-	throw EntityNotFoundException();
+throw EntityNotFoundException();
 }
 
 ACTION(ThrowRemoteException){
-	throw RemoteException();
+throw RemoteException();
 }
 
 /*
@@ -46,22 +46,22 @@ ACTION(ThrowRemoteException){
 /**
  * Test para probar el camino feliz cuando se invoca a /user/newuser
  */
-TEST(AbmUserNewUserCtrlTest,abmUserNewUserCtrlTest){
+TEST(AbmUserNewUserCtrlTest,abmUserNewUserCtrlTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/user/newuser";
 	string method = "POST";
 	string json = "{\"user\":{\"name\":\"Agustin\" , \"email\":\"alinari@gmail.com\", \"password\":\"1234\"} }";
 
-	hm->body.p=json.c_str();
+	hm->body.p = json.c_str();
 	hm->body.len = json.length();
 	hm->uri.p = url.c_str();
 	hm->uri.len = url.length();
 	hm->method.p = method.c_str();
 	hm->method.len = method.length();
-
 
 	MockAbmUserService* mockAbmService = new MockAbmUserService();
 	AbmUserController* abmCtrl = new AbmUserController(mockAbmService);
@@ -69,8 +69,13 @@ TEST(AbmUserNewUserCtrlTest,abmUserNewUserCtrlTest){
 	EXPECT_CALL(*mockAbmService, createNewUser(_)).Times(1);
 
 	string code;
-	EXPECT_NO_THROW({code = abmCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==abmCtrl->STATUS_OK);
+	EXPECT_NO_THROW(
+	{
+		code = abmCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == abmCtrl->STATUS_OK);
 	delete abmCtrl;
 	delete nc;
 	delete hm;
@@ -80,16 +85,17 @@ TEST(AbmUserNewUserCtrlTest,abmUserNewUserCtrlTest){
 /**
  * Test para probar cuando se invoca a /user/newuser y da error remoto
  */
-TEST(AbmCtrlNewUserRemoteErrorTest,abmCtrlNewUserRemoteErrorTest){
+TEST(AbmCtrlNewUserRemoteErrorTest,abmCtrlNewUserRemoteErrorTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/user/newuser";
 	string method = "POST";
 	string json = "{\"user\":{\"name\":\"Agustin\" , \"email\":\"alinari@gmail.com\", \"password\":\"1234\"} }";
 
-	hm->body.p=json.c_str();
+	hm->body.p = json.c_str();
 	hm->body.len = json.length();
 	hm->uri.p = url.c_str();
 	hm->uri.len = url.length();
@@ -102,28 +108,33 @@ TEST(AbmCtrlNewUserRemoteErrorTest,abmCtrlNewUserRemoteErrorTest){
 	EXPECT_CALL(*mockAbmService, createNewUser(_)).Times(1).WillOnce(ThrowRemoteException());
 
 	string code;
-	EXPECT_NO_THROW({code = abmCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==abmCtrl->STATUS_NOK);
+	EXPECT_NO_THROW(
+	{
+		code = abmCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == abmCtrl->STATUS_NOK);
 	delete abmCtrl;
 	delete nc;
 	delete hm;
 
 }
 
-
 /**
  * Test para probar cuando se invoca a/user/newuser y el json es invalido
  */
-TEST(AbmCtrlNewUserInvalidJsonTest,authCtrlNewUserInvalidJsonTest){
+TEST(AbmCtrlNewUserInvalidJsonTest,authCtrlNewUserInvalidJsonTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/user/newuser";
 	string method = "POST";
 	string json = "{\"user\":{\"name\":\"Agustin\" , \"email\":\"alinari@gmail.com\", }";
 
-	hm->body.p=json.c_str();
+	hm->body.p = json.c_str();
 	hm->body.len = json.length();
 	hm->uri.p = url.c_str();
 	hm->uri.len = url.length();
@@ -134,34 +145,38 @@ TEST(AbmCtrlNewUserInvalidJsonTest,authCtrlNewUserInvalidJsonTest){
 	AbmUserController* abmCtrl = new AbmUserController(mockAbmService);
 
 	string code;
-	EXPECT_NO_THROW({code = abmCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==abmCtrl->STATUS_NOK);
+	EXPECT_NO_THROW(
+	{
+		code = abmCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == abmCtrl->STATUS_NOK);
 	delete abmCtrl;
 	delete nc;
 	delete hm;
 
 }
 
-
 /**
  * Test para probar el camino feliz cuando se invoca a /user/updateuser
  */
-TEST(AbmUserUpdateUserCtrlTest,abmUserUpdateUserCtrlTest){
+TEST(AbmUserUpdateUserCtrlTest,abmUserUpdateUserCtrlTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/user/updateuser";
 	string method = "PUT";
 	string json = "{\"user\":{\"name\":\"Agustin\" , \"email\":\"alinari@gmail.com\", \"password\":\"1234\"} }";
 
-	hm->body.p=json.c_str();
+	hm->body.p = json.c_str();
 	hm->body.len = json.length();
 	hm->uri.p = url.c_str();
 	hm->uri.len = url.length();
 	hm->method.p = method.c_str();
 	hm->method.len = method.length();
-
 
 	MockAbmUserService* mockAbmService = new MockAbmUserService();
 	AbmUserController* abmCtrl = new AbmUserController(mockAbmService);
@@ -169,8 +184,13 @@ TEST(AbmUserUpdateUserCtrlTest,abmUserUpdateUserCtrlTest){
 	EXPECT_CALL(*mockAbmService, modifyUser(_)).Times(1);
 
 	string code;
-	EXPECT_NO_THROW({code = abmCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==abmCtrl->STATUS_OK);
+	EXPECT_NO_THROW(
+	{
+		code = abmCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == abmCtrl->STATUS_OK);
 	delete abmCtrl;
 	delete nc;
 	delete hm;
@@ -180,16 +200,17 @@ TEST(AbmUserUpdateUserCtrlTest,abmUserUpdateUserCtrlTest){
 /**
  * Test para probar cuando se invoca a /user/updateuser y da error remoto
  */
-TEST(AuthCtrlUpdateUserRemoteErrorTest,authCtrlUpdateUserRemoteErrorTest){
+TEST(AuthCtrlUpdateUserRemoteErrorTest,authCtrlUpdateUserRemoteErrorTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/user/updateuser";
 	string method = "PUT";
 	string json = "{\"user\":{\"name\":\"Agustin\" , \"email\":\"alinari@gmail.com\", \"password\":\"1234\"} }";
 
-	hm->body.p=json.c_str();
+	hm->body.p = json.c_str();
 	hm->body.len = json.length();
 	hm->uri.p = url.c_str();
 	hm->uri.len = url.length();
@@ -202,28 +223,33 @@ TEST(AuthCtrlUpdateUserRemoteErrorTest,authCtrlUpdateUserRemoteErrorTest){
 	EXPECT_CALL(*mockAbmService, modifyUser(_)).Times(1).WillOnce(ThrowRemoteException());
 
 	string code;
-	EXPECT_NO_THROW({code = abmCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==abmCtrl->STATUS_NOK);
+	EXPECT_NO_THROW(
+	{
+		code = abmCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == abmCtrl->STATUS_NOK);
 	delete abmCtrl;
 	delete nc;
 	delete hm;
 
 }
 
-
 /**
  * Test para probar cuando se invoca a /user/updateuser y da usuario no encontrado
  */
-TEST(AuthCtrlUpdateUserNotFoundTest,authCtrlUpdateUserNotFoundTest){
+TEST(AuthCtrlUpdateUserNotFoundTest,authCtrlUpdateUserNotFoundTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/user/updateuser";
 	string method = "PUT";
 	string json = "{\"user\":{\"name\":\"Agustin\" , \"email\":\"alinari@gmail.com\", \"password\":\"1234\"} }";
 
-	hm->body.p=json.c_str();
+	hm->body.p = json.c_str();
 	hm->body.len = json.length();
 	hm->uri.p = url.c_str();
 	hm->uri.len = url.length();
@@ -236,8 +262,13 @@ TEST(AuthCtrlUpdateUserNotFoundTest,authCtrlUpdateUserNotFoundTest){
 	EXPECT_CALL(*mockAbmService, modifyUser(_)).Times(1).WillOnce(ThrowEntityNotFoundException());
 
 	string code;
-	EXPECT_NO_THROW({code = abmCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==abmCtrl->STATUS_NOT_FOUND);
+	EXPECT_NO_THROW(
+	{
+		code = abmCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == abmCtrl->STATUS_NOT_FOUND);
 	delete abmCtrl;
 	delete nc;
 	delete hm;
@@ -247,16 +278,17 @@ TEST(AuthCtrlUpdateUserNotFoundTest,authCtrlUpdateUserNotFoundTest){
 /**
  * Test para probar cuando se invoca a/user/updateuser y el json es invalido
  */
-TEST(AbmCtrlUpdateUserInvalidJsonTest,abmCtrlUpdateUserInvalidJsonTest){
+TEST(AbmCtrlUpdateUserInvalidJsonTest,abmCtrlUpdateUserInvalidJsonTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/user/updateuser";
 	string method = "PUT";
 	string json = "{\"user\":{\"name\":\"Agustin\" , \"email\":\"alinari@gmail.com\", }";
 
-	hm->body.p=json.c_str();
+	hm->body.p = json.c_str();
 	hm->body.len = json.length();
 	hm->uri.p = url.c_str();
 	hm->uri.len = url.length();
@@ -267,8 +299,13 @@ TEST(AbmCtrlUpdateUserInvalidJsonTest,abmCtrlUpdateUserInvalidJsonTest){
 	AbmUserController* abmCtrl = new AbmUserController(mockAbmService);
 
 	string code;
-	EXPECT_NO_THROW({code = abmCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==abmCtrl->STATUS_NOK);
+	EXPECT_NO_THROW(
+	{
+		code = abmCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == abmCtrl->STATUS_NOK);
 	delete abmCtrl;
 	delete nc;
 	delete hm;
@@ -278,10 +315,11 @@ TEST(AbmCtrlUpdateUserInvalidJsonTest,abmCtrlUpdateUserInvalidJsonTest){
 /**
  * Test para probar el camino feliz cuando se invoca a /user/photo
  */
-TEST(AbmUserGetPhotoCtrlTest,abmUserGetPhotoCtrlTest){
+TEST(AbmUserGetPhotoCtrlTest,abmUserGetPhotoCtrlTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/user/photo";
 	string method = "GET";
@@ -299,22 +337,27 @@ TEST(AbmUserGetPhotoCtrlTest,abmUserGetPhotoCtrlTest){
 	EXPECT_CALL(*mockAbmService, getPhoto("10")).Times(1).WillRepeatedly(Return("photobase64"));
 
 	string code;
-	EXPECT_NO_THROW({code = abmCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==abmCtrl->STATUS_OK);
+	EXPECT_NO_THROW(
+	{
+		code = abmCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == abmCtrl->STATUS_OK);
 	delete abmCtrl;
 	delete nc;
 	delete hm;
 
 }
 
-
 /**
  * Test para probar cuando se invoca a /user/photo con los parametros invalidos
  */
-TEST(AbmUserGetPhotoInvalidParamsCtrlTest,abmUserGetPhotoInvalidParamsCtrlTest){
+TEST(AbmUserGetPhotoInvalidParamsCtrlTest,abmUserGetPhotoInvalidParamsCtrlTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/user/photo";
 	string method = "GET";
@@ -330,8 +373,13 @@ TEST(AbmUserGetPhotoInvalidParamsCtrlTest,abmUserGetPhotoInvalidParamsCtrlTest){
 	AbmUserController* abmCtrl = new AbmUserController(mockAbmService);
 
 	string code;
-	EXPECT_NO_THROW({code = abmCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==abmCtrl->STATUS_NOK);
+	EXPECT_NO_THROW(
+	{
+		code = abmCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == abmCtrl->STATUS_NOK);
 	delete abmCtrl;
 	delete nc;
 	delete hm;
@@ -341,10 +389,11 @@ TEST(AbmUserGetPhotoInvalidParamsCtrlTest,abmUserGetPhotoInvalidParamsCtrlTest){
 /**
  * Test para probar cuando se invoca a /user/photo y da error remoto
  */
-TEST(AbmUserGetPhotoRemoteErrorCtrlTest,abmUserGetPhotoRemoteErrorCtrlTest){
+TEST(AbmUserGetPhotoRemoteErrorCtrlTest,abmUserGetPhotoRemoteErrorCtrlTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/user/photo";
 	string method = "GET";
@@ -362,8 +411,13 @@ TEST(AbmUserGetPhotoRemoteErrorCtrlTest,abmUserGetPhotoRemoteErrorCtrlTest){
 	EXPECT_CALL(*mockAbmService, getPhoto("10")).Times(1).WillRepeatedly(ThrowRemoteException());
 
 	string code;
-	EXPECT_NO_THROW({code = abmCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==abmCtrl->STATUS_NOK);
+	EXPECT_NO_THROW(
+	{
+		code = abmCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == abmCtrl->STATUS_NOK);
 	delete abmCtrl;
 	delete nc;
 	delete hm;
@@ -373,10 +427,11 @@ TEST(AbmUserGetPhotoRemoteErrorCtrlTest,abmUserGetPhotoRemoteErrorCtrlTest){
 /**
  * Test para probar cuando se invoca a /user/photo y da usuario inexistente
  */
-TEST(AbmUserGetPhotoNotFoundCtrlTest,abmUserGetPhotoNotFoundCtrlTest){
+TEST(AbmUserGetPhotoNotFoundCtrlTest,abmUserGetPhotoNotFoundCtrlTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/user/photo";
 	string method = "GET";
@@ -394,8 +449,13 @@ TEST(AbmUserGetPhotoNotFoundCtrlTest,abmUserGetPhotoNotFoundCtrlTest){
 	EXPECT_CALL(*mockAbmService, getPhoto("10")).Times(1).WillRepeatedly(ThrowEntityNotFoundException());
 
 	string code;
-	EXPECT_NO_THROW({code = abmCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==abmCtrl->STATUS_NOT_FOUND);
+	EXPECT_NO_THROW(
+	{
+		code = abmCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == abmCtrl->STATUS_NOT_FOUND);
 	delete abmCtrl;
 	delete nc;
 	delete hm;
@@ -405,10 +465,11 @@ TEST(AbmUserGetPhotoNotFoundCtrlTest,abmUserGetPhotoNotFoundCtrlTest){
 /**
  * Test para probar el camino feliz cuando se invoca a /interests
  */
-TEST(AbmUserGetInterestsTest,abmUserGetInterestsTest){
+TEST(AbmUserGetInterestsTest,abmUserGetInterestsTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/interests";
 	string method = "GET";
@@ -430,8 +491,13 @@ TEST(AbmUserGetInterestsTest,abmUserGetInterestsTest){
 	EXPECT_CALL(*mockAbmService, getInterests()).Times(1).WillRepeatedly(Return(interests));
 
 	string code;
-	EXPECT_NO_THROW({code = abmCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==abmCtrl->STATUS_OK);
+	EXPECT_NO_THROW(
+	{
+		code = abmCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == abmCtrl->STATUS_OK);
 	delete abmCtrl;
 	delete nc;
 	delete hm;
@@ -441,10 +507,11 @@ TEST(AbmUserGetInterestsTest,abmUserGetInterestsTest){
 /**
  * Test para probar cuando se invoca a /interests y da error remoto
  */
-TEST(AbmUserGetInterestsRemoteErrorTest,abmUserGetInterestsRemoteErrorTest){
+TEST(AbmUserGetInterestsRemoteErrorTest,abmUserGetInterestsRemoteErrorTest)
+{
 
 	struct mg_connection *nc = new mg_connection();
-	struct http_message  *hm = new http_message();
+	struct http_message *hm = new http_message();
 
 	string url = "/interests";
 	string method = "GET";
@@ -459,8 +526,13 @@ TEST(AbmUserGetInterestsRemoteErrorTest,abmUserGetInterestsRemoteErrorTest){
 	EXPECT_CALL(*mockAbmService, getInterests()).Times(1).WillRepeatedly(ThrowRemoteException());
 
 	string code;
-	EXPECT_NO_THROW({code = abmCtrl->connect(nc, hm, true);});
-	ASSERT_TRUE(code==abmCtrl->STATUS_NOK);
+	EXPECT_NO_THROW(
+	{
+		code = abmCtrl->connect(nc, hm, true)
+		;
+	}
+);
+		ASSERT_TRUE(code == abmCtrl->STATUS_NOK);
 	delete abmCtrl;
 	delete nc;
 	delete hm;
@@ -470,7 +542,8 @@ TEST(AbmUserGetInterestsRemoteErrorTest,abmUserGetInterestsRemoteErrorTest){
 /*
  * Correr con valgrind: valgrind --leak-check=full -v ./mockAbmUserCtrlTest
  */
-int main(int argc, char* argv[]){
+int main(int argc, char* argv[])
+{
 	::testing::InitGoogleMock(&argc, argv);
 
 	initialize();
@@ -482,5 +555,4 @@ int main(int argc, char* argv[]){
 
 	return RUN_ALL_TESTS();
 }
-
 
