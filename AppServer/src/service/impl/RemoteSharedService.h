@@ -30,13 +30,8 @@ private:
 	IRestClient* restClient;
 
 public:
-	RemoteSharedService(){
-		url = "http://shared-server-match.herokuapp.com";
-		restClient = new RestClientHelper();
-	}
-
+	RemoteSharedService();
 	RemoteSharedService(string url, IRestClient* restClient);
-
 	RemoteSharedService(string url);
 	virtual ~RemoteSharedService();
 	/**

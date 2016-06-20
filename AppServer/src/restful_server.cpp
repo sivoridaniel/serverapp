@@ -15,8 +15,9 @@
 using namespace log4cplus;
 
 static const char *s_http_port = "3000";
+static string url = "http://shared-server-match.herokuapp.com";
 static struct mg_serve_http_opts s_http_server_opts;
-
+static bool enableMultithreading = false;
 static bool quit = false;
 
 
@@ -25,7 +26,7 @@ static void ev_handler(struct mg_connection *nc, int ev, void *ev_data) {
 
   if (ev == MG_EV_HTTP_REQUEST) {
 
-      FactoryController* fController = FactoryController::getInstance();
+      FactoryController* fController = FactoryController::getInstance(url);
 
       struct http_message *hm = (struct http_message *) ev_data;
       fController->connect(nc,hm, s_http_server_opts);
@@ -53,6 +54,18 @@ int main(int argc, char *argv[]) {
   LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Iniciando HTTP server"));
   mg_mgr_init(&mgr, NULL);
 
+  /* Process command line options */
+  for (int i = 0; i < argc; i++){
+	  if (strcmp(argv[i], "-p")==0 && i + 1 < argc){
+		  s_http_port = argv[++i];
+	  }
+	  else if (strcmp(argv[i], "-s")==0 && i + 1 < argc){
+		  url = argv[++i];
+	  }
+	  else if (strcmp(argv[i], "-m") == 0){
+		  enableMultithreading = true;
+	  }
+  }
 
   /* Set HTTP server options */
   nc = mg_bind(&mgr, s_http_port, ev_handler);
@@ -63,7 +76,9 @@ int main(int argc, char *argv[]) {
 
   mg_set_protocol_http_websocket(nc);
 
- // mg_enable_multithreading(nc);
+  if (enableMultithreading){
+	  mg_enable_multithreading(nc);
+  }
 
   LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("Inicializando RESTful server en puerto " << s_http_port));
   for (;;) {
@@ -73,7 +88,7 @@ int main(int argc, char *argv[]) {
     }
   }
   mg_mgr_free(&mgr);
-  FactoryController* fController = FactoryController::getInstance();
+  FactoryController* fController = FactoryController::getInstance(url);
   delete fController;
   DbHelper::closeDatabase();
   return 0;

@@ -7,8 +7,9 @@
 
 #include "SearchCandidatesController.h"
 
-SearchCandidatesController::SearchCandidatesController() {
-	searchService = new SearchCandidatesService();
+SearchCandidatesController::SearchCandidatesController(string url) {
+	this->url = url;
+	searchService = new SearchCandidatesService(url);
 }
 
 SearchCandidatesController::SearchCandidatesController(ISearchCandidatesService* searchService){

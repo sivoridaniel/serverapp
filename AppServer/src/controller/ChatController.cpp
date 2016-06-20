@@ -7,9 +7,9 @@
 
 #include "ChatController.h"
 
-ChatController::ChatController() {
+ChatController::ChatController(string url) {
+	this->url = url;
 	this->chatService = new ChatService();
-
 }
 
 ChatController::ChatController(IChatService* chatService){

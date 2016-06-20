@@ -28,7 +28,7 @@ using namespace log4cplus;
 class AuthenticationController:public AbstractController {
 
 public:
-	AuthenticationController();
+	AuthenticationController(string url);
 	AuthenticationController(IAuthenticationService* authService, IAbmUserService* abmUserService);
 	/**
 	 * Maneja las llamadas de login pasandole el message con los paramatros

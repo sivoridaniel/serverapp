@@ -25,7 +25,7 @@ class ChatController : public AbstractController{
 private:
 	IChatService* chatService;
 public:
-	ChatController();
+	ChatController(string url);
 	ChatController(IChatService* chatService);
 	virtual ~ChatController();
 	/**

@@ -7,9 +7,9 @@
 
 #include "AuthenticationService.h"
 
-AuthenticationService::AuthenticationService() {
+AuthenticationService::AuthenticationService(string url) {
 	this->userDao = new UserDao();
-	this->remoteSharedService = new RemoteSharedService();
+	this->remoteSharedService = new RemoteSharedService(url);
 }
 
 AuthenticationService::AuthenticationService(UserDao* userDao,IRemote* remoteSharedService){

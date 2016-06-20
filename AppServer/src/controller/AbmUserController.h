@@ -27,7 +27,7 @@ using namespace log4cplus;
  */
 class AbmUserController: public AbstractController{
 public:
-	AbmUserController();
+	AbmUserController(string url);
 	AbmUserController(IAbmUserService* abmService);
 	/**
 	 * Se maneja la uri de consulta o creación de nuevo usuario.

@@ -8,12 +8,12 @@
 #include "FactoryController.h"
 
 
-void FactoryController::createControllers(){
-	abmUserController = new AbmUserController();
-	matchController = new MatchController();
-	authenticationController = new AuthenticationController();
-	searchController = new SearchCandidatesController();
-	chatController = new ChatController();
+void FactoryController::createControllers(string url){
+	abmUserController = new AbmUserController(url);
+	matchController = new MatchController(url);
+	authenticationController = new AuthenticationController(url);
+	searchController = new SearchCandidatesController(url);
+	chatController = new ChatController(url);
 }
 
 void FactoryController::connect(struct mg_connection *nc, struct http_message *hm, struct mg_serve_http_opts s_http_server_opts){

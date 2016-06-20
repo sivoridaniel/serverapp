@@ -7,6 +7,11 @@
 
 #include "RemoteSharedService.h"
 
+RemoteSharedService::RemoteSharedService(){
+	this->url = "http://shared-server-match.herokuapp.com";
+	this->restClient = new RestClientHelper();
+}
+
 RemoteSharedService::RemoteSharedService(string url) {
 	//http://shared-server-match.herokuapp.com
 	this->url = url;
@@ -14,7 +19,6 @@ RemoteSharedService::RemoteSharedService(string url) {
 }
 
 RemoteSharedService::RemoteSharedService(string url, IRestClient* restClient) {
-	//http://shared-server-match.herokuapp.com
 	this->url = url;
 	this->restClient = restClient;
 }

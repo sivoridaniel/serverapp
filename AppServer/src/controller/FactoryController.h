@@ -39,7 +39,7 @@ private:
 	static ChatController* chatController;
 
 	//Método que crea los controllers
-	static void createControllers();
+	static void createControllers(string url);
 public:
 	FactoryController(void){};
 	/**
@@ -48,11 +48,11 @@ public:
 	 *
 	 * @return FactoryController*
 	 */
-	static FactoryController* getInstance(){
+	static FactoryController* getInstance(string url){
 		//createControllers();
 		if(singletonFactoryCtrl == NULL){
 			singletonFactoryCtrl = new FactoryController();
-			singletonFactoryCtrl->createControllers();
+			singletonFactoryCtrl->createControllers(url);
 		}
 		return singletonFactoryCtrl;
 	};

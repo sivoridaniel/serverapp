@@ -23,7 +23,7 @@ class SearchCandidatesController : public AbstractController{
 private:
 	ISearchCandidatesService* searchService;
 public:
-	SearchCandidatesController();
+	SearchCandidatesController(string url);
 	SearchCandidatesController(ISearchCandidatesService* searchService);
 	virtual ~SearchCandidatesController();
 	/**

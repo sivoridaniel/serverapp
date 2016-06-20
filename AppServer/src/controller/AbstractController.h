@@ -26,6 +26,7 @@ public:
 	string STATUS_OK = "200 OK";
 	string STATUS_NOT_FOUND = "404 Not Found";
 	string STATUS_FORBIDDEN = "403 Forbidden";
+	string url;
 
 	/**
 	 * Método que se encarga de redireccionar al método según la uri.
@@ -138,8 +139,8 @@ public:
 				LOG4CPLUS_TEXT("AbstractController"));
 
 		UserProfile* userProfile = NULL;
-		AuthenticationService * authenticationService = new AuthenticationService();
-		AbmUserService * abmUserService = new AbmUserService();
+		AuthenticationService * authenticationService = new AuthenticationService(url);
+		AbmUserService * abmUserService = new AbmUserService(url);
 		string nuevoToken = "";
 
 		try {

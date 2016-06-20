@@ -7,11 +7,11 @@
 
 #include "AbmUserService.h"
 
-AbmUserService::AbmUserService() {
+AbmUserService::AbmUserService(string url) {
 	this->userDao = new UserDao();
 	this->matchDao = new MatchDao();
 	this->searchStatsDao = new SearchStatsDao();
-	this->remoteSharedService = new RemoteSharedService();
+	this->remoteSharedService = new RemoteSharedService(url);
 }
 
 AbmUserService::AbmUserService(UserDao* userDao, MatchDao* matchDao, SearchStatsDao* searchStatsDao, IRemote* sharedServer){

@@ -27,7 +27,7 @@ class MatchController : public AbstractController{
 private:
 	IMatchService* matchService;
 public:
-	MatchController();
+	MatchController(string url);
 	MatchController(IMatchService* matchService);
 	virtual ~MatchController();
 	/**

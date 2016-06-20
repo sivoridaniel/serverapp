@@ -7,11 +7,11 @@
 
 #include "MatchService.h"
 
-MatchService::MatchService() {
+MatchService::MatchService(string url) {
 	this->matchDao = new MatchDao();
 	this->searchStatsDao = new SearchStatsDao();
 	this->chatService = new ChatService();
-	this->sharedService = new RemoteSharedService("http://shared-server-match.herokuapp.com");
+	this->sharedService = new RemoteSharedService(url);
 }
 
 

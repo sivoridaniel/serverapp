@@ -36,7 +36,7 @@ public:
 	/**
 	 * Crea el UserDao
 	 */
-	AuthenticationService();
+	AuthenticationService(string url);
 	/**
 	 * Constructor que se utiliza para poder ser utilizado con gmock.
 	 * De esta manera podemos mockear el DAO para no realizar el llamado a

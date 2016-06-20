@@ -7,8 +7,9 @@
 
 #include "AbmUserController.h"
 
-AbmUserController::AbmUserController() {
-	abmService = new AbmUserService();
+AbmUserController::AbmUserController(string url) {
+	this->url = url;
+	abmService = new AbmUserService(url);
 }
 
 AbmUserController::AbmUserController(IAbmUserService* abmService){

@@ -7,9 +7,9 @@
 
 #include "SearchCandidatesService.h"
 
-SearchCandidatesService::SearchCandidatesService() {
-	this->matchService = new MatchService();
-	this->sharedService = new RemoteSharedService();
+SearchCandidatesService::SearchCandidatesService(string url){
+	this->matchService = new MatchService(url);
+	this->sharedService = new RemoteSharedService(url);
 	this->searchStatsDao = new SearchStatsDao();
 }
 

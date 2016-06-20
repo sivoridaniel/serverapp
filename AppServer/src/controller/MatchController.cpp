@@ -7,8 +7,9 @@
 
 #include "MatchController.h"
 
-MatchController::MatchController() {
-	matchService = new MatchService();
+MatchController::MatchController(string url) {
+	this->url = url;
+	matchService = new MatchService(url);
 }
 
 MatchController::MatchController(IMatchService* matchService){

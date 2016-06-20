@@ -8,9 +8,10 @@
 #include "AuthenticationController.h"
 
 
-AuthenticationController::AuthenticationController() {
-	this->authenticationService = new AuthenticationService();
-	this->abmUserService = new AbmUserService();
+AuthenticationController::AuthenticationController(string url) {
+	this->url = url;
+	this->authenticationService = new AuthenticationService(url);
+	this->abmUserService = new AbmUserService(url);
 
 }
 

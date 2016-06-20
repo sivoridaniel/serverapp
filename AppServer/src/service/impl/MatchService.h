@@ -33,7 +33,7 @@ private:
 	IRemote* sharedService;
 
 public:
-	MatchService();
+	MatchService(string url);
 
 	/**
 	 * Constructor que se utiliza para poder ser utilizado con gmock.

@@ -34,7 +34,7 @@ private:
 	void existeUsuario(string email);
 
 public:
-	AbmUserService();
+	AbmUserService(string url);
 
 	AbmUserService(UserDao* userDao, MatchDao* matchDao, SearchStatsDao* searchStatsDao, IRemote* sharedServer);
 
