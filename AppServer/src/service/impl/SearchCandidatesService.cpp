@@ -38,7 +38,7 @@ list<UserProfile*> SearchCandidatesService::getCandidates(string idUser)
 
 	if (hasAvailableSearchs(idUser))
 	{
-		candidates = this->runSearchAlgorithm(idUser, 3000);
+		candidates = this->runSearchAlgorithm(idUser, MAXDISTANCE);
 	}
 	else
 	{
@@ -104,10 +104,12 @@ list<UserProfile*> SearchCandidatesService::runSearchAlgorithm(string idUser, do
 			//filtro del 1%
 			if (this->isOnePercentRule(idCandidate))
 			{
-				LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("El candidato "<<idCandidate<<" es filtrado por que cumple la regla del 1%"));
-				//randomizar
-				++it;
-				continue;
+				int prob = rand() % 100;
+				if (prob > PROB){
+					LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("El candidato "<<idCandidate<<" es filtrado por que cumple la regla del 1%"));
+					++it;
+					continue;
+				}
 			}
 
 			//filtro de intereses
@@ -178,7 +180,7 @@ double SearchCandidatesService::calculateDistance(Location* location1, Location*
 	double la2 = stod(lat2, &sz);
 	double lo2 = stod(lon2, &sz);
 
-	double distance = sqrt((la1 - la2) * (la1 - la2) + (lo1 - lo2) * (lo1 - lo2));
+	double distance = DistanceHelper::distanceEarth(la1,lo1,la2,lo2);
 
 	return distance;
 }
@@ -198,7 +200,7 @@ bool SearchCandidatesService::hasAvailableSearchs(string idUser)
 {
 	SearchStats* stats = (SearchStats*) searchStatsDao->get("stats");
 	UserStat* userStat = stats->getUserStat(idUser);
-	if (userStat->todaySearchsCount > 10)
+	if (userStat->todaySearchsCount > MAXSEARCHS)
 	{
 		delete stats;
 		return false;

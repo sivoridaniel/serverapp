@@ -13,6 +13,8 @@
 #include "../../exception/SearchDailyLimitExcededException.h"
 #include "../../model/UserProfile.h"
 #include "../../dao/SearchStatsDao.h"
+#include "../../utils/DistanceHelper.h"
+#include "../../utils/Constants.h"
 #include "RemoteSharedService.h"
 #include "../api/ISearchCandidatesService.h"
 #include <log4cplus/logger.h>
