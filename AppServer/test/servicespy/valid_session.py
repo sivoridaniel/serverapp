@@ -17,13 +17,15 @@ def get_args():
         return token
 
 token = get_args()
-headers = {"Content-Type":"application/json","Accept":"text/plain","token":token}
+headers = {"Content-Type":"application/json","token":token}
 data=''
 
 try:
-	r = requests.get("http://localhost:3000/valid_session", data=data, headers=headers)
+	r = requests.get("http://200.16.116.146:3000/valid_session", data=data, headers=headers)
 	
-	header = r.headers.get('Token')
+	print r
+	sys.exit(1)
+	#header = r.headers.get('Token')
 	
 	print 'Header: %s'%header
     

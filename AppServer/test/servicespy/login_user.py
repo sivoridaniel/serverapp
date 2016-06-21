@@ -35,13 +35,13 @@ data = '{\"user\":'+json.dumps(user.reprJSON())+'}'
 headers = {"content-type": "application/json"}
 
 
-r = requests.get("http://localhost:3000/login_user", data = data, headers = headers)
+r = requests.get("http://200.16.116.146:3000/login_user", data = data, headers = headers)
 
 try:
     token = r.headers.get('Token')
     data = r.text
-    print 'Return: %s'%data
-    print 'Token: %s'%token
+    print data
+    print token
 except AssertionError, e:
     print 'NOK: %s'%e
 
