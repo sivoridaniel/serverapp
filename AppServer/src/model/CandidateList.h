@@ -17,7 +17,8 @@
 
 using namespace std;
 
-class CandidateList : public Entity{
+class CandidateList: public Entity
+{
 private:
 	list<UserProfile*> candidates;
 public:
@@ -27,11 +28,13 @@ public:
 
 	string toJson();
 
-	const list<UserProfile*>& getCandidates() const {
+	const list<UserProfile*>& getCandidates() const
+	{
 		return candidates;
 	}
 
-	void setCandidates(const list<UserProfile*>& candidates) {
+	void setCandidates(const list<UserProfile*>& candidates)
+	{
 		this->candidates = candidates;
 	}
 

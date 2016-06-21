@@ -23,7 +23,8 @@ using namespace std;
  * ColumnFamilies definidas: USER 1
  *							 MATCH 2
  */
-class DbHelper {
+class DbHelper
+{
 private:
 	static rocksdb::DB* db;
 	static std::vector<rocksdb::ColumnFamilyHandle*> handles;
@@ -45,7 +46,8 @@ public:
 	 *
 	 * @return rocksdb::DB*
 	 */
-	static rocksdb::DB* getDb(){
+	static rocksdb::DB* getDb()
+	{
 		return db;
 	}
 
@@ -58,7 +60,7 @@ public:
 	 * @param int columnFamily
 	 * @throw WriteDbException
 	 */
-	static void put(string id, string json, int columnFamily) throw(WriteDbException);
+	static void put(string id, string json, int columnFamily) throw (WriteDbException);
 
 	/**
 	 * Dada la clave (id) y la columnFamily donde se quiere hacer la consulta, se devuelve
@@ -71,7 +73,7 @@ public:
 	 * @return string json
 	 *
 	 */
-	static string get(string id, int columnFamily) throw(EntityNotFoundException);
+	static string get(string id, int columnFamily) throw (EntityNotFoundException);
 };
 
 #endif /* DBHELPER_H_ */

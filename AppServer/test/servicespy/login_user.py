@@ -34,8 +34,7 @@ data = '{\"user\":'+json.dumps(user.reprJSON())+'}'
 
 headers = {"content-type": "application/json"}
 
-
-r = requests.get("http://200.16.116.146:3000/login_user", data = data, headers = headers)
+r = requests.put("http://localhost:3000/login_user", data = data, headers = headers)
 
 try:
     token = r.headers.get('Token')
@@ -44,4 +43,3 @@ try:
     print token
 except AssertionError, e:
     print 'NOK: %s'%e
-

@@ -10,10 +10,10 @@
 
 #include "IRestClient.h"
 
-
 using namespace std;
 
-class RestClientHelper : public IRestClient {
+class RestClientHelper: public IRestClient
+{
 public:
 
 	RestResponse* put(string url, string json);

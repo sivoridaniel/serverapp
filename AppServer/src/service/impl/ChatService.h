@@ -8,7 +8,6 @@
 #ifndef CHATSERVICE_H_
 #define CHATSERVICE_H_
 
-
 #include "../../dao/MatchDao.h"
 #include "../../dao/ChatDao.h"
 #include "RemoteSharedService.h"
@@ -23,7 +22,8 @@
 using namespace std;
 using namespace log4cplus;
 
-class ChatService : public IChatService{
+class ChatService: public IChatService
+{
 private:
 	ChatDao* chatDao;
 public:
@@ -89,7 +89,7 @@ private:
 	/**
 	 * Genera el id del chat en orden alfabetico.
 	 * Si idUser1 >= idUser2 -> resultado idUser2 - idUser1, caso contrario
-     * será idUser1 - idUser1 el id generado para la conversación.
+	 * será idUser1 - idUser1 el id generado para la conversación.
 	 * @param string idUser1 usuario participante
 	 * @param string idUser2 usuario participante
 	 */

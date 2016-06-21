@@ -6,11 +6,15 @@ using namespace std;
  * Clase que se utiliza para la llamada a los servicios externos a la aplicación (shared server). 
  * Se utiliza para poder mockear los servicios de esta clase.
  */
-class IRemote{
+class IRemote
+{
 
 public:
 
-	virtual ~IRemote(){};
+	virtual ~IRemote()
+	{
+	}
+	;
 
 	virtual void createInterest(Interest* interest) = 0;
 
@@ -27,7 +31,6 @@ public:
 	virtual void updateUser(UserProfile* userProfile) = 0;
 
 	virtual string getPhoto(string id) = 0;
-
 
 };
 

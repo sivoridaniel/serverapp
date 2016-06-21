@@ -7,7 +7,8 @@
 
 #include "MatchDao.h"
 
-Entity* MatchDao::get(string id){
+Entity* MatchDao::get(string id)
+{
 
 	std::string json;
 
@@ -18,14 +19,16 @@ Entity* MatchDao::get(string id){
 	return match;
 }
 
-void MatchDao::put(string id, Entity* e){
+void MatchDao::put(string id, Entity* e)
+{
 
 	Match* match = dynamic_cast<Match*>(e);
-	if (match==0){
+	if (match == 0)
+	{
 		throw InvalidEntityException();
 	}
 	std::string json = match->toJson();
 
-	DbHelper::put(id,json,MATCH);
+	DbHelper::put(id, json, MATCH);
 
 }

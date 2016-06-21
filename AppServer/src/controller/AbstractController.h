@@ -18,7 +18,8 @@
 
 using namespace std;
 
-class AbstractController {
+class AbstractController
+{
 
 public:
 
@@ -26,6 +27,7 @@ public:
 	string STATUS_OK = "200 OK";
 	string STATUS_NOT_FOUND = "404 Not Found";
 	string STATUS_FORBIDDEN = "403 Forbidden";
+	string url;
 
 	/**
 	 * Método que se encarga de redireccionar al método según la uri.
@@ -38,9 +40,10 @@ public:
 	 *
 	 * @param struct mg_connection *nc
 	 * @param struct http_message *hm
+	 * @param bool test si vale true no se realiza la autenticacion
 	 * @return string
 	 */
-	virtual string connect(struct mg_connection *nc, struct http_message *hm)=0;
+	virtual string connect(struct mg_connection *nc, struct http_message *hm, bool test)=0;
 
 	/**
 	 * Método que verifica el token recibido cuando se consulta un servicio, en el cual
@@ -59,20 +62,22 @@ public:
 	 * @param struct http_message *hm
 	 * @return string
 	 */
-	virtual string valid_session(struct mg_connection *nc,
-			struct http_message *hm) {
+	virtual string valid_session(struct mg_connection *nc, struct http_message *hm)
+	{
 
-		Logger logger = Logger::getInstance(
-				LOG4CPLUS_TEXT("AbstractController"));
+		Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbstractController"));
 		string ret_json = "";
 		string code = "";
 
-		string token = this->isLogged(nc, hm);
+		string token = this->isLogged(hm, false);
 
-		if (!token.empty()) {
+		if (!token.empty())
+		{
 			ret_json = "{\"success\": \"true\", \"data\":\"logged\"}";
 			code = STATUS_OK;
-		} else {
+		}
+		else
+		{
 			ret_json = "{\"success\": \"false\", \"data\":\"forbidden\"}";
 			code = STATUS_NOK;
 		}
@@ -82,29 +87,25 @@ public:
 		return code;
 	}
 
-	virtual void sendResponse(struct mg_connection *nc, string code,
-			string json, string token) {
+	virtual void sendResponse(struct mg_connection *nc, string code, string json, string token)
+	{
 
 		const char* charcode = code.c_str();
 		const char* buf = json.c_str();
 		const char* tok = token.c_str();
 		int lenght = (int) json.length();
 
-		mg_printf(nc,
-				"HTTP/1.1 %s\r\nContent-Type: application/json\r\nContent-Length: %d\r\nToken: %s\r\n\r\n%s",
-				charcode, lenght, tok, buf);
+		mg_printf(nc, "HTTP/1.1 %s\r\nContent-Type: application/json\r\nContent-Length: %d\r\nToken: %s\r\n\r\n%s", charcode, lenght, tok, buf);
 
 		nc->flags |= MG_F_SEND_AND_CLOSE;
 	}
 
-	virtual void sendChunkedResponse(struct mg_connection *nc, string code,
-			string json, string token) {
+	virtual void sendChunkedResponse(struct mg_connection *nc, string code, string json, string token)
+	{
 
 		string transferEncoding = "chunked";
 		string contentType = "application/json; charset=UTF-8";
-		string headers = "HTTP/1.1 " + code + "\r\nTransfer-Encoding: "
-				+ transferEncoding + "\r\nContent-Type: " + contentType
-				+ "\r\nToken: " + token + "\r\n\r\n";
+		string headers = "HTTP/1.1 " + code + "\r\nTransfer-Encoding: " + transferEncoding + "\r\nContent-Type: " + contentType + "\r\nToken: " + token + "\r\n\r\n";
 
 		/* Send headers */
 		mg_printf(nc, "%s", headers.c_str());
@@ -114,27 +115,41 @@ public:
 		mg_send_http_chunk(nc, "", 0);
 	}
 
-	virtual string getGenericJson(string success, string data) {
+	virtual string getGenericJson(string success, string data)
+	{
 		string json = "";
-		json = "{ \"success\": \"" + success + "\", \"data\": \"" + data
-				+ "\"}";
+		json = "{ \"success\": \"" + success + "\", \"data\": \"" + data + "\"}";
 		return json;
 	}
 
-	virtual string isLogged(struct mg_connection *nc, struct http_message *hm) {
+	virtual string sendForbiddenResponse(struct mg_connection *nc)
+	{
+		string json = getGenericJson("false", "unauthorized");
+		this->sendResponse(nc, STATUS_FORBIDDEN, json, "");
+		return STATUS_FORBIDDEN;
+	}
 
-		Logger logger = Logger::getInstance(
-				LOG4CPLUS_TEXT("AbstractController"));
+	virtual string isLogged(struct http_message *hm, bool test)
+	{
+
+		if (test)
+		{
+			return "token";
+		}
+
+		Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbstractController"));
 
 		UserProfile* userProfile = NULL;
-		AuthenticationService * authenticationService = new AuthenticationService();
-		AbmUserService * abmUserService = new AbmUserService();
+		AuthenticationService * authenticationService = new AuthenticationService(url);
+		AbmUserService * abmUserService = new AbmUserService(url);
 		string nuevoToken = "";
 
-		try {
+		try
+		{
 
 			mg_str* mg_token = mg_get_http_header(hm, "token");
-			if (mg_token == NULL){
+			if (mg_token == NULL)
+			{
 				LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("NO HAY TOKEN EN EL HEADER"));
 				delete authenticationService;
 				delete abmUserService;
@@ -146,7 +161,8 @@ public:
 
 			bool isTokenValid = JwToken::isTokenValid(token);
 
-			if (isTokenValid) {
+			if (isTokenValid)
+			{
 				LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("TOKEN VALIDO"));
 				string email = JwToken::getEmail(token);
 				nuevoToken = JwToken::generarToken(email); //se genera el nuevo token, con el nuevo timestamp, renovando la sesion
@@ -154,11 +170,14 @@ public:
 				userProfile->setToken(nuevoToken);
 				abmUserService->updateToken(userProfile); //se modifica el usuario para asignarle el nuevo token
 				delete userProfile;
-			} else {
-				LOG4CPLUS_INFO(logger,LOG4CPLUS_TEXT("TOKEN INVALIDO"));
+			}
+			else
+			{
+				LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("TOKEN INVALIDO"));
 			}
 
-		} catch (exception & e) {
+		} catch (exception & e)
+		{
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 		}
 		delete abmUserService;
@@ -166,8 +185,10 @@ public:
 		return nuevoToken;
 	}
 
-	virtual ~AbstractController() {
-	};
+	virtual ~AbstractController()
+	{
+	}
+	;
 };
 
 #endif /* SRC_CONTROLLER_ABSTRACTCONTROLLER_H_ */

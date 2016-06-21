@@ -6,23 +6,29 @@
 
 using namespace std;
 
-class RestResponse{
+class RestResponse
+{
 public:
 
 	int code;
 	string body;
 
-	RestResponse(int code, string body){
+	RestResponse(int code, string body)
+	{
 		this->code = code;
 		this->body = body;
 	}
 };
 
-class IRestClient{
+class IRestClient
+{
 
 public:
 
-	virtual ~IRestClient(){};
+	virtual ~IRestClient()
+	{
+	}
+	;
 
 	virtual RestResponse* put(string url, string json)=0;
 

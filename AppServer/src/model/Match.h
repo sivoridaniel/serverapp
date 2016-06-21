@@ -13,7 +13,8 @@
 #include <algorithm>
 #include "Entity.h"
 
-class Match : public Entity{
+class Match: public Entity
+{
 private:
 	std::list<std::string> yesList;
 	std::list<std::string> noList;
@@ -51,11 +52,13 @@ public:
 
 	void removeFromChats(std::string idUser);
 
-	std::list<std::string> getNewMatches(){
+	std::list<std::string> getNewMatches()
+	{
 		return this->newMatches;
 	}
 
-	std::list<std::string> getChats(){
+	std::list<std::string> getChats()
+	{
 		return this->chats;
 	}
 };

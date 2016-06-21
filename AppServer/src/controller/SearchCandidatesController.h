@@ -19,11 +19,13 @@
 using namespace std;
 using namespace log4cplus;
 
-class SearchCandidatesController : public AbstractController{
+class SearchCandidatesController: public AbstractController
+{
 private:
-	SearchCandidatesService* searchService;
+	ISearchCandidatesService* searchService;
 public:
-	SearchCandidatesController();
+	SearchCandidatesController(string url);
+	SearchCandidatesController(ISearchCandidatesService* searchService);
 	virtual ~SearchCandidatesController();
 	/**
 	 * Se pasa los parametros del mensaje (uri de llamada para realizar la petición deseada
@@ -31,9 +33,10 @@ public:
 	 *
 	 * @param mg_connection*
 	 * @param http_message*
+	 * @param bool test
 	 * @result string json result
 	 */
-	string connect(struct mg_connection *nc, struct http_message *hm);
+	string connect(struct mg_connection *nc, struct http_message *hm, bool test);
 
 private:
 	/**
@@ -54,7 +57,6 @@ private:
 	 */
 	string event_handler_search_candidates(struct mg_connection *nc, struct http_message *hm, string token);
 	string createSearchResponse(list<UserProfile*> candidates);
-
 
 };
 

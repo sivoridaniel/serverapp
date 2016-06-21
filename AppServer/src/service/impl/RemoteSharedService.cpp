@@ -7,56 +7,66 @@
 
 #include "RemoteSharedService.h"
 
-RemoteSharedService::RemoteSharedService(string url) {
+RemoteSharedService::RemoteSharedService()
+{
+	this->url = "http://shared-server-match.herokuapp.com";
+	this->restClient = new RestClientHelper();
+}
+
+RemoteSharedService::RemoteSharedService(string url)
+{
 	//http://shared-server-match.herokuapp.com
 	this->url = url;
 	this->restClient = new RestClientHelper();
 }
 
-RemoteSharedService::RemoteSharedService(string url, IRestClient* restClient) {
-	//http://shared-server-match.herokuapp.com
+RemoteSharedService::RemoteSharedService(string url, IRestClient* restClient)
+{
 	this->url = url;
 	this->restClient = restClient;
 }
 
-RemoteSharedService::~RemoteSharedService() {
+RemoteSharedService::~RemoteSharedService()
+{
 	delete restClient;
 }
 
-void RemoteSharedService::createInterest(Interest* interest) {
+void RemoteSharedService::createInterest(Interest* interest)
+{
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("RemoteSharedService"));
 
 	string json = interest->toJson();
 
-	RestResponse* r  = restClient->post(url + "/interests", json);
+	RestResponse* r = restClient->post(url + "/interests", json);
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response code "<<r->code));
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response body "<<r->body));
-	if (r->code == 400) {
-		LOG4CPLUS_WARN(logger,
-				LOG4CPLUS_TEXT("El interes ya se encuentra registrado en el shared"));
+	if (r->code == 400)
+	{
+		LOG4CPLUS_WARN(logger, LOG4CPLUS_TEXT("El interes ya se encuentra registrado en el shared"));
 		delete r;
 		throw EntityExistsException();
 	}
 
-	if (r->code != 200) {
-		LOG4CPLUS_ERROR(logger,
-				LOG4CPLUS_TEXT("El shared server retorno error"));
+	if (r->code != 200)
+	{
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El shared server retorno error"));
 		delete r;
 		throw RemoteException();
 	}
 	delete r;
 }
 
-list<Interest*> RemoteSharedService::getInterests() {
+list<Interest*> RemoteSharedService::getInterests()
+{
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("RemoteSharedService"));
 
 	RestResponse* r = restClient->get(url + "/interests");
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response code "<<r->code));
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response body "<<r->body));
 
-	if (r->code != 200) {
-		LOG4CPLUS_ERROR(logger,
-				LOG4CPLUS_TEXT("El shared server retorno error"));
+	if (r->code != 200)
+	{
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El shared server retorno error"));
 		delete r;
 		throw RemoteException();
 	}
@@ -67,16 +77,17 @@ list<Interest*> RemoteSharedService::getInterests() {
 	return listInterests;
 }
 
-list<UserProfile*> RemoteSharedService::getUsers() {
+list<UserProfile*> RemoteSharedService::getUsers()
+{
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("RemoteSharedService"));
 
 	RestResponse* r = restClient->get(url + "/users");
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response code "<<r->code));
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response body "<<r->body));
 
-	if (r->code != 200) {
-		LOG4CPLUS_ERROR(logger,
-				LOG4CPLUS_TEXT("El shared server retorno error"));
+	if (r->code != 200)
+	{
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El shared server retorno error"));
 		delete r;
 		throw RemoteException();
 	}
@@ -87,22 +98,24 @@ list<UserProfile*> RemoteSharedService::getUsers() {
 	return listUsers;
 }
 
-UserProfile* RemoteSharedService::getUser(string id) {
+UserProfile* RemoteSharedService::getUser(string id)
+{
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("RemoteSharedService"));
 
-	RestResponse* r  = restClient->get(url + "/users/" + id);
+	RestResponse* r = restClient->get(url + "/users/" + id);
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response code "<<r->code));
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response body "<<r->body));
 
-	if (r->code == 404) {
+	if (r->code == 404)
+	{
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario no se encuentra"));
 		delete r;
 		throw EntityNotFoundException();
 	}
 
-	if (r->code != 200) {
-		LOG4CPLUS_ERROR(logger,
-				LOG4CPLUS_TEXT("El shared server retorno error"));
+	if (r->code != 200)
+	{
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El shared server retorno error"));
 		delete r;
 		throw RemoteException();
 	}
@@ -114,22 +127,24 @@ UserProfile* RemoteSharedService::getUser(string id) {
 	return user;
 }
 
-string RemoteSharedService::getPhoto(string id){
+string RemoteSharedService::getPhoto(string id)
+{
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("RemoteSharedService"));
 
-	RestResponse* r  = restClient->get(url + "/users/" + id + "/photo");
+	RestResponse* r = restClient->get(url + "/users/" + id + "/photo");
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response code "<<r->code));
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response body "<<r->body));
 
-	if (r->code == 404) {
+	if (r->code == 404)
+	{
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario no se encuentra"));
 		delete r;
 		throw EntityNotFoundException();
 	}
 
-	if (r->code != 200) {
-		LOG4CPLUS_ERROR(logger,
-				LOG4CPLUS_TEXT("El shared server retorno error"));
+	if (r->code != 200)
+	{
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El shared server retorno error"));
 		delete r;
 		throw RemoteException();
 	}
@@ -140,27 +155,28 @@ string RemoteSharedService::getPhoto(string id){
 	return photo;
 }
 
-void RemoteSharedService::createUser(UserProfile* userProfile) {
+void RemoteSharedService::createUser(UserProfile* userProfile)
+{
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("RemoteSharedService"));
 
 	string id = userProfile->getId();
 	string json = userProfile->toSharedJson();
 
-	LOG4CPLUS_INFO(logger,LOG4CPLUS_TEXT("JSON CREATE USER: "<<json));
+	LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("JSON CREATE USER: "<<json));
 
-	RestResponse* r  = restClient->post(url + "/users/" + id, json);
+	RestResponse* r = restClient->post(url + "/users/" + id, json);
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response code "<<r->code));
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response body "<<r->body));
-	if (r->code == 400) {
-		LOG4CPLUS_WARN(logger,
-				LOG4CPLUS_TEXT("El usuario ya se encuentra registrado en el shared"));
+	if (r->code == 400)
+	{
+		LOG4CPLUS_WARN(logger, LOG4CPLUS_TEXT("El usuario ya se encuentra registrado en el shared"));
 		delete r;
 		throw EntityExistsException();
 	}
 
-	if (r->code != 200) {
-		LOG4CPLUS_ERROR(logger,
-				LOG4CPLUS_TEXT("El shared server retorno error"));
+	if (r->code != 200)
+	{
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El shared server retorno error"));
 		delete r;
 		throw RemoteException();
 	}
@@ -172,63 +188,69 @@ void RemoteSharedService::createUser(UserProfile* userProfile) {
 	delete userAux;
 }
 
-void RemoteSharedService::updateUser(UserProfile* userProfile) {
+void RemoteSharedService::updateUser(UserProfile* userProfile)
+{
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("RemoteSharedService"));
 
 	string id = userProfile->getId();
 	string json = userProfile->toSharedJson();
 
-	RestResponse* r  = restClient->put(url + "/users/" + id, json);
+	RestResponse* r = restClient->put(url + "/users/" + id, json);
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response code "<<r->code));
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response body "<<r->body));
-	if (r->code == 404) {
-		LOG4CPLUS_WARN(logger,
-				LOG4CPLUS_TEXT("El usuario o interes no se encuentra registrado en el shared"));
+	if (r->code == 404)
+	{
+		LOG4CPLUS_WARN(logger, LOG4CPLUS_TEXT("El usuario o interes no se encuentra registrado en el shared"));
 		delete r;
 		throw EntityNotFoundException();
 	}
 
-	if (r->code != 200) {
-		LOG4CPLUS_ERROR(logger,
-				LOG4CPLUS_TEXT("El shared server retorno error"));
+	if (r->code != 200)
+	{
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El shared server retorno error"));
 		delete r;
 		throw RemoteException();
 	}
 	delete r;
 }
 
-void RemoteSharedService::deleteUser(string id) {
+void RemoteSharedService::deleteUser(string id)
+{
 	Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("RemoteSharedService"));
 
-	RestResponse* r  = restClient->del(url + "/users/" + id);
+	RestResponse* r = restClient->del(url + "/users/" + id);
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response code "<<r->code));
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response body "<<r->body));
 
-	if (r->code == 404) {
+	if (r->code == 404)
+	{
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario no se encuentra"));
 		delete r;
 		throw EntityNotFoundException();
 	}
 
-	if (r->code != 200) {
-		LOG4CPLUS_ERROR(logger,
-				LOG4CPLUS_TEXT("El shared server retorno error"));
+	if (r->code != 200)
+	{
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El shared server retorno error"));
 		delete r;
 		throw RemoteException();
 	}
 	delete r;
 }
 
-list<Interest*> RemoteSharedService::parseInterests(string json) {
+list<Interest*> RemoteSharedService::parseInterests(string json)
+{
 	Json::Value root;
 	Json::Reader reader;
 	bool ok = reader.parse(json.c_str(), root);
-	if (!ok) {
+	if (!ok)
+	{
 		throw JsonParseException();
 	}
 	list<Interest*> listInterests;
 	const Json::Value interests = root["interests"];
-	for (unsigned int i = 0; i < interests.size(); ++i) {
+	for (unsigned int i = 0; i < interests.size(); ++i)
+	{
 		std::string category = interests[i]["category"].asString();
 		std::string value = interests[i]["value"].asString();
 		Interest* interest = new Interest(category, value);
@@ -237,20 +259,23 @@ list<Interest*> RemoteSharedService::parseInterests(string json) {
 	return listInterests;
 }
 
-list<UserProfile*> RemoteSharedService::parseUsers(string json) {
+list<UserProfile*> RemoteSharedService::parseUsers(string json)
+{
 	Json::Value root;
 	Json::Reader reader;
 	Json::FastWriter writer;
 	bool ok = reader.parse(json.c_str(), root);
-	if (!ok) {
+	if (!ok)
+	{
 		throw JsonParseException();
 	}
 
 	const Json::Value users = root["users"];
 	list<UserProfile*> listUsers;
-	for (unsigned int i = 0; i < users.size(); ++i) {
+	for (unsigned int i = 0; i < users.size(); ++i)
+	{
 		Json::Value jsonUserValue = users[i];
-		string jsonUser =  writer.write(jsonUserValue);
+		string jsonUser = writer.write(jsonUserValue);
 		UserProfile* user = new UserProfile(jsonUser);
 		listUsers.push_back(user);
 	}
@@ -258,12 +283,14 @@ list<UserProfile*> RemoteSharedService::parseUsers(string json) {
 	return listUsers;
 }
 
-string RemoteSharedService::parsePhoto(string json){
+string RemoteSharedService::parsePhoto(string json)
+{
 	Json::Value root;
 	Json::Reader reader;
 	Json::FastWriter writer;
 	bool ok = reader.parse(json.c_str(), root);
-	if (!ok) {
+	if (!ok)
+	{
 		throw JsonParseException();
 	}
 

@@ -4,7 +4,8 @@
 #include "../exception/JsonParseException.h"
 #include "../json/json.h"
 
-class Entity{
+class Entity
+{
 
 public:
 	virtual std::string toJson()=0;

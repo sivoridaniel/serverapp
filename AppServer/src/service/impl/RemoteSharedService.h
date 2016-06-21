@@ -19,24 +19,19 @@
 #include <log4cplus/logger.h>
 #include <log4cplus/loggingmacros.h>
 
-
 using namespace std;
 using namespace log4cplus;
 
-class RemoteSharedService : public IRemote{
+class RemoteSharedService: public IRemote
+{
 
 private:
 	string url;
 	IRestClient* restClient;
 
 public:
-	RemoteSharedService(){
-		url = "http://shared-server-match.herokuapp.com";
-		restClient = new RestClientHelper();
-	}
-
+	RemoteSharedService();
 	RemoteSharedService(string url, IRestClient* restClient);
-
 	RemoteSharedService(string url);
 	virtual ~RemoteSharedService();
 	/**
@@ -147,7 +142,6 @@ private:
 	 * @return string foto en base 64
 	 */
 	string parsePhoto(string json);
-
 
 };
 

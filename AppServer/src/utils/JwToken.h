@@ -5,7 +5,6 @@
  *      Author: pablo
  */
 
-
 #include <sstream>
 #include <jwt.h>
 #include <string>
@@ -24,7 +23,8 @@
 using namespace std;
 using namespace log4cplus;
 
-class JwToken{
+class JwToken
+{
 public:
 
 	/**
@@ -63,9 +63,7 @@ public:
 	 * @result string email
 	 *
 	 */
-	static string getEmail(string token)throw (TokenException);
-
-	
+	static string getEmail(string token) throw (TokenException);
 
 private:
 
@@ -84,28 +82,33 @@ private:
 	 *	@throw TokenException
 	 *
 	 */
-	static void evaluateOperation(int intcod,jwt*jwt,char *pcharcod, string msgError,Logger logger)throw (TokenException);
+	static void evaluateOperation(int intcod, jwt*jwt, char *pcharcod, string msgError, Logger logger) throw (TokenException);
 
 	/** MSG_ERRORS **/
-	static const string MSG_ERROR_NEW_JWT(){
+	static const string MSG_ERROR_NEW_JWT()
+	{
 		return "Error creando el objeto jwt";
 	}
-	static const string MSG_ERROR_HEADER(){
+	static const string MSG_ERROR_HEADER()
+	{
 		return "Error generando el header";
 	}
-	static const string MSG_ERROR_PAYLOAD(){
+	static const string MSG_ERROR_PAYLOAD()
+	{
 		return "Error generando el payload";
 	}
-	static const string MSG_ERROR_TOKEN(){
+	static const string MSG_ERROR_TOKEN()
+	{
 		return "Error generando el token";
 	}
-	static const string MSG_ERROR_DECODE_TOKEN(){
-			return "Error decodificando el token";
+	static const string MSG_ERROR_DECODE_TOKEN()
+	{
+		return "Error decodificando el token";
 	}
-	static const string MSG_ERROR_DECODE_EMAIL(){
-			return "Error decodificando el EMAIL";
+	static const string MSG_ERROR_DECODE_EMAIL()
+	{
+		return "Error decodificando el EMAIL";
 	}
 };
-
 
 #endif /* SRC_UTILS_JWTOKEN_H_ */

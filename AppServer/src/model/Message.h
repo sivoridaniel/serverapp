@@ -13,7 +13,8 @@
 
 using namespace std;
 
-class Message : public Entity{
+class Message: public Entity
+{
 private:
 	long id;
 	string idUser;
@@ -25,27 +26,33 @@ public:
 
 	string toJson();
 
-	const string& getIdUser() const {
+	const string& getIdUser() const
+	{
 		return idUser;
 	}
 
-	void setIdUser(const string& idUser) {
+	void setIdUser(const string& idUser)
+	{
 		this->idUser = idUser;
 	}
 
-	const string& getMessage() const {
+	const string& getMessage() const
+	{
 		return message;
 	}
 
-	void setMessage(const string& message) {
+	void setMessage(const string& message)
+	{
 		this->message = message;
 	}
 
-	const long getId() const {
+	const long getId() const
+	{
 		return id;
 	}
 
-	void setId(long id) {
+	void setId(long id)
+	{
 		this->id = id;
 	}
 };

@@ -17,10 +17,19 @@ using namespace std;
  * Para manejar las operaciones en la base de datos de los chats
  * de los usuarios.
  */
-class ChatDao : public GenericDao{
+class ChatDao: public GenericDao
+{
+
 public:
-	ChatDao(){};
-	virtual ~ChatDao(){};
+
+	ChatDao()
+	{
+	}
+	;
+	virtual ~ChatDao()
+	{
+	}
+	;
 	/**
 	 * Se obtiene el chat con id pasado por parámetro.
 	 * @param id

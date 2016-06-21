@@ -22,12 +22,14 @@ using namespace log4cplus;
 /**
  * Para manejar la api rest de matching
  */
-class MatchController : public AbstractController{
+class MatchController: public AbstractController
+{
 
 private:
-	MatchService* matchService;
+	IMatchService* matchService;
 public:
-	MatchController();
+	MatchController(string url);
+	MatchController(IMatchService* matchService);
 	virtual ~MatchController();
 	/**
 	 * Se pasa los parametros del mensaje (uri de llamada para realizar la petición deseada
@@ -35,9 +37,10 @@ public:
 	 *
 	 * @param mg_connection*
 	 * @param http_message*
+	 * @param bool test
 	 * @return string json result
 	 */
-	string connect(struct mg_connection *nc, struct http_message *hm);
+	string connect(struct mg_connection *nc, struct http_message *hm, bool test);
 
 private:
 

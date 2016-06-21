@@ -12,9 +12,8 @@ using ::testing::AtLeast;
 using ::testing::Return;
 using ::testing::_;
 
-
-
-class MockChatDao : public ChatDao{
+class MockChatDao: public ChatDao
+{
 public:
 
 	MOCK_METHOD1(get, Entity*(string id) );
@@ -24,17 +23,18 @@ public:
 };
 
 ACTION(ThrowEntityNotFoundException){
-	throw EntityNotFoundException();
+throw EntityNotFoundException();
 }
 
 ACTION(ThrowEntityExistsException){
-	throw EntityExistsException();
+throw EntityExistsException();
 }
 
 /**
  * Test para probar el camino feliz cuando se obtienen todos los mensajes de un chat
  */
-TEST(ChatServiceGetAllMessagesTest,getAllMessages){
+TEST(ChatServiceGetAllMessagesTest,getAllMessages)
+{
 	MockChatDao* mockChatDao = new MockChatDao();
 
 	Chat* chat = new Chat();
@@ -43,9 +43,15 @@ TEST(ChatServiceGetAllMessagesTest,getAllMessages){
 	EXPECT_CALL(*mockChatDao, get("jferrio-psivori")).Times(AtLeast(1)).WillOnce(Return(chat));
 	ChatService* chatService = new ChatService(mockChatDao);
 	vector<Message*> messages;
-	EXPECT_NO_THROW({messages = chatService->getAllMessages("jferrio", "psivori");});
-	ASSERT_TRUE(messages.size()==2);
-	for (vector<Message*>::iterator it=messages.begin(); it!=messages.end(); ++it){
+	EXPECT_NO_THROW(
+	{
+		messages = chatService->getAllMessages("jferrio", "psivori")
+		;
+	}
+);
+			ASSERT_TRUE(messages.size() == 2);
+	for (vector<Message*>::iterator it = messages.begin(); it != messages.end(); ++it)
+	{
 		Message* message = *it;
 		delete message;
 	}
@@ -55,29 +61,31 @@ TEST(ChatServiceGetAllMessagesTest,getAllMessages){
 /**
  * Test para probar el caso de que no exista el chat buscado
  */
-TEST(ChatServiceGetAllMessagesNonexistentChatTest,getAllMessagesNonexistentChat){
+TEST(ChatServiceGetAllMessagesNonexistentChatTest,getAllMessagesNonexistentChat)
+{
 	MockChatDao* mockChatDao = new MockChatDao();
 
 	ChatService* chatService = new ChatService(mockChatDao);
 	EXPECT_CALL(*mockChatDao, get("alinari-psivori")).Times(1).WillRepeatedly(ThrowEntityNotFoundException());
-	try{
+	try
+	{
 		chatService->getAllMessages("alinari", "psivori");
 		FAIL();
-	}
-	catch(EntityNotFoundException& e){
+	} catch (EntityNotFoundException& e)
+	{
 		//OK;
-	}
-	catch(exception& e){
+	} catch (exception& e)
+	{
 		FAIL();
 	}
 	delete chatService;
 }
 
-
 /**
  * Test para probar el camino feliz cuando se obtienen los mensajes nuevos para el usuario1 de un chat
  */
-TEST(ChatServiceGetNewMessagesTest,getNewMessages){
+TEST(ChatServiceGetNewMessagesTest,getNewMessages)
+{
 	MockChatDao* mockChatDao = new MockChatDao();
 
 	Chat* chat = new Chat();
@@ -92,9 +100,15 @@ TEST(ChatServiceGetNewMessagesTest,getNewMessages){
 	ChatService* chatService = new ChatService(mockChatDao);
 	vector<Message*> messages;
 
-	EXPECT_NO_THROW({messages = chatService->getNewMessages("jferrio","psivori");});
-	ASSERT_TRUE(messages.size()==2);
-	for (vector<Message*>::iterator it=messages.begin(); it!=messages.end(); ++it){
+	EXPECT_NO_THROW(
+	{
+		messages = chatService->getNewMessages("jferrio", "psivori")
+		;
+	}
+);
+			ASSERT_TRUE(messages.size() == 2);
+	for (vector<Message*>::iterator it = messages.begin(); it != messages.end(); ++it)
+	{
 		Message* message = *it;
 		delete message;
 	}
@@ -104,29 +118,31 @@ TEST(ChatServiceGetNewMessagesTest,getNewMessages){
 /**
  * Test para probar el caso de que no exista el chat buscado
  */
-TEST(ChatServiceGetNewMessagesNonexistentChatTest,getNewMessagesNonexistentChat){
+TEST(ChatServiceGetNewMessagesNonexistentChatTest,getNewMessagesNonexistentChat)
+{
 	MockChatDao* mockChatDao = new MockChatDao();
 	EXPECT_CALL(*mockChatDao, get("alinari-psivori")).Times(1).WillRepeatedly(ThrowEntityNotFoundException());
 
 	ChatService* chatService = new ChatService(mockChatDao);
-	try{
+	try
+	{
 		chatService->getNewMessages("alinari", "psivori");
 		FAIL();
-	}
-	catch(EntityNotFoundException& e){
+	} catch (EntityNotFoundException& e)
+	{
 		//OK;
-	}
-	catch(exception& e){
+	} catch (exception& e)
+	{
 		FAIL();
 	}
 	delete chatService;
 }
 
-
 /**
  * Test para probar el camino feliz cuando se postea un nuevo mensaje
  */
-TEST(ChatServiceAddNewMessageTest,addNewMessage){
+TEST(ChatServiceAddNewMessageTest,addNewMessage)
+{
 	MockChatDao* mockChatDao = new MockChatDao();
 
 	Chat* chat = new Chat();
@@ -135,36 +151,43 @@ TEST(ChatServiceAddNewMessageTest,addNewMessage){
 	EXPECT_CALL(*mockChatDao, get("jferrio-psivori")).Times(AtLeast(1)).WillOnce(Return(chat));
 	ChatService* chatService = new ChatService(mockChatDao);
 	EXPECT_CALL(*mockChatDao, put("jferrio-psivori", _)).Times(1);
-	EXPECT_NO_THROW({chatService->addNewMessage("psivori","jferrio", "hola como estas");});
+	EXPECT_NO_THROW(
+	{
+		chatService->addNewMessage("psivori", "jferrio", "hola como estas")
+		;
+	}
+	);
 	delete chatService;
 }
 
 /**
  * Test para probar el caso de que no exista el chat buscado
  */
-TEST(ChatServiceAddNewMessageNonexistentChatTest,addNewMessageNonexistentChat){
+TEST(ChatServiceAddNewMessageNonexistentChatTest,addNewMessageNonexistentChat)
+{
 	MockChatDao* mockChatDao = new MockChatDao();
 	EXPECT_CALL(*mockChatDao, get("alinari-psivori")).Times(1).WillRepeatedly(ThrowEntityNotFoundException());
 
 	ChatService* chatService = new ChatService(mockChatDao);
-	try{
+	try
+	{
 		chatService->addNewMessage("alinari", "psivori", "no existis");
 		FAIL();
-	}
-	catch(EntityNotFoundException& e){
+	} catch (EntityNotFoundException& e)
+	{
 		//OK;
-	}
-	catch(exception& e){
+	} catch (exception& e)
+	{
 		FAIL();
 	}
 	delete chatService;
 }
 
-
 /**
  * Test para probar el camino feliz cuando se actualiza el ultimo mensaje visto por un usuario
  */
-TEST(ChatServiceUpdateLastMessageTest,updateLastMessage){
+TEST(ChatServiceUpdateLastMessageTest,updateLastMessage)
+{
 	MockChatDao* mockChatDao = new MockChatDao();
 
 	Chat* chat = new Chat();
@@ -175,26 +198,33 @@ TEST(ChatServiceUpdateLastMessageTest,updateLastMessage){
 	EXPECT_CALL(*mockChatDao, get("jferrio-psivori")).Times(AtLeast(1)).WillOnce(Return(chat));
 	ChatService* chatService = new ChatService(mockChatDao);
 	EXPECT_CALL(*mockChatDao, put("jferrio-psivori", _)).Times(1);
-	EXPECT_NO_THROW({chatService->updateLastMessageSeen("psivori","jferrio", 2);});
+	EXPECT_NO_THROW(
+	{
+		chatService->updateLastMessageSeen("psivori", "jferrio", 2)
+		;
+	}
+	);
 	delete chatService;
 }
 
 /**
  * Test para probar el caso de que no exista el chat buscado
  */
-TEST(ChatServiceUpdateLastMessageNonexistentChatTest,updateLastMessageNonexistentChat){
+TEST(ChatServiceUpdateLastMessageNonexistentChatTest,updateLastMessageNonexistentChat)
+{
 	MockChatDao* mockChatDao = new MockChatDao();
 	EXPECT_CALL(*mockChatDao, get("alinari-psivori")).Times(1).WillRepeatedly(ThrowEntityNotFoundException());
 
 	ChatService* chatService = new ChatService(mockChatDao);
-	try{
+	try
+	{
 		chatService->updateLastMessageSeen("alinari", "psivori", 2);
 		FAIL();
-	}
-	catch(EntityNotFoundException& e){
+	} catch (EntityNotFoundException& e)
+	{
 		//OK;
-	}
-	catch(exception& e){
+	} catch (exception& e)
+	{
 		FAIL();
 	}
 	delete chatService;
@@ -203,41 +233,49 @@ TEST(ChatServiceUpdateLastMessageNonexistentChatTest,updateLastMessageNonexisten
 /**
  * Test para probar el camino feliz cuando se crea un nuevo chat
  */
-TEST(ChatServiceCreateChatTest,createChat){
+TEST(ChatServiceCreateChatTest,createChat)
+{
 	MockChatDao* mockChatDao = new MockChatDao();
 
 	EXPECT_CALL(*mockChatDao, get("jferrio-psivori")).Times(AtLeast(1)).WillOnce(ThrowEntityNotFoundException());
 	ChatService* chatService = new ChatService(mockChatDao);
 	EXPECT_CALL(*mockChatDao, put("jferrio-psivori", _)).Times(1);
-	EXPECT_NO_THROW({chatService->createChat("psivori","jferrio");});
+	EXPECT_NO_THROW(
+	{
+		chatService->createChat("psivori", "jferrio")
+		;
+	}
+	);
 	delete chatService;
 }
 
 /**
  * Test para probar el caso de que ya exista el chat a crear
  */
-TEST(ChatServiceCreateExistentChatTest,createExistentChat){
+TEST(ChatServiceCreateExistentChatTest,createExistentChat)
+{
 	MockChatDao* mockChatDao = new MockChatDao();
 
 	ChatService* chatService = new ChatService(mockChatDao);
-	try{
+	try
+	{
 		chatService->createChat("jferrio", "psivori");
 		FAIL();
-	}
-	catch(EntityExistsException& e){
+	} catch (EntityExistsException& e)
+	{
 		//OK;
-	}
-	catch(exception& e){
+	} catch (exception& e)
+	{
 		FAIL();
 	}
 	delete chatService;
 }
 
-
 /**
  * Test para probar el camino feliz cuando se busca un chat
  */
-TEST(ChatServiceGetChatTest,getChatTest){
+TEST(ChatServiceGetChatTest,getChatTest)
+{
 	MockChatDao* mockChatDao = new MockChatDao();
 
 	Chat* chat = new Chat();
@@ -248,8 +286,13 @@ TEST(ChatServiceGetChatTest,getChatTest){
 	EXPECT_CALL(*mockChatDao, get("jferrio-psivori")).Times(AtLeast(1)).WillOnce(Return(chat));
 	ChatService* chatService = new ChatService(mockChatDao);
 	Chat* chat2;
-	EXPECT_NO_THROW({chat2 = chatService->getChat("psivori","jferrio");});
-	ASSERT_TRUE(chat==chat2);
+	EXPECT_NO_THROW(
+	{
+		chat2 = chatService->getChat("psivori", "jferrio")
+		;
+	}
+);
+			ASSERT_TRUE(chat == chat2);
 	delete chatService;
 	delete chat;
 }
@@ -257,29 +300,31 @@ TEST(ChatServiceGetChatTest,getChatTest){
 /**
  * Test para probar el caso de que no exista el chat buscado
  */
-TEST(ChatServiceGetNonexistentChatTest,updateLastMessageNonexistentChat){
+TEST(ChatServiceGetNonexistentChatTest,updateLastMessageNonexistentChat)
+{
 	MockChatDao* mockChatDao = new MockChatDao();
 	EXPECT_CALL(*mockChatDao, get("alinari-psivori")).Times(1).WillRepeatedly(ThrowEntityNotFoundException());
 
 	ChatService* chatService = new ChatService(mockChatDao);
-	try{
+	try
+	{
 		chatService->getChat("psivori", "alinari");
 		FAIL();
-	}
-	catch(EntityNotFoundException& e){
+	} catch (EntityNotFoundException& e)
+	{
 		//OK;
-	}
-	catch(exception& e){
+	} catch (exception& e)
+	{
 		FAIL();
 	}
 	delete chatService;
 }
 
-
 /*
  * Correr con valgrind: valgrind --leak-check=full -v ./mockMatchServiceTest
  */
-int main(int argc, char* argv[]){
+int main(int argc, char* argv[])
+{
 	::testing::InitGoogleMock(&argc, argv);
 
 	initialize();
@@ -291,6 +336,4 @@ int main(int argc, char* argv[]){
 
 	return RUN_ALL_TESTS();
 }
-
-
 

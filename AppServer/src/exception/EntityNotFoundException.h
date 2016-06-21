@@ -9,9 +9,10 @@
 #define ENTITYNOTFOUNDEXCEPTION_H_
 #include <exception>
 
-class EntityNotFoundException: public std::exception {
+class EntityNotFoundException: public std::exception
+{
 public:
-	virtual const char* what() const throw()
+	virtual const char* what() const throw ()
 	{
 		return "No se encuentra la entidad";
 	}

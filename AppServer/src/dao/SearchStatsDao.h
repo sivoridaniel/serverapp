@@ -11,10 +11,19 @@
 #include "../model/SearchStats.h"
 #include "GenericDao.h"
 
-class SearchStatsDao : public GenericDao{
+class SearchStatsDao: public GenericDao
+{
+
 public:
-	SearchStatsDao(){};
-	virtual ~SearchStatsDao(){};
+
+	SearchStatsDao()
+	{
+	}
+	;
+	virtual ~SearchStatsDao()
+	{
+	}
+	;
 	/**
 	 * Se obtiene el SearchStat con id pasado por parámetro.
 	 * @param id
@@ -29,7 +38,7 @@ public:
 	 * @param entity
 	 * @throw InvalidEntityException
 	 */
-	void put(string id,Entity* entity);
+	void put(string id, Entity* entity);
 };
 
 #endif /* SEARCHSTATSDAO_H_ */

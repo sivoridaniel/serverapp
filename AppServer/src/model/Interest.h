@@ -11,7 +11,8 @@
 #include <string>
 #include "Entity.h"
 
-class Interest :public Entity{
+class Interest: public Entity
+{
 
 private:
 	std::string category;
@@ -22,19 +23,23 @@ public:
 
 	std::string toJson();
 
-	const std::string& getCategory() const {
+	const std::string& getCategory() const
+	{
 		return category;
 	}
 
-	void setCategory(const std::string& category) {
+	void setCategory(const std::string& category)
+	{
 		this->category = category;
 	}
 
-	const std::string& getValue() const {
+	const std::string& getValue() const
+	{
 		return value;
 	}
 
-	void setValue(const std::string& value) {
+	void setValue(const std::string& value)
+	{
 		this->value = value;
 	}
 };

@@ -13,6 +13,8 @@
 #include "../../exception/SearchDailyLimitExcededException.h"
 #include "../../model/UserProfile.h"
 #include "../../dao/SearchStatsDao.h"
+#include "../../utils/DistanceHelper.h"
+#include "../../utils/Constants.h"
 #include "RemoteSharedService.h"
 #include "../api/ISearchCandidatesService.h"
 #include <log4cplus/logger.h>
@@ -21,18 +23,18 @@
 #include <restclient-cpp/restclient.h>
 #include <restclient-cpp/meta.h>
 
-
 using namespace std;
 using namespace log4cplus;
 
-class SearchCandidatesService : public ISearchCandidatesService{
+class SearchCandidatesService: public ISearchCandidatesService
+{
 private:
 	SearchStatsDao* searchStatsDao;
 	IMatchService* matchService;
 	IRemote* sharedService;
 
 public:
-	SearchCandidatesService();
+	SearchCandidatesService(string url);
 
 	/**
 	 * Constructor que se utiliza para poder ser utilizado con gmock.
@@ -63,7 +65,6 @@ private:
 	bool isOnePercentRule(string idUser);
 	bool hasAvailableSearchs(string idUser);
 	void updateSearchStats(string idUser);
-
 
 };
 

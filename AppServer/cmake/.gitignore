@@ -5,9 +5,15 @@ CTestTestfile.cmake
 cmake_install.cmake
 *.a
 Makefile
-mockAuthenticationCtrlTest
+mockAuthenticationServiceTest
 mockMatchServiceTest
 mockChatServiceTest
 mockABMUsersServiceTest
 mockSharedServiceTest
+mockAuthCtrlTest
+mockABMUserCtrlTest
+mockAbmUserCtrlTest
+mockChatCtrlTest
+mockMatchCtrlTest
+mockSearchCtrlTest
 Testing

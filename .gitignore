@@ -8,6 +8,7 @@ AppServer/core
 Makefile
 googletest/*
 doxygen/*
+doc/*
 json-web-token/*
 log4cplus-1.2.0/*
 rocksdb-4.4/*

@@ -13,12 +13,12 @@
 #include <log4cplus/configurator.h>
 
 using namespace std;
-using namespace std;
 using ::testing::AtLeast;
 using ::testing::Return;
 using ::testing::_;
 
-class MockRestClient : public IRestClient{
+class MockRestClient: public IRestClient
+{
 public:
 
 	MOCK_METHOD2(put, RestResponse*(string, string));
@@ -28,8 +28,8 @@ public:
 
 };
 
-
-static string crearJsonUser(){
+static string crearJsonUser()
+{
 	UserProfile* userProfile = new UserProfile("alinari", "123");
 	Interest* interes = new Interest("cars", "Ferrari");
 	userProfile->setAge("33");
@@ -46,7 +46,8 @@ static string crearJsonUser(){
 	return json;
 }
 
-static string createJsonInterests(){
+static string createJsonInterests()
+{
 	Json::Value root;
 	Json::FastWriter writer;
 
@@ -58,7 +59,8 @@ static string createJsonInterests(){
 	return json;
 }
 
-static string createJsonPhoto(){
+static string createJsonPhoto()
+{
 	Json::Value root;
 	Json::FastWriter writer;
 
@@ -67,7 +69,8 @@ static string createJsonPhoto(){
 	return json;
 }
 
-static string createJsonUsers(){
+static string createJsonUsers()
+{
 	Json::Value root;
 	Json::FastWriter writer;
 
@@ -97,16 +100,16 @@ static string createJsonUsers(){
 
 	string json = writer.write(root);
 
-
 	return json;
 }
 
-static string createJsonGeneric(string success, string data){
+static string createJsonGeneric(string success, string data)
+{
 	Json::Value root;
 	Json::FastWriter writer;
 
-	root["success"]=success;
-	root["data"]=data;
+	root["success"] = success;
+	root["data"] = data;
 	string json = writer.write(root);
 	return json;
 }
@@ -114,7 +117,8 @@ static string createJsonGeneric(string success, string data){
 /**
  * Test para probar el camino feliz cuando se llama al get user
  */
-TEST(SharedServiceGetUserTest,getUserTest){
+TEST(SharedServiceGetUserTest,getUserTest)
+{
 	MockRestClient* mockRestClient = new MockRestClient();
 	RemoteSharedService* sharedService = new RemoteSharedService("mock.com", mockRestClient);
 	string json = crearJsonUser();
@@ -123,8 +127,13 @@ TEST(SharedServiceGetUserTest,getUserTest){
 	EXPECT_CALL(*mockRestClient, get("mock.com/users/1")).Times(1).WillOnce(Return(res));
 
 	UserProfile* user;
-	EXPECT_NO_THROW({user = sharedService->getUser("1");});
-    ASSERT_TRUE(user->getName() == "Agustin");
+	EXPECT_NO_THROW(
+	{
+		user = sharedService->getUser("1")
+		;
+	}
+);
+    	ASSERT_TRUE(user->getName() == "Agustin");
 	delete user;
 	delete sharedService;
 }
@@ -132,7 +141,8 @@ TEST(SharedServiceGetUserTest,getUserTest){
 /**
  * Test para probar get User cuando el usuario no existe
  */
-TEST(SharedServiceGetUser404Test,getUser404Test){
+TEST(SharedServiceGetUser404Test,getUser404Test)
+{
 	MockRestClient* mockRestClient = new MockRestClient();
 	RemoteSharedService* sharedService = new RemoteSharedService("mock.com", mockRestClient);
 	string json = createJsonGeneric("false", "usuario inexistente");
@@ -140,14 +150,15 @@ TEST(SharedServiceGetUser404Test,getUser404Test){
 
 	EXPECT_CALL(*mockRestClient, get("mock.com/users/2")).Times(1).WillOnce(Return(res));
 
-	try{
+	try
+	{
 		sharedService->getUser("2");
 		FAIL();
-	}
-	catch(EntityNotFoundException& e){
+	} catch (EntityNotFoundException& e)
+	{
 		ASSERT_TRUE(true);
-	}
-	catch(RemoteException& e){
+	} catch (RemoteException& e)
+	{
 		FAIL();
 	}
 
@@ -157,7 +168,8 @@ TEST(SharedServiceGetUser404Test,getUser404Test){
 /**
  * Test para probar get User cuando devuelve error remoto
  */
-TEST(SharedServiceGetUserErrorTest,getUserErrorTest){
+TEST(SharedServiceGetUserErrorTest,getUserErrorTest)
+{
 	MockRestClient* mockRestClient = new MockRestClient();
 	RemoteSharedService* sharedService = new RemoteSharedService("mock.com", mockRestClient);
 	string json = createJsonGeneric("false", "error");
@@ -165,25 +177,26 @@ TEST(SharedServiceGetUserErrorTest,getUserErrorTest){
 
 	EXPECT_CALL(*mockRestClient, get("mock.com/users/3")).Times(1).WillOnce(Return(res));
 
-	try{
+	try
+	{
 		sharedService->getUser("3");
 		FAIL();
-	}
-	catch(EntityNotFoundException& e){
+	} catch (EntityNotFoundException& e)
+	{
 		FAIL();
-	}
-	catch(RemoteException& e){
+	} catch (RemoteException& e)
+	{
 		ASSERT_TRUE(true);
 	}
 
 	delete sharedService;
 }
 
-
 /**
  * Test para probar el camino feliz cuando se llama al create interest
  */
-TEST(SharedServiceCreateInterestTest,createInterestTest){
+TEST(SharedServiceCreateInterestTest,createInterestTest)
+{
 	MockRestClient* mockRestClient = new MockRestClient();
 	RemoteSharedService* sharedService = new RemoteSharedService("mock.com", mockRestClient);
 
@@ -192,7 +205,12 @@ TEST(SharedServiceCreateInterestTest,createInterestTest){
 
 	EXPECT_CALL(*mockRestClient, post("mock.com/interests", _)).Times(1).WillOnce(Return(res));
 
-	EXPECT_NO_THROW({sharedService->createInterest(interest);});
+	EXPECT_NO_THROW(
+	{
+		sharedService->createInterest(interest)
+		;
+	}
+	);
 	delete interest;
 	delete sharedService;
 }
@@ -200,7 +218,8 @@ TEST(SharedServiceCreateInterestTest,createInterestTest){
 /**
  * Test para probar createInterest cuando el interes ya se encuentra registrado en el shared
  */
-TEST(SharedServiceCreateInterest400Test,createInterest400Test){
+TEST(SharedServiceCreateInterest400Test,createInterest400Test)
+{
 	MockRestClient* mockRestClient = new MockRestClient();
 	RemoteSharedService* sharedService = new RemoteSharedService("mock.com", mockRestClient);
 	Interest* interest = new Interest("cars", "Toyota");
@@ -209,14 +228,15 @@ TEST(SharedServiceCreateInterest400Test,createInterest400Test){
 
 	EXPECT_CALL(*mockRestClient, post("mock.com/interests", _)).Times(1).WillOnce(Return(res));
 
-	try{
+	try
+	{
 		sharedService->createInterest(interest);
 		FAIL();
-	}
-	catch(EntityExistsException& e){
+	} catch (EntityExistsException& e)
+	{
 		ASSERT_TRUE(true);
-	}
-	catch(RemoteException& e){
+	} catch (RemoteException& e)
+	{
 		FAIL();
 	}
 	delete interest;
@@ -226,7 +246,8 @@ TEST(SharedServiceCreateInterest400Test,createInterest400Test){
 /**
  * Test para probar createInterest cuando devuelve error remoto
  */
-TEST(SharedServiceCreateInterestErrorTest,createInterestErrorTest){
+TEST(SharedServiceCreateInterestErrorTest,createInterestErrorTest)
+{
 	MockRestClient* mockRestClient = new MockRestClient();
 	RemoteSharedService* sharedService = new RemoteSharedService("mock.com", mockRestClient);
 	Interest* interest = new Interest("cars", "Toyota");
@@ -235,14 +256,15 @@ TEST(SharedServiceCreateInterestErrorTest,createInterestErrorTest){
 
 	EXPECT_CALL(*mockRestClient, post("mock.com/interests", _)).Times(1).WillOnce(Return(res));
 
-	try{
+	try
+	{
 		sharedService->createInterest(interest);
 		FAIL();
-	}
-	catch(EntityExistsException& e){
+	} catch (EntityExistsException& e)
+	{
 		FAIL();
-	}
-	catch(RemoteException& e){
+	} catch (RemoteException& e)
+	{
 		ASSERT_TRUE(true);
 	}
 
@@ -250,11 +272,11 @@ TEST(SharedServiceCreateInterestErrorTest,createInterestErrorTest){
 	delete sharedService;
 }
 
-
 /**
  * Test para probar el camino feliz cuando se llama al getInterests
  */
-TEST(SharedServiceGetInterestsTest,getInterestsTest){
+TEST(SharedServiceGetInterestsTest,getInterestsTest)
+{
 	MockRestClient* mockRestClient = new MockRestClient();
 	RemoteSharedService* sharedService = new RemoteSharedService("mock.com", mockRestClient);
 	string json = createJsonInterests();
@@ -263,10 +285,16 @@ TEST(SharedServiceGetInterestsTest,getInterestsTest){
 	EXPECT_CALL(*mockRestClient, get("mock.com/interests")).Times(1).WillOnce(Return(res));
 
 	list<Interest*> listInterests;
-	EXPECT_NO_THROW({listInterests = sharedService->getInterests();});
+	EXPECT_NO_THROW(
+	{
+		listInterests = sharedService->getInterests()
+		;
+	}
+);
 
-	ASSERT_TRUE(listInterests.size()==2);
-	for (list<Interest*>::iterator it=listInterests.begin(); it!=listInterests.end(); ++it){
+		ASSERT_TRUE(listInterests.size() == 2);
+	for (list<Interest*>::iterator it = listInterests.begin(); it != listInterests.end(); ++it)
+	{
 		Interest* interest = *it;
 		delete interest;
 	}
@@ -276,7 +304,8 @@ TEST(SharedServiceGetInterestsTest,getInterestsTest){
 /**
  * Test para probar getInterests cuando devuelve error remoto
  */
-TEST(SharedServiceGetInterestsErrorTest,createGetInterestsErrorTest){
+TEST(SharedServiceGetInterestsErrorTest,createGetInterestsErrorTest)
+{
 	MockRestClient* mockRestClient = new MockRestClient();
 	RemoteSharedService* sharedService = new RemoteSharedService("mock.com", mockRestClient);
 	string json = createJsonGeneric("false", "error");
@@ -284,22 +313,23 @@ TEST(SharedServiceGetInterestsErrorTest,createGetInterestsErrorTest){
 
 	EXPECT_CALL(*mockRestClient, get("mock.com/interests")).Times(1).WillOnce(Return(res));
 
-	try{
+	try
+	{
 		sharedService->getInterests();
 		FAIL();
-	}
-	catch(RemoteException& e){
+	} catch (RemoteException& e)
+	{
 		ASSERT_TRUE(true);
 	}
 
 	delete sharedService;
 }
 
-
 /**
  * Test para probar el camino feliz cuando se llama al getUsers
  */
-TEST(SharedServiceGetUsersTest,getUsersTest){
+TEST(SharedServiceGetUsersTest,getUsersTest)
+{
 	MockRestClient* mockRestClient = new MockRestClient();
 	RemoteSharedService* sharedService = new RemoteSharedService("mock.com", mockRestClient);
 	string json = createJsonUsers();
@@ -308,10 +338,16 @@ TEST(SharedServiceGetUsersTest,getUsersTest){
 	EXPECT_CALL(*mockRestClient, get("mock.com/users")).Times(1).WillOnce(Return(res));
 
 	list<UserProfile*> users;
-	EXPECT_NO_THROW({users = sharedService->getUsers();});
+	EXPECT_NO_THROW(
+	{
+		users = sharedService->getUsers()
+		;
+	}
+);
 
-	ASSERT_TRUE(users.size()==2);
-	for (list<UserProfile*>::iterator it=users.begin(); it!=users.end(); ++it){
+		ASSERT_TRUE(users.size() == 2);
+	for (list<UserProfile*>::iterator it = users.begin(); it != users.end(); ++it)
+	{
 		UserProfile* user = *it;
 		delete user;
 	}
@@ -321,7 +357,8 @@ TEST(SharedServiceGetUsersTest,getUsersTest){
 /**
  * Test para probar getUsers cuando devuelve error remoto
  */
-TEST(SharedServiceGetUsersErrorTest,createGetUsersErrorTest){
+TEST(SharedServiceGetUsersErrorTest,createGetUsersErrorTest)
+{
 	MockRestClient* mockRestClient = new MockRestClient();
 	RemoteSharedService* sharedService = new RemoteSharedService("mock.com", mockRestClient);
 	string json = createJsonGeneric("false", "error");
@@ -329,11 +366,12 @@ TEST(SharedServiceGetUsersErrorTest,createGetUsersErrorTest){
 
 	EXPECT_CALL(*mockRestClient, get("mock.com/users")).Times(1).WillOnce(Return(res));
 
-	try{
+	try
+	{
 		sharedService->getUsers();
 		FAIL();
-	}
-	catch(RemoteException& e){
+	} catch (RemoteException& e)
+	{
 		ASSERT_TRUE(true);
 	}
 
@@ -343,7 +381,8 @@ TEST(SharedServiceGetUsersErrorTest,createGetUsersErrorTest){
 /**
  * Test para probar el camino feliz cuando se llama al getPhoto
  */
-TEST(SharedServiceGetPhotoTest,getPhotoTest){
+TEST(SharedServiceGetPhotoTest,getPhotoTest)
+{
 	MockRestClient* mockRestClient = new MockRestClient();
 	RemoteSharedService* sharedService = new RemoteSharedService("mock.com", mockRestClient);
 	string json = createJsonPhoto();
@@ -352,15 +391,21 @@ TEST(SharedServiceGetPhotoTest,getPhotoTest){
 	EXPECT_CALL(*mockRestClient, get("mock.com/users/1/photo")).Times(1).WillOnce(Return(res));
 
 	string photo;
-	EXPECT_NO_THROW({photo = sharedService->getPhoto("1");});
-    ASSERT_TRUE(photo == "photobase64");
+	EXPECT_NO_THROW(
+	{
+		photo = sharedService->getPhoto("1")
+		;
+	}
+);
+    	ASSERT_TRUE(photo == "photobase64");
 	delete sharedService;
 }
 
 /**
  * Test para probar getPhoto cuando el usuario o foto no existe
  */
-TEST(SharedServiceGetPhoto404Test,getPhoto404Test){
+TEST(SharedServiceGetPhoto404Test,getPhoto404Test)
+{
 	MockRestClient* mockRestClient = new MockRestClient();
 	RemoteSharedService* sharedService = new RemoteSharedService("mock.com", mockRestClient);
 	string json = createJsonGeneric("false", "usuario inexistente");
@@ -368,14 +413,15 @@ TEST(SharedServiceGetPhoto404Test,getPhoto404Test){
 
 	EXPECT_CALL(*mockRestClient, get("mock.com/users/2/photo")).Times(1).WillOnce(Return(res));
 
-	try{
+	try
+	{
 		sharedService->getPhoto("2");
 		FAIL();
-	}
-	catch(EntityNotFoundException& e){
+	} catch (EntityNotFoundException& e)
+	{
 		ASSERT_TRUE(true);
-	}
-	catch(RemoteException& e){
+	} catch (RemoteException& e)
+	{
 		FAIL();
 	}
 
@@ -385,7 +431,8 @@ TEST(SharedServiceGetPhoto404Test,getPhoto404Test){
 /**
  * Test para probar getPhoto cuando devuelve error remoto
  */
-TEST(SharedServiceGetPhotoErrorTest,getPhotoErrorTest){
+TEST(SharedServiceGetPhotoErrorTest,getPhotoErrorTest)
+{
 	MockRestClient* mockRestClient = new MockRestClient();
 	RemoteSharedService* sharedService = new RemoteSharedService("mock.com", mockRestClient);
 	string json = createJsonGeneric("false", "error");
@@ -393,25 +440,26 @@ TEST(SharedServiceGetPhotoErrorTest,getPhotoErrorTest){
 
 	EXPECT_CALL(*mockRestClient, get("mock.com/users/3/photo")).Times(1).WillOnce(Return(res));
 
-	try{
+	try
+	{
 		sharedService->getPhoto("3");
 		FAIL();
-	}
-	catch(EntityNotFoundException& e){
+	} catch (EntityNotFoundException& e)
+	{
 		FAIL();
-	}
-	catch(RemoteException& e){
+	} catch (RemoteException& e)
+	{
 		ASSERT_TRUE(true);
 	}
 
 	delete sharedService;
 }
 
-
 /**
  * Test para probar el camino feliz cuando se llama al createUser
  */
-TEST(SharedServiceCreateUserTest,createUserTest){
+TEST(SharedServiceCreateUserTest,createUserTest)
+{
 	MockRestClient* mockRestClient = new MockRestClient();
 	RemoteSharedService* sharedService = new RemoteSharedService("mock.com", mockRestClient);
 
@@ -422,7 +470,12 @@ TEST(SharedServiceCreateUserTest,createUserTest){
 
 	EXPECT_CALL(*mockRestClient, post("mock.com/users/1", _)).Times(1).WillOnce(Return(res));
 
-	EXPECT_NO_THROW({sharedService->createUser(user);});
+	EXPECT_NO_THROW(
+	{
+		sharedService->createUser(user)
+		;
+	}
+	);
 	delete user;
 	delete sharedService;
 }
@@ -430,7 +483,8 @@ TEST(SharedServiceCreateUserTest,createUserTest){
 /**
  * Test para probar createUser cuando el user ya se encuentra registrado en el shared
  */
-TEST(SharedServiceCreateUser400Test,createUser400Test){
+TEST(SharedServiceCreateUser400Test,createUser400Test)
+{
 	MockRestClient* mockRestClient = new MockRestClient();
 	RemoteSharedService* sharedService = new RemoteSharedService("mock.com", mockRestClient);
 	UserProfile* user = new UserProfile("alinari", "1234");
@@ -440,14 +494,15 @@ TEST(SharedServiceCreateUser400Test,createUser400Test){
 
 	EXPECT_CALL(*mockRestClient, post("mock.com/users/1", _)).Times(1).WillOnce(Return(res));
 
-	try{
+	try
+	{
 		sharedService->createUser(user);
 		FAIL();
-	}
-	catch(EntityExistsException& e){
+	} catch (EntityExistsException& e)
+	{
 		ASSERT_TRUE(true);
-	}
-	catch(RemoteException& e){
+	} catch (RemoteException& e)
+	{
 		FAIL();
 	}
 	delete user;
@@ -457,7 +512,8 @@ TEST(SharedServiceCreateUser400Test,createUser400Test){
 /**
  * Test para probar createUser cuando devuelve error remoto
  */
-TEST(SharedServiceCreateUserErrorTest,createUserErrorTest){
+TEST(SharedServiceCreateUserErrorTest,createUserErrorTest)
+{
 	MockRestClient* mockRestClient = new MockRestClient();
 	RemoteSharedService* sharedService = new RemoteSharedService("mock.com", mockRestClient);
 	UserProfile* user = new UserProfile("alinari", "1234");
@@ -467,14 +523,15 @@ TEST(SharedServiceCreateUserErrorTest,createUserErrorTest){
 
 	EXPECT_CALL(*mockRestClient, post("mock.com/users/1", _)).Times(1).WillOnce(Return(res));
 
-	try{
+	try
+	{
 		sharedService->createUser(user);
 		FAIL();
-	}
-	catch(EntityExistsException& e){
+	} catch (EntityExistsException& e)
+	{
 		FAIL();
-	}
-	catch(RemoteException& e){
+	} catch (RemoteException& e)
+	{
 		ASSERT_TRUE(true);
 	}
 
@@ -482,11 +539,11 @@ TEST(SharedServiceCreateUserErrorTest,createUserErrorTest){
 	delete sharedService;
 }
 
-
 /**
  * Test para probar el camino feliz cuando se llama al updateUser
  */
-TEST(SharedServiceUpdateUserTest,updateUserTest){
+TEST(SharedServiceUpdateUserTest,updateUserTest)
+{
 	MockRestClient* mockRestClient = new MockRestClient();
 	RemoteSharedService* sharedService = new RemoteSharedService("mock.com", mockRestClient);
 
@@ -497,7 +554,12 @@ TEST(SharedServiceUpdateUserTest,updateUserTest){
 
 	EXPECT_CALL(*mockRestClient, put("mock.com/users/1", _)).Times(1).WillOnce(Return(res));
 
-	EXPECT_NO_THROW({sharedService->updateUser(user);});
+	EXPECT_NO_THROW(
+	{
+		sharedService->updateUser(user)
+		;
+	}
+	);
 	delete user;
 	delete sharedService;
 }
@@ -505,7 +567,8 @@ TEST(SharedServiceUpdateUserTest,updateUserTest){
 /**
  * Test para probar updateUser cuando el user no se encuentra registrado en el shared
  */
-TEST(SharedServiceUpdateUser404Test,updateUser404Test){
+TEST(SharedServiceUpdateUser404Test,updateUser404Test)
+{
 	MockRestClient* mockRestClient = new MockRestClient();
 	RemoteSharedService* sharedService = new RemoteSharedService("mock.com", mockRestClient);
 	UserProfile* user = new UserProfile("alinari", "1234");
@@ -515,14 +578,15 @@ TEST(SharedServiceUpdateUser404Test,updateUser404Test){
 
 	EXPECT_CALL(*mockRestClient, put("mock.com/users/1", _)).Times(1).WillOnce(Return(res));
 
-	try{
+	try
+	{
 		sharedService->updateUser(user);
 		FAIL();
-	}
-	catch(EntityNotFoundException& e){
+	} catch (EntityNotFoundException& e)
+	{
 		ASSERT_TRUE(true);
-	}
-	catch(RemoteException& e){
+	} catch (RemoteException& e)
+	{
 		FAIL();
 	}
 	delete user;
@@ -532,7 +596,8 @@ TEST(SharedServiceUpdateUser404Test,updateUser404Test){
 /**
  * Test para probar updateUser cuando devuelve error remoto
  */
-TEST(SharedServiceUpdateUserErrorTest,updateUserErrorTest){
+TEST(SharedServiceUpdateUserErrorTest,updateUserErrorTest)
+{
 	MockRestClient* mockRestClient = new MockRestClient();
 	RemoteSharedService* sharedService = new RemoteSharedService("mock.com", mockRestClient);
 	UserProfile* user = new UserProfile("alinari", "1234");
@@ -542,14 +607,15 @@ TEST(SharedServiceUpdateUserErrorTest,updateUserErrorTest){
 
 	EXPECT_CALL(*mockRestClient, put("mock.com/users/1", _)).Times(1).WillOnce(Return(res));
 
-	try{
+	try
+	{
 		sharedService->updateUser(user);
 		FAIL();
-	}
-	catch(EntityExistsException& e){
+	} catch (EntityExistsException& e)
+	{
 		FAIL();
-	}
-	catch(RemoteException& e){
+	} catch (RemoteException& e)
+	{
 		ASSERT_TRUE(true);
 	}
 
@@ -557,11 +623,11 @@ TEST(SharedServiceUpdateUserErrorTest,updateUserErrorTest){
 	delete sharedService;
 }
 
-
 /**
  * Test para probar el camino feliz cuando se llama al deleteUser
  */
-TEST(SharedServiceDeleteUserTest,deleteUserTest){
+TEST(SharedServiceDeleteUserTest,deleteUserTest)
+{
 	MockRestClient* mockRestClient = new MockRestClient();
 	RemoteSharedService* sharedService = new RemoteSharedService("mock.com", mockRestClient);
 
@@ -570,14 +636,20 @@ TEST(SharedServiceDeleteUserTest,deleteUserTest){
 
 	EXPECT_CALL(*mockRestClient, del("mock.com/users/1")).Times(1).WillOnce(Return(res));
 
-	EXPECT_NO_THROW({sharedService->deleteUser("1");});
+	EXPECT_NO_THROW(
+	{
+		sharedService->deleteUser("1")
+		;
+	}
+	);
 	delete sharedService;
 }
 
 /**
  * Test para probar deleteUser cuando el user no se encuentra registrado en el shared
  */
-TEST(SharedServiceDeleteUser404Test,deleteUser404Test){
+TEST(SharedServiceDeleteUser404Test,deleteUser404Test)
+{
 	MockRestClient* mockRestClient = new MockRestClient();
 	RemoteSharedService* sharedService = new RemoteSharedService("mock.com", mockRestClient);
 	string json = createJsonGeneric("false", "usuario inexistente");
@@ -585,14 +657,15 @@ TEST(SharedServiceDeleteUser404Test,deleteUser404Test){
 
 	EXPECT_CALL(*mockRestClient, del("mock.com/users/1")).Times(1).WillOnce(Return(res));
 
-	try{
+	try
+	{
 		sharedService->deleteUser("1");
 		FAIL();
-	}
-	catch(EntityNotFoundException& e){
+	} catch (EntityNotFoundException& e)
+	{
 		ASSERT_TRUE(true);
-	}
-	catch(RemoteException& e){
+	} catch (RemoteException& e)
+	{
 		FAIL();
 	}
 	delete sharedService;
@@ -601,7 +674,8 @@ TEST(SharedServiceDeleteUser404Test,deleteUser404Test){
 /**
  * Test para probar deleteUser cuando devuelve error remoto
  */
-TEST(SharedServiceDeleteUserErrorTest,deleteUserErrorTest){
+TEST(SharedServiceDeleteUserErrorTest,deleteUserErrorTest)
+{
 	MockRestClient* mockRestClient = new MockRestClient();
 	RemoteSharedService* sharedService = new RemoteSharedService("mock.com", mockRestClient);
 
@@ -610,25 +684,26 @@ TEST(SharedServiceDeleteUserErrorTest,deleteUserErrorTest){
 
 	EXPECT_CALL(*mockRestClient, del("mock.com/users/1")).Times(1).WillOnce(Return(res));
 
-	try{
+	try
+	{
 		sharedService->deleteUser("1");
 		FAIL();
-	}
-	catch(EntityExistsException& e){
+	} catch (EntityExistsException& e)
+	{
 		FAIL();
-	}
-	catch(RemoteException& e){
+	} catch (RemoteException& e)
+	{
 		ASSERT_TRUE(true);
 	}
 
 	delete sharedService;
 }
 
-
 /*
  * Correr con valgrind: valgrind --leak-check=full -v ./mockSharedServiceTest
  */
-int main(int argc, char* argv[]){
+int main(int argc, char* argv[])
+{
 	::testing::InitGoogleMock(&argc, argv);
 
 	initialize();
@@ -640,5 +715,4 @@ int main(int argc, char* argv[]){
 
 	return RUN_ALL_TESTS();
 }
-
 

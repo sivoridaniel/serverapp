@@ -9,9 +9,10 @@
 #define ILLEGALSTATEEXCEPTION_H_
 #include <exception>
 
-class IllegalStateException: public std::exception {
+class IllegalStateException: public std::exception
+{
 public:
-	virtual const char* what() const throw()
+	virtual const char* what() const throw ()
 	{
 		return "La operacion a realizar genera un estado inconsistente";
 	}

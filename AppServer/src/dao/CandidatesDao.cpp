@@ -7,7 +7,8 @@
 
 #include "CandidatesDao.h"
 
-Entity* CandidatesDao::get(string id){
+Entity* CandidatesDao::get(string id)
+{
 
 	string json;
 
@@ -18,15 +19,17 @@ Entity* CandidatesDao::get(string id){
 	return candidates;
 }
 
-void CandidatesDao::put(string id, Entity* e){
+void CandidatesDao::put(string id, Entity* e)
+{
 
 	CandidateList* candidates = dynamic_cast<CandidateList*>(e);
-	if (candidates==0){
+	if (candidates == 0)
+	{
 		throw InvalidEntityException();
 	}
 
 	string json = candidates->toJson();
 
-	DbHelper::put(id,json,CANDIDATE);
+	DbHelper::put(id, json, CANDIDATE);
 
 }

@@ -19,7 +19,6 @@
 #include "ChatController.h"
 #include <string>
 
-
 using namespace std;
 
 /**
@@ -27,7 +26,8 @@ using namespace std;
  * Los services se instanciaran por unica vez (patrón singleton).
  *
  */
-class FactoryController {
+class FactoryController
+{
 private:
 
 	static FactoryController* singletonFactoryCtrl;
@@ -39,23 +39,29 @@ private:
 	static ChatController* chatController;
 
 	//Método que crea los controllers
-	static void createControllers();
+	static void createControllers(string url);
 public:
-	FactoryController(void){};
+	FactoryController(void)
+	{
+	}
+	;
 	/**
 	 * Se crea por unica vez la instancia de la fabrica de singletons, dado
 	 * que tambien es un singleton.
 	 *
 	 * @return FactoryController*
 	 */
-	static FactoryController* getInstance(){
+	static FactoryController* getInstance(string url)
+	{
 		//createControllers();
-		if(singletonFactoryCtrl == NULL){
+		if (singletonFactoryCtrl == NULL)
+		{
 			singletonFactoryCtrl = new FactoryController();
-			singletonFactoryCtrl->createControllers();
+			singletonFactoryCtrl->createControllers(url);
 		}
 		return singletonFactoryCtrl;
-	};
+	}
+	;
 	/**
 	 * Metodo para manejar los controllers de cada servicio.
 	 *

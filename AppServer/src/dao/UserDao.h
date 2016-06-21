@@ -14,10 +14,14 @@
 
 using namespace std;
 
-class UserDao: public GenericDao{
+class UserDao: public GenericDao
+{
 
 public:
-	UserDao(){};
+	UserDao()
+	{
+	}
+	;
 	/**
 	 * Se obtiene el usuario con email pasado por parámetro.
 	 * @param email
@@ -33,8 +37,10 @@ public:
 	 * @throw InvalidEntityException
 	 */
 	void put(string email, Entity* entity);
-	virtual ~UserDao(){};
+	virtual ~UserDao()
+	{
+	}
+	;
 };
-
 
 #endif /* SRC_DAO_USERDAO_H_ */
