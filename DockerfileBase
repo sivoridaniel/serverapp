@@ -1,0 +1,41 @@
+FROM ubuntu:14.04
+COPY rocksdb-4.4 /rocksdb-4.4
+COPY log4cplus-1.2.0 /log4cplus-1.2.0
+COPY json-web-token /json-web-token
+COPY googletest /googletest
+COPY doxygen /doxygen
+COPY restclient-cpp-0.2.0 /restclient-cpp-0.2.0
+COPY cmake-3.5.2 /cmake-3.5.2
+COPY log4cpp.properties /
+RUN ls
+RUN chmod -R 777 rocksdb-4.4
+RUN chmod -R 777 log4cplus-1.2.0
+RUN chmod -R 777 json-web-token
+RUN chmod -R 777 googletest
+RUN chmod -R 777 doxygen
+RUN chmod -R 777 restclient-cpp-0.2.0
+RUN apt-get update && apt-get install -y \
+    autoconf \
+    build-essential \
+    libgflags-dev \
+    libsnappy-dev \
+    libcurl4-openssl-dev \
+    zlib1g-dev \
+    libbz2-dev \
+    check \
+    libssl-dev \
+    lcov \
+    flex \
+    bison \
+    libtool \
+    pkg-config
+RUN cd /cmake-3.5.2 && ./bootstrap && make && make install
+RUN cd /json-web-token/jansson && autoreconf -i && ./configure && make && make install && make check
+RUN cd /json-web-token/libjwt && autoreconf -i && ./configure && make && make install
+RUN cd /googletest/googlemock && autoreconf -i && ./configure
+RUN cd /googletest/googletest && autoreconf -i && ./configure
+RUN cd /googletest && cmake . && make install	
+RUN cd /log4cplus-1.2.0 && ./configure && make && make check && make install && ldconfig
+RUN cd /rocksdb-4.4 && make static_lib && make install
+RUN cd /restclient-cpp-0.2.0 && ./autogen.sh && ./configure && make install && ldconfig
+RUN cd /doxygen && cmake . && make && make install
