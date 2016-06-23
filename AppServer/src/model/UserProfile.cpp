@@ -36,7 +36,7 @@ UserProfile::UserProfile(string json)
 	string latitude = root["user"]["location"].get("latitude", "").asString();
 	string longitude = root["user"]["location"].get("longitude", "").asString();
 
-	this->location = new Location(latitude, longitude);
+	this->location = new Location(longitude, latitude);
 
 	const Json::Value interests = root["user"]["interests"];
 	for (unsigned int i = 0; i < interests.size(); ++i)

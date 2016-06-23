@@ -39,7 +39,7 @@ void RemoteSharedService::createInterest(Interest* interest)
 
 	RestResponse* r = restClient->post(url + "/interests", json);
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response code "<<r->code));
-	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response body "<<r->body));
+	LOG4CPLUS_TRACE(logger, LOG4CPLUS_TEXT("Response body "<<r->body));
 	if (r->code == 400)
 	{
 		LOG4CPLUS_WARN(logger, LOG4CPLUS_TEXT("El interes ya se encuentra registrado en el shared"));
@@ -62,7 +62,7 @@ list<Interest*> RemoteSharedService::getInterests()
 
 	RestResponse* r = restClient->get(url + "/interests");
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response code "<<r->code));
-	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response body "<<r->body));
+	LOG4CPLUS_TRACE(logger, LOG4CPLUS_TEXT("Response body "<<r->body));
 
 	if (r->code != 200)
 	{
@@ -83,7 +83,7 @@ list<UserProfile*> RemoteSharedService::getUsers()
 
 	RestResponse* r = restClient->get(url + "/users");
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response code "<<r->code));
-	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response body "<<r->body));
+	LOG4CPLUS_TRACE(logger, LOG4CPLUS_TEXT("Response body "<<r->body));
 
 	if (r->code != 200)
 	{
@@ -104,7 +104,7 @@ UserProfile* RemoteSharedService::getUser(string id)
 
 	RestResponse* r = restClient->get(url + "/users/" + id);
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response code "<<r->code));
-	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response body "<<r->body));
+	LOG4CPLUS_TRACE(logger, LOG4CPLUS_TEXT("Response body "<<r->body));
 
 	if (r->code == 404)
 	{
@@ -133,7 +133,7 @@ string RemoteSharedService::getPhoto(string id)
 
 	RestResponse* r = restClient->get(url + "/users/" + id + "/photo");
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response code "<<r->code));
-	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response body "<<r->body));
+	LOG4CPLUS_TRACE(logger, LOG4CPLUS_TEXT("Response body "<<r->body));
 
 	if (r->code == 404)
 	{
@@ -166,7 +166,7 @@ void RemoteSharedService::createUser(UserProfile* userProfile)
 
 	RestResponse* r = restClient->post(url + "/users/" + id, json);
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response code "<<r->code));
-	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response body "<<r->body));
+	LOG4CPLUS_TRACE(logger, LOG4CPLUS_TEXT("Response body "<<r->body));
 	if (r->code == 400)
 	{
 		LOG4CPLUS_WARN(logger, LOG4CPLUS_TEXT("El usuario ya se encuentra registrado en el shared"));
@@ -197,7 +197,7 @@ void RemoteSharedService::updateUser(UserProfile* userProfile)
 
 	RestResponse* r = restClient->put(url + "/users/" + id, json);
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response code "<<r->code));
-	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response body "<<r->body));
+	LOG4CPLUS_TRACE(logger, LOG4CPLUS_TEXT("Response body "<<r->body));
 	if (r->code == 404)
 	{
 		LOG4CPLUS_WARN(logger, LOG4CPLUS_TEXT("El usuario o interes no se encuentra registrado en el shared"));
@@ -220,7 +220,7 @@ void RemoteSharedService::deleteUser(string id)
 
 	RestResponse* r = restClient->del(url + "/users/" + id);
 	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response code "<<r->code));
-	LOG4CPLUS_DEBUG(logger, LOG4CPLUS_TEXT("Response body "<<r->body));
+	LOG4CPLUS_TRACE(logger, LOG4CPLUS_TEXT("Response body "<<r->body));
 
 	if (r->code == 404)
 	{
