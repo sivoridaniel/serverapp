@@ -17,7 +17,7 @@ def get_args():
         return token
 
 token = get_args()
-headers = {"Content-Type":"application/json","Accept":"text/plain","token":token}
+headers = {"Content-Type":"application/json","token":token}
 data=''
 
 r = requests.get("http://localhost:3000/valid_session", data=data, headers=headers)
