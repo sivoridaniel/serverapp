@@ -1,12 +1,12 @@
-mockAuthenticationServiceTest 43 0.000965096
-mockMatchServiceTest 39 0.00126995
-mockChatServiceTest 43 0.000835557
-mockABMUsersServiceTest 42 0.00121093
-mockSharedServiceTest 43 0.00100688
-mockSearchCtrlTest 43 0.000750858
-mockChatCtrlTest 43 0.00117749
-mockMatchCtrlTest 43 0.000912117
-mockAuthCtrlTest 43 0.0008507
-mockAbmUserCtrlTest 34 0.00130918
-mockSearchServiceTest 4 0.00853747
+mockAuthenticationServiceTest 44 0.0284387
+mockMatchServiceTest 40 0.00793632
+mockChatServiceTest 44 0.00634209
+mockABMUsersServiceTest 43 0.00578893
+mockSharedServiceTest 44 0.00408204
+mockSearchCtrlTest 44 0.00531464
+mockChatCtrlTest 44 0.00524964
+mockMatchCtrlTest 44 0.00684389
+mockAuthCtrlTest 44 0.00567243
+mockAbmUserCtrlTest 35 0.0066538
+mockSearchServiceTest 5 0.037821
 ---

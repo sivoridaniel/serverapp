@@ -110,7 +110,11 @@ void ChatService::updateLastMessageSeen(string idUser1, string idUser2, int mess
 	try
 	{
 		Chat* chat = (Chat*) chatDao->get(id);
-		chat->setLastSeenByUser1(messageIndex);
+		if (idUser1 == chat->getIdUser1()){
+			chat->setLastSeenByUser1(messageIndex);
+		}else{
+			chat->setLastSeenByUser2(messageIndex);
+		}
 		chatDao->put(id, chat);
 		delete chat;
 	} catch (EntityNotFoundException& e)
