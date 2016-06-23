@@ -16,4 +16,5 @@ mockAbmUserCtrlTest
 mockChatCtrlTest
 mockMatchCtrlTest
 mockSearchCtrlTest
+mockSearchServiceTest
 Testing

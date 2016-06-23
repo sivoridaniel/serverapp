@@ -188,7 +188,12 @@ double SearchCandidatesService::calculateDistance(Location* location1, Location*
 bool SearchCandidatesService::isOnePercentRule(string idUser)
 {
 	SearchStats* stats = (SearchStats*) searchStatsDao->get("stats");
-
+	UserStat* userStat = stats->getUserStat(idUser);
+	//el usuario debe superar un minimo de likes
+	if (userStat->likesCount < MINLIKES){
+		delete stats;
+		return false;
+	}
 	list<string> mostLikedUsers = stats->getMostLikedUsers();
 	bool found = (std::find(mostLikedUsers.begin(), mostLikedUsers.end(), idUser) != mostLikedUsers.end());
 

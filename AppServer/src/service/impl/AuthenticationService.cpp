@@ -52,7 +52,11 @@ UserProfile* AuthenticationService::getUserLogin(string email, string password)
 	{
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT("El usuario con email "<<email<<" no se encuentra registrado."));
 		throw e;
-	} catch (exception& e)
+	} catch (IncorrectPasswordException& e){
+		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
+		throw e;
+	}
+	catch (exception& e)
 	{
 		LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 		throw e;

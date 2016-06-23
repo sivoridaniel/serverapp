@@ -4,5 +4,6 @@
 #define MAXDISTANCE 3
 #define PROB 10
 #define MAXSEARCHS 10
+#define MINLIKES 5
 
 #endif

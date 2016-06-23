@@ -50,6 +50,9 @@ set(SRC_AUTH_CTRL  ${UTILS_SRC} ${JSON_SRC} ${MODEL_SRC} ${SERVICE_SRC} ${CONTRO
 set(ABM_CTRL_SRC ../test/MockABMUserCtrl.cc)
 set(SRC_ABM_CTRL  ${UTILS_SRC} ${JSON_SRC} ${MODEL_SRC} ${SERVICE_SRC} ${CONTROLLER_SRC} ${ABM_CTRL_SRC})
 
+set(SEARCH_SERVICE_SRC ../test/MockSearchCandidatesService.cc)
+set(SRC_SEARCH_SERVICE  ${UTILS_SRC} ${JSON_SRC} ${MODEL_SRC} ${SERVICE_SRC} ${CONTROLLER_SRC} ${SEARCH_SERVICE_SRC})
+
 add_executable(mockMatchServiceTest ${SRC_FILES_MATCH}) 
 add_executable(mockAuthenticationServiceTest ${SRC_FILES})
 add_executable(mockChatServiceTest ${SRC_FILES_CHAT}) 
@@ -60,6 +63,7 @@ add_executable(mockChatCtrlTest ${SRC_CHAT_CTRL})
 add_executable(mockMatchCtrlTest ${SRC_MATCH_CTRL})
 add_executable(mockAuthCtrlTest ${SRC_AUTH_CTRL})
 add_executable(mockAbmUserCtrlTest ${SRC_ABM_CTRL})
+add_executable(mockSearchServiceTest ${SRC_SEARCH_SERVICE})
 
 target_link_libraries(mockAuthenticationServiceTest utils dao model service  gmock gmock_main  log4cplus jansson jwt json  ${LibXML2_LIBRARIES} ${CPPUNIT_LIBRARY} ${LINUX_LIBRARIES} ${GCOV_LINK_FLAGS})
 target_link_libraries(mockMatchServiceTest utils dao model service  gmock gmock_main  log4cplus json  ${LibXML2_LIBRARIES} ${CPPUNIT_LIBRARY} ${LINUX_LIBRARIES} ${GCOV_LINK_FLAGS})
@@ -71,6 +75,7 @@ target_link_libraries(mockChatCtrlTest utils model service controller webserver 
 target_link_libraries(mockMatchCtrlTest utils model service controller webserver gmock gmock_main  log4cplus json ${LibXML2_LIBRARIES} ${CPPUNIT_LIBRARY} ${LINUX_LIBRARIES} ${GCOV_LINK_FLAGS})
 target_link_libraries(mockAuthCtrlTest utils model service controller webserver gmock gmock_main  log4cplus json ${LibXML2_LIBRARIES} ${CPPUNIT_LIBRARY} ${LINUX_LIBRARIES} ${GCOV_LINK_FLAGS})
 target_link_libraries(mockAbmUserCtrlTest utils model service controller webserver gmock gmock_main  log4cplus json ${LibXML2_LIBRARIES} ${CPPUNIT_LIBRARY} ${LINUX_LIBRARIES} ${GCOV_LINK_FLAGS})
+target_link_libraries(mockSearchServiceTest utils model service controller webserver gmock gmock_main  log4cplus json ${LibXML2_LIBRARIES} ${CPPUNIT_LIBRARY} ${LINUX_LIBRARIES} ${GCOV_LINK_FLAGS})
 
 add_test(NAME mockAuthenticationServiceTest COMMAND mockAuthenticationServiceTest)
 add_test(NAME mockMatchServiceTest COMMAND mockMatchServiceTest)
@@ -82,6 +87,7 @@ add_test(NAME mockChatCtrlTest COMMAND mockChatCtrlTest)
 add_test(NAME mockMatchCtrlTest COMMAND mockMatchCtrlTest)
 add_test(NAME mockAuthCtrlTest COMMAND mockAuthCtrlTest)
 add_test(NAME mockAbmUserCtrlTest COMMAND mockAbmUserCtrlTest)
+add_test(NAME mockSearchServiceTest COMMAND mockSearchServiceTest)
 
 add_custom_target(cov COMMAND ${LCOV_PATH} --directory . --zerocounters
 COMMAND mockAuthenticationServiceTest
@@ -94,6 +100,7 @@ COMMAND mockChatCtrlTest
 COMMAND mockMatchCtrlTest
 COMMAND mockAuthCtrlTest
 COMMAND mockAbmUserCtrlTest
+COMMAND mockSearchServiceTest
 # Capture lcov counters
 COMMAND ${LCOV_PATH} --directory ${DIR_APP} --capture --output-file ${OUTPUT_NAME}.info
  # Remove googletest coverage results
