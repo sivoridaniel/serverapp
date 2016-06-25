@@ -140,8 +140,7 @@ public:
 		Logger logger = Logger::getInstance(LOG4CPLUS_TEXT("AbstractController"));
 
 		UserProfile* userProfile = NULL;
-		AuthenticationService * authenticationService = new AuthenticationService(url);
-		AbmUserService * abmUserService = new AbmUserService(url);
+		UserDao * userDao = new UserDao();
 		string nuevoToken = "";
 
 		try
@@ -151,8 +150,7 @@ public:
 			if (mg_token == NULL)
 			{
 				LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("NO HAY TOKEN EN EL HEADER"));
-				delete authenticationService;
-				delete abmUserService;
+				delete userDao;
 				return nuevoToken; //vacio
 			}
 			string token = string(mg_token->p, mg_token->len);
@@ -166,9 +164,9 @@ public:
 				LOG4CPLUS_INFO(logger, LOG4CPLUS_TEXT("TOKEN VALIDO"));
 				string email = JwToken::getEmail(token);
 				nuevoToken = JwToken::generarToken(email); //se genera el nuevo token, con el nuevo timestamp, renovando la sesion
-				userProfile = authenticationService->getUserLogin(email, ""); //se pasa el password en vacío
+				userProfile = (UserProfile*) userDao->get(email);
 				userProfile->setToken(nuevoToken);
-				abmUserService->updateToken(userProfile); //se modifica el usuario para asignarle el nuevo token
+				userDao->put(email, userProfile); //se modifica el usuario para asignarle el nuevo token
 				delete userProfile;
 			}
 			else
@@ -180,8 +178,7 @@ public:
 		{
 			LOG4CPLUS_ERROR(logger, LOG4CPLUS_TEXT(e.what()));
 		}
-		delete abmUserService;
-		delete authenticationService;
+		delete userDao;
 		return nuevoToken;
 	}
 
